@@ -51,11 +51,11 @@ const CAMPINGS=[
    "De faciliteiten waren al vroeg in de avond gesloten"
   ],
   "foto": "img/de-lente-van-drenthe-1791962091596.jpg",
-  "plaatsnr": "",
+  "plaatsnr": "niet meer beschikbaar",
   "stroom": "",
   "opp": "",
-  "water": "",
-  "afvoer": ""
+  "water": "Ja",
+  "afvoer": "Ja"
  },
  {
   "id": "de-berckt",
@@ -70,16 +70,21 @@ const CAMPINGS=[
    "Zwembad": "Binnen, met glijbaan",
    "Omgeving": "Maasdal, fiets- en wandelroutes"
   },
-  "cijfer": "",
+  "cijfer": 7,
   "url": "",
-  "plus": [],
-  "min": [],
+  "plus": [
+   "Goede animatie",
+   "Vriendelijke medewerkers"
+  ],
+  "min": [
+   "Onderhoud algemeen kan wel wat beter"
+  ],
   "foto": "img/vakantiepark-de-berckt-1791962459159.jpg",
-  "plaatsnr": "",
-  "stroom": "",
-  "opp": "",
-  "water": "",
-  "afvoer": ""
+  "plaatsnr": "park gesloten",
+  "stroom": "10",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja"
  },
  {
   "id": "slot-cranendonck",
@@ -94,16 +99,23 @@ const CAMPINGS=[
    "Speeltuin": "Ja",
    "Bijzonder": "Visvijver midden op het park"
   },
-  "cijfer": "",
+  "cijfer": 7,
   "url": "",
-  "plus": [],
-  "min": [],
+  "plus": [
+   "Fijn zwembad",
+   "Goede animatie",
+   "vriendelijke medewerkers"
+  ],
+  "min": [
+   "Onderhoud algemeen.",
+   "Het is jammer dat de huisje niet altijd fijne mensen aan trekt."
+  ],
   "foto": "img/vakantiepark-slot-cranendonck-1791962537179.jpg",
-  "plaatsnr": "",
-  "stroom": "",
-  "opp": "",
-  "water": "",
-  "afvoer": ""
+  "plaatsnr": "park gesloten",
+  "stroom": "6",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja"
  },
  {
   "id": "blauwemeer",
@@ -145,13 +157,52 @@ const CAMPINGS=[
   },
   "cijfer": 8.5,
   "url": "https://www.goolderheide.be",
-  "plus": [],
-  "min": [],
+  "plus": [
+   "Groot en mooi zwembad + zwem/vis meer",
+   "Goed terras met een mooie nostalgische disco",
+   "Goede animatie zelfs zoveel dat de kinderen haast geen tijd hebt om te eten"
+  ],
+  "min": [
+   "De wegen ze zijn vrij stoffig (met droog weer)",
+   "Camping winkel had een heel klein assortiment"
+  ],
   "foto": "img/familiepark-goolderheide-1791962675661.jpg",
   "plaatsnr": "123",
   "stroom": "16",
   "opp": "150",
   "water": "Ja",
   "afvoer": "Ja"
+ },
+ {
+  "id": "vakantiepark-hengelhoef",
+  "naam": "Vakantiepark Hengelhoef",
+  "plaats": "Houthalen-Helchteren (België)",
+  "type": "Vakantiepark",
+  "cijfer": 7.5,
+  "tekst": "Groot vakantiepark in de bossen van Belgisch-Limburg, met een zandstrand aan een meer en een overdekt subtropisch zwembad met glijbanen. Ideaal voor gezinnen met kinderen: er is veel te doen, zodat je het park bijna niet uit hoeft.",
+  "info": {
+   "Adres": "Tulpenstraat 156, 3530 Houthalen-Helchteren",
+   "Aantal plaatsen": "ongeveer 478, waarvan 368 voor toertenten en caravans",
+   "Open": "het hele jaar door",
+   "Honden": "toegestaan in bepaalde delen (maximaal 1 per verblijf)",
+   "Sanitair": "warme douches, wasmachines en gehandicaptentoilet",
+   "Camperservice": "aanwezig",
+   "Afstand centrum": "ongeveer 6 km"
+  },
+  "plaatsnr": "79",
+  "stroom": "10",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja",
+  "url": "https://www.campinghengelhoef.be/",
+  "plus": [
+   "gezellig terras",
+   "mooi zembad",
+   "en fijne binnen speeltuin"
+  ],
+  "min": [
+   "onderhoud algemeen",
+   "animatie voor de kinderen"
+  ]
  }
 ];

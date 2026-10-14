@@ -16,7 +16,12 @@ const CAMPINGS=[
   "cijfer": 8,
   "plus": [],
   "min": [],
-  "foto": "img/vakantiepark-de-luttenberg-1791961666792.jpg"
+  "foto": "img/vakantiepark-de-luttenberg-1791961666792.jpg",
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  },
  {
   "id": "de-lente-van-drenthe",
@@ -36,7 +41,12 @@ const CAMPINGS=[
   "cijfer": "",
   "plus": [],
   "min": [],
-  "foto": "img/de-lente-van-drenthe-1791962091596.jpg"
+  "foto": "img/de-lente-van-drenthe-1791962091596.jpg",
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  },
  {
   "id": "de-berckt",
@@ -55,7 +65,12 @@ const CAMPINGS=[
   "url": "",
   "plus": [],
   "min": [],
-  "foto": "img/vakantiepark-de-berckt-1791962459159.jpg"
+  "foto": "img/vakantiepark-de-berckt-1791962459159.jpg",
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  },
  {
   "id": "slot-cranendonck",
@@ -74,7 +89,12 @@ const CAMPINGS=[
   "url": "",
   "plus": [],
   "min": [],
-  "foto": "img/vakantiepark-slot-cranendonck-1791962537179.jpg"
+  "foto": "img/vakantiepark-slot-cranendonck-1791962537179.jpg",
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  },
  {
   "id": "blauwemeer",
@@ -92,7 +112,12 @@ const CAMPINGS=[
   "cijfer": "",
   "url": "",
   "plus": [],
-  "min": []
+  "min": [],
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  },
  {
   "id": "goolderheide",
@@ -112,6 +137,11 @@ const CAMPINGS=[
   "url": "https://www.goolderheide.be",
   "plus": [],
   "min": [],
-  "foto": "img/familiepark-goolderheide-1791962675661.jpg"
+  "foto": "img/familiepark-goolderheide-1791962675661.jpg",
+  "plaatsnr": "",
+  "stroom": "",
+  "opp": "",
+  "water": "",
+  "afvoer": ""
  }
 ];

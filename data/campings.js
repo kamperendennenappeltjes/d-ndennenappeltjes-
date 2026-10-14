@@ -130,7 +130,7 @@ const CAMPINGS=[
    "Strand": "Aan het meer",
    "Eten": "Restaurant op het park"
   },
-  "cijfer": "",
+  "cijfer": 7.5,
   "url": "https://www.campingblauwemeer.be/",
   "plus": [
    "super gezellig terras met iedere avond live muziek",

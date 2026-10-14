@@ -13,7 +13,10 @@ const CAMPINGS=[
    "Speeltuin": "Ja",
    "Honden": "Aan de lijn"
   },
-  "cijfer": 8
+  "cijfer": 8,
+  "plus": [],
+  "min": [],
+  "foto": "img/vakantiepark-de-luttenberg-1791961666792.jpg"
  },
  {
   "id": "de-lente-van-drenthe",
@@ -29,7 +32,11 @@ const CAMPINGS=[
    "Zwemplas": "'t Nije Hemelriek op loopafstand",
    "Speeltuin": "Ja",
    "Honden": "Toegestaan"
-  }
+  },
+  "cijfer": "",
+  "plus": [],
+  "min": [],
+  "foto": "img/de-lente-van-drenthe-1791962091596.jpg"
  },
  {
   "id": "de-berckt",
@@ -43,7 +50,12 @@ const CAMPINGS=[
    "Thema": "Middeleeuwen",
    "Zwembad": "Binnen, met glijbaan",
    "Omgeving": "Maasdal, fiets- en wandelroutes"
-  }
+  },
+  "cijfer": "",
+  "url": "",
+  "plus": [],
+  "min": [],
+  "foto": "img/vakantiepark-de-berckt-1791962459159.jpg"
  },
  {
   "id": "slot-cranendonck",
@@ -57,7 +69,12 @@ const CAMPINGS=[
    "Zwembad": "Binnen en buiten",
    "Speeltuin": "Ja",
    "Bijzonder": "Visvijver midden op het park"
-  }
+  },
+  "cijfer": "",
+  "url": "",
+  "plus": [],
+  "min": [],
+  "foto": "img/vakantiepark-slot-cranendonck-1791962537179.jpg"
  },
  {
   "id": "blauwemeer",
@@ -71,7 +88,11 @@ const CAMPINGS=[
    "Zwembad": "Binnen",
    "Strand": "Aan het meer",
    "Eten": "Restaurant op het park"
-  }
+  },
+  "cijfer": "",
+  "url": "",
+  "plus": [],
+  "min": []
  },
  {
   "id": "goolderheide",
@@ -86,6 +107,11 @@ const CAMPINGS=[
    "Strand": "Aan het meer",
    "Speeltuin": "Ja",
    "Dieren": "Kinderboerderij"
-  }
+  },
+  "cijfer": 8.5,
+  "url": "https://www.goolderheide.be",
+  "plus": [],
+  "min": [],
+  "foto": "img/familiepark-goolderheide-1791962675661.jpg"
  }
 ];

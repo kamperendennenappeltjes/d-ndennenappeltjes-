@@ -13,9 +13,14 @@ const CAMPINGS=[
    "Speeltuin": "Ja",
    "Honden": "Aan de lijn"
   },
-  "cijfer": 8,
-  "plus": [],
-  "min": [],
+  "cijfer": 7,
+  "plus": [
+   "Sanitair was heel netjes en werd goed bij gehouden"
+  ],
+  "min": [
+   "Animatie voor de kinderen",
+   "Er was op de camping zelf weinig voor de volwassenen georganiseerd"
+  ],
   "foto": "img/vakantiepark-de-luttenberg-1791961666792.jpg",
   "plaatsnr": "D271",
   "stroom": "10",
@@ -38,9 +43,13 @@ const CAMPINGS=[
    "Speeltuin": "Ja",
    "Honden": "Toegestaan"
   },
-  "cijfer": "",
-  "plus": [],
-  "min": [],
+  "cijfer": 6.5,
+  "plus": [
+   "De omgeving was mooi om te gaan fietsen"
+  ],
+  "min": [
+   "De faciliteiten waren al vroeg in de avond gesloten"
+  ],
   "foto": "img/de-lente-van-drenthe-1791962091596.jpg",
   "plaatsnr": "",
   "stroom": "",

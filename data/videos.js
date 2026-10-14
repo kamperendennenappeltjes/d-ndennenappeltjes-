@@ -22,5 +22,9 @@ const VID=[
  {
   "titel": "Het verleden leeft hier",
   "url": "https://youtu.be/Gp0Gsmi7bLw?si=_dPiRaFhtmrau3Cg"
+ },
+ {
+  "titel": "Kunnen de dames nog uit bed komen",
+  "url": "https://youtu.be/5om8IrbNdpk?si=qpPto9IiZjjszBqB"
  }
 ];

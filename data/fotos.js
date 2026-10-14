@@ -1,4 +1,41 @@
 const FOTOS={
+ "2026": [
+  {
+   "src": "img/fotos/2026/1791971178310-1.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971181404-2.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971183635-3.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971185552-4.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971312190-1.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971314682-2.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791971316761-3.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  }
+ ],
  "Eerder": [
   {
    "src": "img/foto-4.jpg",

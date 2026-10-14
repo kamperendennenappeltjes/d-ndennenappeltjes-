@@ -17,11 +17,11 @@ const CAMPINGS=[
   "plus": [],
   "min": [],
   "foto": "img/vakantiepark-de-luttenberg-1791961666792.jpg",
-  "plaatsnr": "",
-  "stroom": "",
-  "opp": "",
-  "water": "",
-  "afvoer": ""
+  "plaatsnr": "D271",
+  "stroom": "10",
+  "opp": "90-100",
+  "water": "Ja",
+  "afvoer": "Ja"
  },
  {
   "id": "de-lente-van-drenthe",
@@ -139,10 +139,10 @@ const CAMPINGS=[
   "plus": [],
   "min": [],
   "foto": "img/familiepark-goolderheide-1791962675661.jpg",
-  "plaatsnr": "",
-  "stroom": "",
-  "opp": "",
-  "water": "",
-  "afvoer": ""
+  "plaatsnr": "123",
+  "stroom": "16",
+  "opp": "150",
+  "water": "Ja",
+  "afvoer": "Ja"
  }
 ];

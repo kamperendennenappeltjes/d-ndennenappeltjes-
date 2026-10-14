@@ -34,6 +34,61 @@ const FOTOS={
    "src": "img/fotos/2026/1791971316761-3.jpg",
    "tekst": "",
    "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973608685-1.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973610754-2.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973612610-3.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973614872-4.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973617054-5.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973619732-6.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973621871-7.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973623995-8.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973625858-9.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973627871-10.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/1791973629815-11.jpg",
+   "tekst": "",
+   "camping": "Familiepark Goolderheide"
   }
  ],
  "Eerder": [

@@ -1,1 +1,0 @@
-const VID=[["Klussen aan de caravan","Onderhoud, verbouwen en slimme ideeën.","🔧"],["Kampeertrips","Mee naar de camping, van plek tot terras.","⛺"],["Leuke uitjes","Onze dagjes weg, van torens tot pretpark.","🎡"]];

@@ -8,5 +8,5 @@ const OVER={
  "foto": "img/foto-3.jpg",
  "alt": "Ons gezin op een uitkijktoren boven het bos",
  "alt2": "",
- "foto2": "img/over-ons-2-1792003095693.jpg"
+ "foto2": "img/over-ons-2-1792003486701.jpg"
 };

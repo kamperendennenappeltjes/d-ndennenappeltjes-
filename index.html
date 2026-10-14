@@ -85,6 +85,7 @@ nav a.on{color:var(--oranje);box-shadow:0 3px 0 var(--oranje)}
 .item b{font-family:Fredoka,sans-serif;font-size:1.1rem}.item p{margin:0;color:var(--room);font-size:1rem}
 .camp{text-decoration:none;color:var(--room)}.camp:hover{outline:2px solid var(--oranje)}
 .banner{height:170px;border-radius:20px;background:linear-gradient(135deg,var(--mos),var(--rood));display:grid;place-items:center;font-size:4.5rem;margin:6px 0 20px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:20px}.fcard{position:relative;display:block;border-radius:18px;overflow:hidden;height:230px;background:var(--nacht);text-decoration:none;color:var(--room);border:2px solid rgba(240,138,60,.4)}.fcard img{width:100%;height:100%;object-fit:cover;display:block}.fcard span{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(13,26,21,.92));display:grid}.fcard b{font:700 1.3rem Fredoka,sans-serif}.fcard small{opacity:.85}
 .terug{display:inline-block;margin-bottom:18px;font-weight:700}
 .feiten{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0}
 .feiten div{background:var(--nacht);border-radius:14px;padding:14px 16px}.feiten small{display:block;color:var(--zacht)}
@@ -170,11 +171,11 @@ footer img{height:90px}
 <img class="foto" src="img/foto-7.jpg" alt="Twee kampeerders bij de caravans"></div></section>
 
 <section id="p-fotos" class="page s-mos"><div class="wrap">
-<h2>Foto's</h2><p class="lead">Tik op een foto om hem groter te zien.</p>
-<h3 class="sub">Per jaar</h3><div class="tabs" id="fotabs" role="group" aria-label="Map"></div><h3 class="sub" id="fch">Per plek</h3><div class="tabs" id="fotabs2" role="group" aria-label="Plek"></div><div id="galerij"></div></div></section>
+<h2>Foto's</h2><p class="lead">Kies eerst een jaar, dan een plek, en tik daarna op een foto om hem groter te zien.</p>
+<div id="fotonav"></div><div id="galerij"></div></div></section>
 </main>
 <div class="ruit"></div>
-<footer><div class="wrap"><img src="img/logo.png" alt="d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.<br><small>versie 6</small><br><a href="mailto:kamperendennenappeltjes@gmail.com">kamperendennenappeltjes@gmail.com</a> &middot; <a href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">YouTube</a></p></div></footer>
+<footer><div class="wrap"><img src="img/logo.png" alt="d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.<br><small>versie 7</small><br><a href="mailto:kamperendennenappeltjes@gmail.com">kamperendennenappeltjes@gmail.com</a> &middot; <a href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">YouTube</a></p></div></footer>
 <dialog id="dlg"><img alt=""></dialog>
 <script>["campings","paklijst","uitrusting","videos","fotos"].forEach(function(f){document.write('<script src="data/'+f+'.js?t='+Date.now()+'"><\/script>')})</script>
 <script>
@@ -191,7 +192,7 @@ function route(){const h=(location.hash||'#home').slice(1).split('/');let p=h[0]
 if(p=='camping'){if(!showCamp(h[1]))p='campings'}else if(!document.getElementById('p-'+p))p='home';
 document.querySelectorAll('.page').forEach(e=>e.classList.toggle('on',e.id=='p-'+p));
 const nv=p=='camping'?'campings':p;lk.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+nv));
-lk.classList.remove('open');mk.setAttribute('aria-expanded',false);window.scrollTo(0,0)}
+lk.classList.remove('open');mk.setAttribute('aria-expanded',false);if(p=='fotos')drawF();window.scrollTo(0,0)}
 
 const f=document.getElementById('filters'),l=document.getElementById('lijst');let cur='Alle';
 function draw(){l.innerHTML=CAMPINGS.filter(c=>cur=='Alle'||c.type==cur).map(c=>`<a class="camp" href="#camping/${c.id}">${c.foto?`<img src="${c.foto}" alt="" style="width:84px;height:64px;object-fit:cover;border-radius:10px;flex:none">`:''}<div class="cijfer">${c.cijfer||'&ndash;'}</div><div><h3>${c.naam} <small>${c.plaats||''}</small></h3><p>${c.tekst}</p></div></a>`).join('');
@@ -213,19 +214,17 @@ const yt=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{
 const VV=(typeof VID!=='undefined'?VID:[]).filter(v=>v&&v.url&&yt(v.url));
 document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart"><iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe><div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">Onze video\'s staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>';
 const FO=typeof FOTOS!=='undefined'?FOTOS:{"Eerder": [{"src": "img/foto-4.jpg", "tekst": "Camping vanuit de lucht in de avond"}, {"src": "img/foto-8.jpg", "tekst": "Auto en caravan"}, {"src": "img/foto-9.jpg", "tekst": "Caravan in de sneeuw"}, {"src": "img/foto-1.jpg", "tekst": "Verlichte voortenten"}, {"src": "img/foto-10.jpg", "tekst": "Kampeerplek van boven"}, {"src": "img/foto-5.jpg", "tekst": "Gezin bij de westernhut"}, {"src": "img/foto-11.jpg", "tekst": "Twee kinderen op het gras"}, {"src": "img/foto-7.jpg", "tekst": "Twee kampeerders bij de caravans"}]};
-const fk=Object.keys(FO).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}));let fc='Alle',fcamp='Alle';
-const fcs=[...new Set(fk.flatMap(k=>FO[k]).map(p=>p.camping).filter(Boolean))].sort();
-function drawF(){const tb=(id,arr,cur,set)=>{const e=document.getElementById(id);e.innerHTML=arr.map(k=>`<button aria-pressed="${k==cur}">${k}</button>`).join('');e.querySelectorAll('button').forEach(b=>b.onclick=()=>{set(b.textContent);drawF()})};
-tb('fotabs',['Alle',...fk],fc,v=>fc=v);
-document.getElementById('fch').style.display=document.getElementById('fotabs2').style.display=fcs.length?'':'none';
-tb('fotabs2',['Alle',...fcs],fcamp,v=>fcamp=v);
-const sec=[];fk.filter(k=>fc=='Alle'||k==fc).forEach(k=>{const g={};FO[k].filter(p=>fcamp=='Alle'||p.camping==fcamp).forEach(p=>(g[p.camping||'']=g[p.camping||'']||[]).push(p));
-Object.keys(g).sort((a,b)=>a.localeCompare(b,'nl')).forEach(pk=>sec.push(`<h3 class="sub">${pk?k+': '+pk:k}</h3><div class="galerij">${g[pk].map(p=>`<img src="${p.src}" alt="${p.tekst||p.camping||''}" loading="lazy">`).join('')}</div>`))});
-document.getElementById('galerij').innerHTML=sec.join('')||'<p class="lead">Geen foto\'s gevonden.</p>'}
-drawF();
+const fk=Object.keys(FO).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}));function drawF(){const h=(location.hash||'').split('/').slice(1).map(decodeURIComponent),jaar=h[0],plek=h[1],g=document.getElementById('galerij'),nav=document.getElementById('fotonav');
+const link=(...a)=>'#fotos'+a.map(x=>'/'+encodeURIComponent(x)).join('');
+const card=(href,src,t,n)=>`<a class="fcard" href="${href}"><img src="${src}" alt="" loading="lazy"><span><b>${t}</b><small>${n} foto's</small></span></a>`;
+if(!jaar||!FO[jaar]){nav.innerHTML='';g.innerHTML=`<div class="fgrid">${fk.map(k=>card(link(k),FO[k][0].src,k,FO[k].length)).join('')}</div>`;return}
+const by={};FO[jaar].forEach(p=>(by[p.camping||'']=by[p.camping||'']||[]).push(p));const pk=Object.keys(by).sort((a,b)=>a.localeCompare(b,'nl'));
+if(plek===undefined||!by[plek]){nav.innerHTML=`<a class="terug" href="#fotos">Terug naar alle jaren</a><h3 class="sub">${jaar}</h3>`;g.innerHTML=`<div class="fgrid">${pk.map(k=>card(link(jaar,k),by[k][0].src,k||'Algemeen',by[k].length)).join('')}</div>`;return}
+nav.innerHTML=`<a class="terug" href="${link(jaar)}">Terug naar ${jaar}</a><h3 class="sub">${jaar}: ${plek||'Algemeen'}</h3>`;
+g.innerHTML=`<div class="galerij">${by[plek].map(p=>`<img src="${p.src}" alt="${p.tekst||plek}" loading="lazy">`).join('')}</div>`}
 document.getElementById('cf').onsubmit=e=>{e.preventDefault();location.href='mailto:kamperendennenappeltjes@gmail.com?subject='+encodeURIComponent('Bericht via de website van '+document.getElementById('cn').value)+'&body='+encodeURIComponent(document.getElementById('cb').value)};
 const d=document.getElementById('dlg');
-document.getElementById('galerij').onclick=e=>{const i=e.target.closest('img');if(i){d.firstElementChild.src=i.src;d.firstElementChild.alt=i.alt;d.showModal()}};
+document.getElementById('galerij').onclick=e=>{const i=e.target.closest('.galerij img');if(i){d.firstElementChild.src=i.src;d.firstElementChild.alt=i.alt;d.showModal()}};
 d.onclick=()=>d.close();
 addEventListener('hashchange',route);route();
 </script></body></html>

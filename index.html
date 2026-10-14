@@ -171,14 +171,12 @@ footer img{height:90px}
 
 <section id="p-fotos" class="page s-mos"><div class="wrap">
 <h2>Foto's</h2><p class="lead">Tik op een foto om hem groter te zien.</p>
-<div class="galerij" id="galerij">
-<img src="img/foto-4.jpg" alt="Camping vanuit de lucht in de avond"><img src="img/foto-8.jpg" alt="Auto en caravan"><img src="img/foto-9.jpg" alt="Caravan in de sneeuw"><img src="img/foto-1.jpg" alt="Verlichte voortenten"><img src="img/foto-10.jpg" alt="Kampeerplek van boven"><img src="img/foto-5.jpg" alt="Gezin bij de westernhut"><img src="img/foto-11.jpg" alt="Twee kinderen op het gras"><img src="img/foto-7.jpg" alt="Twee kampeerders bij de caravans">
-</div></div></section>
+<h3 class="sub">Per jaar</h3><div class="tabs" id="fotabs" role="group" aria-label="Map"></div><h3 class="sub" id="fch">Per camping</h3><div class="tabs" id="fotabs2" role="group" aria-label="Camping"></div><div class="galerij" id="galerij"></div></div></section>
 </main>
 <div class="ruit"></div>
 <footer><div class="wrap"><img src="img/logo.png" alt="d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.<br><a href="mailto:kamperendennenappeltjes@gmail.com">kamperendennenappeltjes@gmail.com</a> &middot; <a href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">YouTube</a></p></div></footer>
 <dialog id="dlg"><img alt=""></dialog>
-<script src="data/campings.js"></script><script src="data/paklijst.js"></script><script src="data/uitrusting.js"></script><script src="data/videos.js"></script>
+<script src="data/campings.js"></script><script src="data/paklijst.js"></script><script src="data/uitrusting.js"></script><script src="data/videos.js"></script><script src="data/fotos.js"></script>
 <script>
 let ok={};try{ok=JSON.parse(localStorage.getItem('pak')||'{}')}catch(e){}
 const pl=document.getElementById('paklijst');
@@ -196,7 +194,7 @@ const nv=p=='camping'?'campings':p;lk.querySelectorAll('a').forEach(a=>a.classLi
 lk.classList.remove('open');mk.setAttribute('aria-expanded',false);window.scrollTo(0,0)}
 
 const f=document.getElementById('filters'),l=document.getElementById('lijst');let cur='Alle';
-function draw(){l.innerHTML=CAMPINGS.filter(c=>cur=='Alle'||c.type==cur).map(c=>`<a class="camp" href="#camping/${c.id}"><div class="cijfer">${c.cijfer||'&ndash;'}</div><div><h3>${c.naam} <small>${c.plaats||''}</small></h3><p>${c.tekst}</p></div></a>`).join('');
+function draw(){l.innerHTML=CAMPINGS.filter(c=>cur=='Alle'||c.type==cur).map(c=>`<a class="camp" href="#camping/${c.id}">${c.foto?`<img src="${c.foto}" alt="" style="width:84px;height:64px;object-fit:cover;border-radius:10px;flex:none">`:''}<div class="cijfer">${c.cijfer||'&ndash;'}</div><div><h3>${c.naam} <small>${c.plaats||''}</small></h3><p>${c.tekst}</p></div></a>`).join('');
 f.innerHTML=['Alle',...new Set(CAMPINGS.map(c=>c.type))].map(t=>`<button aria-pressed="${t==cur}">${t}</button>`).join('');
 f.querySelectorAll('button').forEach(b=>b.onclick=()=>{cur=b.textContent;draw()})}
 draw();
@@ -204,17 +202,28 @@ function showCamp(id){const c=CAMPINGS.find(x=>x.id==id);if(!c)return false;
 const ul=a=>a&&a.length?`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`:'';
 document.getElementById('campdetail').innerHTML=`<a class="terug" href="#campings">Terug naar alle campings</a><h2>${c.naam}</h2>${c.foto?`<img class="foto" style="max-height:380px" src="${c.foto}" alt="${c.naam}">`:`<div class="banner" role="img" aria-label="${c.naam}">${c.emoji||'⛺'}</div>`}<p class="lead">${[c.plaats,c.type,c.cijfer?'Ons cijfer: '+c.cijfer:''].filter(Boolean).join(' &middot; ')}</p><p class="lead">${c.tekst}</p>
 ${c.url?`<p><a class="btn" href="${c.url}" target="_blank" rel="noopener">Naar de website</a></p>`:''}
-${c.info?`<div class="feiten">${Object.entries(c.info).map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>`:''}
+${(()=>{const e=[['Plaatsnummer',c.plaatsnr],['Stroom',c.stroom?c.stroom+' A':''],['Oppervlakte',c.opp?c.opp+' m²':''],['Water op de plaats',c.water],['Afvoer op de plaats',c.afvoer]].filter(x=>x[1]).concat(Object.entries(c.info||{}));return e.length?`<div class="feiten">${e.map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>`:''})()}
 ${c.plus||c.min?`<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${ul(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${ul(c.min)}</div></div>`:''}`;return true}
 const ut=document.getElementById('uittabs'),ul=document.getElementById('uitlijst');let uc=Object.keys(UIT)[0];
 function drawU(){ut.innerHTML=Object.keys(UIT).map(k=>`<button aria-pressed="${k==uc}">${k}</button>`).join('');
 ut.querySelectorAll('button').forEach(b=>b.onclick=()=>{uc=b.textContent;drawU()});
 ul.innerHTML=Object.entries(UIT[uc]).map(([s,a])=>`<h3 class="sub">${s}</h3><div class="item"><p>${a}</p></div>`).join('')}
 drawU();
-document.getElementById('vids').innerHTML=VID.map(v=>`<a class="tegel" href="https://youtube.com/@kamperenmetdndennenappeltjes/videos" target="_blank" rel="noopener"><span>${v[2]}</span><h3>${v[0]}</h3><p>${v[1]}</p></a>`).join('');
+const yt=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:''};
+const VV=(typeof VID!=='undefined'?VID:[]).filter(v=>v&&v.url&&yt(v.url));
+document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart"><iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe><div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">Onze video\'s staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>';
+const FO=typeof FOTOS!=='undefined'?FOTOS:{"Eerder": [{"src": "img/foto-4.jpg", "tekst": "Camping vanuit de lucht in de avond"}, {"src": "img/foto-8.jpg", "tekst": "Auto en caravan"}, {"src": "img/foto-9.jpg", "tekst": "Caravan in de sneeuw"}, {"src": "img/foto-1.jpg", "tekst": "Verlichte voortenten"}, {"src": "img/foto-10.jpg", "tekst": "Kampeerplek van boven"}, {"src": "img/foto-5.jpg", "tekst": "Gezin bij de westernhut"}, {"src": "img/foto-11.jpg", "tekst": "Twee kinderen op het gras"}, {"src": "img/foto-7.jpg", "tekst": "Twee kampeerders bij de caravans"}]};
+const fk=Object.keys(FO).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}));let fc='Alle',fcamp='Alle';
+const fcs=[...new Set(fk.flatMap(k=>FO[k]).map(p=>p.camping).filter(Boolean))].sort();
+function drawF(){const tb=(id,arr,cur,set)=>{const e=document.getElementById(id);e.innerHTML=arr.map(k=>`<button aria-pressed="${k==cur}">${k}</button>`).join('');e.querySelectorAll('button').forEach(b=>b.onclick=()=>{set(b.textContent);drawF()})};
+tb('fotabs',['Alle',...fk],fc,v=>fc=v);
+document.getElementById('fch').style.display=document.getElementById('fotabs2').style.display=fcs.length?'':'none';
+tb('fotabs2',['Alle',...fcs],fcamp,v=>fcamp=v);
+document.getElementById('galerij').innerHTML=fk.filter(k=>fc=='Alle'||k==fc).flatMap(k=>FO[k]).filter(p=>fcamp=='Alle'||p.camping==fcamp).map(p=>`<img src="${p.src}" alt="${p.tekst||p.camping||''}" loading="lazy">`).join('')}
+drawF();
 document.getElementById('cf').onsubmit=e=>{e.preventDefault();location.href='mailto:kamperendennenappeltjes@gmail.com?subject='+encodeURIComponent('Bericht via de website van '+document.getElementById('cn').value)+'&body='+encodeURIComponent(document.getElementById('cb').value)};
 const d=document.getElementById('dlg');
-document.querySelectorAll('#galerij img').forEach(i=>i.onclick=()=>{d.firstElementChild.src=i.src;d.firstElementChild.alt=i.alt;d.showModal()});
+document.getElementById('galerij').onclick=e=>{const i=e.target.closest('img');if(i){d.firstElementChild.src=i.src;d.firstElementChild.alt=i.alt;d.showModal()}};
 d.onclick=()=>d.close();
 addEventListener('hashchange',route);route();
 </script></body></html>

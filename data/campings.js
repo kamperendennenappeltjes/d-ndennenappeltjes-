@@ -117,7 +117,8 @@ const CAMPINGS=[
   "stroom": "",
   "opp": "",
   "water": "",
-  "afvoer": ""
+  "afvoer": "",
+  "foto": "img/camping-blauwemeer-1791968351216.jpg"
  },
  {
   "id": "goolderheide",

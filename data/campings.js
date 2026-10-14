@@ -110,7 +110,7 @@ const CAMPINGS=[
    "Onderhoud algemeen.",
    "Het is jammer dat de huisje niet altijd fijne mensen aan trekt."
   ],
-  "foto": "img/vakantiepark-slot-cranendonck-1791962537179.jpg",
+  "foto": "img/vakantiepark-slot-cranendonck-1791997290859.jpg",
   "plaatsnr": "park gesloten",
   "stroom": "6",
   "opp": "100",
@@ -131,14 +131,22 @@ const CAMPINGS=[
    "Eten": "Restaurant op het park"
   },
   "cijfer": "",
-  "url": "",
-  "plus": [],
-  "min": [],
-  "plaatsnr": "",
-  "stroom": "",
-  "opp": "",
-  "water": "",
-  "afvoer": "",
+  "url": "https://www.campingblauwemeer.be/",
+  "plus": [
+   "super gezellig terras met iedere avond live muziek",
+   "mooi overdekt speelstrand voor de kinderen",
+   "netjes zwembad het was niet groot maar goed genoeg"
+  ],
+  "min": [
+   "beveiliging rond sanitaire gebouwen zodat de jeugd het niet sloopt",
+   "mini golf kon wel wat onderhoud gebruiken",
+   "de plekken waren herzien waardoor het best krap waren"
+  ],
+  "plaatsnr": "S15",
+  "stroom": "10",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja",
   "foto": "img/camping-blauwemeer-1791968351216.jpg"
  },
  {
@@ -203,6 +211,79 @@ const CAMPINGS=[
   "min": [
    "onderhoud algemeen",
    "animatie voor de kinderen"
-  ]
+  ],
+  "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg"
+ },
+ {
+  "id": "camping-het-peelvenneke",
+  "naam": "Camping Het Peelvenneke",
+  "plaats": "Zeeland (Noord-Brabant)",
+  "type": "Minicamping",
+  "cijfer": 8,
+  "tekst": "Rustige minicamping aan een visvijver in Zeeland (Noord-Brabant). De ruime plaatsen liggen in zon of schaduw; vanaf veel plekken kijk je uit over het water. Een fijne uitvalsbasis voor vissen, wandelen en fietsen in de omgeving.",
+  "info": {
+   "Adres": "Peelweg 37a, 5411 VC Zeeland",
+   "Aantal plaatsen": "niet eenduidig bevestigd; de ANWB vermeldt 50 toeristische plaatsen",
+   "Open": "15 maart tot en met 1 november volgens de officiële website",
+   "Honden": "toegestaan; aanlijnen is verplicht",
+   "Sanitair": "vernieuwd sanitairgebouw, mindervalidenruimte, douches en afwasmogelijkheden",
+   "Wasmachine en droger": "aanwezig",
+   "Camperservice": "water vullen, grijs water lozen en chemisch toilet legen"
+  },
+  "plaatsnr": "5",
+  "stroom": "10",
+  "opp": "70–150",
+  "water": "Ja",
+  "afvoer": "Nee",
+  "url": "https://hetpeelvenneke.nl/",
+  "plus": [
+   "Ruime plaatsen met keuze uit zon en schaduw",
+   "Veel plaatsen met uitzicht op de visvijver",
+   "Vissen vanaf de steigers of vanaf je plek",
+   "Wandel- en fietsroutes in de omgeving",
+   "Vernieuwd sanitair met ruime douches",
+   "Camperserviceplaats en fietsenstalling"
+  ],
+  "min": [
+   "het is geen verbeter punt maar het is geen camping voor kinderen zonder zwemdiploma aangezien de visvijver die centraal licht.",
+   "stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
+  ],
+  "foto": "img/camping-het-peelvenneke-1791997319760.jpg"
+ },
+ {
+  "id": "esch-camping-kaampert",
+  "naam": "Esch Camping Kaampert",
+  "plaats": "Markelo (Overijssel)",
+  "type": "Minicamping",
+  "cijfer": 8,
+  "tekst": "Kleinschalige, groene camping net buiten Markelo, op het Twentse platteland. De ruime plaatsen hebben water, stroom en een eigen afvoerpunt. Het dorp en de wandel- en fietsroutes in de omgeving liggen dichtbij.",
+  "info": {
+   "Adres": "Rijssenseweg 18b, 7475 VB Markelo",
+   "Aantal plaatsen": "25",
+   "Open": "niet vermeld op de geraadpleegde officiële pagina’s",
+   "Honden": "welkom, aangelijnd",
+   "Sanitair": "nieuw sanitairgebouw; warm water inbegrepen",
+   "Wi-Fi": "gratis",
+   "Chemisch toilet": "uitstort aanwezig",
+   "Duurzaamheid": "zonnepanelen en zonnecollectoren"
+  },
+  "plaatsnr": "3",
+  "stroom": "16",
+  "opp": "120",
+  "water": "Ja",
+  "afvoer": "Ja",
+  "url": "eschcampingkaampert.nl",
+  "plus": [
+   "Ruime kampeerplaatsen van ongeveer 120 m²",
+   "Water, 16A stroom en afvoer op de eigen plek",
+   "Nieuw sanitairgebouw en warm water",
+   "Rustige, groene ligging bij Markelo",
+   "Wandel- en fietsroutes in de omgeving",
+   "Aandacht voor duurzaam kamperen"
+  ],
+  "min": [
+   "douches waar zeer netjes en schoon maar de ruimte was krap"
+  ],
+  "foto": "img/esch-camping-kaampert-1791997332207.jpg"
  }
 ];

@@ -89,6 +89,66 @@ const FOTOS={
    "src": "img/fotos/2026/1791973629815-11.jpg",
    "tekst": "",
    "camping": "Familiepark Goolderheide"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974720804-1.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974723258-2.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974725308-3.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974727660-4.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974729954-5.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974731956-6.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974734004-7.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974735916-8.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974738096-9.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974740553-10.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974743121-11.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
+  },
+  {
+   "src": "img/fotos/2026/bobbejaanland/1791974745682-12.jpg",
+   "tekst": "",
+   "camping": "Bobbejaanland"
   }
  ],
  "Eerder": [

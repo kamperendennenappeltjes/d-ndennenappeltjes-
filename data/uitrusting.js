@@ -3,7 +3,7 @@ const UIT={
   "Koken": "Pannen , Cadac Carri Chef, frietpan, pizzasteen en pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
   "Servies": "Borden, schaaltjes en soepkommen, bekers en koffiekopjes, plastic glazen, kinderbekers",
   "Bestek en gerei": "Bestek, spatels, garde, dunschillers, kaasschaaf, blik-, bier- en wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven en vergiet",
-  "Opslag en koelen": "Kaasbakken, koelelementen, koelrugzakken",
+  "Opslag en koelen": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken",
   "Schoonmaak": "Afwasborstel en afwasmiddel, allesreiniger, theedoeken en droogmatten, afdruiprek, vuilniszakken",
   "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehakt, shoarma en aardappel"
  },

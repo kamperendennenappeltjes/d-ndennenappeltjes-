@@ -99,7 +99,7 @@ footer img{height:90px}
 </style></head><body>
 <nav><div class="wrap"><a href="#home" style="display:flex"><img src="img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b>
 <button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button>
-<div class="links" id="lk"><a href="#home">Home</a><a href="#over">Over ons</a><a href="#meenemen">Wat nemen we mee</a><a href="#uitrusting">Uitrusting</a><a href="#campings">Campings</a><a href="#verhalen">Verhalen</a><a href="#tips">Tips</a><a href="#fotos">Foto's</a><a href="#videos">Video's</a><a href="#contact">Contact</a></div></div></nav>
+<div class="links" id="lk"><a href="#home">Home</a><a href="#over">Over ons</a><a href="#meenemen">Wat nemen we mee</a><a href="#uitrusting">Uitrusting</a><a href="#campings">Campings en uitjes</a><a href="#verhalen">Verhalen</a><a href="#tips">Tips</a><a href="#fotos">Foto's</a><a href="#videos">Video's</a><a href="#contact">Contact</a></div></div></nav>
 <main>
 
 <div class="page" id="p-home"><header class="hero"><div class="wrap"><div>
@@ -109,7 +109,7 @@ footer img{height:90px}
 <img class="logo" src="img/logo.png" alt="Logo van d'n Dennenappeltjes"></div></header>
 <section class="s-den"><div class="wrap"><h2>Waar zoek je naar?</h2><div class="tegels">
 <a class="tegel" href="#meenemen"><span>🎒</span><h3>Wat nemen we mee</h3><p>Onze complete paklijst om af te vinken.</p></a>
-<a class="tegel" href="#campings"><span>⛺</span><h3>Campings</h3><p>Waar we waren en wat we ervan vonden.</p></a>
+<a class="tegel" href="#campings"><span>⛺</span><h3>Campings en uitjes</h3><p>Waar we waren en wat we ervan vonden.</p></a>
 <a class="tegel" href="#verhalen"><span>📖</span><h3>Verhalen</h3><p>Verslagen van onze trips.</p></a>
 <a class="tegel" href="#tips"><span>💡</span><h3>Tips</h3><p>Dit hebben we onderweg geleerd.</p></a>
 </div></div></section><div class="ruit"></div></div>
@@ -150,7 +150,7 @@ footer img{height:90px}
 </div></div></section>
 
 <section id="p-campings" class="page s-den"><div class="wrap">
-<h2>Onze campings</h2><p class="lead">Waar zijn we geweest en wat vonden we ervan? Pas de lijst aan in het blok <code>CAMPINGS</code> onderaan de pagina.</p>
+<h2>Campings en uitjes</h2><p class="lead">Waar zijn we geweest en wat vonden we ervan? Campings, vakantieparken, dierentuinen, pretparken en andere uitjes.</p>
 <div class="filters" id="filters" role="group" aria-label="Filter campings"></div>
 <div id="lijst"></div></div></section>
 
@@ -174,9 +174,9 @@ footer img{height:90px}
 <h3 class="sub">Per jaar</h3><div class="tabs" id="fotabs" role="group" aria-label="Map"></div><h3 class="sub" id="fch">Per plek</h3><div class="tabs" id="fotabs2" role="group" aria-label="Plek"></div><div class="galerij" id="galerij"></div></div></section>
 </main>
 <div class="ruit"></div>
-<footer><div class="wrap"><img src="img/logo.png" alt="d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.<br><a href="mailto:kamperendennenappeltjes@gmail.com">kamperendennenappeltjes@gmail.com</a> &middot; <a href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">YouTube</a></p></div></footer>
+<footer><div class="wrap"><img src="img/logo.png" alt="d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.<br><small>versie 5</small><br><a href="mailto:kamperendennenappeltjes@gmail.com">kamperendennenappeltjes@gmail.com</a> &middot; <a href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">YouTube</a></p></div></footer>
 <dialog id="dlg"><img alt=""></dialog>
-<script src="data/campings.js"></script><script src="data/paklijst.js"></script><script src="data/uitrusting.js"></script><script src="data/videos.js"></script><script src="data/fotos.js"></script>
+<script>["campings","paklijst","uitrusting","videos","fotos"].forEach(function(f){document.write('<script src="data/'+f+'.js?t='+Date.now()+'"><\/script>')})</script>
 <script>
 let ok={};try{ok=JSON.parse(localStorage.getItem('pak')||'{}')}catch(e){}
 const pl=document.getElementById('paklijst');

@@ -6,5 +6,7 @@ const OVER={
   "Wij zijn ontstaan door een dennenappel als weerstation bij een oom en tante van Renate. Deze kregen wij ook aan de tent in 2019. Zoals jullie in onze vlogs veel zien is gezin Krijgsman hierbij ook veel betrokken en kregen ook een dennenappel. Hierop kwam in 2024 bij Slot Cranendonck in Soerendonk door Martin Krijgsman de naam: Geheime genootschap d'n dennenappel. Hieruit is de naam: Kamperen met d'n dennenappeltjes ontstaan, waar de dennenappel centraal staat."
  ],
  "foto": "img/foto-3.jpg",
- "alt": "Ons gezin op een uitkijktoren boven het bos"
+ "alt": "Ons gezin op een uitkijktoren boven het bos",
+ "alt2": "",
+ "foto2": "img/over-ons-2-1792003095693.jpg"
 };

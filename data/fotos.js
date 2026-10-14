@@ -2,7 +2,8 @@ const FOTOS={
  "Eerder": [
   {
    "src": "img/foto-4.jpg",
-   "tekst": "Camping vanuit de lucht in de avond"
+   "tekst": "Camping vanuit de lucht in de avond",
+   "camping": "Camping BlauweMeer"
   },
   {
    "src": "img/foto-8.jpg",

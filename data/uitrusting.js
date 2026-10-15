@@ -17,6 +17,11 @@ const UIT={
      "n": "Cadac paella pan",
      "url": "https://www.obelink.nl/cadac-50-paella-pan.html",
      "foto": "img/uitrusting/cadac-paella-pan-1792066200392.jpg"
+    },
+    {
+     "n": "Esperanza Inductie Kookplaat",
+     "url": "https://www.bol.com/nl/nl/p/esperanza-ekh011-krakatau-inductie-kookplaat-vrijstaand/9300000126038862/?referrer=socialshare_pdp_androidapp",
+     "foto": "img/uitrusting/esperanza-inductie-kookplaat-1792066495777.jpg"
     }
    ]
   },

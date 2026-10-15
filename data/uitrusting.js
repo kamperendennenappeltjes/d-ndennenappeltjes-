@@ -16,7 +16,7 @@ const UIT={
      "foto": "img/uitrusting/product-1792066044882.jpg"
     },
     {
-     "n": "Cadac paella pan",
+     "n": "Cadac paëlla pan",
      "url": "https://www.obelink.nl/cadac-50-paella-pan.html",
      "code": "",
      "foto": "img/uitrusting/cadac-paella-pan-1792066200392.jpg"

@@ -1,12 +1,22 @@
 const UIT={
  "Keuken": {
   "Koken": {
-   "t": "Pannen , frietpan, pizzasteen en pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
+   "t": "Pannen , frietpan, pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
    "p": [
     {
      "n": "Cadac Carri Chef 2",
      "url": "",
      "foto": "img/uitrusting/cadac-carri-chef-2-1792064588562.png"
+    },
+    {
+     "n": "Cadac pizzasteen 40cm",
+     "url": "https://www.obelink.nl/cadac-pro-40-pizzasteen.html?utm_source=google&utm_medium=cpc&utm_campaign=23116786542&utm_id=&gad_source=1&gad_campaignid=23116800198&gbraid=0AAAAAD62Df4LP9Rj6oabHc0HpKHHRJxNS&gclid=CjwKCAjw88HWBhA3EiwAo2Zd6PynJUFjEErH4IXjB2yoGt0UZ8Pi7eLjhH0qW_re09QGi-vT7Ycn4RoCSnEQAvD_BwE",
+     "foto": "img/uitrusting/product-1792066044882.jpg"
+    },
+    {
+     "n": "Cadac paella pan",
+     "url": "https://www.obelink.nl/cadac-50-paella-pan.html",
+     "foto": "img/uitrusting/cadac-paella-pan-1792066200392.jpg"
     }
    ]
   },

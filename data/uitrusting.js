@@ -6,21 +6,25 @@ const UIT={
     {
      "n": "Cadac Carri Chef 2",
      "url": "",
+     "code": "",
      "foto": "img/uitrusting/cadac-carri-chef-2-1792064588562.png"
     },
     {
      "n": "Cadac pizzasteen 40cm",
      "url": "https://www.obelink.nl/cadac-pro-40-pizzasteen.html?utm_source=google&utm_medium=cpc&utm_campaign=23116786542&utm_id=&gad_source=1&gad_campaignid=23116800198&gbraid=0AAAAAD62Df4LP9Rj6oabHc0HpKHHRJxNS&gclid=CjwKCAjw88HWBhA3EiwAo2Zd6PynJUFjEErH4IXjB2yoGt0UZ8Pi7eLjhH0qW_re09QGi-vT7Ycn4RoCSnEQAvD_BwE",
+     "code": "Testcode",
      "foto": "img/uitrusting/product-1792066044882.jpg"
     },
     {
      "n": "Cadac paella pan",
      "url": "https://www.obelink.nl/cadac-50-paella-pan.html",
+     "code": "",
      "foto": "img/uitrusting/cadac-paella-pan-1792066200392.jpg"
     },
     {
      "n": "Esperanza Inductie Kookplaat",
      "url": "https://www.bol.com/nl/nl/p/esperanza-ekh011-krakatau-inductie-kookplaat-vrijstaand/9300000126038862/?referrer=socialshare_pdp_androidapp",
+     "code": "",
      "foto": "img/uitrusting/esperanza-inductie-kookplaat-1792066495777.jpg"
     }
    ]

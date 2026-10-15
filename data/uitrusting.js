@@ -45,6 +45,12 @@ const UIT={
      "url": "https://www.obelink.nl/tristar-supercool-kb-7147-45egp-koelbox.html",
      "code": "",
      "foto": "img/uitrusting/tristar-supercool-kb-7147-45egp-koelbox-1792078981921.jpg"
+    },
+    {
+     "n": "Bosch KTL14V21 koelkast met vriesvak",
+     "url": "",
+     "code": "",
+     "foto": "img/uitrusting/bosch-ktl14v21-koelkast-met-vriesvak-1792080951236.jpg"
     }
    ]
   },

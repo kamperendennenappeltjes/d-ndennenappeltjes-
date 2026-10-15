@@ -6,7 +6,7 @@ const UIT={
     {
      "n": "Cadac Carri Chef 2",
      "url": "",
-     "foto": ""
+     "foto": "img/uitrusting/cadac-carri-chef-2-1792064588562.png"
     }
    ]
   },

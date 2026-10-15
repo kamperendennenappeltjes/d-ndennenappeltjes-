@@ -1,6 +1,15 @@
 const UIT={
  "Keuken": {
-  "Koken": "Pannen , Cadac Carri Chef, frietpan, pizzasteen en pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
+  "Koken": {
+   "t": "Pannen , frietpan, pizzasteen en pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
+   "p": [
+    {
+     "n": "Cadac Carri Chef 2",
+     "url": "",
+     "foto": "img/uitrusting/cadac-carri-chef-2-1792061645518.png"
+    }
+   ]
+  },
   "Servies": "Borden, schaaltjes en soepkommen, bekers en koffiekopjes, plastic glazen, kinderbekers",
   "Bestek en gerei": "Bestek, spatels, garde, dunschillers, kaasschaaf, blik-, bier- en wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven en vergiet",
   "Opslag en koelen": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken",

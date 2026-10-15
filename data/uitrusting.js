@@ -38,7 +38,7 @@ const UIT={
   "Servies": "Borden, soepkommen, bekers, koffiekopjes, plastic glazen, plastic wijnglas, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
   "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer",
   "Opslag en koelen": {
-   "t": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken,",
+   "t": "koelelementen, koelrugzakken, koeltas boodschappen, plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",
    "p": [
     {
      "n": "Tristar Supercool KB-7147 45EGP koelbox",

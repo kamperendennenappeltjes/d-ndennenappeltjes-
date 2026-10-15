@@ -35,9 +35,19 @@ const UIT={
     }
    ]
   },
-  "Servies": "Borden, schaaltjes en soepkommen, bekers en koffiekopjes, plastic glazen, kinderbekers, pizzaplank",
+  "Servies": "Borden, soepkommen, bekers, koffiekopjes, plastic glazen, plastic wijnglas, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
   "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer",
-  "Opslag en koelen": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken",
+  "Opslag en koelen": {
+   "t": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken,",
+   "p": [
+    {
+     "n": "Tristar Supercool KB-7147 45EGP koelbox",
+     "url": "https://www.obelink.nl/tristar-supercool-kb-7147-45egp-koelbox.html",
+     "code": "",
+     "foto": "img/uitrusting/tristar-supercool-kb-7147-45egp-koelbox-1792078981921.jpg"
+    }
+   ]
+  },
   "Schoonmaak": "Afwasborstel en afwasmiddel, allesreiniger, theedoeken en droogmatten, afdruiprek, vuilniszakken",
   "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehakt, shoarma en aardappel"
  },

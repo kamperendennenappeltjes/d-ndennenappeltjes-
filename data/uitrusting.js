@@ -1,7 +1,7 @@
 const UIT={
  "Keuken": {
   "Koken": {
-   "t": "Pannen , frietpan, pizzaplank, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
+   "t": "Pannen , frietpan, tosti-ijzer, combimagnetron, waterkoker, mixer en staafmixer",
    "p": [
     {
      "n": "Cadac Carri Chef 2",
@@ -35,7 +35,7 @@ const UIT={
     }
    ]
   },
-  "Servies": "Borden, schaaltjes en soepkommen, bekers en koffiekopjes, plastic glazen, kinderbekers",
+  "Servies": "Borden, schaaltjes en soepkommen, bekers en koffiekopjes, plastic glazen, kinderbekers, pizzaplank",
   "Bestek en gerei": "Bestek, spatels, garde, dunschillers, kaasschaaf, blik-, bier- en wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven en vergiet",
   "Opslag en koelen": "Kaas-/vleesschaaltjes, koelelementen, koelrugzakken",
   "Schoonmaak": "Afwasborstel en afwasmiddel, allesreiniger, theedoeken en droogmatten, afdruiprek, vuilniszakken",

@@ -26,6 +26,12 @@ const UIT={
      "url": "https://www.bol.com/nl/nl/p/esperanza-ekh011-krakatau-inductie-kookplaat-vrijstaand/9300000126038862/?referrer=socialshare_pdp_androidapp",
      "code": "",
      "foto": "img/uitrusting/esperanza-inductie-kookplaat-1792066495777.jpg"
+    },
+    {
+     "n": "kooktoestel",
+     "url": "https://www.obelink.nl/outwell-etna-solo-kooktoestel-760018.html?utm_source=google&utm_medium=cpc&utm_campaign=23116786542&utm_id=&gad_source=1&gad_campaignid=23116800198&gbraid=0AAAAAD62Df5MAvLwg5j-YGB33ojlrmqFB&gclid=CjwKCAjw88HWBhA3EiwAo2Zd6GRrWgWdsO_ap5-j746_nhy401XXvJxrXs10gP6zFSprZUIzfpOwUhoCiHEQAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/kooktoestel-1792077129404.jpg"
     }
    ]
   },

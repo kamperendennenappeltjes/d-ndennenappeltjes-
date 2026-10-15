@@ -54,7 +54,7 @@ const UIT={
     }
    ]
   },
-  "Schoonmaak": "Afwasborstel en afwasmiddel, allesreiniger, theedoeken en droogmatten, afdruiprek, vuilniszakken",
+  "Schoonmaak": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken, emmer, bezem, dweil, poetsdoeken, stofzuiger,",
   "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehakt, shoarma en aardappel"
  },
  "Slapen en wonen": {

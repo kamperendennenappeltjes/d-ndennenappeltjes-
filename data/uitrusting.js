@@ -55,7 +55,7 @@ const UIT={
    ]
   },
   "Schoonmaak": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken, emmer, bezem, dweil, poetsdoeken, stofzuiger,",
-  "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden"
+  "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden, maggi"
  },
  "Slapen en wonen": {
   "Slapen": "Dekbed, hoeslakens, overtrekken en kussenslopen, slaapzakken en matras voor de kinderen",

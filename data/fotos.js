@@ -151,11 +151,6 @@ const FOTOS={
    "camping": "Bobbejaanland"
   },
   {
-   "src": "img/fotos/2026/pinksteren-julianatoren/1792184440940-1.jpg",
-   "tekst": "",
-   "camping": "Pinksteren/Julianatoren"
-  },
-  {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184443143-2.jpg",
    "tekst": "",
    "camping": "Pinksteren/Julianatoren"
@@ -340,5 +335,14 @@ const FOTOS={
    "src": "img/fotos/eerder/1791966896788-1.jpg",
    "tekst": "Caravan in de sneeuw"
   }
- ]
+ ],
+ "__plekken": {
+  "2026": [
+   "Het peelvenneke",
+   "Hemelvaart",
+   "Pinksteren/Julianatoren",
+   "Familiepark Goolderheide",
+   "Bobbejaanland"
+  ]
+ }
 };

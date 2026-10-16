@@ -1,6 +1,6 @@
 const PAK={
  "Caravan en vertrek": [
-  "reserveringsbevestiging",
+  "reserverings papieren",
   "Trekhaak en stekker controleren",
   "Bandenspanning auto en caravan",
   "Reservewiel en krik",

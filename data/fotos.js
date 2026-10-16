@@ -69,6 +69,76 @@ const FOTOS={
    "src": "img/fotos/2024/kerstvakantie/1792187433369-1.jpg",
    "tekst": "",
    "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187524932-1.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187526909-2.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187528884-3.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187531061-4.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187533391-5.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187535440-6.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187537583-7.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187540561-8.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187542915-9.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187545648-10.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187548339-11.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187550645-12.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187552947-13.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/herfstvakantie/1792187554946-14.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
   }
  ],
  "2025": [
@@ -877,7 +947,8 @@ const FOTOS={
  ],
  "__plekken": {
   "2024": [
-   "Kerstvakantie"
+   "Kerstvakantie",
+   "Herfstvakantie"
   ],
   "2025": [
    "Hemelvaart & CFCK",

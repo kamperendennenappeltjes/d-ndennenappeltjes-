@@ -1,4 +1,81 @@
 const FOTOS={
+ "2025": [
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185830190-1.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185832823-2.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185835074-3.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185837127-4.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185838861-5.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185840963-6.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185842662-7.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185844906-8.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185846848-9.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185849112-10.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185850948-11.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/kerstvakantie/1792185852888-12.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/herfstvakantie/1792185963095-1.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/herfstvakantie/1792185965712-2.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/herfstvakantie/1792185970755-3.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  }
+ ],
  "2026": [
   {
    "src": "img/fotos/2026/1791971178310-1.jpg",
@@ -337,6 +414,10 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2025": [
+   "Herfstvakantie",
+   "Kerstvakantie"
+  ],
   "2026": [
    "Het peelvenneke",
    "Hemelvaart",
@@ -344,5 +425,10 @@ const FOTOS={
    "Familiepark Goolderheide",
    "Bobbejaanland"
   ]
- }
+ },
+ "__orde": [
+  "2025",
+  "Eerder",
+  "2026"
+ ]
 };

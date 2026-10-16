@@ -111,7 +111,7 @@ const UIT={
    ]
   },
   "Schoonmaak": {
-   "t": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
+   "t": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
    "p": [
     {
      "n": "Opvouwbare emmer",

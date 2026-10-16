@@ -408,62 +408,62 @@ const FOTOS={
   {
    "src": "img/fotos/2025/hemelvaart/1792186857459-1.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186859282-2.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186861229-3.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186863282-4.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186865427-5.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186867490-6.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186869328-7.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186871431-8.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186873622-9.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186876079-10.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186878028-11.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   },
   {
    "src": "img/fotos/2025/hemelvaart/1792186880073-12.jpg",
    "tekst": "",
-   "camping": "Hemelvaart"
+   "camping": "Hemelvaart & CFCK"
   }
  ],
  "2026": [
@@ -805,7 +805,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2025": [
-   "Hemelvaart",
+   "Hemelvaart & CFCK",
    "Camping BlauweMeer",
    "Herfstvakantie",
    "Kerstvakantie"

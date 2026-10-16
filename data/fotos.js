@@ -1292,8 +1292,8 @@ const FOTOS={
  ],
  "__plekken": {
   "2024": [
-   "Mechelen",
    "Vakantiepark Slot Cranendonck",
+   "Mechelen",
    "Herfstvakantie",
    "Kerstvakantie"
   ],

@@ -1257,11 +1257,6 @@ const FOTOS={
  ],
  "Eerder": [
   {
-   "src": "img/foto-4.jpg",
-   "tekst": "Camping vanuit de lucht in de avond",
-   "camping": "Camping BlauweMeer"
-  },
-  {
    "src": "img/foto-8.jpg",
    "tekst": "Auto en caravan"
   },
@@ -1288,6 +1283,10 @@ const FOTOS={
   {
    "src": "img/fotos/eerder/1791966896788-1.jpg",
    "tekst": "Caravan in de sneeuw"
+  },
+  {
+   "src": "img/fotos/eerder/1792188712048-1.jpg",
+   "tekst": ""
   }
  ],
  "__plekken": {
@@ -1312,9 +1311,9 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "Eerder",
   "2024",
   "2025",
-  "Eerder",
   "2026"
  ]
 };

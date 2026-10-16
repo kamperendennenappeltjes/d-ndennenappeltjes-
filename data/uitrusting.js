@@ -41,7 +41,29 @@ const UIT={
     }
    ]
   },
-  "Servies": "Borden, soepkommen, bekers, koffiekopjes, plastic glazen, plastic wijnglas, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
+  "Servies": {
+   "t": "Borden, soepkommen, bekers, koffiekopjes, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
+   "p": [
+    {
+     "n": "Kunstof bierglazen",
+     "url": "",
+     "code": "",
+     "foto": "img/uitrusting/kunstof-bierglazen-1792151622864.png"
+    },
+    {
+     "n": "Kunstof frisglazen",
+     "url": "",
+     "code": "",
+     "foto": "img/uitrusting/kunstof-frisglazen-1792151648490.jpg"
+    },
+    {
+     "n": "Kunstof wijnglazen",
+     "url": "",
+     "code": "",
+     "foto": "img/uitrusting/kunstof-wijnglazen-1792151667218.jpg"
+    }
+   ]
+  },
   "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer, pizza snijder",
   "Opslag en koelen": {
    "t": "koelelementen, koelrugzakken, koeltas boodschappen, plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",

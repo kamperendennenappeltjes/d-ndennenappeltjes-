@@ -139,6 +139,266 @@ const FOTOS={
    "src": "img/fotos/2024/herfstvakantie/1792187554946-14.jpg",
    "tekst": "",
    "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188130748-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188132845-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188134794-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188136660-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188139194-5.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188141648-6.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188143493-7.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188145541-8.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188147598-9.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188149621-10.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188151571-11.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188153729-12.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188155928-13.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188157945-14.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188160214-15.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188162436-16.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188164279-17.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188166232-18.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188168376-19.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188170423-20.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188172372-21.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188174419-22.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188177081-23.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188179236-24.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188181392-25.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188184093-26.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188186602-27.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188188545-28.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188190319-29.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188192219-30.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188194280-31.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188196450-32.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188198379-33.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188200430-34.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188202785-35.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188204831-36.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188207081-37.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188209028-38.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188211129-39.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188213532-40.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188215830-41.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188219578-42.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188221623-43.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188223570-44.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188225517-45.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188227665-46.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188229506-47.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188231660-48.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188234053-49.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188235953-50.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188238052-51.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188239709-52.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
   }
  ],
  "2025": [
@@ -947,8 +1207,9 @@ const FOTOS={
  ],
  "__plekken": {
   "2024": [
-   "Kerstvakantie",
-   "Herfstvakantie"
+   "Vakantiepark Slot Cranendonck",
+   "Herfstvakantie",
+   "Kerstvakantie"
   ],
   "2025": [
    "Hemelvaart & CFCK",

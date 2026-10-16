@@ -399,6 +399,91 @@ const FOTOS={
    "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188239709-52.jpg",
    "tekst": "",
    "camping": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188434303-1.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188436394-2.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188438513-3.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188440560-4.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188442811-5.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188445165-6.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188447418-7.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188449468-8.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188451930-9.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188454613-10.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188456744-11.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188458611-12.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188460838-13.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188462366-14.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188464113-15.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188466158-16.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/mechelen/1792188468204-17.jpg",
+   "tekst": "",
+   "camping": "Mechelen"
   }
  ],
  "2025": [
@@ -1207,6 +1292,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2024": [
+   "Mechelen",
    "Vakantiepark Slot Cranendonck",
    "Herfstvakantie",
    "Kerstvakantie"

@@ -17,7 +17,8 @@ const PAK={
   "kindertent"
  ],
  "Koken en eten": [
-  "Gaspit en vullingen",
+  "Gaspit en vullingen of",
+  "Inductie kookplaatje",
   "Koelbox of koelkast gevuld",
   "Afwasspullen en theedoeken",
   "Vuilniszakken",

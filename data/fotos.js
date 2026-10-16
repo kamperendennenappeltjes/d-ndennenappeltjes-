@@ -484,6 +484,11 @@ const FOTOS={
    "src": "img/fotos/2024/mechelen/1792188468204-17.jpg",
    "tekst": "",
    "camping": "Mechelen"
+  },
+  {
+   "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792189547685-1.png",
+   "tekst": "",
+   "camping": "Vakantiepark Slot Cranendonck"
   }
  ],
  "2025": [

@@ -32,6 +32,12 @@ const UIT={
      "url": "https://www.obelink.nl/outwell-etna-solo-kooktoestel-760018.html?utm_source=google&utm_medium=cpc&utm_campaign=23116786542&utm_id=&gad_source=1&gad_campaignid=23116800198&gbraid=0AAAAAD62Df5MAvLwg5j-YGB33ojlrmqFB&gclid=CjwKCAjw88HWBhA3EiwAo2Zd6GRrWgWdsO_ap5-j746_nhy401XXvJxrXs10gP6zFSprZUIzfpOwUhoCiHEQAvD_BwE",
      "code": "",
      "foto": "img/uitrusting/kooktoestel-1792077129404.jpg"
+    },
+    {
+     "n": "Pan met deksel, roestvrij staal, 15.0 l",
+     "url": "https://www.ikea.com/be/nl/p/ikea-365-pan-met-deksel-roestvrij-staal-80484273/",
+     "code": "",
+     "foto": "img/uitrusting/pan-met-deksel-roestvrij-staal-15-0-l-1792142339130.jpg"
     }
    ]
   },

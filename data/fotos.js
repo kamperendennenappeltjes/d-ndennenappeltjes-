@@ -956,6 +956,16 @@ const FOTOS={
    "src": "img/fotos/2025/hemelvaart/1792186880073-12.jpg",
    "tekst": "",
    "camping": "Hemelvaart & CFCK"
+  },
+  {
+   "src": "img/fotos/2025/hemelvaart-cfck/1792189622411-1.png",
+   "tekst": "",
+   "camping": "Hemelvaart & CFCK"
+  },
+  {
+   "src": "img/fotos/2025/hemelvaart-cfck/1792189625001-2.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart & CFCK"
   }
  ],
  "2026": [

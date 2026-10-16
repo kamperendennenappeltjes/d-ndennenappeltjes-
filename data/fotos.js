@@ -284,6 +284,26 @@ const FOTOS={
    "src": "img/fotos/2026/hemelvaart/1792184587114-5.jpg",
    "tekst": "",
    "camping": "Hemelvaart"
+  },
+  {
+   "src": "img/fotos/2026/het-peelvenneke/1792184692552-1.jpg",
+   "tekst": "",
+   "camping": "Het peelvenneke"
+  },
+  {
+   "src": "img/fotos/2026/het-peelvenneke/1792184694434-2.jpg",
+   "tekst": "",
+   "camping": "Het peelvenneke"
+  },
+  {
+   "src": "img/fotos/2026/het-peelvenneke/1792184696277-3.jpg",
+   "tekst": "",
+   "camping": "Het peelvenneke"
+  },
+  {
+   "src": "img/fotos/2026/het-peelvenneke/1792184698324-4.jpg",
+   "tekst": "",
+   "camping": "Het peelvenneke"
   }
  ],
  "Eerder": [

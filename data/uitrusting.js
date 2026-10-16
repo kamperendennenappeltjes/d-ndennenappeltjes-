@@ -65,7 +65,7 @@ const UIT={
    ]
   },
   "Bestek en keukenhulpen": {
-   "t": "Spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, staafmixer, pizza snijder",
+   "t": "Spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, zeven, vergiet, pizza snijder",
    "p": [
     {
      "n": "Bardani bestek",
@@ -84,6 +84,12 @@ const UIT={
      "url": "https://www.action.com/nl-nl/p/3008809/home-essentials-staafmixer/",
      "code": "",
      "foto": "img/uitrusting/staafmixer-1792152134579.png"
+    },
+    {
+     "n": "Keukenweegschaal",
+     "url": "https://www.action.com/nl-nl/p/2572868/elektronische-keukenweegschaal/",
+     "code": "",
+     "foto": "img/uitrusting/keukenweegschaal-1792152354238.png"
     }
    ]
   },

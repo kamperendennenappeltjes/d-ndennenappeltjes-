@@ -84,6 +84,326 @@ const FOTOS={
    "src": "img/fotos/2025/herfstvakantie/1792186219136-2.png",
    "tekst": "",
    "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186618975-1.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186620824-2.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186622840-3.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186625001-4.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186626940-5.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186628988-6.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186630836-7.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186632876-8.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186634932-9.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186636716-10.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186638468-11.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186640665-12.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186642354-13.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186644657-14.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186646495-15.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186648445-16.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186650488-17.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186652540-18.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186655101-19.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186657865-20.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186660528-21.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186662777-22.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186664628-23.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186666578-24.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186668465-25.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186670253-26.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186672816-27.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186675053-28.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186677525-29.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186679683-30.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186681705-31.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186683507-32.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186685507-33.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186687381-34.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186689190-35.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186691279-36.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186693301-37.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186695238-38.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186698000-39.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186699825-40.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186701894-41.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186706096-42.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186708294-43.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186710392-44.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186712293-45.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186714284-46.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186716293-47.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186718176-48.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186720020-49.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186721866-50.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186724013-51.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186726066-52.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186727803-53.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186729441-54.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186731490-55.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186734054-56.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186736305-57.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186740197-58.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186742544-59.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186744600-60.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186746542-61.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186748795-62.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186750844-63.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186752792-64.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
   }
  ],
  "2026": [
@@ -425,6 +745,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2025": [
+   "Camping BlauweMeer",
    "Herfstvakantie",
    "Kerstvakantie"
   ],

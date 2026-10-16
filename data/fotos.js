@@ -1,4 +1,76 @@
 const FOTOS={
+ "2024": [
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187223641-1.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187225711-2.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187228028-3.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187231204-4.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187233149-5.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187235512-6.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187237450-7.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187239290-8.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187241239-9.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187242983-10.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187245028-11.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187247181-12.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187249123-13.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  },
+  {
+   "src": "img/fotos/2024/kerstvakantie/1792187433369-1.jpg",
+   "tekst": "",
+   "camping": "Kerstvakantie"
+  }
+ ],
  "2025": [
   {
    "src": "img/fotos/2025/kerstvakantie/1792185830190-1.jpg",
@@ -804,6 +876,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2024": [
+   "Kerstvakantie"
+  ],
   "2025": [
    "Hemelvaart & CFCK",
    "Camping BlauweMeer",
@@ -819,6 +894,7 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "2024",
   "2025",
   "Eerder",
   "2026"

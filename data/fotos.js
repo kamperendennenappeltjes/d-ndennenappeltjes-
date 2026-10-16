@@ -74,6 +74,16 @@ const FOTOS={
    "src": "img/fotos/2025/herfstvakantie/1792185970755-3.jpg",
    "tekst": "",
    "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/herfstvakantie/1792186216792-1.png",
+   "tekst": "",
+   "camping": "Herfstvakantie"
+  },
+  {
+   "src": "img/fotos/2025/herfstvakantie/1792186219136-2.png",
+   "tekst": "",
+   "camping": "Herfstvakantie"
   }
  ],
  "2026": [

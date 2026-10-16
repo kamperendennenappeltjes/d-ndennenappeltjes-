@@ -33,6 +33,6 @@ const TIPS=[
  },
  {
   "titel": "Opslaan zoetegeit",
-  "tekst": "Zorg voor afsluitbare bakjes voor je zoetegeit zodat je geen last van mieren krijgt"
+  "tekst": "Zorg voor afsluitbare bakjes voor je zoetegeit zodat je geen last van mieren krijgt."
  }
 ];

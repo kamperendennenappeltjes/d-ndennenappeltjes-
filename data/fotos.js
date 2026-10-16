@@ -1255,7 +1255,34 @@ const FOTOS={
    "camping": "Het peelvenneke"
   }
  ],
- "Eerder": [
+ "__plekken": {
+  "2024": [
+   "Vakantiepark Slot Cranendonck",
+   "Mechelen",
+   "Herfstvakantie",
+   "Kerstvakantie"
+  ],
+  "2025": [
+   "Hemelvaart & CFCK",
+   "Camping BlauweMeer",
+   "Herfstvakantie",
+   "Kerstvakantie"
+  ],
+  "2026": [
+   "Het peelvenneke",
+   "Hemelvaart",
+   "Pinksteren/Julianatoren",
+   "Familiepark Goolderheide",
+   "Bobbejaanland"
+  ]
+ },
+ "__orde": [
+  "algemeen",
+  "2024",
+  "2025",
+  "2026"
+ ],
+ "algemeen": [
   {
    "src": "img/foto-8.jpg",
    "tekst": "Auto en caravan"
@@ -1288,32 +1315,5 @@ const FOTOS={
    "src": "img/fotos/eerder/1792188712048-1.jpg",
    "tekst": ""
   }
- ],
- "__plekken": {
-  "2024": [
-   "Vakantiepark Slot Cranendonck",
-   "Mechelen",
-   "Herfstvakantie",
-   "Kerstvakantie"
-  ],
-  "2025": [
-   "Hemelvaart & CFCK",
-   "Camping BlauweMeer",
-   "Herfstvakantie",
-   "Kerstvakantie"
-  ],
-  "2026": [
-   "Het peelvenneke",
-   "Hemelvaart",
-   "Pinksteren/Julianatoren",
-   "Familiepark Goolderheide",
-   "Bobbejaanland"
-  ]
- },
- "__orde": [
-  "Eerder",
-  "2024",
-  "2025",
-  "2026"
  ]
 };

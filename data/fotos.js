@@ -259,6 +259,31 @@ const FOTOS={
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184483384-22.jpg",
    "tekst": "",
    "camping": "Pinksteren/Julianatoren"
+  },
+  {
+   "src": "img/fotos/2026/hemelvaart/1792184578948-1.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart"
+  },
+  {
+   "src": "img/fotos/2026/hemelvaart/1792184581069-2.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart"
+  },
+  {
+   "src": "img/fotos/2026/hemelvaart/1792184583019-3.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart"
+  },
+  {
+   "src": "img/fotos/2026/hemelvaart/1792184584958-4.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart"
+  },
+  {
+   "src": "img/fotos/2026/hemelvaart/1792184587114-5.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart"
   }
  ],
  "Eerder": [

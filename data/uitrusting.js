@@ -110,7 +110,29 @@ const UIT={
     }
    ]
   },
-  "Schoonmaak": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken, emmer, bezem, dweil, poetsdoeken, stofzuiger, Dusty ontvetter",
+  "Schoonmaak": {
+   "t": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
+   "p": [
+    {
+     "n": "Opvouwbare emmer",
+     "url": "https://www.action.com/nl-nl/p/2568526/opvouwbare-emmer/",
+     "code": "",
+     "foto": "img/uitrusting/opvouwbare-emmer-1792152875814.png"
+    },
+    {
+     "n": "Dweil",
+     "url": "https://www.action.com/nl-nl/p/1030003/spargo-microvezel-vloersysteem/",
+     "code": "",
+     "foto": "img/uitrusting/dweil-1792153010834.png"
+    },
+    {
+     "n": "Bezemkop",
+     "url": "https://www.action.com/nl-nl/p/298513/nylonbezemkop/",
+     "code": "",
+     "foto": "img/uitrusting/bezemkop-1792153298476.png"
+    }
+   ]
+  },
   "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden, maggi"
  },
  "Slapen en wonen": {

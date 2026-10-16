@@ -30,5 +30,9 @@ const TIPS=[
  {
   "titel": "Sanitaire stop",
   "tekst": "Mocht je een langere rit hebben zorg ervoor dat je het toilet in de caravan klaar hebt voor gebruik. Zodat je ten alle tijden naar toilet kunt. Zeker fijn met kinderen of een vrouw met zwakke blaas."
+ },
+ {
+  "titel": "Opslaan zoetegeit",
+  "tekst": "Zorg voor afsluitbare bakjes voor je zoetegeit zodat je geen last van mieren krijgt"
  }
 ];

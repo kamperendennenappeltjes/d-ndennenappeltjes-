@@ -45,20 +45,20 @@ const UIT={
    "t": "Borden, soepkommen, bekers, koffiekopjes, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
    "p": [
     {
-     "n": "Kunstof bierglazen",
-     "url": "Sligro",
+     "n": "Kunstof bierglazen (Sligro)",
+     "url": "",
      "code": "",
      "foto": "img/uitrusting/kunstof-bierglazen-1792151622864.png"
     },
     {
-     "n": "Kunstof frisglazen",
-     "url": "Sligro",
+     "n": "Kunstof frisglazen (Sligro)",
+     "url": "",
      "code": "",
      "foto": "img/uitrusting/kunstof-frisglazen-1792151648490.jpg"
     },
     {
-     "n": "Kunstof wijnglazen",
-     "url": "Sligro",
+     "n": "Kunstof wijnglazen (Sligro)",
+     "url": "",
      "code": "",
      "foto": "img/uitrusting/kunstof-wijnglazen-1792151667218.jpg"
     }

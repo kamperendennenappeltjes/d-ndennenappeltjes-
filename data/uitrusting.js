@@ -36,7 +36,7 @@ const UIT={
    ]
   },
   "Servies": "Borden, soepkommen, bekers, koffiekopjes, plastic glazen, plastic wijnglas, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
-  "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer",
+  "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer, pizza snijder",
   "Opslag en koelen": {
    "t": "koelelementen, koelrugzakken, koeltas boodschappen, plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",
    "p": [
@@ -54,7 +54,7 @@ const UIT={
     }
    ]
   },
-  "Schoonmaak": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken, emmer, bezem, dweil, poetsdoeken, stofzuiger,",
+  "Schoonmaak": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, droogmatten, afdruiprek, vuilniszakken, plastic afvalzakken, emmer, bezem, dweil, poetsdoeken, stofzuiger, Dusty ontvetter",
   "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden, maggi"
  },
  "Slapen en wonen": {

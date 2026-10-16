@@ -148,6 +148,12 @@ const UIT={
      "url": "https://www.action.com/nl-nl/p/2546855/afdruipmat/",
      "code": "",
      "foto": "img/uitrusting/afdruip-mat-1792153935651.png"
+    },
+    {
+     "n": "Bo-Camp 13 liter afwasbak met hengsel",
+     "url": "https://www.obelink.nl/bo-camp-13-liter-afwasbak-met-hengsel-blue-500792.html",
+     "code": "",
+     "foto": "img/uitrusting/bo-camp-13-liter-afwasbak-met-hengsel-1792156667201.jpg"
     }
    ]
   },

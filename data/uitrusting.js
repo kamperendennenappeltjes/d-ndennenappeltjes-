@@ -46,19 +46,19 @@ const UIT={
    "p": [
     {
      "n": "Kunstof bierglazen",
-     "url": "",
+     "url": "Sligro",
      "code": "",
      "foto": "img/uitrusting/kunstof-bierglazen-1792151622864.png"
     },
     {
      "n": "Kunstof frisglazen",
-     "url": "",
+     "url": "Sligro",
      "code": "",
      "foto": "img/uitrusting/kunstof-frisglazen-1792151648490.jpg"
     },
     {
      "n": "Kunstof wijnglazen",
-     "url": "",
+     "url": "Sligro",
      "code": "",
      "foto": "img/uitrusting/kunstof-wijnglazen-1792151667218.jpg"
     }

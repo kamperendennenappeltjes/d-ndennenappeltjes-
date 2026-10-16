@@ -132,6 +132,12 @@ const UIT={
      "foto": "img/uitrusting/bezemkop-1792153298476.png"
     },
     {
+     "n": "Bezemsteel",
+     "url": "https://www.action.com/nl-nl/p/2517949/bezemsteel/",
+     "code": "",
+     "foto": "img/uitrusting/bezemsteel-1792154009137.png"
+    },
+    {
      "n": "Afdruip rek",
      "url": "https://www.obelink.nl/michelino-afdruiprek-46-x-37-x-10-cm-4047125702996.html?utm_source=google&utm_medium=cpc&utm_campaign=22005718217&utm_id=&gad_source=1&gad_campaignid=22009565719&gbraid=0AAAAAD62Df7O6hGPQohfiLuse_jhQiYHk&gclid=Cj0KCQjwlsfWBhD4ARIsACL7p1HscW-Q_gSRa4y-2RWXLoTJ6upMCrsk7EEOVvT9cGug7Y4-9kr1WNcaAgO9EALw_wcB",
      "code": "",

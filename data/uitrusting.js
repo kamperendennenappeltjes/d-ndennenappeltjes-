@@ -64,7 +64,29 @@ const UIT={
     }
    ]
   },
-  "Bestek en keukenhulpen": "Bestek, spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, mixer, staafmixer, pizza snijder",
+  "Bestek en keukenhulpen": {
+   "t": "Spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, weegschaal, zeven, vergiet, staafmixer, pizza snijder",
+   "p": [
+    {
+     "n": "Bardani bestek",
+     "url": "https://www.dewitschijndel.nl/bardani-bestekset-met-draadmand-24-delig",
+     "code": "",
+     "foto": "img/uitrusting/bardani-bestek-1792151841737.jpg"
+    },
+    {
+     "n": "Handmixer",
+     "url": "https://www.action.com/nl-nl/p/3221881/home-essentials-handmixer/",
+     "code": "",
+     "foto": "img/uitrusting/handmixer-1792152037101.png"
+    },
+    {
+     "n": "Staafmixer",
+     "url": "https://www.action.com/nl-nl/p/3008809/home-essentials-staafmixer/",
+     "code": "",
+     "foto": "img/uitrusting/staafmixer-1792152134579.png"
+    }
+   ]
+  },
   "Opslag en koelen": {
    "t": "koelelementen, koelrugzakken, koeltas boodschappen, plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",
    "p": [

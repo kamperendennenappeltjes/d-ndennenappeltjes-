@@ -87,6 +87,37 @@ const CAMPINGS=[
   "afvoer": "Ja"
  },
  {
+  "id": "vakantiepark-prinsenmeer",
+  "naam": "Vakantiepark Prinsenmeer",
+  "plaats": "Ommel (gemeente Asten)",
+  "type": "Vakantiepark",
+  "cijfer": 7,
+  "tekst": "Groot vakantiepark in Ommel bij Asten, aan een recreatieplas met zandstrand. Met een subtropisch zwembad, glijbanen, speeltuinen en midgetgolf is er voor kinderen genoeg te doen.",
+  "info": {
+   "Oppervlakte park": "ca. 54 hectare",
+   "Toeristische plaatsen": "483",
+   "Water": "recreatieplas met zandstrand",
+   "Zwembad": "subtropisch zwembad met glijbanen",
+   "Sport en spel": "sportvelden, tennisbanen, speeltuinen, midgetgolf",
+   "Honden": "aan de lijn toegestaan",
+   "Status": "gesloten sinds december 2023"
+  },
+  "plaatsnr": "Park gesloten",
+  "stroom": "10",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja",
+  "url": "",
+  "plus": [
+   "Ruime camping en dus genoeg te zien",
+   "Mooie plekken gezellig il laantjes"
+  ],
+  "min": [
+   "De tempratuur van zwembad mocht wel wat hoger voor een subtropisch zwembad"
+  ],
+  "foto": "img/vakantiepark-prinsenmeer-1792216847794.jpg"
+ },
+ {
   "id": "slot-cranendonck",
   "naam": "Vakantiepark Slot Cranendonck",
   "plaats": "Soerendonk, Noord-Brabant",

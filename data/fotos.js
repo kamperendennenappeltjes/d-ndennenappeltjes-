@@ -69,6 +69,151 @@ const FOTOS={
    "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301209303-14.jpg",
    "tekst": "",
    "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792301994239-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792301997261-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792301999020-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302001871-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302003716-5.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302005826-6.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302007755-7.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302009628-8.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302011641-9.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302013909-10.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302016358-11.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302018198-12.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302020409-13.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302022329-14.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302024377-15.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302026274-16.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302027593-17.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302029514-18.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302031539-19.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302033173-20.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302035157-21.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302037527-22.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302039520-23.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302041221-24.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302043667-25.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302045157-26.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302047131-27.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302048774-28.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302050954-29.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Hengelhoef"
   }
  ],
  "2024": [
@@ -1344,6 +1489,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2023": [
+   "Vakantiepark Hengelhoef",
    "Herfstvakantie ( Soerendonk )"
   ],
   "2024": [

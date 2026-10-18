@@ -218,7 +218,17 @@ const UIT={
     }
    ]
   },
-  "Kleine dingen": "Naaikistje, strijkijzer en strijkplankmat, theelichthouders"
+  "Kleine dingen": {
+   "t": "dennenappels, naaikistje, strijkijzer en strijkplankmat, theelichthouders, citronellakaars,",
+   "p": [
+    {
+     "n": "Obelink Primo badstof stoelhoes",
+     "url": "https://www.obelink.nl/obelink-primo-badstof-stoelhoes.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-primo-badstof-stoelhoes-1792337620777.jpg"
+    }
+   ]
+  }
  },
  "Voortent en buiten": {
   "Tent en luifel": "Voortent, luifel, tentstokken, stormbanden, quickset en Dorema-quicklock, tochtstroken, gordijnen en kapstokken voor de voortent, vliegengordijnen",

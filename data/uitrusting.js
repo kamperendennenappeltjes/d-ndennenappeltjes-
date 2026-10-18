@@ -405,7 +405,7 @@ const UIT={
   },
   "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader",
   "Elektrische apparaten": {
-   "t": "tv",
+   "t": "tv, laptop, telefoons, muziek box, elektrische step",
    "p": [
     {
      "n": "Starlink Standard antenne Elektronische array-antenne",

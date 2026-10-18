@@ -1,4 +1,126 @@
 const FOTOS={
+ "2019": [
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350941774-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350944068-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350945881-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350947795-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350950107-5.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350952023-6.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350954468-7.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350956341-8.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350958746-9.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350960630-10.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350962437-11.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350964069-12.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350966166-13.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350967790-14.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350969390-15.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350970764-16.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350972137-17.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350973521-18.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350975116-19.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350976659-20.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350978212-21.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350979929-22.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350981666-23.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  },
+  {
+   "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350983238-24.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark de Luttenberg"
+  }
+ ],
  "2020": [
   {
    "src": "img/fotos/2020/zomervakantie/1792307047294-1.jpg",
@@ -2744,6 +2866,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2019": [
+   "Vakantiepark de Luttenberg"
+  ],
   "2020": [
    "zomervakantie"
   ],
@@ -2781,6 +2906,7 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "2019",
   "algemeen",
   "2026",
   "2025",

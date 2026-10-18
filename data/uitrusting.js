@@ -494,7 +494,7 @@ const UIT={
   "Veiligheid": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten, brandmelder, koolmonoxide melder,"
  },
  "Gereedschap": {
-  "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat, fietspomp, bandenplak set",
+  "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat",
   "Elektrisch": "Makita-boormachine en -accu's, multimeter, soldeerbout, bladblazer",
   "Onderhoud": "WD-40, tape en lijm, bandenplakset, fietspomp",
   "Schoonmaak": "Stofzuiger, dweilen en dweilstok, bezems, autowasset"

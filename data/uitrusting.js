@@ -171,7 +171,7 @@ const UIT={
     }
    ]
   },
-  "Wonen": {
+  "Wonen en meubilair": {
    "t": "Brabants tafelkleed en Brabantse vlag, klok, tafel, krukje/bijzettafel,",
    "p": [
     {
@@ -302,7 +302,6 @@ const UIT={
     }
    ]
   },
-  "Meubilair": "Stoelen, tafels, bijzettafels en krukjes, opblaasbare bank, schoenenkast,",
   "Schaduw": "Parasol, schaduwdoeken met stokken, warmtelamp, elektrische kachel",
   "Kinderen": "Kindertent",
   "caravan hulpmiddelen": "Reservewiel, disselweger en disselhoes, oprijwig, sleutel mover"

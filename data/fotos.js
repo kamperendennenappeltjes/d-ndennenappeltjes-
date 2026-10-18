@@ -1,4 +1,306 @@
 const FOTOS={
+ "2020": [
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307047294-1.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307051287-2.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307053208-3.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307055298-4.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307057578-5.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307059524-6.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307062242-7.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307064326-8.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307066129-9.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307068863-10.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307070568-11.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307072224-12.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307074272-13.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307076880-14.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307079165-15.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307081591-16.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307083409-17.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307085155-18.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307087121-19.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307089495-20.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307093947-21.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307096963-22.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307099492-23.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307101433-24.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307103653-25.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307105529-26.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307107311-27.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307109282-28.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307111327-29.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307113274-30.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307115004-31.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307117591-32.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307119520-33.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307121375-34.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307123219-35.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307124849-36.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307127014-37.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307129869-38.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307131581-39.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307133873-40.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307135699-41.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307137368-42.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307138830-43.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307140536-44.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307142256-45.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307144101-46.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307145762-47.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307147304-48.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307149057-49.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307151296-50.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307153344-51.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307155888-52.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307157704-53.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307159294-54.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307161726-55.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307163926-56.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307165377-57.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307166928-58.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307168570-59.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  },
+  {
+   "src": "img/fotos/2020/zomervakantie/1792307170168-60.jpg",
+   "tekst": "",
+   "camping": "zomervakantie"
+  }
+ ],
  "2021": [
   {
    "src": "img/fotos/2021/de-lente-van-drenthe/1792305477682-1.jpg",
@@ -2442,6 +2744,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2020": [
+   "zomervakantie"
+  ],
   "2021": [
    "mini camping Krijgsman ( privé dus helaas niet te boeken )",
    "De Lente van Drenthe"
@@ -2476,6 +2781,7 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "2020",
   "algemeen",
   "2026",
   "2025",

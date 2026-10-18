@@ -142,9 +142,9 @@ footer img{height:90px}
 <section id="p-over" class="page s-den"><div class="wrap twee" id="overwrap"></div></section>
 
 <section id="p-meenemen" class="page s-mos"><div class="wrap">
-<h2>Wat neem je mee</h2><p class="lead">Onze paklijst voor een kampeertrip. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.</p>
+<div id="algemeen"><h2>Wat neem je mee</h2><p class="lead">Onze paklijst voor een kampeertrip. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.</p>
 <div class="voortgang"><div class="balk"><i id="bar"></i></div><b id="tel"></b><button class="btn" id="reset" style="border:0;cursor:pointer;font:inherit;font-weight:700">Alles wissen</button></div>
-<div class="lijst" id="paklijst"></div>
+<div class="lijst" id="paklijst"></div></div>
 <div id="uitgebreid"></div></div></section>
 
 <section id="p-uitrusting" class="page s-nacht"><div class="wrap">
@@ -252,9 +252,10 @@ const CK=typeof CHK!=='undefined'?CHK:[{"id": "najaar", "naam": "Najaar", "tekst
 let okx={};try{okx=JSON.parse(localStorage.getItem('pakx')||'{}')}catch(e){}
 let ckOpen=null;
 function drawX(){const w=document.getElementById('uitgebreid');if(!CK.length){w.innerHTML='';return}
-const cur=CK.find(c=>c.id==ckOpen);
-w.innerHTML=`<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p><div class="ukeuze">${CK.map(c=>`<button type="button" data-ck="${E(c.id)}" aria-pressed="${c.id==ckOpen}"><b>${E(c.naam)}</b><small>${E(c.tekst||'Uitgebreide checklist')}</small></button>`).join('')}</div><div id="ckbody"></div></div>`;
-w.querySelectorAll('[data-ck]').forEach(b=>b.onclick=()=>{ckOpen=ckOpen==b.dataset.ck?null:b.dataset.ck;drawX();if(ckOpen)document.getElementById('ckbody').scrollIntoView({behavior:'smooth',block:'start'})});
+const cur=CK.find(c=>c.id==ckOpen);document.getElementById('algemeen').style.display=cur?'none':'';
+if(cur){w.innerHTML=`<p><a class="btn" href="#meenemen" id="ckterug" style="margin:0">&larr; Terug naar de algemene paklijst</a></p><h2>${E(cur.naam)}</h2><p class="lead">${E(cur.tekst||'Uitgebreide checklist')}</p><div id="ckbody"></div>`;document.getElementById('ckterug').onclick=e=>{e.preventDefault();ckOpen=null;drawX();window.scrollTo(0,0)};window.scrollTo(0,0)}
+else w.innerHTML=`<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p><div class="ukeuze">${CK.map(c=>`<button type="button" data-ck="${E(c.id)}" aria-pressed="${c.id==ckOpen}"><b>${E(c.naam)}</b><small>${E(c.tekst||'Uitgebreide checklist')}</small></button>`).join('')}</div><div id="ckbody"></div></div>`;
+if(!cur)w.querySelectorAll('[data-ck]').forEach(b=>b.onclick=()=>{ckOpen=ckOpen==b.dataset.ck?null:b.dataset.ck;drawX()});
 if(!cur)return;
 const key=(c,t,x)=>c.id+'|'+t+'|'+x;
 document.getElementById('ckbody').innerHTML=`<div class="voortgang"><div class="balk"><i id="xbar"></i></div><b id="xtel"></b><button class="btn" id="xreset" style="border:0;cursor:pointer;font:inherit;font-weight:700">Deze lijst wissen</button></div><div class="lijst">${(cur.cats||[]).map(t=>`<div class="cat"><h3>${E(t.n)}</h3>${(t.i||[]).map(x=>`<label><input type="checkbox" data-xk="${E(key(cur,t.n,x))}"><span>${E(x)}</span></label>`).join('')}</div>`).join('')}</div>`;
@@ -263,7 +264,7 @@ const tx=()=>{const n=xb.filter(b=>b.checked).length;document.getElementById('xb
 xb.forEach(b=>{b.checked=!!okx[b.dataset.xk];b.onchange=tx});tx();
 document.getElementById('xreset').onclick=()=>{xb.forEach(b=>b.checked=false);tx()}}
 drawX();
-addEventListener('hashchange',route);route();
+addEventListener('hashchange',()=>{if(ckOpen&&(location.hash||'#home')!='#meenemen'){ckOpen=null;drawX()}});addEventListener('hashchange',route);route();
 </script><script>
 var GC_CODE='dennenappeltjes';
 window.goatcounter={no_onload:true};

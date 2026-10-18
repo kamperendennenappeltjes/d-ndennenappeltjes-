@@ -157,10 +157,20 @@ const UIT={
     }
    ]
   },
-  "Kruiden": "Zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden, maggi"
+  "Kruiden": "zout, peper, kaneel, nootmuskaat, oregano, paprikapoeder, kruidenmixen voor kip, gehaktkruiden, shoarmakruiden, aardappelkruiden, maggi"
  },
  "Slapen en wonen": {
-  "Slapen": "Dekbed, hoeslakens, overtrekken en kussenslopen, slaapzakken en matras voor de kinderen",
+  "Slapen": {
+   "t": "dekbed, hoeslakens, overtrekken en kussenslopen, slaapzakken, topper rondzit ( als kinderen in de caravan slapen)",
+   "p": [
+    {
+     "n": "Outwell Posadas Xl Opklapbed Zwart",
+     "url": "https://www.bol.com/nl/nl/p/outwell-posadas-xl-opklapbed-zwart-77-x-212-x-48-cm/9300000226818334/?Referrer=ADVNLGOO002036-S--9300000226818334-PMAX-C-24189470575&gad_source=1&gad_campaignid=24184652582&gbraid=0AAAAAD5OnmPs1t-Umrj7DV_C1pIoIRNzh&gclid=CjwKCAjw3NHWBhANEiwAtpwIdzaY8pZzhLbW_dGjkhYDg5atRGuq7GSrsN8rj3K-yFaQtU0m1rV3jxoCil8QAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/outwell-posadas-xl-opklapbed-zwart-1792335646342.jpg"
+    }
+   ]
+  },
   "Wonen": "Brabants tafelkleed en Brabantse vlag, klok, tv, muziek box, Starlink of 4G-modem",
   "Kleine dingen": "Naaikistje, strijkijzer en strijkplankmat, theelichthouders"
  },

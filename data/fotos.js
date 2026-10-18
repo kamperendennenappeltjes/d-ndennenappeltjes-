@@ -1,4 +1,76 @@
 const FOTOS={
+ "2023": [
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301180762-1.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301183575-2.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301185735-3.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301187819-4.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301189841-5.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301192101-6.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301194116-7.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301195961-8.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301198084-9.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301200077-10.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301202767-11.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301205001-12.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301207274-13.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  },
+  {
+   "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301209303-14.jpg",
+   "tekst": "",
+   "camping": "Herfstvakantie ( Soerendonk )"
+  }
+ ],
  "2024": [
   {
    "src": "img/fotos/2024/kerstvakantie/1792187223641-1.jpg",
@@ -1271,6 +1343,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2023": [
+   "Herfstvakantie ( Soerendonk )"
+  ],
   "2024": [
    "Vakantiepark Slot Cranendonck",
    "Mechelen",
@@ -1292,6 +1367,7 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "2023",
   "algemeen",
   "2026",
   "2025",

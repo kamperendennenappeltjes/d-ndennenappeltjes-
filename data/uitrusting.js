@@ -267,7 +267,41 @@ const UIT={
    ]
   },
   "Vloer": "Worteldoek, grondzeil, tenttapijten, voetplaten, deurmat",
-  "Haringen en spannen": "Peggy Pegs, haringen, scheerlijnen en spanners, haringhamer, touw, tyraps",
+  "Haringen en spanners": {
+   "t": "haringen, U haringen, scheerlijnen en spanners, haringhamer, touw",
+   "p": [
+    {
+     "n": "Peggy Peg Starterskit haringset",
+     "url": "https://www.obelink.nl/peggy-peg-starterskit-haringset.html",
+     "code": "",
+     "foto": "img/uitrusting/peggy-peg-starterskit-haringset-1792338500272.jpg"
+    },
+    {
+     "n": "Peggy Peg N schroefharingen",
+     "url": "https://www.obelink.nl/peggy-peg-n-schroefharingen.html",
+     "code": "",
+     "foto": "img/uitrusting/peggy-peg-n-schroefharingen-1792338718381.jpg"
+    },
+    {
+     "n": "Peggy Peg XL schroefharingen",
+     "url": "https://www.obelink.nl/peggy-peg-xl-schroefharingen.html",
+     "code": "",
+     "foto": "img/uitrusting/peggy-peg-xl-schroefharingen-1792338806095.jpg"
+    },
+    {
+     "n": "Peggy Peg Impact Tool",
+     "url": "https://www.baxrecreatieshop.nl/peggy-peg-impact-tool.html?_gl=1*1cguxzp*_up*MQ..*_gs*MQ..*_ga*MTEyMzY1NDYyNS4xNzkyMzM4ODgw*_ga_182LBXHW7W*czE3OTIzMzg4NzckbzEkZzAkdDE3OTIzMzg4NzckajYwJGwwJGgxNDkwNTE3NTY1&gclid=CjwKCAjw3NHWBhANEiwAtpwId_9iO4R7etU5S4DKYPJkyaZhgO8lU-TBD9xhiAQO5e7IGqi1uNy7ShoCx4sQAvD_BwE&gbraid=0AAAAADyiE8xGLn-NE-zfSJNllIRg87WbT",
+     "code": "",
+     "foto": "img/uitrusting/peggy-peg-impact-tool-1792338935989.jpg"
+    },
+    {
+     "n": "Isabella Hercules Triple framespanner",
+     "url": "https://www.obelink.nl/isabella-hercules-triple-framespanner.html",
+     "code": "",
+     "foto": "img/uitrusting/isabella-hercules-triple-framespanner-1792339240787.jpg"
+    }
+   ]
+  },
   "Meubilair": "Stoelen, tafels, bijzettafels en krukjes, opblaasbare bank, schoenenkast,",
   "Schaduw": "Parasol, schaduwdoeken met stokken, warmtelamp, elektrische kachel",
   "Kinderen": "Kindertent",

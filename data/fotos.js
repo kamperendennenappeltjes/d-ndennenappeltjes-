@@ -1692,6 +1692,10 @@ const FOTOS={
   {
    "src": "img/fotos/eerder/1792188712048-1.jpg",
    "tekst": ""
+  },
+  {
+   "src": "img/fotos/algemeen/1792302723338-1.jpg",
+   "tekst": ""
   }
  ]
 };

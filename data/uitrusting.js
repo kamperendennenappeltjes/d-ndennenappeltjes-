@@ -368,7 +368,41 @@ const UIT={
     }
    ]
   },
-  "Slim en verlichting": "Slimme stopcontacten, ledstrips met klemmetjes, 12V-lampjes (reserve), lampen, zaklamp, feestsnoer, anti-muggenlamp",
+  "Slim en verlichting": {
+   "t": "Slimme stopcontacten, 12V-lampjes (reserve), lampen, feestsnoer, anti-muggenlamp",
+   "p": [
+    {
+     "n": "LSC Smart Connect slimme RGB ledstrip",
+     "url": "https://www.action.com/nl-nl/p/3225778/lsc-smart-connect-slimme-rgb-ledstrip/",
+     "code": "",
+     "foto": "img/uitrusting/lsc-smart-connect-slimme-rgb-ledstrip-1792341121147.jpg"
+    },
+    {
+     "n": "LSC Smart Connect plafonnière",
+     "url": "https://www.action.com/nl-nl/p/3224757/lsc-smart-connect-plafonniere/",
+     "code": "",
+     "foto": "img/uitrusting/lsc-smart-connect-plafonni-re-1792341168549.jpg"
+    },
+    {
+     "n": "https://www.action.com/nl-nl/p/3224757/lsc-smart-connect-plafonniere/",
+     "url": "https://www.action.com/nl-nl/p/3225722/lsc-smart-connect-draaibare-binnencamera/",
+     "code": "",
+     "foto": "img/uitrusting/https-www-action-com-nl-nl-p-3224757-lsc-smart-connect-plafonniere-1792341241637.jpg"
+    },
+    {
+     "n": "Oplaadbare zaklamp",
+     "url": "https://www.action.com/nl-nl/p/3225098/oplaadbare-zaklamp/",
+     "code": "",
+     "foto": "img/uitrusting/oplaadbare-zaklamp-1792341474820.jpg"
+    },
+    {
+     "n": "Kampeerlamp BL60 60 lumen dynamo",
+     "url": "https://www.decathlon.nl/p/kampeerlamp-bl60-60-lumen-dynamo/340343/m8852812",
+     "code": "",
+     "foto": "img/uitrusting/kampeerlamp-bl60-60-lumen-dynamo-1792341712621.png"
+    }
+   ]
+  },
   "Opladen": "USB-adapters en kabels, oplader voor de elektrische fietsen"
  },
  "Water en sanitair": {

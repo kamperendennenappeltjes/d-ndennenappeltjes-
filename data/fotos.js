@@ -419,6 +419,111 @@ const FOTOS={
    "src": "img/fotos/2021/de-lente-van-drenthe/1792305646871-84.jpg",
    "tekst": "",
    "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306339975-1.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306344270-2.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306346279-3.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306348445-4.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306350264-5.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306352031-6.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306353941-7.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306355993-8.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306358047-9.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306359659-10.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306361398-11.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306363515-12.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306365349-13.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306367265-14.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306368998-15.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306370687-16.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306372480-17.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306374088-18.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306375633-19.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306377179-20.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
+  },
+  {
+   "src": "img/fotos/2021/mini-camping-krijgsman-priv-dus-helaas-niet-te-boeken/1792306378986-21.jpg",
+   "tekst": "",
+   "camping": "mini camping Krijgsman ( privé dus helaas niet te boeken )"
   }
  ],
  "2022": [
@@ -2338,6 +2443,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2021": [
+   "mini camping Krijgsman ( privé dus helaas niet te boeken )",
    "De Lente van Drenthe"
   ],
   "2022": [
@@ -2370,13 +2476,13 @@ const FOTOS={
   ]
  },
  "__orde": [
-  "2021",
   "algemeen",
   "2026",
   "2025",
   "2024",
   "2023",
-  "2022"
+  "2022",
+  "2021"
  ],
  "algemeen": [
   {

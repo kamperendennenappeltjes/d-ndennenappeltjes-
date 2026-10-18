@@ -1,53 +1,62 @@
 const PAK={
  "Caravan en vertrek": [
-  "reserverings papieren",
-  "Trekhaak en stekker controleren",
-  "Bandenspanning auto en caravan",
+  "Reservering papieren",
+  "Trekhaak en verloopstekker",
+  "Bandenspanning auto en caravan controleren",
   "Reservewiel en krik",
-  "verlichting controleren",
+  "Verlichting controleren",
   "Gasfles vol, slang en regelaar controleren",
-  "disselslot en eventueel wielklem"
+  "Disselslot en eventueel wielklem"
  ],
  "Slapen": [
-  "Dekbedden en kussens",
-  "slaapzakken en bedden kinderen",
+  "Dekbed en kussens",
+  "Slaapzakken en bedden kinderen",
   "Lakens en hoeslakens",
   "Slaapkleding",
   "Extra dekens voor koude avonden",
-  "kindertent"
+  "Kindertent",
+  "Knuffel van de kinderen"
  ],
  "Koken en eten": [
   "Gaspit en vullingen of",
-  "Inductie kookplaatje",
+  "Inductie kookplaatje en pan",
   "Koelbox of koelkast gevuld",
   "Afwasspullen en theedoeken",
   "Vuilniszakken",
-  "De open spullen uit  de keuken thuis"
+  "De open spullen uit  de keuken thuis",
+  "Prullenbak thuis legen"
  ],
  "Buiten en voortent": [
-  "Voortent,",
+  "Voortent",
   "Vloer of tentzeil",
   "Tafel en stoelen",
-  "Droogmolen",
-  "Fietsen"
+  "Droogmolen / droogrek",
+  "Fietsen",
+  "Stepjes kinderen"
  ],
- "Elektra en verlichting": [
+ "Elektra": [
   "Tv + muziekbox",
   "Mifi of starlink",
   "Accu boormachine",
-  "Accu bladblaazer",
-  "Oortjes"
+  "Accu bladblazer",
+  "Oortjes",
+  "Verlichting",
+  "Telefoon / tablet"
  ],
  "Kinderen en vermaak": [
   "Spelletjes en kaartspellen",
-  "Badspullen en handdoeken",
+  "Zwemspullen en handdoeken",
   "Regenkleding en laarzen",
-  "Knuffels en boeken"
+  "Lees en kleurboeken",
+  "Digitaal vermaak"
  ],
  "Persoonlijk": [
-  "Kleding voor alle weer",
+  "Kleding voor de juiste weersomstandigheden",
   "Toiletspullen en medicijnen",
   "Zonnebrand en insectenspray",
-  "Camera en laders"
+  "Camera's en laders",
+  "Contant geld",
+  "ID-kaarten / paspoort / rijbewijs",
+  "Goeie zin"
  ]
 };

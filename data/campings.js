@@ -15,7 +15,8 @@ const CAMPINGS=[
   },
   "cijfer": 7,
   "plus": [
-   "Sanitair was heel netjes en werd goed bij gehouden"
+   "Sanitair was heel netjes en werd goed bij gehouden.",
+   "Het is een overzichtelijk park. Kinderen kunnen we weg makkelijk vinden."
   ],
   "min": [
    "Animatie voor de kinderen",
@@ -74,7 +75,8 @@ const CAMPINGS=[
   "url": "",
   "plus": [
    "Goede animatie",
-   "Vriendelijke medewerkers"
+   "Vriendelijke medewerkers",
+   "De controle bij de ingang en beveiliging was goed geregeld op het park"
   ],
   "min": [
    "Onderhoud algemeen kan wel wat beter"
@@ -110,7 +112,7 @@ const CAMPINGS=[
   "url": "",
   "plus": [
    "Ruime camping en dus genoeg te zien",
-   "Mooie plekken gezellig il laantjes"
+   "Mooie plekken gezellige laantjes"
   ],
   "min": [
    "De tempratuur van zwembad mocht wel wat hoger voor een subtropisch zwembad"
@@ -140,13 +142,15 @@ const CAMPINGS=[
   "afvoer": "Ja",
   "url": "https://www.campinghengelhoef.be/",
   "plus": [
-   "gezellig terras",
-   "mooi zembad",
-   "en fijne binnen speeltuin"
+   "Gezellig terras",
+   "Mooi zwembad",
+   "Fijne binnen speeltuin"
   ],
   "min": [
-   "onderhoud algemeen",
-   "animatie voor de kinderen"
+   "Onderhoud algemeen",
+   "Animatie voor de kinderen",
+   "Geen toiletpapier aanwezig",
+   "Kampeerplekken verder naar achter gelegen op het park"
   ],
   "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg"
  },
@@ -168,11 +172,11 @@ const CAMPINGS=[
   "plus": [
    "Fijn zwembad",
    "Goede animatie",
-   "vriendelijke medewerkers"
+   "Vriendelijke medewerkers"
   ],
   "min": [
-   "Onderhoud algemeen.",
-   "Het is jammer dat de huisje niet altijd fijne mensen aan trekt."
+   "Onderhoud algemeen",
+   "Het is jammer dat de huisjes niet altijd fijne mensen aantrekken"
   ],
   "foto": "img/vakantiepark-slot-cranendonck-1791997290859.jpg",
   "plaatsnr": "park gesloten",
@@ -187,7 +191,7 @@ const CAMPINGS=[
   "plaats": "Lommel, België",
   "type": "Camping",
   "emoji": "🏝️",
-  "tekst": "Een vakantiepark aan een meer en bos aan de rand van Lommel. Er is een strandje aan het meer, een restaurant en een binnenzwembad met een grote speelruimte.",
+  "tekst": "Een vakantiepark aan een meer en bos aan de rand van Lommel. Er is een strandje aan het meer, een restaurant, een binnenzwembad en een grote binnen speelruimte met water.",
   "info": {
    "Land": "België, Limburg",
    "Zwembad": "Binnen",
@@ -197,14 +201,15 @@ const CAMPINGS=[
   "cijfer": 7.5,
   "url": "https://www.campingblauwemeer.be/",
   "plus": [
-   "super gezellig terras met iedere avond live muziek",
-   "mooi overdekt speelstrand voor de kinderen",
-   "netjes zwembad het was niet groot maar goed genoeg"
+   "Super gezellig terras met iedere avond live muziek",
+   "Mooi overdekt speelstrand voor de kinderen",
+   "Net zwembad, het was niet groot maar groot genoeg"
   ],
   "min": [
-   "beveiliging rond sanitaire gebouwen zodat de jeugd het niet sloopt",
-   "mini golf kon wel wat onderhoud gebruiken",
-   "de plekken waren herzien waardoor het best krap waren"
+   "Beveiliging rond sanitaire gebouwen zodat de jeugd het niet sloopt",
+   "Mini golf kon wel wat onderhoud gebruiken",
+   "De plekken waren herzien waardoor het best krap was",
+   "Douchen duurde wat langer eerdat je na de waterstop weer water kreeg"
   ],
   "plaatsnr": "S15",
   "stroom": "10",
@@ -240,12 +245,13 @@ const CAMPINGS=[
    "Veel plaatsen met uitzicht op de visvijver",
    "Vissen vanaf de steigers of vanaf je plek",
    "Wandel- en fietsroutes in de omgeving",
-   "Vernieuwd sanitair met ruime douches",
-   "Camperserviceplaats en fietsenstalling"
+   "Vernieuwd sanitair met ruime douche",
+   "Camperserviceplaats en fietsenstalling",
+   "Eigenaren zijn goed zichtbaar op de camping, komen regelmatig langs"
   ],
   "min": [
-   "het is geen verbeter punt maar het is geen camping voor kinderen zonder zwemdiploma aangezien de visvijver die centraal licht.",
-   "stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
+   "Het is geen verbeter punt maar het is geen camping voor kinderen zonder zwemdiploma aangezien de visvijver die centraal licht.",
+   "Stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
   ],
   "foto": "img/camping-het-peelvenneke-1791997319760.jpg"
  },
@@ -266,9 +272,9 @@ const CAMPINGS=[
   "cijfer": 8.5,
   "url": "https://www.goolderheide.be",
   "plus": [
-   "Groot en mooi zwembad + zwem/vis meer",
+   "Groot en mooi zwembad + zwem / vis meer",
    "Goed terras met een mooie nostalgische disco",
-   "Goede animatie zelfs zoveel dat de kinderen haast geen tijd hebt om te eten"
+   "Goede animatie zelfs zoveel dat de kinderen haast geen tijd hebben om te eten"
   ],
   "min": [
    "De wegen ze zijn vrij stoffig (met droog weer)",
@@ -305,15 +311,16 @@ const CAMPINGS=[
   "afvoer": "Ja",
   "url": "eschcampingkaampert.nl",
   "plus": [
-   "Ruime kampeerplaatsen van ongeveer 120 m²",
+   "Ruime kampeerplaatsen van ongeveer 120 m² met mooi nette grasmat",
    "Water, 16A stroom en afvoer op de eigen plek",
    "Nieuw sanitairgebouw en warm water",
    "Rustige, groene ligging bij Markelo",
    "Wandel- en fietsroutes in de omgeving",
-   "Aandacht voor duurzaam kamperen"
+   "Aandacht voor duurzaam kamperen",
+   "Eigenaren zijn zichtbaar op de camping, komen regelmatig langs"
   ],
   "min": [
-   "douches waar zeer netjes en schoon maar de ruimte was krap"
+   "Douche waren zeer netjes en schoon maar de ruimte was krap"
   ],
   "foto": "img/esch-camping-kaampert-1791997332207.jpg"
  }

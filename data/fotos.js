@@ -1,4 +1,241 @@
 const FOTOS={
+ "2022": [
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303413295-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303417999-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303420362-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303422872-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303425159-5.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303427190-6.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303428972-7.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303431538-8.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303433760-9.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303436041-10.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303437883-11.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303440001-12.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303442109-13.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303444170-14.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303445468-15.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303447243-16.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303449053-17.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303450853-18.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303452698-19.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303454715-20.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303456258-21.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303458173-22.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303460178-23.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303462004-24.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303463766-25.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303465353-26.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303467001-27.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303468587-28.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303470351-29.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303472749-30.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303474827-31.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303476626-32.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303478154-33.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303479820-34.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303481619-35.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303483484-36.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303485123-37.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303486919-38.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303489060-39.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303491892-40.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303494365-41.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303495841-42.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303498585-43.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303500315-44.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303501890-45.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303561977-46.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-de-berckt/1792303564574-47.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark De Berckt"
+  }
+ ],
  "2023": [
   {
    "src": "img/fotos/2023/herfstvakantie-soerendonk/1792301180762-1.jpg",
@@ -1628,6 +1865,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2022": [
+   "Vakantiepark De Berckt"
+  ],
   "2023": [
    "Hemelvaart bij huize Krijgsman",
    "Vakantiepark Hengelhoef",
@@ -1654,6 +1894,7 @@ const FOTOS={
   ]
  },
  "__orde": [
+  "2022",
   "algemeen",
   "2026",
   "2025",

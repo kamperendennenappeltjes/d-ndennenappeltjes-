@@ -228,6 +228,29 @@ const UIT={
      "foto": "img/uitrusting/obelink-primo-badstof-stoelhoes-1792337620777.jpg"
     }
    ]
+  },
+  "verwarming en comfort": {
+   "t": "Truma kachel in de caravan, verwarmings kussen",
+   "p": [
+    {
+     "n": "Petroleumkachel Qlima - SRE 3230 TC-2 - Grijs",
+     "url": "https://www.praxis.nl/verwarmingen-airco-s/bijverwarming/petroleumkachels/petroleumkachel-qlima-sre-3230-tc-2-grijs/5455056?channable=02490e696400353435353035368a&utm_source=google&utm_medium=cpc&utm_campaign=PMAX%20%7C%20All%20products&utm_id=17784117273&gad_source=1&gad_campaignid=17793335264&gbraid=0AAAAADm7SDk9F4EnpwFOHXfZWSr9JJF7m&gclid=CjwKCAjw3NHWBhANEiwAtpwId0ZBIg9MkrUFpQy3sqJEYrifArs_X2PZ4_vgG-Ns5c5AiVxLgaaM2RoCuV4QAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/petroleumkachel-qlima-sre-3230-tc-2-grijs-1792340074112.jpg"
+    },
+    {
+     "n": "Partytent heater 750 - 1500 watt",
+     "url": "https://www.gamma.nl/assortiment/partytent-heater-750-1500-watt/p/B121055?store=LVEEN&gclsrc=aw.ds&&utm_source=google&utm_medium=cpc&utm_campaign=PPC%20-%20Shopping%20-%20SB%20-%20TUIN%20-%20124%20SEIZOENSARTIKELEN%20-%20LIA&utm_id=23560156757&bg_source=ga&bg_campaign=23560156757&bg_kw=aud-2502692298693:pla-2491587455194-mi-100421043-pi-B121055-ppi-2491587455194&bg_source_id=822469063197&gad_source=1&gad_campaignid=23560156757&gbraid=0AAAAADqUGn-rOj2xZ-OoeYBkoOYAZcRTe&gclid=CjwKCAjw3NHWBhANEiwAtpwId0-2WlikMBllA6HOf5uWeabZwppdSDwWQqHrtWmj9qfUXLhYpk_TkhoCSTAQAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/partytent-heater-750-1500-watt-1792340356909.jpg"
+    },
+    {
+     "n": "Eurom Comfort Camp 1500 keramische kachel",
+     "url": "https://www.obelink.nl/eurom-comfort-camp-1500-keramische-kachel.html",
+     "code": "",
+     "foto": "img/uitrusting/eurom-comfort-camp-1500-keramische-kachel-1792340439355.jpg"
+    }
+   ]
   }
  },
  "Voortent en buiten": {

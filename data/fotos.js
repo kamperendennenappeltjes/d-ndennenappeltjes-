@@ -234,6 +234,56 @@ const FOTOS={
    "src": "img/fotos/2022/vakantiepark-de-berckt/1792303564574-47.jpg",
    "tekst": "",
    "camping": "Vakantiepark De Berckt"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304171232-1.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304176034-2.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304177854-3.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304179759-4.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304181241-5.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304182986-6.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304184796-7.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304186534-8.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304188401-9.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/hemelvaart/1792304190117-10.jpg",
+   "tekst": "",
+   "camping": "hemelvaart"
   }
  ],
  "2023": [
@@ -1866,6 +1916,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2022": [
+   "hemelvaart",
    "Vakantiepark De Berckt"
   ],
   "2023": [

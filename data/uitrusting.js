@@ -171,7 +171,41 @@ const UIT={
     }
    ]
   },
-  "Wonen": "Brabants tafelkleed en Brabantse vlag, klok, tv, muziek box, Starlink of 4G-modem",
+  "Wonen": {
+   "t": "Brabants tafelkleed en Brabantse vlag, klok,",
+   "p": [
+    {
+     "n": "Obelink Veneto Quick kast",
+     "url": "https://www.obelink.nl/obelink-veneto-quick-kast.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-veneto-quick-kast-1792336069575.jpg"
+    },
+    {
+     "n": "Obelink Avignon Alu campingkast - Grey",
+     "url": "https://www.obelink.nl/obelink-avignon-alu-campingkast-grey-504125.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-avignon-alu-campingkast-grey-1792336207385.jpg"
+    },
+    {
+     "n": "Bo-Camp kast/organizer",
+     "url": "https://www.obelink.nl/bo-camp-kast-organizer.html",
+     "code": "",
+     "foto": "img/uitrusting/bo-camp-kast-organizer-1792336365128.jpg"
+    },
+    {
+     "n": "Human Nature Verona - Campingstoel met zijtafel",
+     "url": "https://www.anwb.nl/webwinkel/p/194417/verona-campingstoel-met-zijtafel-human-nature?anwb_color=253&utm_source=google&utm_medium=cpc&utm_campaign=24346038449&gclsrc=aw.ds&&utm_source=google&utm_medium=cpc&utm_campaign=Shopping%20%7C%20Hardwaren%20%7C%201P%20%7C%20Autumn%20Super%20Seizoendeals%20Push%202026&utm_id=24346038449&bg_source=ga&bg_campaign=24346038449&bg_kw=pla-2506117008878-mi-7574107-pi-20023142_111-112640-ppi-2506117008878&bg_source_id=827761877176&gad_source=1&gad_campaignid=24346038449&gbraid=0AAAAAC9jW62ikcfnn02scN2-5anSLRfqu&gclid=CjwKCAjw3NHWBhANEiwAtpwIdxTCOZCh1Aus_WaKnxAZMmDnCLQMrscEztK3tG0tcy8E1Q1TXxDW5xoCT3gQAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/human-nature-verona-campingstoel-met-zijtafel-1792336542886.jpg"
+    },
+    {
+     "n": "Happy Rhino Stoel Vanoise",
+     "url": "https://www.kampeerhalroden.nl/happy-rhino-stoel-vanoise?channable=05da9261727469636c655f6e756d62657200313036373137325b&source=aw&sv1=affiliate&sv_campaign_id=324775&awc=71123_1792336630_bfcc03082b479be6661e101acee2bf86",
+     "code": "",
+     "foto": "img/uitrusting/happy-rhino-stoel-vanoise-1792336693405.jpg"
+    }
+   ]
+  },
   "Kleine dingen": "Naaikistje, strijkijzer en strijkplankmat, theelichthouders"
  },
  "Voortent en buiten": {

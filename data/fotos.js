@@ -214,6 +214,146 @@ const FOTOS={
    "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302050954-29.jpg",
    "tekst": "",
    "camping": "Vakantiepark Hengelhoef"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302462650-1.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302466291-2.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302468219-3.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302470645-4.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302472976-5.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302475210-6.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302478373-7.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302480537-8.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302483805-9.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302485901-10.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302487863-11.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302490307-12.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302492771-13.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302495439-14.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302497419-15.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302499497-16.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302502206-17.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302504018-18.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302506075-19.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302507795-20.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302509793-21.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302511814-22.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302514135-23.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302516615-24.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302518784-25.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302521717-26.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302525491-27.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
+  },
+  {
+   "src": "img/fotos/2023/hemelvaart-bij-huize-krijgsman/1792302527653-28.jpg",
+   "tekst": "",
+   "camping": "Hemelvaart bij huize Krijgsman"
   }
  ],
  "2024": [
@@ -1489,6 +1629,7 @@ const FOTOS={
  ],
  "__plekken": {
   "2023": [
+   "Hemelvaart bij huize Krijgsman",
    "Vakantiepark Hengelhoef",
    "Herfstvakantie ( Soerendonk )"
   ],

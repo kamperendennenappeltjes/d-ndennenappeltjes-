@@ -351,7 +351,23 @@ const UIT={
   }
  },
  "Elektra en licht": {
-  "Stroom": "CEE-stroomkabel, verloopstekkers, kabelhaspels, verlengkabels, stekkerdozen",
+  "Stroom": {
+   "t": "verloopstekkers, kabelhaspels, verlengkabels, stekkerdozen",
+   "p": [
+    {
+     "n": "Gimeg CEE verlengkabel haaks - 20 meter",
+     "url": "https://www.obelink.nl/gimeg-cee-verlengkabel-haaks-20-meter-8712757398904.html",
+     "code": "",
+     "foto": "img/uitrusting/gimeg-cee-verlengkabel-haaks-20-meter-1792340761486.jpg"
+    },
+    {
+     "n": "Brennenstuhl kabelhaspel leeg",
+     "url": "https://www.praxis.nl/elektra/verlengmaterialen/kabelhaspels/brennenstuhl-kabelhaspel-leeg/5204468?channable=02490e696400353230343436388d&utm_source=google&utm_medium=cpc&utm_campaign=PMAX%20%7C%20All%20products&utm_id=17784117273&gad_source=1&gad_campaignid=17793335264&gbraid=0AAAAADm7SDk9F4EnpwFOHXfZWSr9JJF7m&gclid=CjwKCAjw3NHWBhANEiwAtpwId6fJefBourEB9M6fdTse3576xauMciwGKH06fyFis6X_VujVqVny0hoCu_QQAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/brennenstuhl-kabelhaspel-leeg-1792340957959.jpg"
+    }
+   ]
+  },
   "Slim en verlichting": "Slimme stopcontacten, ledstrips met klemmetjes, 12V-lampjes (reserve), lampen, zaklamp, feestsnoer, anti-muggenlamp",
   "Opladen": "USB-adapters en kabels, oplader voor de elektrische fietsen"
  },

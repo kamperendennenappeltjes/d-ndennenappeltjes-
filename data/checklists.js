@@ -1,7 +1,7 @@
 const CHK=[
  {
   "id": "najaar",
-  "naam": "Najaar",
+  "naam": "Voor- en najaar",
   "tekst": "Herfstkamperen: uitgebreide checklist",
   "cats": [
    {

@@ -417,7 +417,7 @@ const UIT={
     }
    ]
   },
-  "Toilet en douche": {
+  "Toilet": {
    "t": "wc reiniger, wc-matjes, grijswater tank reiniger, scheerspullen, 2 rollen gewoon toiletpapier,",
    "p": [
     {
@@ -448,8 +448,46 @@ const UIT={
   }
  },
  "Badkamer en was": {
-  "Was": "Wasmachine, wasrek, wasknijpers, wasmanden, wasmiddel, wasemmer",
-  "Persoonlijk": "Handdoeken, toiletspullen, washandjes, nagelset"
+  "Was": {
+   "t": "wasrek, wasmolen, wasknijpers, wasmanden, wasmiddel, wasemmer (tupperware)",
+   "p": [
+    {
+     "n": "Brock XXL campingwasmachine - Dubbele trommel - 7,8Kg was en 6,0Kg centrifugecapaciteit",
+     "url": "https://www.bol.com/nl/nl/p/brock-xxl-camping-wasmachine-dubbele-trommel-7-8kg-was-en-6-0kg-centrifuge-capaciteit/9300000029225291/",
+     "code": "",
+     "foto": "img/uitrusting/brock-xxl-campingwasmachine-dubbele-trommel-7-8kg-was-en-6-0kg-centrifugecapaciteit-1792342812794.jpg"
+    }
+   ]
+  },
+  "badkamer": {
+   "t": "Handdoeken, toiletspullen, washandjes, wegwerp washandjes, nagelset, pincet, scheerspullen, borstel, kam,",
+   "p": [
+    {
+     "n": "haarhanddoek microvezel blauw",
+     "url": "https://www.decathlon.nl/p/zachte-haarhanddoek-microvezel-blauw/300576/c298m8857722",
+     "code": "",
+     "foto": "img/uitrusting/haarhanddoek-microvezel-blauw-1792343247318.png"
+    },
+    {
+     "n": "Microvezelhanddoek maat XL 110 x 175 cm ultrazacht lichtgroen",
+     "url": "https://www.decathlon.nl/p/microvezelhanddoek-maat-xl-110-x-175-cm-ultrazacht-lichtgroen/300589/c377c241m8797429",
+     "code": "",
+     "foto": "img/uitrusting/microvezelhanddoek-maat-xl-110-x-175-cm-ultrazacht-lichtgroen-1792343349766.png"
+    },
+    {
+     "n": "Handdoek maat L microvezel 80 x 130 cm blauw",
+     "url": "https://www.decathlon.nl/p/handdoek-maat-l-microvezel-80-x-130-cm-blauw/300568/m8926383",
+     "code": "",
+     "foto": "img/uitrusting/handdoek-maat-l-microvezel-80-x-130-cm-blauw-1792343435381.png"
+    },
+    {
+     "n": "Microvezelhanddoek maat S 39 x 55 cm tweekleurig",
+     "url": "https://www.decathlon.nl/p/microvezelhanddoek-maat-s-39-x-55-cm-tweekleurig-blauw-groen/341947/c237c209c364m8751952",
+     "code": "",
+     "foto": "img/uitrusting/microvezelhanddoek-maat-s-39-x-55-cm-tweekleurig-1792343526541.png"
+    }
+   ]
+  }
  },
  "Gas en veiligheid": {
   "Gas": "Gasflessen, gasslang en regelaar, aanstekers",

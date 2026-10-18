@@ -1,4 +1,426 @@
 const FOTOS={
+ "2021": [
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305477682-1.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305481039-2.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305483260-3.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305485174-4.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305487200-5.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305489476-6.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305492501-7.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305494331-8.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305496347-9.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305498549-10.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305500605-11.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305502352-12.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305505033-13.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305507256-14.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305509404-15.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305511373-16.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305513535-17.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305515577-18.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305517853-19.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305520162-20.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305521948-21.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305523869-22.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305525883-23.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305528042-24.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305529892-25.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305532312-26.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305533934-27.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305535611-28.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305537809-29.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305539896-30.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305541750-31.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305543678-32.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305545751-33.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305547917-34.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305549776-35.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305552051-36.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305553978-37.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305555792-38.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305557541-39.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305559295-40.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305561149-41.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305563781-42.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305566051-43.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305567925-44.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305570257-45.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305572141-46.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305574512-47.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305576458-48.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305578048-49.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305579817-50.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305581715-51.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305583471-52.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305585314-53.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305587276-54.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305589191-55.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305591203-56.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305593287-57.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305595215-58.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305596925-59.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305599162-60.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305601255-61.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305603483-62.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305605354-63.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305607252-64.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305609207-65.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305611192-66.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305613033-67.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305615167-68.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305617022-69.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305619063-70.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305620851-71.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305622806-72.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305624616-73.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305626282-74.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305628349-75.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305629928-76.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305631709-77.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305633724-78.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305636310-79.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305638661-80.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305641207-81.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305643254-82.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305644933-83.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  },
+  {
+   "src": "img/fotos/2021/de-lente-van-drenthe/1792305646871-84.jpg",
+   "tekst": "",
+   "camping": "De Lente van Drenthe"
+  }
+ ],
  "2022": [
   {
    "src": "img/fotos/2022/vakantiepark-de-berckt/1792303413295-1.jpg",
@@ -1915,6 +2337,9 @@ const FOTOS={
   }
  ],
  "__plekken": {
+  "2021": [
+   "De Lente van Drenthe"
+  ],
   "2022": [
    "hemelvaart",
    "Vakantiepark De Berckt"
@@ -1945,12 +2370,13 @@ const FOTOS={
   ]
  },
  "__orde": [
-  "2022",
+  "2021",
   "algemeen",
   "2026",
   "2025",
   "2024",
-  "2023"
+  "2023",
+  "2022"
  ],
  "algemeen": [
   {
@@ -1987,6 +2413,10 @@ const FOTOS={
   },
   {
    "src": "img/fotos/algemeen/1792302723338-1.jpg",
+   "tekst": ""
+  },
+  {
+   "src": "img/fotos/algemeen/1792305434300-1.jpg",
    "tekst": ""
   }
  ]

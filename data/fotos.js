@@ -2906,7 +2906,6 @@ const FOTOS={
   ]
  },
  "__orde": [
-  "2019",
   "algemeen",
   "2026",
   "2025",
@@ -2914,12 +2913,13 @@ const FOTOS={
   "2023",
   "2022",
   "2021",
-  "2020"
+  "2020",
+  "2019"
  ],
  "algemeen": [
   {
    "src": "img/foto-8.jpg",
-   "tekst": "Auto en caravan"
+   "tekst": "Auto met de caravan"
   },
   {
    "src": "img/foto-1.jpg",
@@ -2931,15 +2931,15 @@ const FOTOS={
   },
   {
    "src": "img/foto-5.jpg",
-   "tekst": "Gezin bij de westernhut"
+   "tekst": "Met het gezin in Bobbejaanland"
   },
   {
    "src": "img/foto-11.jpg",
-   "tekst": "Twee kinderen op het gras"
+   "tekst": "De kinderen in hun nieuwe pakkie"
   },
   {
    "src": "img/foto-7.jpg",
-   "tekst": "Twee kampeerders bij de caravans"
+   "tekst": "Samen naar cfck weekend"
   },
   {
    "src": "img/fotos/eerder/1791966896788-1.jpg",
@@ -2947,15 +2947,15 @@ const FOTOS={
   },
   {
    "src": "img/fotos/eerder/1792188712048-1.jpg",
-   "tekst": ""
+   "tekst": "Caravans in het donker"
   },
   {
    "src": "img/fotos/algemeen/1792302723338-1.jpg",
-   "tekst": ""
+   "tekst": "E achter B hoera"
   },
   {
    "src": "img/fotos/algemeen/1792305434300-1.jpg",
-   "tekst": ""
+   "tekst": "Lekkere winter wandeling"
   }
  ]
 };

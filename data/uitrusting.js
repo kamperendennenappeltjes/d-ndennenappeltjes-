@@ -491,7 +491,7 @@ const UIT={
  },
  "Gas en veiligheid": {
   "Gas": "Gasflessen, gasslang, gas regelaar, aanstekers",
-  "Veiligheid": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten"
+  "Veiligheid": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten, brandmelder, koolmonoxide melder"
  },
  "Gereedschap": {
   "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat",

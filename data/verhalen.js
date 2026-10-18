@@ -3,7 +3,7 @@ const VERHALEN=[
   "titel": "Een avond vol kleur",
   "tekst": "De hele rij voortenten licht op. Gezien vanuit de lucht zie je pas hoe mooi het is.",
   "foto": "img/foto-4.jpg",
-  "lang": "het was een prachtig gezicht"
+  "lang": ""
  },
  {
   "titel": "Een dag naar het pretpark",

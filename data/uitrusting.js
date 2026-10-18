@@ -172,7 +172,7 @@ const UIT={
    ]
   },
   "Wonen": {
-   "t": "Brabants tafelkleed en Brabantse vlag, klok,",
+   "t": "Brabants tafelkleed en Brabantse vlag, klok, tafel, krukje/bijzettafel,",
    "p": [
     {
      "n": "Obelink Veneto Quick kast",
@@ -203,6 +203,18 @@ const UIT={
      "url": "https://www.kampeerhalroden.nl/happy-rhino-stoel-vanoise?channable=05da9261727469636c655f6e756d62657200313036373137325b&source=aw&sv1=affiliate&sv_campaign_id=324775&awc=71123_1792336630_bfcc03082b479be6661e101acee2bf86",
      "code": "",
      "foto": "img/uitrusting/happy-rhino-stoel-vanoise-1792336693405.jpg"
+    },
+    {
+     "n": "Intex Pull-Out bank",
+     "url": "https://www.obelink.nl/intex-pull-out-bank.html?utm_source=google&utm_medium=cpc&utm_campaign=21984488343&utm_id=&gad_source=1&gad_campaignid=21984487191&gbraid=0AAAAAD62Df7QcpR1OGe22j-Pc8LXSLdMl&gclid=CjwKCAjw3NHWBhANEiwAtpwIdxCbi5pEPlk1zedQ999yQH2XJEAZVzY3JjLFU1T5LHe0zet7PfWOtxoC2F8QAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/intex-pull-out-bank-1792337244704.jpg"
+    },
+    {
+     "n": "ProPlus Universele tentkapstok met pees & klittenband",
+     "url": "https://www.obelink.nl/proplus-universele-tentkapstok-met-pees-klittenband-681915.html",
+     "code": "",
+     "foto": "img/uitrusting/proplus-universele-tentkapstok-met-pees-klittenband-1792337425090.jpg"
     }
    ]
   },

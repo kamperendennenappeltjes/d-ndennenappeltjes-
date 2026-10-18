@@ -403,7 +403,7 @@ const UIT={
     }
    ]
   },
-  "Opladen": "USB-adapters en kabels, oplader voor de elektrische fietsen"
+  "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader"
  },
  "Water en sanitair": {
   "Water": "Waterslangen en haspel, waterpompen (reserve), waterkoppelingen, kraansplitter, afvoerslang, vuilwatertank, gieter",

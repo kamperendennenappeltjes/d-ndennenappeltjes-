@@ -1,7 +1,7 @@
 const UIT={
  "Keuken": {
   "Koken": {
-   "t": "Pannen , frietpan, tosti-ijzer, combimagnetron, waterkoker",
+   "t": "pannen , frietpan, tosti-ijzer, combimagnetron, waterkoker",
    "p": [
     {
      "n": "Cadac Carri Chef 2",
@@ -42,7 +42,7 @@ const UIT={
    ]
   },
   "Servies": {
-   "t": "Borden, soepkommen, bekers, koffiekopjes, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
+   "t": "borden, soepkommen, bekers, koffiekopjes, kinderbekers, pizzaplank, schaaltjes, drinkflessen",
    "p": [
     {
      "n": "Kunstof bierglazen (Sligro)",
@@ -65,7 +65,7 @@ const UIT={
    ]
   },
   "Bestek en keukenhulpen": {
-   "t": "Spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, zeven, vergiet, pizza snijder",
+   "t": "spatels, garde, dunschillers, kaasschaaf, blikopener, bieropener, wijnopener, knoflookpers, snijplanken, maatbekers, zeven, vergiet, pizza snijder",
    "p": [
     {
      "n": "Bardani bestek",
@@ -94,7 +94,7 @@ const UIT={
    ]
   },
   "Opslag en koelen": {
-   "t": "koelelementen, koelrugzakken, koeltas boodschappen, plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",
+   "t": "koelelementen, koelrugzakken, koeltas (boodschappen), plastic ijsklontjes, coldpack, kaas-/vleesschaaltjes, hagelslag bakjes (afsluitbaar), snoepblik, peperkoek trommel",
    "p": [
     {
      "n": "Tristar Supercool KB-7147 45EGP koelbox",
@@ -111,7 +111,7 @@ const UIT={
    ]
   },
   "Schoonmaak": {
-   "t": "Afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, wasbak, theedoeken, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
+   "t": "afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, theedoeken, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
    "p": [
     {
      "n": "Opvouwbare emmer",

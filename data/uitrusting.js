@@ -403,7 +403,36 @@ const UIT={
     }
    ]
   },
-  "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader"
+  "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader",
+  "Elektrische apparaten": {
+   "t": "tv",
+   "p": [
+    {
+     "n": "Starlink Standard antenne Elektronische array-antenne",
+     "url": "https://www.bol.com/nl/nl/p/starlink-standard-internet-kit-router-met-ingebouwd-modem-wifi-router/9300000153410159/?Referrer=ADVNLGOO002013-S--9300000153410159-PMAX-C-24182032796&gad_source=1&gad_campaignid=24186839500&gbraid=0AAAAAD5OnmPOH11LZqt46Z7G8H-qqVd_3&gclid=CjwKCAjw3NHWBhANEiwAtpwIdzVHCfqTYY8PcV4Q_0Xqdkye-X49yMqcRxL2nRYsItRMHCUSz2g86BoCN6cQAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/starlink-standard-antenne-elektronische-array-antenne-1792344234782.jpg"
+    },
+    {
+     "n": "TP-Link Archer NX600",
+     "url": "https://www.coolblue.nl/product/969958/tp-link-archer-nx600.html?cmt=c_a,cid_24183236610,aid_194937023210,tid_aud-2406912847338:pla-296303633664,gn_g,d_c&utm_source=google&utm_medium=cpc&utm_content=shopping&gad_source=1&gad_campaignid=24183236610&gbraid=0AAAAAD7_VIbRlpa8n9emhO5fqVYDRzOkg&gclid=CjwKCAjw3NHWBhANEiwAtpwIdwwbr31ZD2Vffv1ADKoVCECJ6tTHJl8WouBGv1WYF3Wawarg496DbBoCg_8QAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/tp-link-archer-nx600-1792344286798.jpg"
+    },
+    {
+     "n": "HUAWEI B311-221 MiFi router 150 MBit/s Wit",
+     "url": "https://www.conrad.nl/nl/p/huawei-b311-221-mifi-router-150-mbit-s-wit-2577221.html?utm_source=awin&utm_medium=cpo&utm_campaign=626889&utm_content=productfeed&awcreativeid=0&sv1=affiliate&sv_campaign_id=626889&awc=127991_1792344315_ae4a3be1a6f6242112d5075210a9a870",
+     "code": "",
+     "foto": "img/uitrusting/huawei-b311-221-mifi-router-150-mbit-s-wit-1792344383560.jpg"
+    },
+    {
+     "n": "TP-Link M7350",
+     "url": "https://www.coolblue.nl/product/583338/tp-link-m7350.html?cmt=c_a,cid_24183236610,aid_194937023210,tid_aud-2406912847338:pla-296303633664,gn_g,d_c&utm_source=google&utm_medium=cpc&utm_content=shopping&gad_source=1&gad_campaignid=24183236610&gbraid=0AAAAAD7_VIbRlpa8n9emhO5fqVYDRzOkg&gclid=CjwKCAjw3NHWBhANEiwAtpwIdyoySKkKtNgi_1JZndqDrw8TME_TzRDKtnzWEC_9uMeyHrdLpqEyUhoCMH8QAvD_BwE",
+     "code": "",
+     "foto": "img/uitrusting/tp-link-m7350-1792344433435.jpg"
+    }
+   ]
+  }
  },
  "Water en sanitair": {
   "Water": {
@@ -502,6 +531,6 @@ const UIT={
  "Spelen en vrije tijd": {
   "Spelletjes": "Kaarten, Uno, Rummikub, Yathzee, Qwixx, Skip-Bo, Keezen, Cluedo, Wie is het, 4 op een rij, dammen en schaken, mikado, kubb",
   "Sport en buiten": "Badminton, tennisrackets, tafeltennis, frisbee, ballen, waterpistolen, snorkelspullen",
-  "Rustig": "Kleurboeken, sudoku, camera"
+  "Rustig": "Kleurboeken, sudoku, puzzelboek, leesboek, schrijf en kleur benodigdheden"
  }
 };

@@ -417,7 +417,35 @@ const UIT={
     }
    ]
   },
-  "Toilet en douche": "Chemische wc-vloeistoffen, reiniger en -papier, wc-matjes, douchetas"
+  "Toilet en douche": {
+   "t": "wc reiniger, wc-matjes, douchetas, grijswater tank reiniger, scheerspullen, plankje met zuignap, 2 rollen gewoon toiletpapier, borstel en kam, nagelschaar, pincet",
+   "p": [
+    {
+     "n": "Thetford Aqua Kem Blue Concentrated Eucalyptus toiletvloeistof",
+     "url": "https://www.obelink.nl/thetford-aqua-kem-blue-concentrated-eucalyptus-toiletvloeistof.html",
+     "code": "",
+     "foto": "img/uitrusting/thetford-aqua-kem-blue-concentrated-eucalyptus-toiletvloeistof-1792342167798.jpg"
+    },
+    {
+     "n": "Obelink Flush toilet spoelwatertoevoeging",
+     "url": "https://www.obelink.nl/obelink-flush-toilet-spoelwatertoevoeging-776546.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-flush-toilet-spoelwatertoevoeging-1792342221665.jpg"
+    },
+    {
+     "n": "Thetford Seal Lubricant siliconenspray",
+     "url": "https://www.obelink.nl/thetford-seal-lubricant-siliconenspray.html",
+     "code": "",
+     "foto": "img/uitrusting/thetford-seal-lubricant-siliconenspray-1792342262273.jpg"
+    },
+    {
+     "n": "Thetford Aqua Soft toiletpapier - 6 rollen",
+     "url": "https://www.obelink.nl/thetford-aqua-soft-toiletpapier-6-rollen-758231.html",
+     "code": "",
+     "foto": "img/uitrusting/thetford-aqua-soft-toiletpapier-6-rollen-1792342345200.jpg"
+    }
+   ]
+  }
  },
  "Badkamer en was": {
   "Was": "Wasmachine, wasrek, wasknijpers, wasmanden, wasmiddel, wasemmer",

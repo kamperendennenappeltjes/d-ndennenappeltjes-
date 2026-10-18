@@ -302,9 +302,30 @@ const UIT={
     }
    ]
   },
-  "Schaduw": "Parasol, schaduwdoeken met stokken, warmtelamp, elektrische kachel",
-  "Kinderen": "Kindertent",
-  "caravan hulpmiddelen": "Reservewiel, disselweger en disselhoes, oprijwig, sleutel mover"
+  "Schaduw": "Parasol, schaduwdoeken met stokken,",
+  "caravan hulpmiddelen": {
+   "t": "Reservewiel, disselweger en disselhoes, oprijwig",
+   "p": [
+    {
+     "n": "Obelink onderlegplaten (4x stuks) - 23 cm",
+     "url": "https://www.obelink.nl/obelink-onderlegplaten-met-handvat-4-stuks-23-cm-730928.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-onderlegplaten-4x-stuks-23-cm-1792339512549.jpg"
+    },
+    {
+     "n": "Obelink aluminium steunenset",
+     "url": "https://www.obelink.nl/obelink-aluminium-steunenset.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-aluminium-steunenset-1792339583864.jpg"
+    },
+    {
+     "n": "Obelink Statera 1500 caravan- & camperweger met oprijplaat",
+     "url": "https://www.obelink.nl/obelink-statera-1500-caravan-camperweger-met-oprijplaat-780754.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-statera-1500-caravan-camperweger-met-oprijplaat-1792339663709.jpg"
+    }
+   ]
+  }
  },
  "Elektra en licht": {
   "Stroom": "CEE-stroomkabel, verloopstekkers, kabelhaspels, verlengkabels, stekkerdozen",

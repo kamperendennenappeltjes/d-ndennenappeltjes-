@@ -490,7 +490,7 @@ const UIT={
   }
  },
  "Gas en veiligheid": {
-  "Gas": "Gasflessen, gasslang en regelaar, aanstekers",
+  "Gas": "Gasflessen, gasslang, gas regelaar, aanstekers",
   "Veiligheid": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten"
  },
  "Gereedschap": {

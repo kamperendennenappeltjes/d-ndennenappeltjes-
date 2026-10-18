@@ -406,7 +406,17 @@ const UIT={
   "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader"
  },
  "Water en sanitair": {
-  "Water": "Waterslangen en haspel, waterpompen (reserve), waterkoppelingen, kraansplitter, afvoerslang, vuilwatertank, gieter",
+  "Water": {
+   "t": "Waterslangen, water haspel, waterpompen (reserve), waterkoppelingen, kraansplitter, afvoerslang, vuilwatertank,",
+   "p": [
+    {
+     "n": "EDA slimme gieter",
+     "url": "https://www.obelink.nl/eda-slimme-gieter.html",
+     "code": "",
+     "foto": "img/uitrusting/eda-slimme-gieter-1792342017696.jpg"
+    }
+   ]
+  },
   "Toilet en douche": "Chemische wc-vloeistoffen, reiniger en -papier, wc-matjes, douchetas"
  },
  "Badkamer en was": {

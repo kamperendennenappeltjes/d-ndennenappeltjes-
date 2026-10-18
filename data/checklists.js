@@ -5,35 +5,33 @@ const CHK=[
   "tekst": "Herfstkamperen: uitgebreide checklist",
   "cats": [
    {
-    "n": "Kleding en persoonlijke spullen",
+    "n": "Kleding",
     "i": [
      "Warme truien en vesten",
      "T-shirts en laagjes",
      "Lange broeken",
      "Warme pyjama's",
-     "Dikke sokken",
+     "Sokken",
      "Regenjas en regenbroek",
-     "Waterdichte schoenen/laarzen",
+     "Waterdichte schoenen / laarzen",
      "Sjaal en handschoenen",
-     "Ondergoed en reservekleding",
-     "Toilettas en medicatie",
-     "Handdoeken en washandjes"
+     "Ondergoed",
+     "Reservekleding"
     ]
    },
    {
     "n": "Warm en comfortabel slapen",
     "i": [
-     "Warme dekbedden",
+     "Warm dekbed",
+     "Warme slaapzakken",
      "Extra dekens of plaids",
-     "Warme hoeslakens",
      "Kruik voor in bed",
-     "Warme sokken voor de nacht",
      "Eventueel extra slaapzak",
-     "Oplossing voor condens",
-     "Zakdoekjes",
      "Kachel of warmtelamp",
      "Warme pantoffels of Warme huissokken",
-     "Warme vloer kleden voor binnen"
+     "Warme vloer kleden voor binnen",
+     "Knuffel voor de kinderen",
+     "Slaapmasker"
     ]
    },
    {
@@ -46,11 +44,11 @@ const CHK=[
      "Stevige haringen en hamer",
      "Waterpas",
      "Grondzeil of deurmat",
-     "Zaklamp of hoofdlamp",
+     "Zaklamp",
      "Batterijen en powerbank",
-     "Basisgereedschap",
+     "Gereedschap",
      "Reserve zekeringen",
-     "mifi op starlink",
+     "mifi of starlink",
      "Accu boormachine"
     ]
    },
@@ -58,6 +56,7 @@ const CHK=[
     "n": "Verwarming en veiligheid",
     "i": [
      "Verwarming controleren",
+     "Kachel / warmtelamp voor voortent",
      "Gasinstallatie controleren",
      "Gasfles en aansluiting checken",
      "Rookmelder testen",
@@ -66,21 +65,20 @@ const CHK=[
      "EHBO-set",
      "Pijnstillers en pleisters",
      "Ventilatieopeningen vrijhouden",
-     "Handleiding caravan"
+     "Handleiding caravan",
+     "Warmtedeken / kussen"
     ]
    },
    {
     "n": "Gezelligheid in de caravan",
     "i": [
-     "Warme plaids voor de bank",
+     "Warme plaids",
      "Sfeerverlichting/led lampjes",
      "Led kaarsen",
-     "Leeslampje",
      "Boeken en tijdschriften",
      "Kaart- en bordspelletjes",
-     "Tablet met films ( televisie )",
-     "Koptelefoon",
-     "Gezellige herfstdecoratie"
+     "Tv / tablet",
+     "Koptelefoon / oordopjes"
     ]
    },
    {
@@ -93,23 +91,24 @@ const CHK=[
      "Ontbijtproducten",
      "Groente en fruit",
      "Snacks en koekjes",
-     "Drinkwater en thermosfles",
+     "Drinkwater",
+     "Thermosfles",
      "Olie, kruiden en sauzen",
-     "Keukenpapier en vuilniszakken"
+     "Keukenpapier",
+     "Vuilniszakken"
     ]
    },
    {
     "n": "Buiten en bij regen",
     "i": [
-     "Waterdichte schoenen",
+     "Waterdichte schoenen / laarzen",
      "Extra deurmat tegen modder",
-     "Emmer en borstel",
+     "Emmer",
      "Microvezeldoeken",
-     "Waszak voor natte kleding",
+     "Waszak",
      "Regenbestendige buitenlamp",
-     "Luifel controleren",
-     "Droogrekje voor binnen",
-     "Extra vuilniszakken"
+     "Paraplu's",
+     "Droogrekje voor binnen"
     ]
    },
    {
@@ -118,34 +117,49 @@ const CHK=[
      "Rijbewijs",
      "Kentekenbewijs",
      "Verzekeringspapieren",
-     "Identiteitsbewijzen",
-     "Reserve wiel controleren",
+     "Identiteitsbewijzen / paspoort",
+     "Reserve wiel",
      "Reserveringsbevestiging",
      "Navigatie en opladers",
      "Route en milieu stickers",
      "Veiligheidsvesten",
      "Gevarendriehoek",
+     "Brandblusser",
      "Banden en verlichting checken",
-     "Lekkere snacks en drinken"
+     "Snacks en drinken voor onderweg",
+     "1ltr olie voor de auto",
+     "Startkabels",
+     "Sleepkabel",
+     "Autokrik",
+     "Drinkwater",
+     "Warm kleed"
     ]
    },
    {
     "n": "Badkamer en schoonmaak",
     "i": [
      "Toiletpapier (caravantoilet)",
-     "Toiletreiniger (juiste systeem)",
-     "Toiletvloeistoffen (indien van toepassing)",
+     "Toiletreiniger",
+     "Toiletvloeistoffen",
      "Handzeep",
      "Shampoo en douchegel",
+     "Scheerspullen",
      "Badslippers",
+     "Badjas / onesie",
      "Handdoeken en washandjes",
+     "Wegwerp washandjes",
      "Schoonmaakmiddel",
      "Microvezeldoeken",
      "Afvalzakjes",
      "Toiletborstel",
      "Wasmiddel indien nodig",
      "Extra toiletpapier",
-     "Afwasmiddel en vaatdoekjes"
+     "Afwasmiddel en vaatdoekjes",
+     "Bezem",
+     "Dweil",
+     "Stofzuiger / kruimeldief",
+     "Emmer",
+     "Wasmiddel"
     ]
    },
    {
@@ -158,9 +172,9 @@ const CHK=[
      "Condens dagelijks verwijderen",
      "Ventileren, ook bij koud weer",
      "Natte schoenen laten drogen",
-     "Geen barbecue/kooktoestel binnen",
      "Buitenspullen veilig opbergen",
-     "Luifel bij harde wind afbreken"
+     "Luifel bij harde wind afbreken",
+     "Kachel; gas / petroleum controleren"
     ]
    }
   ]

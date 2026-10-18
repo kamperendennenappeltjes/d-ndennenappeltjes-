@@ -118,6 +118,39 @@ const CAMPINGS=[
   "foto": "img/vakantiepark-prinsenmeer-1792216847794.jpg"
  },
  {
+  "id": "vakantiepark-hengelhoef",
+  "naam": "Vakantiepark Hengelhoef",
+  "plaats": "Houthalen-Helchteren (België)",
+  "type": "Vakantiepark",
+  "cijfer": 7.5,
+  "tekst": "Groot vakantiepark in de bossen van Belgisch-Limburg, met een zandstrand aan een meer en een overdekt subtropisch zwembad met glijbanen. Ideaal voor gezinnen met kinderen: er is veel te doen, zodat je het park bijna niet uit hoeft.",
+  "info": {
+   "Adres": "Tulpenstraat 156, 3530 Houthalen-Helchteren",
+   "Aantal plaatsen": "ongeveer 478, waarvan 368 voor toertenten en caravans",
+   "Open": "het hele jaar door",
+   "Honden": "toegestaan in bepaalde delen (maximaal 1 per verblijf)",
+   "Sanitair": "warme douches, wasmachines en gehandicaptentoilet",
+   "Camperservice": "aanwezig",
+   "Afstand centrum": "ongeveer 6 km"
+  },
+  "plaatsnr": "79",
+  "stroom": "10",
+  "opp": "100",
+  "water": "Ja",
+  "afvoer": "Ja",
+  "url": "https://www.campinghengelhoef.be/",
+  "plus": [
+   "gezellig terras",
+   "mooi zembad",
+   "en fijne binnen speeltuin"
+  ],
+  "min": [
+   "onderhoud algemeen",
+   "animatie voor de kinderen"
+  ],
+  "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg"
+ },
+ {
   "id": "slot-cranendonck",
   "naam": "Vakantiepark Slot Cranendonck",
   "plaats": "Soerendonk, Noord-Brabant",
@@ -181,71 +214,6 @@ const CAMPINGS=[
   "foto": "img/camping-blauwemeer-1791968351216.jpg"
  },
  {
-  "id": "goolderheide",
-  "naam": "Familiepark Goolderheide",
-  "plaats": "Bocholt, België",
-  "type": "Familiepark",
-  "emoji": "🐐",
-  "tekst": "Een uitgebreid familiepark in Belgisch Limburg met buitenbaden, een strand aan het meer, een speeltuin, een restaurant en een winkel. Er is ook een kinderboerderij. Het Nationaal Park Hoge Kempen ligt op ongeveer een half uur rijden.",
-  "info": {
-   "Land": "België, Limburg",
-   "Zwembad": "Buitenbaden",
-   "Strand": "Aan het meer",
-   "Speeltuin": "Ja",
-   "Dieren": "Kinderboerderij"
-  },
-  "cijfer": 8.5,
-  "url": "https://www.goolderheide.be",
-  "plus": [
-   "Groot en mooi zwembad + zwem/vis meer",
-   "Goed terras met een mooie nostalgische disco",
-   "Goede animatie zelfs zoveel dat de kinderen haast geen tijd hebt om te eten"
-  ],
-  "min": [
-   "De wegen ze zijn vrij stoffig (met droog weer)",
-   "Camping winkel had een heel klein assortiment"
-  ],
-  "foto": "img/familiepark-goolderheide-1791962675661.jpg",
-  "plaatsnr": "123",
-  "stroom": "16",
-  "opp": "150",
-  "water": "Ja",
-  "afvoer": "Ja"
- },
- {
-  "id": "vakantiepark-hengelhoef",
-  "naam": "Vakantiepark Hengelhoef",
-  "plaats": "Houthalen-Helchteren (België)",
-  "type": "Vakantiepark",
-  "cijfer": 7.5,
-  "tekst": "Groot vakantiepark in de bossen van Belgisch-Limburg, met een zandstrand aan een meer en een overdekt subtropisch zwembad met glijbanen. Ideaal voor gezinnen met kinderen: er is veel te doen, zodat je het park bijna niet uit hoeft.",
-  "info": {
-   "Adres": "Tulpenstraat 156, 3530 Houthalen-Helchteren",
-   "Aantal plaatsen": "ongeveer 478, waarvan 368 voor toertenten en caravans",
-   "Open": "het hele jaar door",
-   "Honden": "toegestaan in bepaalde delen (maximaal 1 per verblijf)",
-   "Sanitair": "warme douches, wasmachines en gehandicaptentoilet",
-   "Camperservice": "aanwezig",
-   "Afstand centrum": "ongeveer 6 km"
-  },
-  "plaatsnr": "79",
-  "stroom": "10",
-  "opp": "100",
-  "water": "Ja",
-  "afvoer": "Ja",
-  "url": "https://www.campinghengelhoef.be/",
-  "plus": [
-   "gezellig terras",
-   "mooi zembad",
-   "en fijne binnen speeltuin"
-  ],
-  "min": [
-   "onderhoud algemeen",
-   "animatie voor de kinderen"
-  ],
-  "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg"
- },
- {
   "id": "camping-het-peelvenneke",
   "naam": "Camping Het Peelvenneke",
   "plaats": "Zeeland (Noord-Brabant)",
@@ -280,6 +248,38 @@ const CAMPINGS=[
    "stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
   ],
   "foto": "img/camping-het-peelvenneke-1791997319760.jpg"
+ },
+ {
+  "id": "goolderheide",
+  "naam": "Familiepark Goolderheide",
+  "plaats": "Bocholt, België",
+  "type": "Familiepark",
+  "emoji": "🐐",
+  "tekst": "Een uitgebreid familiepark in Belgisch Limburg met buitenbaden, een strand aan het meer, een speeltuin, een restaurant en een winkel. Er is ook een kinderboerderij. Het Nationaal Park Hoge Kempen ligt op ongeveer een half uur rijden.",
+  "info": {
+   "Land": "België, Limburg",
+   "Zwembad": "Buitenbaden",
+   "Strand": "Aan het meer",
+   "Speeltuin": "Ja",
+   "Dieren": "Kinderboerderij"
+  },
+  "cijfer": 8.5,
+  "url": "https://www.goolderheide.be",
+  "plus": [
+   "Groot en mooi zwembad + zwem/vis meer",
+   "Goed terras met een mooie nostalgische disco",
+   "Goede animatie zelfs zoveel dat de kinderen haast geen tijd hebt om te eten"
+  ],
+  "min": [
+   "De wegen ze zijn vrij stoffig (met droog weer)",
+   "Camping winkel had een heel klein assortiment"
+  ],
+  "foto": "img/familiepark-goolderheide-1791962675661.jpg",
+  "plaatsnr": "123",
+  "stroom": "16",
+  "opp": "150",
+  "water": "Ja",
+  "afvoer": "Ja"
  },
  {
   "id": "esch-camping-kaampert",

@@ -418,7 +418,7 @@ const UIT={
    ]
   },
   "Toilet en douche": {
-   "t": "wc reiniger, wc-matjes, douchetas, grijswater tank reiniger, scheerspullen, plankje met zuignap, 2 rollen gewoon toiletpapier, borstel en kam, nagelschaar, pincet",
+   "t": "wc reiniger, wc-matjes, grijswater tank reiniger, scheerspullen, 2 rollen gewoon toiletpapier,",
    "p": [
     {
      "n": "Thetford Aqua Kem Blue Concentrated Eucalyptus toiletvloeistof",

@@ -158,6 +158,7 @@ footer img{height:90px}
 .pijl{position:absolute;top:83px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(240,138,60,.95);color:#1a0f05;font:700 1.6rem/1 Fredoka,sans-serif;cursor:pointer;display:none;place-items:center;z-index:2}
 .pijl.p{left:8px}.pijl.n{right:8px}.car.scroll .pijl{display:grid}
 img[data-vn]{cursor:zoom-in}
+.brij{grid-column:1/-1;order:3;padding:0 26px 24px;display:grid;gap:14px}.brij .car{margin:0}.blok.vol .rij figcaption{color:#1a0f05}.blok.vol .rij{scrollbar-color:var(--nacht) rgba(0,0,0,.2)}.blok.vol .rij::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}.blok.vol .rij::-webkit-scrollbar-thumb{background:var(--nacht)}.duo .rij figure{flex-basis:calc((100% - 14px)/2)}
 @media(max-width:760px){.blok.met,.blok.met.r,.duo{grid-template-columns:1fr}.blok.r .ft{order:0}.ft img,.blok.kop .ft img{height:230px;flex:none}.rij figure{flex-basis:80%}.pijl{top:83px}}
 </style></head><body>
 <nav><div class="wrap"><a href="#home" style="display:flex"><img src="img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b>
@@ -298,24 +299,29 @@ const heeftLang=v=>!!(v.lang&&String(v.lang).trim());
 const vk=(v,i,vol)=>`<article class="kaart">${v.foto?`<img src="${E(v.foto)}" alt="${E(v.titel)}" loading="lazy">`:''}<div><h3>${E(v.titel)}</h3>${par(v.tekst)}${!vol&&heeftLang(v)?`<a class="btn" href="#verhaal/${VS[i]}">Lees meer</a>`:''}</div></article>`;
 document.getElementById('verhalenlijst').innerHTML=VH.length?VH.map((v,i)=>vk(v,i,false)).join(''):'<p class="lead">Hier komen binnenkort onze verhalen te staan.</p>';
 let curV=null;
-function vlang(v){const fo=Array.isArray(v.fotos)?v.fotos:[],used={},B=[];let c={kop:'',p:[],f:null};
-const push=()=>{if(c.kop||c.p.length||c.f!=null)B.push(c);c={kop:'',p:[],f:null}};
+function vlang(v){const fo=Array.isArray(v.fotos)?v.fotos:[],used={},B=[],nb=()=>({kop:'',p:[],f:null,rows:[]});let c=nb();
+const push=()=>{if(c.kop||c.p.length||c.f!=null||c.rows.length)B.push(c);c=nb()};
+const take=g=>{const r=[],add=n=>{if(n>=0&&fo[n]&&fo[n].src&&!used[n]){used[n]=1;r.push(n)}};g.replace(/\s*[-\u2013]\s*/g,'-').split(/[\s,;]+/).forEach(t=>{let m;if(m=t.match(/^(\d+)-(\d+)$/)){let a=+m[1],b=+m[2];if(a<=b){b=Math.min(b,fo.length);for(let n=a;n<=b;n++)add(n-1)}else{a=Math.min(a,fo.length);for(let n=a;n>=b;n--)add(n-1)}}else if(/^\d+$/.test(t))add(t-1)});return r};
 String(v.lang||'').split('\n').map(x=>x.trim()).filter(Boolean).forEach(x=>{let m;
-if(m=x.match(/^\[foto\s*(\d+)\]$/i)){const n=m[1]-1;if(fo[n]&&fo[n].src&&!used[n]){used[n]=1;if(c.f!=null)push();c.f=n}}
-else if(m=x.match(/^\[fotos\s*(\d+)\s*-\s*(\d+)\]$/i)){const r=[];for(let n=+m[1]-1;n<+m[2];n++)if(fo[n]&&fo[n].src&&!used[n]){used[n]=1;r.push(n)}if(r.length){let kop='';if(c.kop&&!c.p.length&&c.f==null){kop=c.kop;c={kop:'',p:[],f:null}}else push();B.push({car:r,kop})}}
+if(m=x.match(/^\[(foto|fotos|rij)\s*([\d\s,;\-\u2013]+)\]$/i)){const k=m[1].toLowerCase(),g=m[2].trim();
+if(k=='foto'&&/^\d+$/.test(g)){const n=g-1;if(fo[n]&&fo[n].src&&!used[n]){used[n]=1;if(c.f!=null)push();c.f=n}}
+else{const r=take(g);if(r.length){
+if(k=='rij'){let kop='';if(c.kop&&!c.p.length&&c.f==null&&!c.rows.length){kop=c.kop;c=nb()}else push();B.push({car:r,kop})}
+else if(c.kop||c.p.length||c.f!=null||c.rows.length)c.rows.push(r);
+else B.push({car:r,kop:''})}}}
 else if(/^\[naast\]$/i.test(x)){push();if(B.length&&!B[B.length-1].car)B[B.length-1].duo=1}
-else if(x.slice(0,3)=='## '){push();c.kop=x.slice(3)}
+else if(m=x.match(/^##(?:\s+(.*))?$/)){push();c.kop=(m[1]||'').trim()}
 else c.p.push(x)});
 push();
-const rest=fo.map((p,n)=>p&&p.src&&!used[n]?n:null).filter(n=>n!=null);if(rest.length)B.push({car:rest,kop:''});
 const im=n=>`<img src="${E(fo[n].src)}" alt="${E(fo[n].tekst||v.titel)}" data-vn="${n}" loading="lazy">`,cap=n=>fo[n].tekst?`<figcaption>${E(fo[n].tekst)}</figcaption>`:'';
+const carH=(r,kop)=>`<div class="car">${kop?`<h3 class="ckop">${E(kop)}</h3>`:''}<div class="cw"><button class="pijl p" aria-label="Vorige">\u2039</button><div class="rij">${r.map(n=>`<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button class="pijl n" aria-label="Volgende">\u203a</button></div></div>`;
 let t=0,side=0,o='',open=0;
 B.forEach(b=>{
-if(b.car){if(open){o+='</div>';open=0}o+=`<div class="car">${b.kop?`<h3 class="ckop">${E(b.kop)}</h3>`:''}<div class="cw"><button class="pijl p" aria-label="Vorige">‹</button><div class="rij">${b.car.map(n=>`<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button class="pijl n" aria-label="Volgende">›</button></div></div>`;return}
-if(b.f!=null&&!b.kop&&!b.p.length){if(open){o+='</div>';open=0}o+=`<figure class="vfoto2">${im(b.f)}${cap(b.f)}</figure>`;return}
+if(b.car){if(open){o+='</div>';open=0}o+=carH(b.car,b.kop);return}
+if(b.f!=null&&!b.kop&&!b.p.length&&!b.rows.length){if(open){o+='</div>';open=0}o+=`<figure class="vfoto2">${im(b.f)}${cap(b.f)}</figure>`;return}
 const vol=t++%2==0,hf=b.f!=null,inDuo=open||b.duo,r=!inDuo&&hf&&(side++%2==1);
 if(!open&&b.duo){o+='<div class="duo">';open=1}
-o+=`<article class="blok ${hf?(inDuo?'kop':'met'):''} ${r?'r':''} ${vol?'vol':''}">${hf?`<figure class="ft">${im(b.f)}${cap(b.f)}</figure>`:''}<div class="tk">${b.kop?`<h3>${E(b.kop)}</h3>`:''}${b.p.map(x=>`<p>${E(x)}</p>`).join('')}</div></article>`;
+o+=`<article class="blok ${hf?(inDuo?'kop':'met'):''} ${r?'r':''} ${vol?'vol':''}">${hf?`<figure class="ft">${im(b.f)}${cap(b.f)}</figure>`:''}<div class="tk">${b.kop?`<h3>${E(b.kop)}</h3>`:''}${b.p.map(x=>`<p>${E(x)}</p>`).join('')}</div>${b.rows.length?`<div class="brij">${b.rows.map(r=>carH(r,'')).join('')}</div>`:''}</article>`;
 if(open&&!b.duo){o+='</div>';open=0}});
 if(open)o+='</div>';
 return o}

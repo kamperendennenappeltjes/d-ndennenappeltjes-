@@ -2,6 +2,7 @@ name: Pagina's en sitemap maken
 on:
   push:
     paths:
+      - 'index.html'
       - 'data/campings.js'
       - 'data/verhalen.js'
       - 'data/uitrusting.js'

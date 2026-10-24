@@ -17,6 +17,10 @@ const TIPS = laad('data/tips.js', 'TIPS');
 const PAK = laad('data/paklijst.js', 'PAK', {});
 const OVER = laad('data/over.js', 'OVER', {});
 const CHK = laad('data/checklists.js', 'CHK');
+const INST = laad('data/instellingen.js', 'INST', {});
+// Aangepaste titels en teksten uit Beheer > Paginateksten. Is er niets aangepast, dan blijft de standaardtekst staan.
+const TX = (INST && INST.teksten) || {};
+const tx = (k, std) => (TX[k] != null && String(TX[k]).trim() !== '') ? String(TX[k]).trim() : std;
 
 const esc = x => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const schoon = x => String(x ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -236,8 +240,8 @@ fs.writeFileSync('campings/index.html', pagina({
   titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
   pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
-  body: `<h1>Onze campings</h1>
-<p class="lead">Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
+  body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
+<p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
 <div style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc(c.plaats || '')}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
 `
 }));
@@ -315,7 +319,7 @@ fs.writeFileSync('verhalen/index.html', pagina({
   titel: 'Verhalen van onze kampeertrips',
   beschrijving: 'Korte verslagen van onze kampeertrips en uitjes met de caravan.',
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
-  body: `<h1>Verhalen van onze avonturen</h1><p class="lead">Korte verslagen van onze trips en uitjes.</p>
+  body: `<h1>${esc(tx('verhalen.h2', 'Verhalen van onze avonturen'))}</h1><p class="lead">${esc(tx('verhalen.lead', 'Korte verslagen van onze trips en uitjes.'))}</p>
 <div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">Lees meer</a>` : ''}</div></article>`).join('')}</div>
 `
 }));
@@ -376,8 +380,8 @@ fs.writeFileSync('uitrusting/index.html', pagina({
   titel: 'Onze uitrusting voor caravan en voortent',
   beschrijving: kort(`Wat er bij ons in de caravan en de voortent zit, per onderdeel: ${UITCATS.map(c => c.naam.toLowerCase()).join(', ')}.`, 158),
   pad: 'uitrusting/', afbeelding: ((UITCATS[0] || { subs: [] }).subs.flatMap(s => s.p).find(q => q.foto) || {}).foto, actief: 'uitrusting', achter: 'nacht',
-  body: `<h1>Onze uitrusting</h1>
-<p class="lead">Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt. Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.</p>
+  body: `<h1>${esc(tx('uitrusting.h2', 'Onze uitrusting'))}</h1>
+<p class="lead">${esc(tx('uitrusting.lead', 'Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt.') + ' ' + tx('uitrusting.lead2', 'Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.'))}</p>
 <div style="margin-top:22px">${UITCATS.map(c => { const f = (c.subs.flatMap(s => s.p).find(q => q.foto) || {}).foto; return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
 `
 }));
@@ -399,8 +403,8 @@ fs.writeFileSync('paklijst/index.html', pagina({
   titel: 'Paklijst voor de caravan: wat neem je mee?',
   beschrijving: kort(`Onze paklijst voor kamperen met de caravan: ${PAKAANTAL} dingen in ${PAKCATS.length} onderdelen, van vertrek en slapen tot koken en kinderen${CHKLIJST.length ? ', plus uitgebreide checklists per seizoen' : ''}. Zo vergeet je niets.`, 158),
   pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: PAKSCRIPT,
-  body: `<h1>Wat neem je mee</h1>
-<p class="lead">Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.</p>
+  body: `<h1>${esc(tx('meenemen.h2', 'Wat neem je mee'))}</h1>
+<p class="lead">${esc(tx('meenemen.lead', 'Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.'))}</p>
 <div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
 <div class="lijst">${PAKCATS.map(([k, a]) => `<div class="cat"><h2>${esc(k)}</h2>${a.map(x => vink('data-k', x, x)).join('')}</div>`).join('')}</div></div>
 ${CHKLIJST.length ? `<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p>
@@ -417,8 +421,8 @@ fs.writeFileSync('tips/index.html', pagina({
   beschrijving: kort(`${TIPLIJST.length} praktische tips voor kamperen met de caravan: ${TIPLIJST.map(t => schoon(t.titel).toLowerCase()).join(', ')}.`, 158),
   pad: 'tips/', afbeelding: '', actief: 'tips', achter: 'nacht',
   jsonld: TIPLIJST.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Kampeertips voor het hele gezin', itemListElement: TIPLIJST.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(t.titel), description: schoon(t.tekst) })) } : null,
-  body: `<h1>Kampeertips voor het hele gezin</h1>
-<p class="lead">Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.</p>
+  body: `<h1>${esc(tx('tips.h2', 'Kampeertips voor het hele gezin'))}</h1>
+<p class="lead">${esc(tx('tips.lead', 'Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.'))}</p>
 <div class="pm" style="margin-top:22px">${TIPLIJST.map(t => `<div class="vlak"><h2>${esc(schoon(t.titel))}</h2><p>${esc(schoon(t.tekst))}</p></div>`).join('')}</div>
 <p><a class="btn" href="../paklijst/">Onze paklijst</a></p>`
 }));

@@ -217,7 +217,7 @@ ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}"
 ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">Naar de website</a></p>` : ''}
 ${feiten.length ? `<div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${lijst(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${lijst(c.min)}</div></div>` : ''}
-<p><a class="btn" href="../index.html#camping/${esc(c.id)}">Bekijk in de website</a><a class="btn s" href="./">Alle campings</a></p>`;
+<p><a class="btn s" href="./">Alle campings</a></p>`;
   const jsonld = c.cijfer ? {
     '@context': 'https://schema.org', '@type': 'Review',
     itemReviewed: { '@type': 'Campground', name: c.naam, ...(c.plaats ? { address: c.plaats } : {}), ...(c.url ? { url: c.url } : {}) },
@@ -234,7 +234,7 @@ fs.writeFileSync('campings/index.html', pagina({
   body: `<h1>Onze campings</h1>
 <p class="lead">Dit zijn de campings en vakantieparken in Nederland en Belgi\u00eb waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
 <div style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc(c.plaats || '')}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
-<p><a class="btn s" href="../index.html#campings">Bekijk in de website</a></p>`
+`
 }));
 
 // ---- verhalen (zelfde opbouw als op de website: kaarten, en bij een uitgebreid verhaal blokken met foto's)
@@ -301,7 +301,7 @@ VERHALEN.forEach(v => {
   const body = `<a class="terug" href="./">Terug naar alle verhalen</a>
 ${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
-<p><a class="btn" href="../index.html#verhaal/${id}">Bekijk in de website</a><a class="btn s" href="./">Alle verhalen</a></p>`;
+<p><a class="btn s" href="./">Alle verhalen</a></p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'Article', headline: schoon(v.titel), description: kort(v.tekst, 200), image: abs(v.foto), author: { '@type': 'Organization', name: SITE }, mainEntityOfPage: `${BASE}/verhalen/${id}.html` };
   fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '' }));
   urls.push([`verhalen/${id}.html`, 0.6]);
@@ -312,7 +312,7 @@ fs.writeFileSync('verhalen/index.html', pagina({
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
   body: `<h1>Verhalen van onze avonturen</h1><p class="lead">Korte verslagen van onze trips en uitjes.</p>
 <div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">Lees meer</a>` : ''}</div></article>`).join('')}</div>
-<p style="margin-top:28px"><a class="btn s" href="../index.html#verhalen">Bekijk in de website</a></p>`
+`
 }));
 
 // ---- uitrusting (een pagina per categorie)
@@ -361,7 +361,7 @@ ${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${
 <p class="lead">Dit is onze uitrusting in de categorie ${esc(c.naam.toLowerCase())}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.</p>
 ${c.subs.length > 1 ? `<div class="chips">${c.subs.map(s => `<a href="#${s.id}">${esc(s.naam)}</a>`).join('')}</div>` : ''}
 ${secties}
-<p style="margin-top:32px"><a class="btn" href="../index.html#uitrusting">Bekijk in de website</a><a class="btn s" href="./">Alle uitrusting</a></p>`;
+<p style="margin-top:32px"><a class="btn s" href="./">Alle uitrusting</a></p>`;
   const items = c.subs.flatMap(s => s.p).map((q, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(q.n) }));
   const jsonld = items.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: `${c.naam}: onze uitrusting`, itemListElement: items } : null;
   fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS }));
@@ -374,7 +374,7 @@ fs.writeFileSync('uitrusting/index.html', pagina({
   body: `<h1>Onze uitrusting</h1>
 <p class="lead">Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt. Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.</p>
 <div style="margin-top:22px">${UITCATS.map(c => { const f = (c.subs.flatMap(s => s.p).find(q => q.foto) || {}).foto; return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
-<p><a class="btn s" href="../index.html#uitrusting">Bekijk in de website</a></p>`
+`
 }));
 
 // ---- paklijst (zelfde vinkjes als op de website: opslag 'pak' en 'pakx')
@@ -415,7 +415,7 @@ fs.writeFileSync('tips/index.html', pagina({
   body: `<h1>Kampeertips voor het hele gezin</h1>
 <p class="lead">Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.</p>
 <div class="pm" style="margin-top:22px">${TIPLIJST.map(t => `<div class="vlak"><h2>${esc(schoon(t.titel))}</h2><p>${esc(schoon(t.tekst))}</p></div>`).join('')}</div>
-<p><a class="btn" href="../paklijst/">Onze paklijst</a><a class="btn s" href="../index.html#tips">Bekijk in de website</a></p>`
+<p><a class="btn" href="../paklijst/">Onze paklijst</a></p>`
 }));
 
 // ---- over ons

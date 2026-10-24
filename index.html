@@ -242,7 +242,7 @@ img[data-vn]{cursor:zoom-in}
 <div class="tips" id="tipslijst"></div></div></section>
 
 <section id="p-campings" class="page s-den"><div class="wrap">
-<h2>Onze campings</h2><p class="lead">Dit zijn de campings en vakantieparken in Nederland en België waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
+<h2>Onze campings</h2><p class="lead">Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
 <div class="filters" id="filters" role="group" aria-label="Filter campings"></div>
 <div id="lijst"></div></div></section>
 
@@ -282,7 +282,7 @@ document.getElementById('reset').onclick=()=>{bx.forEach(b=>b.checked=false);tel
 const mk=document.getElementById('mk'),lk=document.getElementById('lk');
 mk.onclick=()=>{const o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};
 const SEOB="Kamperen met d'n Dennenappeltjes",SEOD="Kampeergezin uit Brabant deelt zijn caravanuitrusting, paklijst, favoriete campings, verhalen en tips voor kamperen met het hele gezin.";
-const SEO={home:[0,SEOD],over:["Over ons","Maak kennis met ons kampeergezin uit Brabant en hoe wij met de caravan op pad gaan."],meenemen:["Paklijst voor de caravan","Onze paklijst voor kamperen met de caravan, per seizoen en onderdeel, om af te vinken."],uitrusting:["Onze uitrusting voor caravan en voortent","Wat er bij ons in de caravan en de voortent zit, met onze ervaringen per onderdeel."],verhalen:["Verhalen van onze kampeertrips","Korte verslagen van onze kampeertrips en uitjes met de caravan."],tips:["Kampeertips voor het hele gezin","Handige tips voor kamperen met de caravan, uit eigen ervaring."],campings:["Onze favoriete campings in Nederland en België","Campings waar wij zijn geweest, met ons cijfer en onze ervaring."],videos:["Kampeervideo's en vlogs","Onze kampeervlogs en video's van de reizen met de caravan."],fotos:["Kampeerfoto's","Foto's van onze reizen en campings."],contact:["Contact","Neem contact op met d'n Dennenappeltjes."]};
+const SEO={home:[0,SEOD],over:["Over ons","Maak kennis met ons kampeergezin uit Brabant en hoe wij met de caravan op pad gaan."],meenemen:["Paklijst voor de caravan","Onze paklijst voor kamperen met de caravan, per seizoen en onderdeel, om af te vinken."],uitrusting:["Onze uitrusting voor caravan en voortent","Wat er bij ons in de caravan en de voortent zit, met onze ervaringen per onderdeel."],verhalen:["Verhalen van onze kampeertrips","Korte verslagen van onze kampeertrips en uitjes met de caravan."],tips:["Kampeertips voor het hele gezin","Handige tips voor kamperen met de caravan, uit eigen ervaring."],campings:["Onze favoriete campings","Campings waar wij zijn geweest, met ons cijfer en onze ervaring."],videos:["Kampeervideo's en vlogs","Onze kampeervlogs en video's van de reizen met de caravan."],fotos:["Kampeerfoto's","Foto's van onze reizen en campings."],contact:["Contact","Neem contact op met d'n Dennenappeltjes."]};
 const seoClean=x=>String(x==null?'':x).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 function seoCut(x,n){x=seoClean(x);return x.length>n?x.slice(0,n-1).replace(/\s+\S*$/,'')+'\u2026':x}
 function seoSet(p,id){let t='',d=SEOD;

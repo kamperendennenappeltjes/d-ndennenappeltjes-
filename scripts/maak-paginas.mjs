@@ -37,12 +37,12 @@ h1,h2,h3{font-family:Fredoka,"Trebuchet MS",sans-serif;line-height:1.15;margin:0
 h1{font-size:clamp(1.9rem,4vw,2.8rem)}h3{font-size:1.2rem}
 a{color:var(--oranje)}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-nav{position:sticky;top:0;z-index:20;background:rgba(13,26,21,.94);backdrop-filter:blur(8px)}
+nav{position:sticky;top:0;z-index:20;background:rgba(13,26,21,.94);backdrop-filter:blur(8px);padding-top:env(safe-area-inset-top,0px)}
 nav .wrap{display:flex;align-items:center;gap:18px;height:62px}
 nav img{height:44px;width:44px;object-fit:contain}
 nav b{font-family:Fredoka,sans-serif;font-size:1.05rem;margin-right:auto}
 nav a{color:var(--room);text-decoration:none;font-weight:700;font-size:.95rem}
-nav a:hover{color:var(--oranje)}nav .links{display:flex;gap:16px}
+nav a:hover{color:var(--oranje)}nav .links{display:flex;gap:16px;flex-wrap:wrap}nav .links a{font-size:.9rem}
 nav a.on{color:var(--oranje);box-shadow:0 3px 0 var(--oranje)}
 main{padding:64px 0 72px;min-height:60vh}
 .terug{display:inline-block;margin-bottom:18px;font-weight:700}
@@ -105,8 +105,6 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .ck-knop.ja{background:var(--oranje);color:#1a0f05}
 .ck-knop.nee{background:var(--mos);color:var(--room)}
 .ck-link{background:none;border:0;padding:0;margin-top:8px;font:inherit;color:var(--zacht);text-decoration:underline;cursor:pointer}
-nav a,nav b{white-space:nowrap}
-@media(max-width:1180px){nav b{display:none}nav img+*{margin-left:0}nav .links{margin-left:auto}}
 @media(max-width:900px){.menuknop{display:block}nav .wrap{flex-wrap:wrap;height:auto;min-height:62px}nav .links{display:none;width:100%;flex-direction:column;gap:0;padding-bottom:10px}nav .links.open{display:flex}nav .links a{display:block;padding:12px 4px;border-top:1px solid rgba(255,255,255,.12)}}
 .vlak h2{font-size:1.25rem}
 .twee{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}

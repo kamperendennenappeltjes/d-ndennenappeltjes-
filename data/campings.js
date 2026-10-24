@@ -44,7 +44,7 @@ const CAMPINGS=[
    "Speeltuin": "Ja",
    "Honden": "Toegestaan"
   },
-  "cijfer": 6.5,
+  "cijfer": 6,
   "plus": [
    "De omgeving was mooi om te gaan fietsen"
   ],
@@ -329,7 +329,7 @@ const CAMPINGS=[
   "naam": "Landal Klein Vink (voorheen Roompot Klein Vink)",
   "plaats": "Arcen (Limburg)",
   "type": "Vakantiepark met camping",
-  "cijfer": 7,
+  "cijfer": 6.5,
   "tekst": "Landal Klein Vink is een groot recreatiepark in het bos bij Arcen. Het ligt naast Thermaal bad Arcen en aan een recreatieplas met een zandstrand. De kampeerplaatsen zijn comfortplaatsen. Je hebt er stroom, water, afvoer, kabel-tv en gratis wifi. Het is een goede basis voor gezinnen, want er zijn speeltuinen en een zwembad. Het dorpscentrum van Arcen ligt op 3 km.",
   "info": {
    "Adres": "Klein Vink 4, 5944 EX Arcen",

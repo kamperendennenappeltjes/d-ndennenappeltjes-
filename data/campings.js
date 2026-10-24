@@ -323,5 +323,47 @@ const CAMPINGS=[
    "Douche waren zeer netjes en schoon maar de ruimte was krap"
   ],
   "foto": "img/esch-camping-kaampert-1791997332207.jpg"
+ },
+ {
+  "id": "landal-klein-vink-voorheen-roompot-klein-vink",
+  "naam": "Landal Klein Vink (voorheen Roompot Klein Vink)",
+  "plaats": "Arcen (Limburg)",
+  "type": "Vakantiepark met camping",
+  "cijfer": 7,
+  "tekst": "Landal Klein Vink is een groot recreatiepark in het bos bij Arcen. Het ligt naast Thermaal bad Arcen en aan een recreatieplas met een zandstrand. De kampeerplaatsen zijn comfortplaatsen. Je hebt er stroom, water, afvoer, kabel-tv en gratis wifi. Het is een goede basis voor gezinnen, want er zijn speeltuinen en een zwembad. Het dorpscentrum van Arcen ligt op 3 km.",
+  "info": {
+   "Adres": "Klein Vink 4, 5944 EX Arcen",
+   "Type plaats": "Comfortplaats",
+   "Kabel-tv": "Ja",
+   "Wifi": "Gratis",
+   "Honden": "Toegestaan",
+   "Zwembad": "Ja",
+   "Speeltuin": "Ja",
+   "Zwemwater": "Recreatieplas met zandstrand",
+   "Wellness": "Thermaalbad Arcen naast het park",
+   "Afstand dorpscentrum": "3 km (Arcen)",
+   "Aantal standplaatsen": "ca. 215",
+   "Ondergrond": "Gras en gedeeltelijk verharding"
+  },
+  "plaatsnr": "E67",
+  "stroom": "10",
+  "opp": "±80",
+  "water": "Ja",
+  "afvoer": "Ja",
+  "url": "https://www.landalcamping.nl/campings/klein-vink#filter:eyJzIjoiMyJ9",
+  "plus": [
+   "Het zwembad op de camping was goed warm en fijn om te zwemmen.",
+   "De thermaal baden zijn ook zeer fijn om heen te gaan, voordeel als je op de camping staat krijg je korting op je entree van de thermaal baden.",
+   "Mooi ruim park.",
+   "Voor degene die van vissen houden kunnen hier vooruit op de grote ruime vijvers.",
+   "De campingwinkel is zeer divers.",
+   "Vriendelijke medewerkers op het park."
+  ],
+  "min": [
+   "Animatie m.b.t. de kosten, moet voor veel dingen betalen.",
+   "Sanitair is wat verouderd, douches zijn klein. Geen sanitair gebouw aanwezig met familiedouche. Je mist een plankje om je zeep e.d. op te zetten in de douche.",
+   "Kampeerplekken zijn heel schuin."
+  ],
+  "foto": "img/landal-klein-vink-voorheen-roompot-klein-vink-1792863745518.jpg"
  }
 ];

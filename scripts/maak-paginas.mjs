@@ -228,11 +228,11 @@ ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div c
   urls.push([`campings/${c.id}.html`, 0.7]);
 }
 fs.writeFileSync('campings/index.html', pagina({
-  titel: 'Onze campings in Nederland en Belgi\u00eb: ervaringen en cijfers',
+  titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
   pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
   body: `<h1>Onze campings</h1>
-<p class="lead">Dit zijn de campings en vakantieparken in Nederland en Belgi\u00eb waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
+<p class="lead">Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.</p>
 <div style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc(c.plaats || '')}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
 `
 }));

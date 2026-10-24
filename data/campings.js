@@ -363,7 +363,7 @@ const CAMPINGS=[
    "Animatie m.b.t. de kosten, moet voor veel dingen betalen.",
    "Sanitair is wat verouderd, douches zijn klein. Geen sanitair gebouw aanwezig met familiedouche. Je mist een plankje om je zeep e.d. op te zetten in de douche.",
    "Kampeerplekken zijn heel schuin.",
-   "grotere plaatsen maken met een oppervlakte vanaf 100m2"
+   "De plaatsen zijn vrij klein maar net 80 m2 en er is geen ander keus"
   ],
   "foto": "img/landal-klein-vink-voorheen-roompot-klein-vink-1792863745518.jpg"
  }

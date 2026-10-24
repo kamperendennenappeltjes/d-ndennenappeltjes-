@@ -197,13 +197,17 @@ ${body}
 </div></main>
 <div class="ruit"></div>
 <div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopi\u00ebren</button></div></div>
-<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p><p><a href="../index.html">Naar de website</a> &middot; <button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
+<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p><p>${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
 <script>${COOKIEJS}</script>
 <script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();${script}</script>
 </body></html>
 `;
 }
 
+const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Terug naar boven</a></p>`;
+// Versienummer overnemen uit index.html (dezelfde plek als in de footer van de home page)
+let VERSIE = '';
+try { const m = fs.readFileSync('index.html', 'utf8').match(/<small>\s*(versie\s*[\w.]+)\s*<\/small>/i); if (m) VERSIE = `<small>${m[1]}</small><br>`; } catch (e) {}
 const lijst = a => Array.isArray(a) && a.length ? `<ul>${a.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
 
 const MAPPEN = ['campings', 'verhalen', 'uitrusting', 'paklijst', 'tips', 'over-ons'];
@@ -243,7 +247,7 @@ fs.writeFileSync('campings/index.html', pagina({
   body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
 <div style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc(c.plaats || '')}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
-`
+${NAARBOVEN}`
 }));
 
 // ---- verhalen (zelfde opbouw als op de website: kaarten, en bij een uitgebreid verhaal blokken met foto's)
@@ -370,7 +374,7 @@ ${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${
 <p class="lead">Dit is onze uitrusting in de categorie ${esc(c.naam.toLowerCase())}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.</p>
 ${c.subs.length > 1 ? `<div class="chips">${c.subs.map(s => `<a href="#${s.id}">${esc(s.naam)}</a>`).join('')}</div>` : ''}
 ${secties}
-<p style="margin-top:32px"><a class="btn s" href="./">Alle uitrusting</a></p>`;
+${NAARBOVEN}`;
   const items = c.subs.flatMap(s => s.p).map((q, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(q.n) }));
   const jsonld = items.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: `${c.naam}: onze uitrusting`, itemListElement: items } : null;
   fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS }));

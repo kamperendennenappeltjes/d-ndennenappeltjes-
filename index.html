@@ -203,19 +203,19 @@ img[data-vn]{cursor:zoom-in}
 </style></head><body>
 <nav><div class="wrap"><a href="#home" style="display:flex"><img src="img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b>
 <button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button>
-<div class="links" id="lk"><a href="#home">Home</a><a href="#over">Over ons</a><a href="#meenemen">Wat neem je mee</a><a href="#uitrusting">Uitrusting</a><a href="#campings">Campings</a><a href="#verhalen">Verhalen</a><a href="#tips">Tips</a><a href="#fotos">Foto's</a><a href="#videos">Video's</a><a href="#contact">Contact</a></div></div></nav>
+<div class="links" id="lk"><a href="#home">Home</a><a href="over-ons/" data-r="#over">Over ons</a><a href="paklijst/" data-r="#meenemen">Wat neem je mee</a><a href="uitrusting/" data-r="#uitrusting">Uitrusting</a><a href="campings/" data-r="#campings">Campings</a><a href="verhalen/" data-r="#verhalen">Verhalen</a><a href="tips/" data-r="#tips">Tips</a><a href="#fotos">Foto's</a><a href="#videos">Video's</a><a href="#contact">Contact</a></div></div></nav>
 <main>
 
 <div class="page" id="p-home"><header class="hero"><div class="wrap"><div>
 <h1>Kamperen met d'n Dennenappeltjes</h1>
 <p>Met de caravan op pad, met het hele gezin. Onze uitrusting, verhalen, tips en favoriete campings, bij elkaar op één plek.</p>
-<a class="btn" href="#verhalen">Lees onze verhalen</a><a class="btn rood" href="#campings">Onze campings</a></div>
+<a class="btn" href="verhalen/">Lees onze verhalen</a><a class="btn rood" href="campings/">Onze campings</a></div>
 <img class="logo" src="img/logo.png" alt="Logo van d'n Dennenappeltjes"></div></header>
 <section class="s-den"><div class="wrap"><h2>Waar zoek je naar?</h2><div class="tegels">
-<a class="tegel" href="#meenemen"><span>🎒</span><h3>Wat neem je mee</h3><p>Onze complete paklijst om af te vinken.</p></a>
-<a class="tegel" href="#campings"><span>⛺</span><h3>Campings</h3><p>Waar we waren en wat we ervan vonden.</p></a>
-<a class="tegel" href="#verhalen"><span>📖</span><h3>Verhalen</h3><p>Verslagen van onze trips.</p></a>
-<a class="tegel" href="#tips"><span>💡</span><h3>Tips</h3><p>Dit hebben we onderweg geleerd.</p></a>
+<a class="tegel" href="paklijst/"><span>🎒</span><h3>Wat neem je mee</h3><p>Onze complete paklijst om af te vinken.</p></a>
+<a class="tegel" href="campings/"><span>⛺</span><h3>Campings</h3><p>Waar we waren en wat we ervan vonden.</p></a>
+<a class="tegel" href="verhalen/"><span>📖</span><h3>Verhalen</h3><p>Verslagen van onze trips.</p></a>
+<a class="tegel" href="tips/"><span>💡</span><h3>Tips</h3><p>Dit hebben we onderweg geleerd.</p></a>
 </div></div></section></div>
 
 <section id="p-over" class="page s-den"><div class="wrap twee" id="overwrap"></div></section>
@@ -295,7 +295,7 @@ set('meta[name="description"]',d);set('meta[property="og:title"]',full);set('met
 function route(){const h=(location.hash||'#home').slice(1).split('/');let p=h[0];
 if(p=='camping'){if(!showCamp(h[1]))p='campings'}else if(p=='verhaal'){if(!showVerhaal(h[1]))p='verhalen'}else if(!document.getElementById('p-'+p))p='home';
 document.querySelectorAll('.page').forEach(e=>e.classList.toggle('on',e.id=='p-'+p));
-const nv=p=='camping'?'campings':p=='verhaal'?'verhalen':p;lk.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+nv));
+const nv=p=='camping'?'campings':p=='verhaal'?'verhalen':p;lk.querySelectorAll('a').forEach(a=>a.classList.toggle('on',(a.dataset.r||a.getAttribute('href'))=='#'+nv));
 lk.classList.remove('open');mk.setAttribute('aria-expanded',false);if(p=='fotos')drawF();seoSet(p,h[1]);window.scrollTo(0,0)}
 
 const f=document.getElementById('filters'),l=document.getElementById('lijst');let cur='Alle';

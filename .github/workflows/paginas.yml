@@ -9,6 +9,7 @@ on:
       - 'data/paklijst.js'
       - 'data/over.js'
       - 'data/checklists.js'
+      - 'data/instellingen.js'
       - 'scripts/maak-paginas.mjs'
   workflow_dispatch:
 permissions:

@@ -125,7 +125,11 @@ nav a,nav b{white-space:nowrap}
 .uk{background:var(--den);border:2px solid rgba(240,138,60,.5);border-radius:18px;padding:18px 20px;margin:14px 0}
 .uk summary{cursor:pointer;list-style:none}.uk summary::-webkit-details-marker{display:none}
 .uk summary b{display:block;font:700 1.3rem Fredoka,sans-serif}.uk summary small{color:var(--zacht)}
-.uk[open] summary{margin-bottom:6px}</style></head><body class="mos">
+.uk[open] summary{margin-bottom:6px}
+.deel{background:var(--nacht);padding:22px 0;text-align:center;border-top:1px solid rgba(246,236,214,.12)}
+.deel p{margin:0 0 10px;font-family:Fredoka,sans-serif;font-size:1.05rem}
+.deel .dk{display:inline-block;margin:4px;padding:10px 18px;border-radius:999px;border:2px solid var(--oranje);background:var(--mos);color:var(--room);font:700 .95rem Nunito,sans-serif;text-decoration:none;cursor:pointer}
+.deel .dk:hover,.deel .dk:focus-visible{background:var(--oranje);color:#1a0f05}</style></head><body class="mos">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk"><a href="../index.html">Home</a><a href="../over-ons/">Over ons</a><a href="../paklijst/">Wat neem je mee</a><a href="../uitrusting/">Uitrusting</a><a href="../campings/">Campings</a><a href="../verhalen/" class="on">Verhalen</a><a href="../tips/">Tips</a><a href="../index.html#fotos">Foto's</a><a href="../index.html#videos">Video's</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <main><div class="wrap">
 <a class="terug" href="./">Terug naar alle verhalen</a>
@@ -134,6 +138,7 @@ nav a,nav b{white-space:nowrap}
 <p><a class="btn s" href="./">Alle verhalen</a></p>
 </div></main>
 <div class="ruit"></div>
+<div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopiëren</button></div></div>
 <footer><div class="wrap"><img src="../img/logo.png" alt="Kamperen met d'n Dennenappeltjes"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p><p><a href="../index.html">Naar de website</a> &middot; <button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
 <script>var CKEY='dennenappeltjes-cookies';function ckRead(){try{var r=localStorage.getItem(CKEY)||sessionStorage.getItem(CKEY);return r?JSON.parse(r):null}catch(e){return null}}function ckSave(o){try{var j=JSON.stringify(o);if(o.stat||o.vid){localStorage.setItem(CKEY,j);sessionStorage.removeItem(CKEY)}else{sessionStorage.setItem(CKEY,j);localStorage.removeItem(CKEY)}}catch(e){}}function ckOk(k){var c=ckRead();return !!(c&&c[k])}
 var GC_CODE='dennenappeltjes';
@@ -159,5 +164,5 @@ var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){
 });
 var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 })();</script>
-<script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};</script>
+<script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();</script>
 </body></html>

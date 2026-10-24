@@ -1,0 +1,31 @@
+name: Pagina's en sitemap maken
+on:
+  push:
+    paths:
+      - 'data/campings.js'
+      - 'data/verhalen.js'
+      - 'data/uitrusting.js'
+      - 'data/tips.js'
+      - 'data/paklijst.js'
+      - 'data/over.js'
+      - 'data/checklists.js'
+      - 'scripts/maak-paginas.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  paginas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Pagina's maken
+        run: node scripts/maak-paginas.mjs
+      - name: Opslaan
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add campings verhalen uitrusting paklijst tips over-ons sitemap.xml robots.txt
+          git diff --cached --quiet || (git commit -m "Pagina's en sitemap bijgewerkt" && git push)

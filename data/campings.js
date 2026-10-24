@@ -343,7 +343,7 @@ const CAMPINGS=[
    "Wellness": "Thermaalbad Arcen naast het park",
    "Afstand dorpscentrum": "3 km (Arcen)",
    "Aantal standplaatsen": "ca. 215",
-   "Ondergrond": "Gras en gedeeltelijk verharding"
+   "Ondergrond": "Gras"
   },
   "plaatsnr": "E67",
   "stroom": "10",

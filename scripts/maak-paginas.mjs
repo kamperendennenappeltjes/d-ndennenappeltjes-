@@ -110,7 +110,7 @@ nav a,nav b{white-space:nowrap}
 .fotos{display:grid;gap:16px}.fotos .foto{margin:0;max-height:none}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}
 .chips a{border:2px solid var(--oranje);border-radius:999px;padding:8px 18px;text-decoration:none;color:var(--room);font-weight:700}
-.chips a:hover{background:var(--oranje);color:#1a0f05}
+.chips a:hover,.chips a.on{background:var(--oranje);color:#1a0f05}
 .sub{margin-top:38px;scroll-margin-top:80px}.sub>h2{font-size:1.6rem;color:var(--oranje)}
 .pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px}
 @media(max-width:900px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -343,6 +343,9 @@ for (const [catNaam, subs] of Object.entries(UIT || {})) {
   UITCATS.push({ naam: catNaam, id: uniekId(slug(catNaam, 'uitrusting'), catIds), subs: subLijst });
 }
 
+// Toont per uitrustingspagina maar één onderdeel tegelijk (Koken of Servies, niet allebei onder elkaar)
+const SUBTABS = "var ss=[].slice.call(document.querySelectorAll('section.sub')),cs=[].slice.call(document.querySelectorAll('.chips a'));function toon(){var h=decodeURIComponent((location.hash||'').slice(1)),f=ss.filter(function(x){return x.id==h})[0]||ss[0];ss.forEach(function(x){x.hidden=x!==f});cs.forEach(function(x){x.classList.toggle('on',x.getAttribute('href')=='#'+f.id)})}if(ss.length>1){window.addEventListener('hashchange',toon);toon()}";
+
 for (const c of UITCATS) {
   const aantal = c.subs.reduce((n, s) => n + s.p.length + s.ov.length, 0);
   const foto = (c.subs.flatMap(s => s.p).find(q => q.foto) || {}).foto;
@@ -361,7 +364,7 @@ ${secties}
 <p style="margin-top:32px"><a class="btn" href="../index.html#uitrusting">Bekijk in de website</a><a class="btn s" href="./">Alle uitrusting</a></p>`;
   const items = c.subs.flatMap(s => s.p).map((q, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(q.n) }));
   const jsonld = items.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: `${c.naam}: onze uitrusting`, itemListElement: items } : null;
-  fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht' }));
+  fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS }));
   urls.push([`uitrusting/${c.id}.html`, 0.7]);
 }
 fs.writeFileSync('uitrusting/index.html', pagina({

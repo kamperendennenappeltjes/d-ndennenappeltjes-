@@ -514,13 +514,19 @@ const UIT={
  },
  "Badkamer en was": {
   "Was": {
-   "t": "wasrek, wasmolen, wasknijpers, wasmanden, wasmiddel, wasemmer (tupperware)",
+   "t": "wasrek, wasknijpers, wasmanden, wasmiddel, wasemmer (tupperware)",
    "p": [
     {
      "n": "Brock XXL campingwasmachine - Dubbele trommel - 7,8Kg was en 6,0Kg centrifugecapaciteit",
      "url": "https://www.bol.com/nl/nl/p/brock-xxl-camping-wasmachine-dubbele-trommel-7-8kg-was-en-6-0kg-centrifuge-capaciteit/9300000029225291/",
      "code": "",
      "foto": "img/uitrusting/brock-xxl-campingwasmachine-dubbele-trommel-7-8kg-was-en-6-0kg-centrifugecapaciteit-1792342812794.jpg"
+    },
+    {
+     "n": "Obelink droogmolen met voet en tas - Grey",
+     "url": "https://www.obelink.nl/obelink-droogmolen-met-voet-en-tas-grey-530564.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-droogmolen-met-voet-en-tas-grey-1792918832205.jpg"
     }
    ]
   },

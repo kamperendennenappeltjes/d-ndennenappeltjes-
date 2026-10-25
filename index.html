@@ -51,6 +51,7 @@ nav a:hover{color:var(--oranje)}
 .hero .logo{width:100%;max-width:220px;justify-self:end}
 @media(max-width:700px){.hero .wrap{grid-template-columns:1fr}.hero .logo{max-width:130px;justify-self:start;order:-1}}
 .btn{display:inline-block;background:var(--oranje);color:#1a0f05;font-weight:700;text-decoration:none;padding:12px 24px;border-radius:999px;margin:6px 10px 0 0}
+.terugboven-wrap{margin:36px 0 0}.terugboven{display:inline-block;color:inherit;font-weight:700;text-decoration:none;padding:14px 28px;border:2px solid var(--oranje);border-radius:999px;background:transparent}.terugboven:hover,.terugboven:focus-visible{background:rgba(240,138,60,.18)}
 .btn.rood{background:var(--rood);color:#fff}
 .twee{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 @media(max-width:800px){.twee{grid-template-columns:1fr}}
@@ -263,7 +264,8 @@ img[data-vn]{cursor:zoom-in}
 
 <section id="p-fotos" class="page s-mos"><div class="wrap">
 <h2>Foto's</h2><p class="lead">Kies eerst een jaar, dan een plek, en tik daarna op een foto om hem groter te zien.</p>
-<div id="fotonav"></div><div id="galerij"></div></div></section>
+<div id="fotonav"></div><div id="galerij"></div>
+<p class="terugboven-wrap"><a href="#" class="terugboven" id="fotoboven">Terug naar boven</a></p></div></section>
 </main>
 <div class="ruit"></div>
 <div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopiëren</button></div></div>
@@ -454,4 +456,5 @@ kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopie
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}};
 addEventListener('hashchange',function(){setTimeout(deelUpd,0)});deelUpd();})();
 </script>
+<script>document.getElementById('fotoboven').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});</script>
 </body></html>

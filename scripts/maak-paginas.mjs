@@ -65,6 +65,7 @@ main{padding:64px 0 72px;min-height:60vh}
 .ruit{height:48px;background:repeating-conic-gradient(#fff 0 25%,var(--rood) 0 50%) 0 0/48px 48px}
 footer{background:#070f0b;padding:44px 0;text-align:center;color:var(--zacht)}
 footer img{height:90px}footer p{margin:.6em 0}
+.soc{display:flex;gap:14px;justify-content:center;margin:16px 0}.soc a{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center}.soc a:hover,.soc a:focus-visible{outline:3px solid var(--oranje);outline-offset:2px}.soc svg{width:26px;height:26px}
 body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .menuknop{display:none;font:inherit;background:none;border:2px solid var(--oranje);color:var(--room);border-radius:10px;padding:6px 12px;cursor:pointer}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:28px}
@@ -195,7 +196,7 @@ ${body}
 </div></main>
 <div class="ruit"></div>
 <div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopi\u00ebren</button></div></div>
-<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p><p>${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
+<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p>${SOC}<p>${MAIL}${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
 <script>${COOKIEJS}</script>
 <script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();${script}</script>
 </body></html>
@@ -204,7 +205,10 @@ ${body}
 
 const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Terug naar boven</a></p>`;
 // Versienummer overnemen uit index.html (dezelfde plek als in de footer van de home page)
-let VERSIE = '';
+let VERSIE = '', SOC = '', MAIL = '';
+try { const h = fs.readFileSync('index.html', 'utf8'); const f = (h.match(/<footer[\s\S]*?<\/footer>/i) || [''])[0];
+  const so = f.match(/<div class="soc">[\s\S]*?<\/div>/i); if (so) SOC = so[0];
+  const ma = f.match(/<a href="mailto:[^"]+">[^<]+<\/a>/i); if (ma) MAIL = ma[0] + '<br>'; } catch (e) {}
 try { const m = fs.readFileSync('index.html', 'utf8').match(/<small>\s*(versie\s*[\w.]+)\s*<\/small>/i); if (m) VERSIE = `<small>${m[1]}</small><br>`; } catch (e) {}
 const lijst = a => Array.isArray(a) && a.length ? `<ul>${a.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
 

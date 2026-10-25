@@ -346,6 +346,18 @@ const UIT={
      "url": "https://www.obelink.nl/obelink-statera-1500-caravan-camperweger-met-oprijplaat-780754.html",
      "code": "",
      "foto": "img/uitrusting/obelink-statera-1500-caravan-camperweger-met-oprijplaat-1792339663709.jpg"
+    },
+    {
+     "n": "Milenco Wedge leveller set",
+     "url": "https://www.obelink.nl/milenco-wedge-leveller-set.html",
+     "code": "",
+     "foto": "img/uitrusting/milenco-wedge-leveller-set-1792917585098.jpg"
+    },
+    {
+     "n": "AL-KO Premium neuswiel met weegfunctie",
+     "url": "https://www.obelink.nl/al-ko-premium-neuswiel.html",
+     "code": "",
+     "foto": "img/uitrusting/al-ko-premium-neuswiel-met-weegfunctie-1792917764037.jpg"
     }
    ]
   }

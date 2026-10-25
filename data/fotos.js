@@ -3168,12 +3168,12 @@ const FOTOS={
    "Kerstvakantie"
   ],
   "2026": [
-   "Landal Klein Vink (voorheen Roompot Klein Vink)",
    "Het peelvenneke",
    "Hemelvaart",
    "Pinksteren/Julianatoren",
    "Familiepark Goolderheide",
-   "Bobbejaanland"
+   "Bobbejaanland",
+   "Landal Klein Vink (voorheen Roompot Klein Vink)"
   ]
  },
  "__orde": [

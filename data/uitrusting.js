@@ -298,6 +298,12 @@ const UIT={
      "url": "https://www.outdoorxl.nl/coleman-spruce-falls-4.html?prl=92-3471x144-3472&kw=&gad_source=1&gad_campaignid=172066913&gbraid=0AAAAADybQBepVF05CmUygkaF0y-uvJrJH&gclid=CjwKCAjw3NHWBhANEiwAtpwId4n-DrZ7--EbVJhh-fa4dZ7dm-JosxWSvWbKUq7Krr93Zovr2z9lHxoCmCkQAvD_BwE",
      "code": "",
      "foto": "img/uitrusting/coleman-spruce-falls-4-1792338292091.jpg"
+    },
+    {
+     "n": "Dometic Gale Electric Pump",
+     "url": "https://www.obelink.nl/dometic-gale-electric-pump.html",
+     "code": "",
+     "foto": "img/uitrusting/dometic-gale-electric-pump-1792918909027.jpg"
     }
    ]
   },

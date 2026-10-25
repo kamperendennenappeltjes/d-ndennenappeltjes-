@@ -22,6 +22,12 @@ const UIT={
      "foto": "img/uitrusting/cadac-paella-pan-1792066200392.jpg"
     },
     {
+     "n": "Cadac Carri Chef stelpootje",
+     "url": "https://www.obelink.nl/cadac-carri-chef-stelpootje.html",
+     "code": "",
+     "foto": "img/uitrusting/cadac-carri-chef-stelpootje-1792918598300.jpg"
+    },
+    {
      "n": "Esperanza Inductie Kookplaat",
      "url": "https://www.bol.com/nl/nl/p/esperanza-ekh011-krakatau-inductie-kookplaat-vrijstaand/9300000126038862/?referrer=socialshare_pdp_androidapp",
      "code": "",
@@ -107,6 +113,12 @@ const UIT={
      "url": "",
      "code": "",
      "foto": "img/uitrusting/bosch-ktl14v21-koelkast-met-vriesvak-1792080951236.jpg"
+    },
+    {
+     "n": "Obelink opvouwbare opbergbox L - 58 x 39 x 33 cm (voor onder de koelbox)",
+     "url": "https://www.obelink.nl/obelink-opvouwbare-opbergbox-58-x-39-x-33-cm-760058.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-opvouwbare-opbergbox-l-58-x-39-x-33-cm-voor-onder-de-koelbox-1792918715998.jpg"
     }
    ]
   },

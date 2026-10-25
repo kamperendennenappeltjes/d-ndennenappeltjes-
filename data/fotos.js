@@ -2890,6 +2890,11 @@ const FOTOS={
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
   {
+   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916198760-8.jpg",
+   "tekst": "",
+   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
+  },
+  {
    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916146657-6.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
@@ -3035,6 +3040,11 @@ const FOTOS={
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
   {
+   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916245008-32.jpg",
+   "tekst": "",
+   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
+  },
+  {
    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916170239-18.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
@@ -3065,17 +3075,17 @@ const FOTOS={
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
   {
+   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916237425-28.jpg",
+   "tekst": "",
+   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
+  },
+  {
    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916196994-7.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
   {
-   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916198760-8.jpg",
-   "tekst": "",
-   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
-  },
-  {
-   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916233765-26.jpg",
+   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916239257-29.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
@@ -3085,12 +3095,7 @@ const FOTOS={
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
   {
-   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916237425-28.jpg",
-   "tekst": "",
-   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
-  },
-  {
-   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916239257-29.jpg",
+   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916233765-26.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },
@@ -3116,11 +3121,6 @@ const FOTOS={
   },
   {
    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916232271-25.jpg",
-   "tekst": "",
-   "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
-  },
-  {
-   "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916245008-32.jpg",
    "tekst": "",
    "camping": "Landal Klein Vink (voorheen Roompot Klein Vink)"
   },

@@ -358,6 +358,18 @@ const UIT={
      "url": "https://www.obelink.nl/al-ko-premium-neuswiel.html",
      "code": "",
      "foto": "img/uitrusting/al-ko-premium-neuswiel-met-weegfunctie-1792917764037.jpg"
+    },
+    {
+     "n": "Thule Caravan Superb SV XT fietsendrager - black",
+     "url": "https://www.obelink.nl/thule-caravan-superb-sv-xt-fietsendrager-black-529142.html",
+     "code": "",
+     "foto": "img/uitrusting/thule-caravan-superb-sv-xt-fietsendrager-black-1792918453940.jpg"
+    },
+    {
+     "n": "Obelink caravanfoot HD stabilisatievoeten",
+     "url": "https://www.obelink.nl/obelink-caravanfoot-hd-stabilisatievoeten.html",
+     "code": "",
+     "foto": "img/uitrusting/obelink-caravanfoot-hd-stabilisatievoeten-1792918499666.jpg"
     }
    ]
   }

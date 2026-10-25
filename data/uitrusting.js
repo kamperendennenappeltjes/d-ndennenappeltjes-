@@ -327,7 +327,7 @@ const UIT={
   },
   "Schaduw": "Parasol, schaduwdoeken met stokken,",
   "caravan hulpmiddelen": {
-   "t": "Reservewiel, disselweger en disselhoes, oprijwig",
+   "t": "Reservewiel, disselweger, disselhoes,",
    "p": [
     {
      "n": "Obelink onderlegplaten (4x stuks) - 23 cm",
@@ -532,7 +532,17 @@ const UIT={
  },
  "Gas en veiligheid": {
   "Gas": "Gasflessen, gasslang, gas regelaar, aanstekers",
-  "Veiligheid": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten, brandmelder, koolmonoxide melder,"
+  "Veiligheid": {
+   "t": "Brandblusser, EHBO-trommel, wielklem, hangsloten en kettingsloten, brandmelder, koolmonoxide melder,",
+   "p": [
+    {
+     "n": "Milenco Compact Winterhoff koppelingslot",
+     "url": "https://www.obelink.nl/milenco-compact-winterhoff-koppelingslot.html",
+     "code": "",
+     "foto": "img/uitrusting/milenco-compact-winterhoff-koppelingslot-1792918091397.jpg"
+    }
+   ]
+  }
  },
  "Gereedschap": {
   "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat",

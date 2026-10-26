@@ -270,6 +270,24 @@ const UIT={
    "t": "Tentstokken, stormband universeel, Dorema-quicklock stormband, gordijnen,",
    "p": [
     {
+     "n": "Doréma Ibiza XL270 De Luxe",
+     "url": "https://www.baxrecreatieshop.nl/voortent-dorema-ibiza-xl270-de-luxe-antraciet-grijs.html?ps=NjMyPTMwMjU=&gad_source=1&gad_campaignid=23475924671&gbraid=0AAAAADyiE8w8i2nlSQprRJJxbZy7nYZXx&gclid=CjwKCAjw9PvWBhAxEiwAddzYySu5FWc0GENiEKfTTSFgIcRWBp_0kJKJOCfkr-N0cycPrByqK2noQBoC2hAQAvD_BwE#632=3025&utm_source=google&utm_medium=cpc&utm_campaign=PMax%3A%20NL%20%7C%20Shopping%20PLA%20%2B%20Assets&utm_id=23480515615",
+     "code": "",
+     "foto": "img/uitrusting/dor-ma-ibiza-xl270-de-luxe-1793030873085.jpg"
+    },
+    {
+     "n": "Doréma Palma Voortentluifel",
+     "url": "https://www.vrijbuiter.nl/p/-palma-voortentluifel-excl-frame-cbbb0021?utm_campaign=shopping+-+Tenten+-+Voortenten&utm_content=&utm_source=google&utm_medium=cpc&utm_term=&gad_source=1&gad_campaignid=21797168080&gclid=CjwKCAjw9PvWBhAxEiwAddzYyTATw4F2KMYzJax8RBcl_iKzbwbBrobhy_uU6HhPRzVIjiO9ZSu6ZRoCddQQAvD_BwE&color=Antraciet&size=13",
+     "code": "",
+     "foto": "img/uitrusting/dor-ma-palma-voortentluifel-1793032101380.jpg"
+    },
+    {
+     "n": "Zijwand luifel Doréma Palma",
+     "url": "https://www.vrijbuiter.nl/p/dorema-dor-zijwand-luifel-palma-antra-cbfa0011?utm_campaign=feed&utm_content=Sportartikelen+%3E+Buitenrecreatie+%3E+Kamperen+en+wandelen+%3E+Tentaccessoires+%3E+Voortenten+|+Dorema&utm_source=beslist&utm_medium=cpc&utm_term=BESLIb41607a1-b4bc-497c-91cd-da3ceff77f67~245061&bl3nlclid=b41607a1-b4bc-497c-91cd-da3ceff77f67",
+     "code": "",
+     "foto": "img/uitrusting/zijwand-luifel-dor-ma-palma-1793032109554.jpg"
+    },
+    {
      "n": "Westfield Pluto XL 2.0 maat 8 (946-980 cm) opblaasbare voortent",
      "url": "https://www.obelink.nl/westfield-pluto-xl-2-0-maat-8-946-980-cm-opblaasbare-voortent-686448.html",
      "code": "",
@@ -312,24 +330,6 @@ const UIT={
      "foto": "img/uitrusting/obelink-castello-390-easy-air-connected-240-255-cm-1793029791108.jpg",
      "opm": "lekte was niet goed water dicht wij zijn toen voor de Westfield pluto 2.0 xl gegaan inplaats van het vervangende model Obelink Atrium 390 Easy Air Connected",
      "oud": true
-    },
-    {
-     "n": "Doréma Ibiza XL270 De Luxe",
-     "url": "https://www.baxrecreatieshop.nl/voortent-dorema-ibiza-xl270-de-luxe-antraciet-grijs.html?ps=NjMyPTMwMjU=&gad_source=1&gad_campaignid=23475924671&gbraid=0AAAAADyiE8w8i2nlSQprRJJxbZy7nYZXx&gclid=CjwKCAjw9PvWBhAxEiwAddzYySu5FWc0GENiEKfTTSFgIcRWBp_0kJKJOCfkr-N0cycPrByqK2noQBoC2hAQAvD_BwE#632=3025&utm_source=google&utm_medium=cpc&utm_campaign=PMax%3A%20NL%20%7C%20Shopping%20PLA%20%2B%20Assets&utm_id=23480515615",
-     "code": "",
-     "foto": "img/uitrusting/dor-ma-ibiza-xl270-de-luxe-1793030873085.jpg"
-    },
-    {
-     "n": "Doréma Palma Voortentluifel",
-     "url": "https://www.vrijbuiter.nl/p/-palma-voortentluifel-excl-frame-cbbb0021?utm_campaign=shopping+-+Tenten+-+Voortenten&utm_content=&utm_source=google&utm_medium=cpc&utm_term=&gad_source=1&gad_campaignid=21797168080&gclid=CjwKCAjw9PvWBhAxEiwAddzYyTATw4F2KMYzJax8RBcl_iKzbwbBrobhy_uU6HhPRzVIjiO9ZSu6ZRoCddQQAvD_BwE&color=Antraciet&size=13",
-     "code": "",
-     "foto": "img/uitrusting/dor-ma-palma-voortentluifel-1793031831726.jpg"
-    },
-    {
-     "n": "Zijwand luifel Doréma Palma",
-     "url": "https://www.vrijbuiter.nl/p/dorema-dor-zijwand-luifel-palma-antra-cbfa0011?utm_campaign=feed&utm_content=Sportartikelen+%3E+Buitenrecreatie+%3E+Kamperen+en+wandelen+%3E+Tentaccessoires+%3E+Voortenten+|+Dorema&utm_source=beslist&utm_medium=cpc&utm_term=BESLIb41607a1-b4bc-497c-91cd-da3ceff77f67~245061&bl3nlclid=b41607a1-b4bc-497c-91cd-da3ceff77f67",
-     "code": "",
-     "foto": "img/uitrusting/zijwand-luifel-dor-ma-palma-1793031526252.jpg"
     }
    ]
   },

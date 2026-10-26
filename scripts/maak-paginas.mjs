@@ -147,7 +147,13 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .deel{background:var(--nacht);padding:22px 0;text-align:center;border-top:1px solid rgba(246,236,214,.12)}
 .deel p{margin:0 0 10px;font-family:Fredoka,sans-serif;font-size:1.05rem}
 .deel .dk{display:inline-block;margin:4px;padding:10px 18px;border-radius:999px;border:2px solid var(--oranje);background:var(--mos);color:var(--room);font:700 .95rem Nunito,sans-serif;text-decoration:none;cursor:pointer}
-.deel .dk:hover,.deel .dk:focus-visible{background:var(--oranje);color:#1a0f05}`;
+.deel .dk:hover,.deel .dk:focus-visible{background:var(--oranje);color:#1a0f05}
+.pk .opm{margin:0;font-size:.95rem;line-height:1.5;color:var(--zacht)}
+.pk .badge{align-self:flex-start;background:var(--mos);color:var(--room);border:1px solid rgba(201,214,196,.5);border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:700}
+.pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
+.pk.oud img{filter:grayscale(.85);opacity:.7}
+.pk.oud b{color:var(--zacht)}
+.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}`;
 
 const COOKIEJS = `var CKEY='dennenappeltjes-cookies';function ckRead(){try{var r=localStorage.getItem(CKEY)||sessionStorage.getItem(CKEY);return r?JSON.parse(r):null}catch(e){return null}}function ckSave(o){try{var j=JSON.stringify(o);if(o.stat||o.vid){localStorage.setItem(CKEY,j);sessionStorage.removeItem(CKEY)}else{sessionStorage.setItem(CKEY,j);localStorage.removeItem(CKEY)}}catch(e){}}function ckOk(k){var c=ckRead();return !!(c&&c[k])}
 var GC_CODE='dennenappeltjes';
@@ -340,7 +346,7 @@ const opschonen = u => {
   } catch (e) { return u; }
 };
 const uniekId = (b, gebruiktLijst) => { let id = b, n = 2; while (gebruiktLijst.includes(id)) id = b + '-' + n++; gebruiktLijst.push(id); return id; };
-const product = q => `<div class="pk">${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${q.code ? `<div class="kc">Kortingscode: <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">Kopieer</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">Bekijk / koop</a>` : ''}</div>`;
+const product = q => { const oud = !!q.oud, opm = schoon(q.opm); return `<div class="pk${oud ? ' oud' : ''}">${oud ? '<span class="badge">Niet meer in gebruik</span>' : ''}${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${opm ? `<p class="opm">${esc(opm)}</p>` : ''}${!oud && q.code ? `<div class="kc">Kortingscode: <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">Kopieer</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn${oud ? ' s' : ''}" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">${oud ? 'Bekijk' : 'Bekijk / koop'}</a>` : ''}</div>`; };
 
 const catIds = [];
 const UITCATS = [];
@@ -349,10 +355,11 @@ for (const [catNaam, subs] of Object.entries(UIT || {})) {
   const subIds = [];
   for (const [subNaam, v] of Object.entries(subs || {})) {
     const t = typeof v === 'string' ? v : (v && v.t) || '';
-    const p = ((v && v.p) || []).filter(q => q && q.n);
+    const alle = ((v && v.p) || []).filter(q => q && q.n);
+    const p = alle.filter(q => !q.oud), oud = alle.filter(q => q.oud);
     const ov = String(t).split(/\s*(?:,(?!\d)|\n)\s*/).map(schoon).filter(Boolean);
-    if (!p.length && !ov.length) continue;
-    subLijst.push({ naam: cap(subNaam), id: uniekId(slug(subNaam, 'onderdeel'), subIds), p, ov });
+    if (!p.length && !oud.length && !ov.length) continue;
+    subLijst.push({ naam: cap(subNaam), id: uniekId(slug(subNaam, 'onderdeel'), subIds), p, oud, ov });
   }
   if (!subLijst.length) continue;
   UITCATS.push({ naam: catNaam, id: uniekId(slug(catNaam, 'uitrusting'), catIds), subs: subLijst });
@@ -361,15 +368,16 @@ for (const [catNaam, subs] of Object.entries(UIT || {})) {
 // Toont per uitrustingspagina maar één onderdeel tegelijk (Koken of Servies, niet allebei onder elkaar)
 const SUBTABS = "var ss=[].slice.call(document.querySelectorAll('section.sub')),cs=[].slice.call(document.querySelectorAll('.chips a'));function toon(){var h=decodeURIComponent((location.hash||'').slice(1)),f=ss.filter(function(x){return x.id==h})[0]||ss[0];ss.forEach(function(x){x.hidden=x!==f});cs.forEach(function(x){x.classList.toggle('on',x.getAttribute('href')=='#'+f.id)})}if(ss.length>1){window.addEventListener('hashchange',toon);toon()}";
 
+const catFoto = c => (c.subs.flatMap(s => s.p).find(q => q.foto) || c.subs.flatMap(s => s.oud).find(q => q.foto) || {}).foto;
 for (const c of UITCATS) {
-  const aantal = c.subs.reduce((n, s) => n + s.p.length + s.ov.length, 0);
-  const foto = (c.subs.flatMap(s => s.p).find(q => q.foto) || {}).foto;
+  const foto = catFoto(c);
   const namen = c.subs.map(s => s.naam.toLowerCase()).join(', ');
   const beschrijving = kort(`${c.naam}: onze uitrusting voor de caravan en voortent. Dit gebruiken wij: ${namen}. Met foto's en links.`, 158);
   const secties = c.subs.map(s => `<section class="sub" id="${s.id}">
 <h2>${esc(s.naam)}</h2>
 ${s.p.length ? `<div class="pgrid">${s.p.map(product).join('')}</div>` : ''}
-${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(product).join('')}</div></div>` : ''}
+${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length || s.oud.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
 </section>`).join('\n');
   const body = `<a class="terug" href="./">Terug naar alle uitrusting</a>
 <h1>${esc(c.naam)}: onze uitrusting</h1>
@@ -385,10 +393,10 @@ ${NAARBOVEN}`;
 fs.writeFileSync('uitrusting/index.html', pagina({
   titel: 'Onze uitrusting voor caravan en voortent',
   beschrijving: kort(`Wat er bij ons in de caravan en de voortent zit, per onderdeel: ${UITCATS.map(c => c.naam.toLowerCase()).join(', ')}.`, 158),
-  pad: 'uitrusting/', afbeelding: ((UITCATS[0] || { subs: [] }).subs.flatMap(s => s.p).find(q => q.foto) || {}).foto, actief: 'uitrusting', achter: 'nacht',
+  pad: 'uitrusting/', afbeelding: UITCATS[0] ? catFoto(UITCATS[0]) : '', actief: 'uitrusting', achter: 'nacht',
   body: `<h1>${esc(tx('uitrusting.h2', 'Onze uitrusting'))}</h1>
 <p class="lead">${esc(tx('uitrusting.lead', 'Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt.') + ' ' + tx('uitrusting.lead2', 'Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.'))}</p>
-<div style="margin-top:22px">${UITCATS.map(c => { const f = (c.subs.flatMap(s => s.p).find(q => q.foto) || {}).foto; return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
+<div style="margin-top:22px">${UITCATS.map(c => { const f = catFoto(c); return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
 `
 }));
 

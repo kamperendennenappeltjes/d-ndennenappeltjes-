@@ -376,8 +376,8 @@ for (const c of UITCATS) {
   const secties = c.subs.map(s => `<section class="sub" id="${s.id}">
 <h2>${esc(s.naam)}</h2>
 ${s.p.length ? `<div class="pgrid">${s.p.map(product).join('')}</div>` : ''}
-${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(product).join('')}</div></div>` : ''}
 ${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length || s.oud.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(product).join('')}</div></div>` : ''}
 </section>`).join('\n');
   const body = `<a class="terug" href="./">Terug naar alle uitrusting</a>
 <h1>${esc(c.naam)}: onze uitrusting</h1>

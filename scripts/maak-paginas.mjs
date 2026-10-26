@@ -150,6 +150,9 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .deel .dk:hover,.deel .dk:focus-visible{background:var(--oranje);color:#1a0f05}
 .pk .opm{margin:0;font-size:.95rem;line-height:1.5;color:var(--zacht)}
 .pk .badge{align-self:flex-start;background:var(--mos);color:var(--room);border:1px solid rgba(201,214,196,.5);border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:700}
+.pk{scroll-margin-top:90px}.pk:target{outline:3px solid var(--oranje);outline-offset:3px}
+.pk .nu{align-self:flex-start;background:var(--mos);color:var(--room);border:1px solid var(--oranje);border-radius:18px;padding:3px 12px;font-size:.82rem;font-weight:700;line-height:1.45;text-decoration:none}
+.pk .nu:hover,.pk .nu:focus-visible{background:var(--oranje);color:#1a0f05}
 .pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
 .pk.oud img{filter:grayscale(.85);opacity:.7}
 .pk.oud b{color:var(--zacht)}
@@ -346,7 +349,10 @@ const opschonen = u => {
   } catch (e) { return u; }
 };
 const uniekId = (b, gebruiktLijst) => { let id = b, n = 2; while (gebruiktLijst.includes(id)) id = b + '-' + n++; gebruiktLijst.push(id); return id; };
-const product = q => { const oud = !!q.oud, opm = schoon(q.opm); return `<div class="pk${oud ? ' oud' : ''}">${oud ? '<span class="badge">Niet meer in gebruik</span>' : ''}${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${opm ? `<p class="opm">${esc(opm)}</p>` : ''}${!oud && q.code ? `<div class="kc">Kortingscode: <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">Kopieer</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn${oud ? ' s' : ''}" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">${oud ? 'Bekijk' : 'Bekijk / koop'}</a>` : ''}</div>`; };
+const product = (q, s) => { const oud = !!q.oud, opm = schoon(q.opm);
+  // Bij een product dat niet meer in gebruik is: knop naar het product dat we nu gebruiken (zelfde onderdeel)
+  const nu = oud && q.vv && s ? s.p.find(z => z.n === q.vv && z.pid) : null;
+  return `<div class="pk${oud ? ' oud' : ''}"${q.pid ? ` id="${esc(q.pid)}"` : ''}>${oud ? '<span class="badge">Niet meer in gebruik</span>' : ''}${nu ? `<a class="nu" href="#${esc(nu.pid)}">Dit gebruiken we nu: ${esc(nu.n)} \u203a</a>` : ''}${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${opm ? `<p class="opm">${esc(opm)}</p>` : ''}${!oud && q.code ? `<div class="kc">Kortingscode: <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">Kopieer</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn${oud ? ' s' : ''}" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">${oud ? 'Bekijk' : 'Bekijk / koop'}</a>` : ''}</div>`; };
 
 const catIds = [];
 const UITCATS = [];
@@ -359,14 +365,16 @@ for (const [catNaam, subs] of Object.entries(UIT || {})) {
     const p = alle.filter(q => !q.oud), oud = alle.filter(q => q.oud);
     const ov = String(t).split(/\s*(?:,(?!\d)|\n)\s*/).map(schoon).filter(Boolean);
     if (!p.length && !oud.length && !ov.length) continue;
-    subLijst.push({ naam: cap(subNaam), id: uniekId(slug(subNaam, 'onderdeel'), subIds), p, oud, ov });
+    const sid = uniekId(slug(subNaam, 'onderdeel'), subIds);
+    [...p, ...oud].forEach(q => { q.pid = uniekId('p-' + slug(q.n, 'product'), subIds); });
+    subLijst.push({ naam: cap(subNaam), id: sid, p, oud, ov });
   }
   if (!subLijst.length) continue;
   UITCATS.push({ naam: catNaam, id: uniekId(slug(catNaam, 'uitrusting'), catIds), subs: subLijst });
 }
 
 // Toont per uitrustingspagina maar één onderdeel tegelijk (Koken of Servies, niet allebei onder elkaar)
-const SUBTABS = "var ss=[].slice.call(document.querySelectorAll('section.sub')),cs=[].slice.call(document.querySelectorAll('.chips a'));function toon(){var h=decodeURIComponent((location.hash||'').slice(1)),f=ss.filter(function(x){return x.id==h})[0]||ss[0];ss.forEach(function(x){x.hidden=x!==f});cs.forEach(function(x){x.classList.toggle('on',x.getAttribute('href')=='#'+f.id)})}if(ss.length>1){window.addEventListener('hashchange',toon);toon()}";
+const SUBTABS = "var ss=[].slice.call(document.querySelectorAll('section.sub')),cs=[].slice.call(document.querySelectorAll('.chips a'));function toon(){var h=decodeURIComponent((location.hash||'').slice(1)),el=h?document.getElementById(h):null,f=(el&&el.closest('section.sub'))||ss.filter(function(x){return x.id==h})[0]||ss[0];ss.forEach(function(x){x.hidden=x!==f});cs.forEach(function(x){x.classList.toggle('on',x.getAttribute('href')=='#'+f.id)});if(el&&el!==f&&f.contains(el))setTimeout(function(){el.scrollIntoView({block:'start'})},0)}if(ss.length>1){window.addEventListener('hashchange',toon);toon()}";
 
 const catFoto = c => (c.subs.flatMap(s => s.p).find(q => q.foto) || c.subs.flatMap(s => s.oud).find(q => q.foto) || {}).foto;
 for (const c of UITCATS) {
@@ -375,9 +383,9 @@ for (const c of UITCATS) {
   const beschrijving = kort(`${c.naam}: onze uitrusting voor de caravan en voortent. Dit gebruiken wij: ${namen}. Met foto's en links.`, 158);
   const secties = c.subs.map(s => `<section class="sub" id="${s.id}">
 <h2>${esc(s.naam)}</h2>
-${s.p.length ? `<div class="pgrid">${s.p.map(product).join('')}</div>` : ''}
+${s.p.length ? `<div class="pgrid">${s.p.map(q => product(q, s)).join('')}</div>` : ''}
 ${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length || s.oud.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
-${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(product).join('')}</div></div>` : ''}
+${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
 </section>`).join('\n');
   const body = `<a class="terug" href="./">Terug naar alle uitrusting</a>
 <h1>${esc(c.naam)}: onze uitrusting</h1>

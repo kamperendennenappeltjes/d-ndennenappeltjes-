@@ -267,7 +267,7 @@ const UIT={
  },
  "Voortent en buiten": {
   "Tent en luifel": {
-   "t": "Voortent, luifel, tentstokken, stormbanden, quickset en Dorema-quicklock, gordijnen,",
+   "t": "Tentstokken, stormband universeel, Dorema-quicklock stormband, gordijnen,",
    "p": [
     {
      "n": "Westfield Pluto XL 2.0 maat 8 (946-980 cm) opblaasbare voortent",
@@ -335,7 +335,7 @@ const UIT={
   },
   "Vloer": "Worteldoek, grondzeil, tenttapijten, voetplaten, deurmat",
   "Haringen en spanners": {
-   "t": "haringen, U haringen, scheerlijnen en spanners, haringhamer, touw",
+   "t": "haringen, U haringen, scheerlijnen en spanners, haringhamer, touw, ladderspanners",
    "p": [
     {
      "n": "Peggy Peg Starterskit haringset",

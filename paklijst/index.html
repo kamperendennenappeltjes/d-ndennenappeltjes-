@@ -137,7 +137,7 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
 .pk.oud img{filter:grayscale(.85);opacity:.7}
 .pk.oud b{color:var(--zacht)}
-.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}</style></head><body class="mos">
+.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}</style><link rel="stylesheet" href="../extras.css"></head><body class="mos">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk"><a href="../index.html">Home</a><a href="../over-ons/">Over ons</a><a href="../paklijst/" class="on">Wat neem je mee</a><a href="../uitrusting/">Uitrusting</a><a href="../campings/">Campings</a><a href="../verhalen/">Verhalen</a><a href="../tips/">Tips</a><a href="../index.html#fotos">Foto's</a><a href="../index.html#videos">Video's</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <main><div class="wrap">
 <h1>Wat neem je mee</h1>
@@ -184,4 +184,5 @@ balk.style.width=(bx.length?100*n/bx.length:0)+'%';tel.textContent=n+' van '+bx.
 bx.forEach(function(b){b.checked=!!st[b.getAttribute(attr)];b.onchange=upd});wis.onclick=function(){bx.forEach(function(b){b.checked=false});upd()};upd()}
 maak(document.getElementById('pakbox'),'pak','data-k',true);
 [].forEach.call(document.querySelectorAll('.uk'),function(d){maak(d,'pakx','data-xk',false)});</script>
+<script src="../extras.js" defer></script>
 </body></html>

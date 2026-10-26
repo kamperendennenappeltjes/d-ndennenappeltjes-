@@ -137,7 +137,7 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
 .pk.oud img{filter:grayscale(.85);opacity:.7}
 .pk.oud b{color:var(--zacht)}
-.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}</style></head><body class="nacht">
+.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}</style><link rel="stylesheet" href="../extras.css"></head><body class="nacht">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk"><a href="../index.html">Home</a><a href="../over-ons/">Over ons</a><a href="../paklijst/">Wat neem je mee</a><a href="../uitrusting/">Uitrusting</a><a href="../campings/">Campings</a><a href="../verhalen/">Verhalen</a><a href="../tips/" class="on">Tips</a><a href="../index.html#fotos">Foto's</a><a href="../index.html#videos">Video's</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <main><div class="wrap">
 <h1>Kampeertips voor het hele gezin</h1>
@@ -173,4 +173,5 @@ var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){
 var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 })();</script>
 <script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();</script>
+<script src="../extras.js" defer></script>
 </body></html>

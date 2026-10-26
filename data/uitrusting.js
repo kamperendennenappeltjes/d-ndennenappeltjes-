@@ -265,7 +265,7 @@ const UIT={
    ]
   }
  },
- "Voortent en buiten": {
+ "Voortent en buitenkant caravan": {
   "Tent en luifel": {
    "t": "Tentstokken, stormband universeel, Dorema-quicklock stormband, gordijnen,",
    "p": [

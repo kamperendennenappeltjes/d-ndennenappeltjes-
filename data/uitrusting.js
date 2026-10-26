@@ -323,7 +323,7 @@ const UIT={
      "n": "Doréma Palma Voortentluifel",
      "url": "https://www.vrijbuiter.nl/p/-palma-voortentluifel-excl-frame-cbbb0021?utm_campaign=shopping+-+Tenten+-+Voortenten&utm_content=&utm_source=google&utm_medium=cpc&utm_term=&gad_source=1&gad_campaignid=21797168080&gclid=CjwKCAjw9PvWBhAxEiwAddzYyTATw4F2KMYzJax8RBcl_iKzbwbBrobhy_uU6HhPRzVIjiO9ZSu6ZRoCddQQAvD_BwE&color=Antraciet&size=13",
      "code": "",
-     "foto": ""
+     "foto": "img/uitrusting/dor-ma-palma-voortentluifel-1793031831726.jpg"
     },
     {
      "n": "Zijwand luifel Doréma Palma",

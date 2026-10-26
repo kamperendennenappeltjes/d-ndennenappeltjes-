@@ -392,7 +392,7 @@ const UIT={
    ]
   }
  },
- "Elektra en licht": {
+ "Elektra, licht en Internet": {
   "Stroom": {
    "t": "verloopstekkers, kabelhaspels, verlengkabels, stekkerdozen",
    "p": [
@@ -446,8 +446,8 @@ const UIT={
    ]
   },
   "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader",
-  "Elektrische apparaten": {
-   "t": "tv, laptop, telefoons, muziek box, elektrische step",
+  "Internetverbinding apparaten": {
+   "t": "",
    "p": [
     {
      "n": "Starlink Standard antenne Elektronische array-antenne",
@@ -474,7 +474,8 @@ const UIT={
      "foto": "img/uitrusting/tp-link-m7350-1792344433435.jpg"
     }
    ]
-  }
+  },
+  "Elektrische apparaten": "tv, laptop, telefoons, muziek box, elektrische step"
  },
  "Water en sanitair": {
   "Water": {

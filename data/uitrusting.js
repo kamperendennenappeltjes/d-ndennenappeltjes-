@@ -307,7 +307,7 @@ const UIT={
     },
     {
      "n": "Obelink Castello 390 Easy Air Connected (240 - 255 cm)",
-     "url": "https://www.obelink.nl/obelink-castello-390-easy-air-connected-240-255-cm-caravan-en-camper-voortent-638824.html",
+     "url": "https://www.obelink.nl/obelink-atrium-390-easy-air-connected-caravan-en-camper-voortent-682985.html",
      "code": "",
      "foto": "img/uitrusting/obelink-castello-390-easy-air-connected-240-255-cm-1793029791108.jpg",
      "opm": "lekte was niet goed water dicht wij zijn toen voor de Westfield pluto 2.0 xl gegaan inplaats van het vervangende model Obelink Atrium 390 Easy Air Connected",

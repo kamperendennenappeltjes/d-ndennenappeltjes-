@@ -328,8 +328,9 @@ const UIT={
      "url": "https://www.obelink.nl/obelink-atrium-390-easy-air-connected-caravan-en-camper-voortent-682985.html",
      "code": "",
      "foto": "img/uitrusting/obelink-castello-390-easy-air-connected-240-255-cm-1793029791108.jpg",
-     "opm": "lekte was niet goed water dicht wij zijn toen voor de Westfield pluto 2.0 xl gegaan inplaats van het vervangende model Obelink Atrium 390 Easy Air Connected",
-     "oud": true
+     "opm": "Lekte was niet goed water dicht wij zijn toen niet voor het vervangende model Obelink Atrium 390 Easy Air Connected gegaan maar voor een volledig andere tent.",
+     "oud": true,
+     "vv": "Westfield Pluto XL 2.0 maat 8 (946-980 cm) opblaasbare voortent"
     }
    ]
   },
@@ -492,8 +493,9 @@ const UIT={
      "url": "https://www.conrad.nl/nl/p/huawei-b311-221-mifi-router-150-mbit-s-wit-2577221.html?utm_source=awin&utm_medium=cpo&utm_campaign=626889&utm_content=productfeed&awcreativeid=0&sv1=affiliate&sv_campaign_id=626889&awc=127991_1792344315_ae4a3be1a6f6242112d5075210a9a870",
      "code": "",
      "foto": "img/uitrusting/huawei-b311-221-mifi-router-150-mbit-s-wit-1792344383560.jpg",
-     "opm": "Jarenlang met plezier gebruikt, nu vervangen door een 5G de TP-Link Archer NX600. voor hogere snelheid en wifi6 verbinding",
-     "oud": true
+     "opm": "Jarenlang met plezier gebruikt, nu vervangen door één met 5G ontvangst",
+     "oud": true,
+     "vv": "TP-Link Archer NX600"
     },
     {
      "n": "TP-Link M7350",

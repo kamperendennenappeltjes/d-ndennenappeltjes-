@@ -465,7 +465,9 @@ const UIT={
      "n": "HUAWEI B311-221 MiFi router 150 MBit/s Wit",
      "url": "https://www.conrad.nl/nl/p/huawei-b311-221-mifi-router-150-mbit-s-wit-2577221.html?utm_source=awin&utm_medium=cpo&utm_campaign=626889&utm_content=productfeed&awcreativeid=0&sv1=affiliate&sv_campaign_id=626889&awc=127991_1792344315_ae4a3be1a6f6242112d5075210a9a870",
      "code": "",
-     "foto": "img/uitrusting/huawei-b311-221-mifi-router-150-mbit-s-wit-1792344383560.jpg"
+     "foto": "img/uitrusting/huawei-b311-221-mifi-router-150-mbit-s-wit-1792344383560.jpg",
+     "opm": "Jarenlang met plezier gebruikt, nu vervangen door een 5G de TP-Link Archer NX600. voor hogere snelheid en wifi6 verbinding",
+     "oud": true
     },
     {
      "n": "TP-Link M7350",

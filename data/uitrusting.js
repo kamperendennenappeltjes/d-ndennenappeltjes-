@@ -594,7 +594,7 @@ const UIT={
  "Gereedschap": {
   "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat",
   "Elektrisch": "Makita-boormachine en -accu's, multimeter, soldeerbout, bladblazer",
-  "Overige dingen": "WD-40, tape en lijm, bandenplakset, fietspomp"
+  "Reparatie en overige": "WD-40, tape en lijm, bandenplakset, fietspomp"
  },
  "Spelen en vrije tijd": {
   "Spelletjes": "Kaarten, Uno, Rummikub, Yathzee, Qwixx, Skip-Bo, Keezen, Cluedo, Wie is het, 4 op een rij, dammen en schaken, mikado, kubb",

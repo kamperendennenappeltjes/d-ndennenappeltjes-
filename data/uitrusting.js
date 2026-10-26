@@ -123,7 +123,7 @@ const UIT={
    ]
   },
   "Schoonmaak": {
-   "t": "afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, theedoeken, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter",
+   "t": "afwasborstel, afwasmiddel, schuursponsjes, allesreiniger, theedoeken, vuilniszakken, plastic afvalzakken,  poetsdoeken, stofzuiger, Dusty ontvetter, autowas set",
    "p": [
     {
      "n": "Opvouwbare emmer",
@@ -594,8 +594,7 @@ const UIT={
  "Gereedschap": {
   "Handgereedschap": "Hamers, tangen, zagen, schroevendraaiers, ratelsets, steek- en ringsleutels, inbussets, waterpas, rolmaat",
   "Elektrisch": "Makita-boormachine en -accu's, multimeter, soldeerbout, bladblazer",
-  "Onderhoud": "WD-40, tape en lijm, bandenplakset, fietspomp",
-  "Schoonmaak": "Stofzuiger, dweilen en dweilstok, bezems, autowasset"
+  "Overige dingen": "WD-40, tape en lijm, bandenplakset, fietspomp"
  },
  "Spelen en vrije tijd": {
   "Spelletjes": "Kaarten, Uno, Rummikub, Yathzee, Qwixx, Skip-Bo, Keezen, Cluedo, Wie is het, 4 op een rij, dammen en schaken, mikado, kubb",

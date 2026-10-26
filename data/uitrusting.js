@@ -446,7 +446,7 @@ const UIT={
    ]
   },
   "Opladen": "USB-adapters, USB kabels, oplader fietsen, oplader step, accu lader",
-  "Internetverbinding apparaten": {
+  "Internetverbindings apparatuur": {
    "t": "",
    "p": [
     {

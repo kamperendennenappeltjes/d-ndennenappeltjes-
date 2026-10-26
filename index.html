@@ -203,7 +203,7 @@ img[data-vn]{cursor:zoom-in}
 .deel p{margin:0 0 10px;font-family:Fredoka,sans-serif;font-size:1.05rem}
 .deel .dk{display:inline-block;margin:4px;padding:10px 18px;border-radius:999px;border:2px solid var(--oranje);background:var(--mos);color:var(--room);font:700 .95rem Nunito,sans-serif;text-decoration:none;cursor:pointer}
 .deel .dk:hover,.deel .dk:focus-visible{background:var(--oranje);color:#1a0f05}
-</style></head><body>
+</style><link rel="stylesheet" href="extras.css"></head><body>
 <nav><div class="wrap"><a href="#home" style="display:flex"><img src="img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b>
 <button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button>
 <div class="links" id="lk"><a href="#home">Home</a><a href="over-ons/" data-r="#over">Over ons</a><a href="paklijst/" data-r="#meenemen">Wat neem je mee</a><a href="uitrusting/" data-r="#uitrusting">Uitrusting</a><a href="campings/" data-r="#campings">Campings</a><a href="verhalen/" data-r="#verhalen">Verhalen</a><a href="tips/" data-r="#tips">Tips</a><a href="#fotos">Foto's</a><a href="#videos">Video's</a><a href="#contact">Contact</a></div></div></nav>
@@ -459,4 +459,5 @@ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.write
 addEventListener('hashchange',function(){setTimeout(deelUpd,0)});deelUpd();})();
 </script>
 <script>document.getElementById('fotoboven').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});</script>
+<script src="extras.js" defer></script>
 </body></html>

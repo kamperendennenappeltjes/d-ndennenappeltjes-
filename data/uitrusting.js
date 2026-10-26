@@ -475,7 +475,17 @@ const UIT={
     }
    ]
   },
-  "Elektrische apparaten": "tv, laptop, telefoons, muziek box, elektrische step"
+  "Elektrische apparaten": {
+   "t": "tv, laptop, telefoons, muziek box",
+   "p": [
+    {
+     "n": "RCB R19 Elektrisch step",
+     "url": "https://www.rcb-scooter.com/products/rcb-r19-electric-scooter",
+     "code": "",
+     "foto": "img/uitrusting/rcb-r19-elektrisch-step-1793012306001.jpg"
+    }
+   ]
+  }
  },
  "Water en sanitair": {
   "Water": {

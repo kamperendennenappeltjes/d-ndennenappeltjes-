@@ -34,6 +34,15 @@ main{padding:64px 0 72px;min-height:60vh}
 .feiten{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0}
 .feiten div{background:var(--nacht);border-radius:14px;padding:14px 16px}.feiten small{display:block;color:var(--zacht)}
 .pm{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
+.sec{margin:34px 0 12px;font-size:1.4rem}
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:0 0 22px}
+.fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
+.vlog{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--den);border-radius:16px;color:var(--room);text-decoration:none;margin:0 0 18px}
+.vlog:hover,.vlog:focus-visible{outline:2px solid var(--oranje)}
+.vlog i{flex:none;width:56px;height:40px;border-radius:12px;background:var(--rood);display:grid;place-items:center}
+.vlog i::after{content:"";border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.vlogs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:0 0 18px}.vlogs .vlog{margin:0}
+.vlog b{display:block}.vlog small{color:var(--zacht)}
 .vlak{padding:26px;background:var(--nacht);border-radius:20px;border-left:6px solid var(--oranje)}
 .vlak ul{margin:0;padding-left:20px}
 .camp{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center;padding:16px;background:var(--den);border-radius:16px;margin-bottom:12px;text-decoration:none;color:var(--room);border:1px solid rgba(240,138,60,.25)}

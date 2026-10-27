@@ -32,4 +32,7 @@
   details.uk:not([open]){display:none}
   details.uk>summary{list-style:none;font-size:14pt}
   details.uk>summary small{display:none}
+  a.btn,#ckterug{display:none!important}
+  body.print-pak .ukop,body.print-pak #uitgebreid{display:none!important}
+  body.print-ck h1,body.print-ck h1+.lead,body.print-ck #pakbox,body.print-ck #algemeen,body.print-ck .ukop>h2,body.print-ck #uitgebreid>h2,body.print-ck #uitgebreid>.lead,body.print-ck details.uk:not(.print-doel),body.print-ck details.uk>summary{display:none!important}
 }

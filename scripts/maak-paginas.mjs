@@ -62,6 +62,7 @@ main{padding:64px 0 72px;min-height:60vh}
 .vlog:hover,.vlog:focus-visible{outline:2px solid var(--oranje)}
 .vlog i{flex:none;width:56px;height:40px;border-radius:12px;background:var(--rood);display:grid;place-items:center}
 .vlog i::after{content:"";border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.btn.kl{padding:6px 16px;font-size:.9rem;margin-top:0}
 .vlogs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:0 0 18px}.vlogs .vlog{margin:0}
 .vlog b{display:block}.vlog small{color:var(--zacht)}
 .vlak{padding:26px;background:var(--nacht);border-radius:20px;border-left:6px solid var(--oranje)}
@@ -258,7 +259,7 @@ ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}"
 <p class="lead">${esc(c.tekst || '')}</p>
 ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">Naar de website</a></p>` : ''}
 ${feiten.length ? `<h2 class="sec">Info over het park</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
-${plekFotos.length ? `<h2 class="sec">Onze foto’s van deze plek</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div>` : ''}
+${plekFotos.length ? `<h2 class="sec">Onze foto’s van deze plek</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">Bekijk hier alle foto’s</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${lijst(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>Opent YouTube in een nieuw tabblad</small></span></a>`).join('')}</div>` : ''}
 <p><a class="btn s" href="./">Alle campings</a></p>`;

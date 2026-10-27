@@ -26,7 +26,7 @@ const esc = x => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').re
 const schoon = x => String(x ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 const kort = (x, n) => { x = schoon(x); return x.length > n ? x.slice(0, n - 1).replace(/\s+\S*$/, '') + '\u2026' : x; };
 const slug = (t, terug = 'verhaal') => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || terug;
-const abs = p => p ? (/^https?:/.test(p) ? p : `${BASE}/${String(p).replace(/^\//, '')}`) : `${BASE}/img/foto-7.jpg`;
+const abs = p => p ? (/^https?:/.test(p) ? p : `${BASE}/${String(p).replace(/^\//, '')}`) : `${BASE}/img/delen-logo.jpg`;
 const rel = p => p ? (/^https?:/.test(p) ? p : '../' + String(p).replace(/^\//, '')) : '';
 
 const CSS = `:root{color-scheme:dark;--nacht:#0d1a15;--den:#17301f;--mos:#21402c;--oranje:#f08a3c;--rood:#d90f14;--room:#f6ecd6;--zacht:#c9d6c4}

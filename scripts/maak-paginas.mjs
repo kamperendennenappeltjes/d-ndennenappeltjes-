@@ -18,6 +18,8 @@ const PAK = laad('data/paklijst.js', 'PAK', {});
 const OVER = laad('data/over.js', 'OVER', {});
 const CHK = laad('data/checklists.js', 'CHK');
 const INST = laad('data/instellingen.js', 'INST', {});
+const FOTOSDATA = laad('data/fotos.js', 'FOTOS', {});
+const VIDDATA = laad('data/videos.js', 'VID', []);
 // Aangepaste titels en teksten uit Beheer > Paginateksten. Is er niets aangepast, dan blijft de standaardtekst staan.
 const TX = (INST && INST.teksten) || {};
 const tx = (k, std) => (TX[k] != null && String(TX[k]).trim() !== '') ? String(TX[k]).trim() : std;
@@ -53,6 +55,15 @@ main{padding:64px 0 72px;min-height:60vh}
 .feiten{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0}
 .feiten div{background:var(--nacht);border-radius:14px;padding:14px 16px}.feiten small{display:block;color:var(--zacht)}
 .pm{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
+.sec{margin:34px 0 12px;font-size:1.4rem}
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:0 0 22px}
+.fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
+.vlog{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--den);border-radius:16px;color:var(--room);text-decoration:none;margin:0 0 18px}
+.vlog:hover,.vlog:focus-visible{outline:2px solid var(--oranje)}
+.vlog i{flex:none;width:56px;height:40px;border-radius:12px;background:var(--rood);display:grid;place-items:center}
+.vlog i::after{content:"";border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.vlogs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:0 0 18px}.vlogs .vlog{margin:0}
+.vlog b{display:block}.vlog small{color:var(--zacht)}
 .vlak{padding:26px;background:var(--nacht);border-radius:20px;border-left:6px solid var(--oranje)}
 .vlak ul{margin:0;padding-left:20px}
 .camp{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center;padding:16px;background:var(--den);border-radius:16px;margin-bottom:12px;text-decoration:none;color:var(--room);border:1px solid rgba(240,138,60,.25)}
@@ -229,6 +240,13 @@ const urls = [['', 1.0], ['campings/', 0.8], ['verhalen/', 0.7], ['uitrusting/',
 // ---- campings
 for (const c of CAMPINGS) {
   if (!c.id) continue;
+  // Foto's die in Beheer > Foto's aan deze camping zijn gekoppeld (plek)
+  const plekFotos = Object.entries(FOTOSDATA || {}).filter(([k, L]) => k.slice(0, 2) !== '__' && Array.isArray(L)).flatMap(([, L]) => L).filter(x => x && x.src && String(x.camping || '') === String(c.naam));
+  // Video's: eigen regels bij de camping (Titel | link, of alleen een link), plus video's uit de Video's-lijst waarvan de titel de campingnaam bevat
+  const geldig = u => /^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(String(u || '').trim());
+  const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].map(r => { const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
+  const gekoppeld = (Array.isArray(VIDDATA) ? VIDDATA : []).filter(v => v && v.url && c.naam && schoon(v.titel).toLowerCase().includes(String(c.naam).toLowerCase())).map(v => ({ titel: schoon(v.titel), url: String(v.url).trim() }));
+  const vloggen = [...handmatig, ...gekoppeld].filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
   const feiten = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
   const naamPlaats = c.plaats && !String(c.naam).toLowerCase().includes(String(c.plaats).split(',')[0].toLowerCase()) ? `${c.naam} in ${c.plaats}` : c.naam;
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
@@ -240,8 +258,10 @@ ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}"
 <p class="lead">${esc([c.plaats, c.type, c.cijfer ? 'Ons cijfer: ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
 <p class="lead">${esc(c.tekst || '')}</p>
 ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">Naar de website</a></p>` : ''}
-${feiten.length ? `<div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${feiten.length ? `<h2 class="sec">Info over het park</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${plekFotos.length ? `<h2 class="sec">Onze foto’s van deze plek</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${lijst(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${lijst(c.min)}</div></div>` : ''}
+${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>Opent YouTube in een nieuw tabblad</small></span></a>`).join('')}</div>` : ''}
 <p><a class="btn s" href="./">Alle campings</a></p>`;
   const jsonld = c.cijfer ? {
     '@context': 'https://schema.org', '@type': 'Review',

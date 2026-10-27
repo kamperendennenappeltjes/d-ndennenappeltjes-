@@ -2574,19 +2574,19 @@ const FOTOS={
    "src": "img/fotos/2026/1791971181404-2.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971183635-3.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971185552-4.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971312190-1.jpg",
@@ -2652,7 +2652,7 @@ const FOTOS={
    "src": "img/fotos/2026/1791973623995-8.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/1791973625858-9.jpg",
@@ -2664,13 +2664,13 @@ const FOTOS={
    "src": "img/fotos/2026/1791973627871-10.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/1791973629815-11.jpg",
    "tekst": "",
    "camping": "Zomer vakantie",
-   "album": "beach party bochelt - airbase museum"
+   "album": "beach party bochelt & airbase museum"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974720804-1.jpg",
@@ -3350,7 +3350,7 @@ const FOTOS={
   "2026|Zomer vakantie": [
    "Familiepark Goolderheide",
    "Bobbejaanland",
-   "beach party bochelt - airbase museum"
+   "beach party bochelt & airbase museum"
   ],
   "2026|Herfstvakantie": [
    "Landal Klein Vink (voorheen Roompot Klein Vink)",

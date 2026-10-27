@@ -72,7 +72,20 @@ const CAMPINGS=[
   "opp": "",
   "water": "Ja",
   "afvoer": "Ja",
-  "fotos": [],
+  "fotos": [
+   {
+    "src": "img/fotos/2021/de-lente-van-drenthe/1792305555792-38.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2021/de-lente-van-drenthe/1792305563781-42.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2021/de-lente-van-drenthe/1792305552051-36.jpg",
+    "tekst": ""
+   }
+  ],
   "vlogs": []
  },
  {
@@ -104,7 +117,20 @@ const CAMPINGS=[
   "opp": "100",
   "water": "Ja",
   "afvoer": "Ja",
-  "fotos": [],
+  "fotos": [
+   {
+    "src": "img/fotos/2022/vakantiepark-de-berckt/1792303498585-43.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2022/vakantiepark-de-berckt/1792303417999-2.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2022/vakantiepark-de-berckt/1792303495841-42.jpg",
+    "tekst": ""
+   }
+  ],
   "vlogs": []
  },
  {
@@ -174,7 +200,16 @@ const CAMPINGS=[
    "Kampeerplekken verder naar achter gelegen op het park"
   ],
   "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg",
-  "fotos": [],
+  "fotos": [
+   {
+    "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302039520-23.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2023/vakantiepark-hengelhoef/1792302033173-20.jpg",
+    "tekst": ""
+   }
+  ],
   "vlogs": []
  },
  {
@@ -207,7 +242,20 @@ const CAMPINGS=[
   "opp": "100",
   "water": "Ja",
   "afvoer": "Ja",
-  "fotos": [],
+  "fotos": [
+   {
+    "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188130748-1.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188136660-4.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2024/vakantiepark-slot-cranendonck/1792188234053-49.jpg",
+    "tekst": ""
+   }
+  ],
   "vlogs": []
  },
  {
@@ -242,8 +290,26 @@ const CAMPINGS=[
   "water": "Ja",
   "afvoer": "Ja",
   "foto": "img/camping-blauwemeer-1791968351216.jpg",
-  "fotos": [],
-  "vlogs": []
+  "fotos": [
+   {
+    "src": "img/fotos/2025/camping-blauwemeer/1792186736305-57.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2025/camping-blauwemeer/1792186698000-39.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2025/camping-blauwemeer/1792186630836-7.jpg",
+    "tekst": ""
+   }
+  ],
+  "vlogs": [
+   {
+    "titel": "Aankomst dag op Blauwemeer",
+    "url": "https://youtu.be/pm7bqh99BFE?si=o_BpkO2efNBFWKTm"
+   }
+  ]
  },
  {
   "id": "camping-het-peelvenneke",
@@ -281,8 +347,26 @@ const CAMPINGS=[
    "Stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
   ],
   "foto": "img/camping-het-peelvenneke-1791997319760.jpg",
-  "fotos": [],
-  "vlogs": []
+  "fotos": [
+   {
+    "src": "img/fotos/2026/het-peelvenneke/1792184698324-4.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2026/het-peelvenneke/1792184696277-3.jpg",
+    "tekst": ""
+   }
+  ],
+  "vlogs": [
+   {
+    "titel": "Peelvenneke deel1",
+    "url": "https://youtu.be/EoU1WhJnCfw?si=fLbVrVamYboFg_OC"
+   },
+   {
+    "titel": "peelvenneke deel2",
+    "url": "https://youtu.be/IgO2s0leCjg?si=h9Om710vHj4Lp8hB"
+   }
+  ]
  },
  {
   "id": "goolderheide",
@@ -315,8 +399,26 @@ const CAMPINGS=[
   "opp": "150",
   "water": "Ja",
   "afvoer": "Ja",
-  "fotos": [],
-  "vlogs": []
+  "fotos": [
+   {
+    "src": "img/fotos/2026/1791973608685-1.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2026/1791973610754-2.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2026/1791973612610-3.jpg",
+    "tekst": ""
+   }
+  ],
+  "vlogs": [
+   {
+    "titel": "aankomst dag Goolderheide",
+    "url": "https://youtu.be/s6LHHR2VJUE?si=90GVWyolYvXJV1Ja"
+   }
+  ]
  },
  {
   "id": "esch-camping-kaampert",
@@ -399,7 +501,20 @@ const CAMPINGS=[
    "De plaatsen zijn vrij klein maar net 80 m2 en er is geen ander keus"
   ],
   "foto": "img/landal-klein-vink-voorheen-roompot-klein-vink-1792863745518.jpg",
-  "fotos": [],
+  "fotos": [
+   {
+    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916141570-3.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916185637-1.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/fotos/2026/landal-klein-vink-voorheen-roompot-klein-vink/1792916162126-14.jpg",
+    "tekst": ""
+   }
+  ],
   "vlogs": []
  }
 ];

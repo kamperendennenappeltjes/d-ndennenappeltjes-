@@ -3314,9 +3314,9 @@ const FOTOS={
  ],
  "__albums": {
   "2026|Zomer vakantie": [
-   "Beach party bochelt / airbase museum",
    "Familiepark Goolderheide",
-   "Bobbejaanland"
+   "Bobbejaanland",
+   "Beach party bochelt / airbase museum"
   ],
   "2026|Herfstvakantie": [
    "Landal Klein Vink (voorheen Roompot Klein Vink)",

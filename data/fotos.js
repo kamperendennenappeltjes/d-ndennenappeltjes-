@@ -3286,8 +3286,8 @@ const FOTOS={
  "__albums": {
   "2026|Landal Klein Vink (voorheen Roompot Klein Vink)": [
    "camping",
-   "Glow golf",
-   "Enchanted Gardens"
+   "Enchanted Gardens",
+   "Glow golf"
   ]
  }
 };

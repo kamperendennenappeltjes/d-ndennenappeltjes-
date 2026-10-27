@@ -240,13 +240,12 @@ const urls = [['', 1.0], ['campings/', 0.8], ['verhalen/', 0.7], ['uitrusting/',
 // ---- campings
 for (const c of CAMPINGS) {
   if (!c.id) continue;
-  // Foto's die in Beheer > Foto's aan deze camping zijn gekoppeld (plek)
-  const plekFotos = Object.entries(FOTOSDATA || {}).filter(([k, L]) => k.slice(0, 2) !== '__' && Array.isArray(L)).flatMap(([, L]) => L).filter(x => x && x.src && String(x.camping || '') === String(c.naam));
-  // Video's: eigen regels bij de camping (Titel | link, of alleen een link), plus video's uit de Video's-lijst waarvan de titel de campingnaam bevat
+  // Alleen foto's die je in Beheer bij deze camping hebt gekozen
+  const plekFotos = Array.isArray(c.fotos) ? c.fotos.filter(x => x && x.src) : [];
+  // Video's: alleen wat je in Beheer bij deze camping hebt gekozen
   const geldig = u => /^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(String(u || '').trim());
-  const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].map(r => { const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
-  const gekoppeld = (Array.isArray(VIDDATA) ? VIDDATA : []).filter(v => v && v.url && c.naam && schoon(v.titel).toLowerCase().includes(String(c.naam).toLowerCase())).map(v => ({ titel: schoon(v.titel), url: String(v.url).trim() }));
-  const vloggen = [...handmatig, ...gekoppeld].filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
+  const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].filter(Boolean).map(r => { if (typeof r === 'object') return { titel: schoon(r.titel), url: String(r.url || '').trim() }; const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
+  const vloggen = handmatig.filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
   const feiten = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
   const naamPlaats = c.plaats && !String(c.naam).toLowerCase().includes(String(c.plaats).split(',')[0].toLowerCase()) ? `${c.naam} in ${c.plaats}` : c.naam;
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';

@@ -25,11 +25,11 @@ const TIPS=[
  },
  {
   "titel": "1ste levensbehoefte",
-  "tekst": "Zorg dat je op de dag van aankomst en de 1ste dag op de camping je boodschappen bij hebt. Niet overal is altijd meteen een winkel aanwezig."
+  "tekst": "Zorg dat je op de dag van aankomst en de eerste dag op de camping je boodschappen bij hebt. Niet overal is altijd meteen een winkel aanwezig."
  },
  {
   "titel": "Sanitaire stop",
-  "tekst": "Mocht je een langere rit hebben zorg ervoor dat je het toilet in de caravan klaar hebt voor gebruik. Zodat je te allen tijde naar toilet kunt. Zeker fijn met kinderen of een vrouw met zwakke blaas."
+  "tekst": "Mocht je een langere rit hebben zorg ervoor dat je het toilet in de caravan klaar hebt voor gebruik. Zodat je te allen tijde naar het toilet kunt. Zeker fijn met kinderen of een vrouw met zwakke blaas."
  },
  {
   "titel": "Opslaan zoetigheid",

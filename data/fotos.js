@@ -2747,181 +2747,181 @@ const FOTOS={
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184443143-2.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pinksteren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184445596-3.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184447749-4.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184449799-5.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184451642-6.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184453279-7.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184455325-8.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184457072-9.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184459026-10.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184461085-11.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184463012-12.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184465055-13.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184466999-14.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184469665-15.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184471410-16.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184473448-17.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184475191-18.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184477341-19.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pretpark Julianatoren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184479363-20.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pinksteren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184481335-21.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pinksteren"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184483384-22.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Pinkster weekend / Pinksteren"
   },
   {
    "src": "img/fotos/2026/hemelvaart/1792184578948-1.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Hemelvaart"
   },
   {
    "src": "img/fotos/2026/hemelvaart/1792184581069-2.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Hemelvaart"
   },
   {
    "src": "img/fotos/2026/hemelvaart/1792184583019-3.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Hemelvaart"
   },
   {
    "src": "img/fotos/2026/hemelvaart/1792184584958-4.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Hemelvaart"
   },
   {
    "src": "img/fotos/2026/hemelvaart/1792184587114-5.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Hemelvaart"
   },
   {
    "src": "img/fotos/2026/het-peelvenneke/1792184692552-1.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Het peelvenneke"
   },
   {
    "src": "img/fotos/2026/het-peelvenneke/1792184694434-2.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Het peelvenneke"
   },
   {
    "src": "img/fotos/2026/het-peelvenneke/1792184696277-3.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Het peelvenneke"
   },
   {
    "src": "img/fotos/2026/het-peelvenneke/1792184698324-4.jpg",
    "tekst": "",
-   "camping": "Het peelvenneke",
+   "camping": "Voorjaar",
    "album": "Het peelvenneke"
   },
   {
@@ -3282,7 +3282,7 @@ const FOTOS={
    "Kerstvakantie"
   ],
   "2026": [
-   "Het peelvenneke",
+   "Voorjaar",
    "Zomer vakantie",
    "Herfstvakantie"
   ]
@@ -3341,7 +3341,7 @@ const FOTOS={
   }
  ],
  "__albums": {
-  "2026|Het peelvenneke": [
+  "2026|Voorjaar": [
    "Het peelvenneke",
    "Hemelvaart",
    "Pinkster weekend / Pinksteren",

@@ -27,7 +27,22 @@ const CAMPINGS=[
   "stroom": "10",
   "opp": "90-100",
   "water": "Ja",
-  "afvoer": "Ja"
+  "afvoer": "Ja",
+  "fotos": [
+   {
+    "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350975116-19.jpg",
+    "tekst": "Mooie plekken"
+   },
+   {
+    "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350966166-13.jpg",
+    "tekst": "Mooi omgeving fijn om te fietsen"
+   },
+   {
+    "src": "img/fotos/2019/vakantiepark-de-luttenberg/1792350958746-9.jpg",
+    "tekst": "Gezelligheid maak je samen"
+   }
+  ],
+  "vlogs": []
  },
  {
   "id": "de-lente-van-drenthe",
@@ -56,7 +71,9 @@ const CAMPINGS=[
   "stroom": "",
   "opp": "",
   "water": "Ja",
-  "afvoer": "Ja"
+  "afvoer": "Ja",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "de-berckt",
@@ -86,7 +103,9 @@ const CAMPINGS=[
   "stroom": "10",
   "opp": "100",
   "water": "Ja",
-  "afvoer": "Ja"
+  "afvoer": "Ja",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "vakantiepark-prinsenmeer",
@@ -117,7 +136,9 @@ const CAMPINGS=[
   "min": [
    "De tempratuur van zwembad mocht wel wat hoger voor een subtropisch zwembad"
   ],
-  "foto": "img/vakantiepark-prinsenmeer-1792216847794.jpg"
+  "foto": "img/vakantiepark-prinsenmeer-1792216847794.jpg",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "vakantiepark-hengelhoef",
@@ -152,7 +173,9 @@ const CAMPINGS=[
    "Geen toiletpapier aanwezig",
    "Kampeerplekken verder naar achter gelegen op het park"
   ],
-  "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg"
+  "foto": "img/vakantiepark-hengelhoef-1791997309512.jpg",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "slot-cranendonck",
@@ -183,7 +206,9 @@ const CAMPINGS=[
   "stroom": "6",
   "opp": "100",
   "water": "Ja",
-  "afvoer": "Ja"
+  "afvoer": "Ja",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "blauwemeer",
@@ -216,7 +241,9 @@ const CAMPINGS=[
   "opp": "100",
   "water": "Ja",
   "afvoer": "Ja",
-  "foto": "img/camping-blauwemeer-1791968351216.jpg"
+  "foto": "img/camping-blauwemeer-1791968351216.jpg",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "camping-het-peelvenneke",
@@ -253,7 +280,9 @@ const CAMPINGS=[
    "Het is geen verbeter punt maar het is geen camping voor kinderen zonder zwemdiploma aangezien de visvijver die centraal licht.",
    "Stijgers waren ze nog aan het opknappen maar ze waren hard aan de weg aan het timmeren"
   ],
-  "foto": "img/camping-het-peelvenneke-1791997319760.jpg"
+  "foto": "img/camping-het-peelvenneke-1791997319760.jpg",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "goolderheide",
@@ -285,7 +314,9 @@ const CAMPINGS=[
   "stroom": "16",
   "opp": "150",
   "water": "Ja",
-  "afvoer": "Ja"
+  "afvoer": "Ja",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "esch-camping-kaampert",
@@ -322,7 +353,9 @@ const CAMPINGS=[
   "min": [
    "Douche waren zeer netjes en schoon maar de ruimte was krap"
   ],
-  "foto": "img/esch-camping-kaampert-1791997332207.jpg"
+  "foto": "img/esch-camping-kaampert-1791997332207.jpg",
+  "fotos": [],
+  "vlogs": []
  },
  {
   "id": "landal-klein-vink-voorheen-roompot-klein-vink",
@@ -365,6 +398,8 @@ const CAMPINGS=[
    "Kampeerplekken zijn heel schuin.",
    "De plaatsen zijn vrij klein maar net 80 m2 en er is geen ander keus"
   ],
-  "foto": "img/landal-klein-vink-voorheen-roompot-klein-vink-1792863745518.jpg"
+  "foto": "img/landal-klein-vink-voorheen-roompot-klein-vink-1792863745518.jpg",
+  "fotos": [],
+  "vlogs": []
  }
 ];

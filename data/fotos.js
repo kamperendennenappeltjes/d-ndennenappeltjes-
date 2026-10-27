@@ -2567,152 +2567,182 @@ const FOTOS={
   {
    "src": "img/fotos/2026/1791971178310-1.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791971181404-2.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971183635-3.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971185552-4.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/1791971312190-1.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791971314682-2.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791971316761-3.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973608685-1.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973610754-2.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973612610-3.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973614872-4.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973617054-5.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973619732-6.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973621871-7.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973623995-8.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/1791973625858-9.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Familiepark Goolderheide"
   },
   {
    "src": "img/fotos/2026/1791973627871-10.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/1791973629815-11.jpg",
    "tekst": "",
-   "camping": "Familiepark Goolderheide"
+   "camping": "Zomer vakantie",
+   "album": "Beach party bochelt / airbase museum"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974720804-1.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974723258-2.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974725308-3.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974727660-4.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974729954-5.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974731956-6.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974734004-7.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974735916-8.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974738096-9.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974740553-10.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974743121-11.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/bobbejaanland/1791974745682-12.jpg",
    "tekst": "",
-   "camping": "Bobbejaanland"
+   "camping": "Zomer vakantie",
+   "album": "Bobbejaanland"
   },
   {
    "src": "img/fotos/2026/pinksteren-julianatoren/1792184443143-2.jpg",
@@ -3225,8 +3255,7 @@ const FOTOS={
    "Het peelvenneke",
    "Hemelvaart",
    "Pinksteren/Julianatoren",
-   "Familiepark Goolderheide",
-   "Bobbejaanland",
+   "Zomer vakantie",
    "Herfstvakantie"
   ]
  },
@@ -3284,6 +3313,11 @@ const FOTOS={
   }
  ],
  "__albums": {
+  "2026|Zomer vakantie": [
+   "Beach party bochelt / airbase museum",
+   "Familiepark Goolderheide",
+   "Bobbejaanland"
+  ],
   "2026|Herfstvakantie": [
    "Landal Klein Vink (voorheen Roompot Klein Vink)",
    "Enchanted Gardens",

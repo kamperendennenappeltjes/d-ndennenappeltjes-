@@ -144,7 +144,7 @@ async function photo(inp){read();const c=D.CAMPINGS[+inp.closest('.bk').dataset.
 try{c.foto=await prep(f,'img/'+slug(c.naam)+'-'+Date.now()+'.jpg','Foto '+c.naam);draw();toast('Foto staat erin. Kies nog Opslaan en publiceren.')}catch(e){toast('Foto uploaden mislukte: '+e.message)}}
 const same=x=>(x.camping||'')==(fv.plek||'')&&(x.album||'')==(fv.alb||'');
 const ako=(m,p)=>{const ks=[...new Set((D.FOTOS[m]||[]).filter(x=>(x.camping||'')==p&&x.album).map(x=>x.album))],o=(D.FOTOS.__albums&&D.FOTOS.__albums[m+'|'+p])||[];return [...new Set(o)].filter(k=>ks.includes(k)).concat(ks.filter(k=>!o.includes(k)).sort((a,c)=>a.localeCompare(c,'nl')))};
-function albMove(){const o=ako(fv.map,fv.plek||'').filter(a=>a!=(fv.alb||'')),opts=(fv.alb?['']:[]).concat(o);return `<div class="mv"><select id="fmvsel">${opts.map(a=>`<option value="${esc(a)}">${a?esc(a):'Zonder album'}</option>`).join('')}<option value="__nieuw">Nieuw album...</option></select><button data-fmvalb style="padding:6px 14px">Verplaats naar album</button></div>`}
+function albMove(){const o=ako(fv.map,fv.plek||'').filter(a=>a!=(fv.alb||'')),opts=(fv.alb?['']:[]).concat(o);return `<div class="mv"><select id="fmvsel"><option value="__nieuw">Nieuw album...</option>${opts.map(a=>`<option value="${esc(a)}">${a?esc(a):'Zonder album'}</option>`).join('')}</select><button data-fmvalb style="padding:6px 14px">Verplaats naar album</button></div>`}
 const vn=(L,i,p,d)=>{for(let j=i+d;j>=0&&j<L.length;j+=d)if(same(L[j]))return j;return -1};
 let fsel=new Set(),fselKey='',flast=null;
 const fsl=()=>{const p=fv.plek||'';return (D.FOTOS[fv.map]||[]).filter(x=>same(x)&&fsel.has(x.src)).map(x=>x.src)};

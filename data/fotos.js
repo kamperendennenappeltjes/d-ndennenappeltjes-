@@ -1235,6 +1235,76 @@ const FOTOS={
    "src": "img/fotos/2022/hemelvaart/1792304190117-10.jpg",
    "tekst": "",
    "camping": "hemelvaart"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202596808-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202599412-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202602264-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202605007-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202626729-1.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202629143-2.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202631136-3.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202633039-4.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202636226-5.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202638366-6.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202641045-7.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202643331-8.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202645548-9.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
+  },
+  {
+   "src": "img/fotos/2022/vakantiepark-prinsenmeer/1793202647922-10.jpg",
+   "tekst": "",
+   "camping": "Vakantiepark Prinsenmeer"
   }
  ],
  "2023": [
@@ -3421,6 +3491,7 @@ const FOTOS={
    "De Lente van Drenthe"
   ],
   "2022": [
+   "Vakantiepark Prinsenmeer",
    "hemelvaart",
    "Vakantiepark De Berckt"
   ],

@@ -2154,6 +2154,81 @@ const FOTOS={
    "tekst": "",
    "camping": "Zomervakantie",
    "album": "Vakantiepark Slot Cranendonck"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201961546-1.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201966347-2.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201969194-3.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201971831-4.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201974324-5.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201976276-6.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201979457-7.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201981728-8.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201985486-9.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201987706-10.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201989757-11.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201992548-12.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201994301-13.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201997016-14.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793201999087-15.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
   }
  ],
  "2025": [
@@ -3340,6 +3415,7 @@ const FOTOS={
    "Herfstvakantie ( Soerendonk )"
   ],
   "2024": [
+   "hemelvaart weekend",
    "Zomervakantie",
    "Herfstvakantie",
    "Kerstvakantie"

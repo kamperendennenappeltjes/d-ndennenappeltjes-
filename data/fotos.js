@@ -3491,9 +3491,9 @@ const FOTOS={
    "De Lente van Drenthe"
   ],
   "2022": [
-   "Vakantiepark Prinsenmeer",
    "hemelvaart",
-   "Vakantiepark De Berckt"
+   "Vakantiepark De Berckt",
+   "Vakantiepark Prinsenmeer"
   ],
   "2023": [
    "Hemelvaart bij huize Krijgsman",

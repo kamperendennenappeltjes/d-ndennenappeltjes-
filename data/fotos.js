@@ -3677,10 +3677,10 @@ const FOTOS={
    "Mechelen"
   ],
   "2021|Zomervakantie": [
+   "De Lente van Drenthe",
    "Kamp Westerbork",
-   "Drouwenerzand",
    "Wildlands",
-   "De Lente van Drenthe"
+   "Drouwenerzand"
   ]
  }
 };

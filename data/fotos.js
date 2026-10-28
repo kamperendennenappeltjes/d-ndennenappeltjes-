@@ -2229,6 +2229,21 @@ const FOTOS={
    "src": "img/fotos/2024/hemelvaart-weekend/1793201999087-15.jpg",
    "tekst": "",
    "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793202520544-1.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793202522719-2.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
+  },
+  {
+   "src": "img/fotos/2024/hemelvaart-weekend/1793202524721-3.jpg",
+   "tekst": "",
+   "camping": "hemelvaart weekend"
   }
  ],
  "2025": [

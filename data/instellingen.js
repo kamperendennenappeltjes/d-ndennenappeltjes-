@@ -18,7 +18,7 @@ const INST={
    "img": "img/tegel-paklijst-1793471580817.png"
   },
   "campings": {
-   "img": "img/tegel-campings-1793471780887.png"
+   "img": "img/tegel-campings-1793472777532.png"
   },
   "verhalen": {
    "img": "img/tegel-verhalen-1793472229579.png"

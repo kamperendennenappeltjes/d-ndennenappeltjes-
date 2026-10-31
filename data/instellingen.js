@@ -16,6 +16,15 @@ const INST={
  "tegelinfo": {
   "paklijst": {
    "img": "img/tegel-paklijst-1793471580817.png"
+  },
+  "campings": {
+   "img": "img/tegel-campings-1793471780887.png"
+  },
+  "verhalen": {
+   "img": "img/tegel-verhalen-1793472229579.png"
+  },
+  "tips": {
+   "img": "img/tegel-tips-1793472389961.png"
   }
  }
 };

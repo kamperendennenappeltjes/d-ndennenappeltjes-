@@ -109,7 +109,7 @@ nav a.on{color:var(--oranje);box-shadow:0 3px 0 var(--oranje)}
 .tegel{display:block;padding:30px 24px;border-radius:22px;text-decoration:none;color:var(--room);background:var(--mos);border:2px solid rgba(240,138,60,.4)}
 .tegel:nth-child(2){background:var(--rood);border-color:transparent}
 .tegel:nth-child(3){background:var(--den)}
-.tegel span{font-size:2.4rem;display:block}.tegel h3{margin:.3em 0 .2em;font-size:1.4rem}.tegel p{margin:0;font-size:.97rem}
+.tegel span{font-size:2.4rem;display:block}.tegel span img{width:1.2em;height:1.2em;object-fit:contain;display:block}.tegel h3{margin:.3em 0 .2em;font-size:1.4rem}.tegel p{margin:0;font-size:.97rem}
 .lijst{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:26px}
 .cat{background:var(--nacht);border-radius:20px;padding:22px 24px}
 .cat h3{font-size:1.25rem;color:var(--oranje)}
@@ -441,10 +441,10 @@ var T=INST.teksten||{};
 PTS.forEach(function(p){var v=T[p[0]],e=v&&document.querySelector(p[1]);if(e)e.textContent=v});
 var TG={paklijst:['🎒','Wat neem je mee','Onze complete paklijst om af te vinken.','paklijst/'],campings:['⛺','Campings','Waar we waren en wat we ervan vonden.','campings/'],verhalen:['📖','Verhalen','Verslagen van onze trips.','verhalen/'],tips:['💡','Tips','Dit hebben we onderweg geleerd.','tips/'],uitrusting:['🧰','Uitrusting','Wat er in onze caravan en voortent zit.','uitrusting/'],fotos:['📷',"Foto's",'Beelden van onze reizen.','#fotos'],videos:['🎬',"Video's",'Kijk mee op ons YouTube-kanaal.','#videos'],over:['🌲','Over ons','Maak kennis met ons gezin.','over-ons/'],contact:['✉️','Contact','Stuur ons een bericht.','#contact']};
 var TI=INST.tegelinfo||{},EQ=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
-Object.keys(TI).forEach(function(k){var o=TI[k];if(TG[k]&&o){if(o.i)TG[k][0]=o.i;if(o.t)TG[k][1]=o.t;if(o.p)TG[k][2]=o.p}});
+Object.keys(TI).forEach(function(k){var o=TI[k];if(TG[k]&&o){if(o.i)TG[k][0]=o.i;if(o.t)TG[k][1]=o.t;if(o.p)TG[k][2]=o.p;if(o.img)TG[k][4]=o.img}});
 var TL=(Array.isArray(INST.tegels)&&INST.tegels.length)?INST.tegels:(Object.keys(TI).length?['paklijst','campings','verhalen','tips']:null);
 if(TL){var w=document.querySelector('#p-home .tegels'),ids=TL.filter(function(k,i,a){return TG[k]&&a.indexOf(k)==i});
-if(w&&ids.length)w.innerHTML=ids.map(function(k){var g=TG[k];return '<a class="tegel" href="'+g[3]+'"><span>'+EQ(g[0])+'</span><h3>'+EQ(g[1])+'</h3><p>'+EQ(g[2])+'</p></a>'}).join('')}
+if(w&&ids.length)w.innerHTML=ids.map(function(k){var g=TG[k];return '<a class="tegel" href="'+g[3]+'"><span>'+(g[4]?'<img src="'+EQ(g[4])+'" alt="">':EQ(g[0]))+'</span><h3>'+EQ(g[1])+'</h3><p>'+EQ(g[2])+'</p></a>'}).join('')}
 }catch(e){}})();
 </script>
 <script>

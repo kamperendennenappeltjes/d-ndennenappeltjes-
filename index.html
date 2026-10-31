@@ -440,8 +440,11 @@ var PTS=[['home.h1','#p-home .hero h1'],['home.intro','#p-home .hero p'],['home.
 var T=INST.teksten||{};
 PTS.forEach(function(p){var v=T[p[0]],e=v&&document.querySelector(p[1]);if(e)e.textContent=v});
 var TG={paklijst:['🎒','Wat neem je mee','Onze complete paklijst om af te vinken.','paklijst/'],campings:['⛺','Campings','Waar we waren en wat we ervan vonden.','campings/'],verhalen:['📖','Verhalen','Verslagen van onze trips.','verhalen/'],tips:['💡','Tips','Dit hebben we onderweg geleerd.','tips/'],uitrusting:['🧰','Uitrusting','Wat er in onze caravan en voortent zit.','uitrusting/'],fotos:['📷',"Foto's",'Beelden van onze reizen.','#fotos'],videos:['🎬',"Video's",'Kijk mee op ons YouTube-kanaal.','#videos'],over:['🌲','Over ons','Maak kennis met ons gezin.','over-ons/'],contact:['✉️','Contact','Stuur ons een bericht.','#contact']};
-if(Array.isArray(INST.tegels)&&INST.tegels.length){var w=document.querySelector('#p-home .tegels'),ids=INST.tegels.filter(function(k,i,a){return TG[k]&&a.indexOf(k)==i});
-if(w&&ids.length)w.innerHTML=ids.map(function(k){var g=TG[k];return '<a class="tegel" href="'+g[3]+'"><span>'+g[0]+'</span><h3>'+g[1]+'</h3><p>'+g[2]+'</p></a>'}).join('')}
+var TI=INST.tegelinfo||{},EQ=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+Object.keys(TI).forEach(function(k){var o=TI[k];if(TG[k]&&o){if(o.i)TG[k][0]=o.i;if(o.t)TG[k][1]=o.t;if(o.p)TG[k][2]=o.p}});
+var TL=(Array.isArray(INST.tegels)&&INST.tegels.length)?INST.tegels:(Object.keys(TI).length?['paklijst','campings','verhalen','tips']:null);
+if(TL){var w=document.querySelector('#p-home .tegels'),ids=TL.filter(function(k,i,a){return TG[k]&&a.indexOf(k)==i});
+if(w&&ids.length)w.innerHTML=ids.map(function(k){var g=TG[k];return '<a class="tegel" href="'+g[3]+'"><span>'+EQ(g[0])+'</span><h3>'+EQ(g[1])+'</h3><p>'+EQ(g[2])+'</p></a>'}).join('')}
 }catch(e){}})();
 </script>
 <script>

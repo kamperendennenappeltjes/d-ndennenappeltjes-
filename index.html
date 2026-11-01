@@ -73,6 +73,19 @@ nav a:hover{color:var(--oranje)}
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
 .filters button{font:inherit;font-weight:700;background:transparent;color:var(--room);border:2px solid var(--oranje);border-radius:999px;padding:7px 18px;cursor:pointer}
 .filters button[aria-pressed=true]{background:var(--oranje);color:#1a0f05}
+.filters{display:block;margin:22px 0}.fkop{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.fkop #ftel{font-weight:700}
+.filters .ftoggle{display:inline-flex;align-items:center;gap:8px;font-size:1.05rem;padding:9px 20px}.filters .ftoggle[aria-expanded=true]{background:var(--oranje);color:#1a0f05}.fbadge{background:var(--rood);color:#fff;border-radius:999px;min-width:22px;padding:0 7px;font-size:.85rem;line-height:22px;text-align:center}.fpijl{font-size:.7rem}
+#fpanel{background:rgba(13,26,21,.55);border-radius:18px;padding:18px 18px 6px;margin-top:14px}#fpanel[hidden]{display:none}
+#fbouw{display:flex;flex-wrap:wrap;gap:0 28px;align-items:flex-start}
+.fgroep{margin:0 0 14px}.flabel{display:block;font-weight:800;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--zacht);margin-bottom:6px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}.filters button small{opacity:.75;font-weight:600}
+.filters select{font:inherit;font-weight:700;color:var(--room);background:var(--nacht);border:2px solid var(--oranje);border-radius:12px;padding:9px 12px;max-width:100%;min-width:220px}
+.filters button.fklein{padding:5px 14px;font-size:.9rem}
+.kaartvak{background:var(--nacht);border-radius:16px;padding:12px;margin:4px 0 14px}.kaartvraag{text-align:center;padding:22px}.kaartvraag p{margin:0 0 12px;max-width:560px;margin-left:auto;margin-right:auto}.kaartvraag button{font:inherit;font-weight:700;background:var(--oranje);color:#1a0f05;border:0;border-radius:999px;padding:10px 24px;cursor:pointer}
+#lkaart{height:min(62vh,480px);border-radius:12px;position:relative;z-index:0;isolation:isolate;background:#1b2a24}
+.kaartsvg{width:100%;height:auto;max-height:420px;display:block}.kp{cursor:pointer}.kp:focus{outline:none}.kp:hover circle:nth-child(2),.kp:focus circle:nth-child(2){stroke:#f6ecd6}.kaartnoot{margin:8px 0 0;color:var(--zacht);font-size:.9rem}
+.lpin{background:transparent;border:0}.lpin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#f08a3c;border:3px solid #1a0f05;color:#1a0f05;font:700 14px Fredoka,sans-serif;box-shadow:0 0 0 4px rgba(240,138,60,.4)}
+.lpop{font:15px/1.4 Nunito,system-ui,sans-serif;color:#1a0f05}.lpop div+div{margin-top:6px}.lpop a{color:#a33f00;font-weight:800}.lpop small{color:#555}
 .camp{display:flex;gap:16px;align-items:center;padding:18px 22px;background:var(--den);border-radius:16px;margin-bottom:12px}
 .camp .cijfer{font:700 1.6rem Fredoka,sans-serif;background:var(--oranje);color:#1a0f05;border-radius:14px;min-width:58px;text-align:center;padding:6px 0}
 .camp h3{margin:0;font-size:1.15rem}.camp p{margin:0;color:var(--zacht);font-size:.95rem}
@@ -279,13 +292,11 @@ img[data-vn]{cursor:zoom-in}
 <script>var CKEY='dennenappeltjes-cookies';function ckRead(){try{var r=localStorage.getItem(CKEY)||sessionStorage.getItem(CKEY);return r?JSON.parse(r):null}catch(e){return null}}function ckSave(o){try{var j=JSON.stringify(o);if(o.stat||o.vid){localStorage.setItem(CKEY,j);sessionStorage.removeItem(CKEY)}else{sessionStorage.setItem(CKEY,j);localStorage.removeItem(CKEY)}}catch(e){}}function ckOk(k){var c=ckRead();return !!(c&&c[k])}</script>
 <script>["campings","paklijst","checklists","uitrusting","videos","fotos","tips","verhalen","over","instellingen"].forEach(function(f){document.write('<script src="data/'+f+'.js?t='+Date.now()+'"><\/script>')})</script>
 <script>
-var TXT=function(k,s){try{var t=(typeof INST!=='undefined'&&INST&&INST.teksten)||{},v=t[k];return v!=null&&String(v).trim()!==''?String(v).trim():s}catch(e){return s}};
-var TXH=function(k,s){return TXT(k,s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
 let ok={};try{ok=JSON.parse(localStorage.getItem('pak')||'{}')}catch(e){}
 const pl=document.getElementById('paklijst');
 pl.innerHTML=Object.entries(PAK).map(([c,a])=>`<div class="cat"><h3>${c}</h3>${a.map(x=>`<label><input type="checkbox" data-k="${x}"><span>${x}</span></label>`).join('')}</div>`).join('');
 const bx=[...pl.querySelectorAll('input')];
-function tel(){const n=bx.filter(b=>b.checked).length;document.getElementById('bar').style.width=(100*n/bx.length)+'%';document.getElementById('tel').textContent=TXT('meenemen.teller','{n} van {t} ingepakt').replace('{n}',n).replace('{t}',bx.length);try{localStorage.setItem('pak',JSON.stringify(Object.fromEntries(bx.map(b=>[b.dataset.k,b.checked]))))}catch(e){}}
+function tel(){const n=bx.filter(b=>b.checked).length;document.getElementById('bar').style.width=(100*n/bx.length)+'%';document.getElementById('tel').textContent=n+' van '+bx.length+' ingepakt';try{localStorage.setItem('pak',JSON.stringify(Object.fromEntries(bx.map(b=>[b.dataset.k,b.checked]))))}catch(e){}}
 bx.forEach(b=>{b.checked=!!ok[b.dataset.k];b.onchange=tel});tel();
 document.getElementById('reset').onclick=()=>{bx.forEach(b=>b.checked=false);tel()};
 const mk=document.getElementById('mk'),lk=document.getElementById('lk');
@@ -307,17 +318,117 @@ document.querySelectorAll('.page').forEach(e=>e.classList.toggle('on',e.id=='p-'
 const nv=p=='camping'?'campings':p=='verhaal'?'verhalen':p;lk.querySelectorAll('a').forEach(a=>a.classList.toggle('on',(a.dataset.r||a.getAttribute('href'))=='#'+nv));
 lk.classList.remove('open');mk.setAttribute('aria-expanded',false);if(p=='fotos')drawF();seoSet(p,h[1]);window.scrollTo(0,0)}
 
-const f=document.getElementById('filters'),l=document.getElementById('lijst');let cur='Alle';
-function draw(){l.innerHTML=CAMPINGS.filter(c=>cur=='Alle'||c.type==cur).map(c=>`<a class="camp" href="#camping/${c.id}">${c.foto?`<img src="${c.foto}" alt="" style="width:84px;height:64px;object-fit:cover;border-radius:10px;flex:none">`:''}<div class="cijfer">${c.cijfer||'&ndash;'}</div><div><h3>${c.naam} <small>${c.plaats||''}</small></h3><p>${c.tekst}</p></div></a>`).join('');
-f.innerHTML=['Alle',...new Set(CAMPINGS.map(c=>c.type))].map(t=>`<button aria-pressed="${t==cur}">${t}</button>`).join('');
-f.querySelectorAll('button').forEach(b=>b.onclick=()=>{cur=b.textContent;draw()})}
-draw();
+/* Campingoverzicht: filters (land, provincie, cijfer, soort), sortering en kaartje */
+const f=document.getElementById('filters'),l=document.getElementById('lijst');
+const CK0=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const LANDNAAM={nl:'Nederland',nederland:'Nederland',holland:'Nederland',be:'België',belgie:'België',de:'Duitsland',duitsland:'Duitsland',deutschland:'Duitsland',fr:'Frankrijk',frankrijk:'Frankrijk',lu:'Luxemburg',luxemburg:'Luxemburg',at:'Oostenrijk',oostenrijk:'Oostenrijk',dk:'Denemarken',denemarken:'Denemarken',es:'Spanje',spanje:'Spanje',it:'Italië',italie:'Italië',ch:'Zwitserland',zwitserland:'Zwitserland'};
+const landVan=c=>{const t=String(c.land||'').trim();return t?(LANDNAAM[CK0(t)]||t):'Nederland'};
+const REGIOALIAS={fryslan:'Friesland',noordbrabant:'Noord-Brabant',noordholland:'Noord-Holland',zuidholland:'Zuid-Holland'};
+const regioVan=c=>{const r=String(c.regio||'').trim();return r?(REGIOALIAS[CK0(r)]||r):''};
+const LANDPUNT={Nederland:[52.2,5.3],'België':[50.6,4.6],Duitsland:[51.2,10.4],Frankrijk:[46.6,2.4],Luxemburg:[49.8,6.1],Oostenrijk:[47.6,14.1],Denemarken:[56,9.5],Spanje:[40.2,-3.7],'Italië':[42.5,12.5],Zwitserland:[46.8,8.2]};
+const REGIOPUNT={'Nederland|groningen':[53.22,6.74],'Nederland|friesland':[53.1,5.85],'Nederland|drenthe':[52.85,6.6],'Nederland|overijssel':[52.45,6.4],'Nederland|flevoland':[52.5,5.55],'Nederland|gelderland':[52.05,5.9],'Nederland|utrecht':[52.08,5.15],'Nederland|noordholland':[52.6,4.8],'Nederland|zuidholland':[52,4.5],'Nederland|zeeland':[51.45,3.8],'Nederland|noordbrabant':[51.55,5.1],'Nederland|limburg':[51.2,5.9],
+'België|antwerpen':[51.2,4.6],'België|limburg':[50.95,5.4],'België|oostvlaanderen':[51,3.9],'België|westvlaanderen':[51.05,3.1],'België|vlaamsbrabant':[50.9,4.5],'België|waalsbrabant':[50.65,4.6],'België|henegouwen':[50.45,3.9],'België|luik':[50.5,5.6],'België|luxemburg':[49.95,5.45],'België|luxemburgprovincie':[49.95,5.45],'België|namen':[50.35,4.9],'België|brussel':[50.85,4.35]};
+/* grove omtrek van Nederland en België, alleen als sfeer onder de kaartpunten */
+const OMTREK={Nederland:[[6.9,53.45],[6.2,53.4],[5.4,53.17],[5.05,52.95],[4.75,52.96],[4.6,52.6],[4.55,52.46],[4.4,52.2],[4.1,51.98],[3.85,51.82],[3.55,51.55],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.05,50.85],[6.2,51.1],[6.2,51.4],[5.95,51.8],[6.7,51.9],[6.8,52.05],[6.7,52.45],[7.05,52.65],[7.2,53.0],[7.2,53.2],[7.0,53.3]],
+'België':[[2.55,51.09],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.2,50.55],[6.4,50.32],[6.1,50.13],[5.8,49.55],[5.4,49.55],[4.85,50.15],[4.2,49.95],[3.6,50.35],[3.2,50.75],[2.6,50.8]]};
+const MAPKLEUR='#c9d6c4';
+const cijf=c=>{const n=parseFloat(String(c.cijfer).replace(',','.'));return isFinite(n)?n:null};
+const punt=c=>{if(c.lat!=null&&c.lon!=null&&c.lat!==''&&c.lon!==''&&isFinite(+c.lat)&&isFinite(+c.lon))return[+c.lat,+c.lon,'exact'];const ln=landVan(c),r=regioVan(c);const rp=r&&REGIOPUNT[ln+'|'+CK0(r)];if(rp)return[rp[0],rp[1],'regio'];const lp=LANDPUNT[ln];return lp?[lp[0],lp[1],'land']:null};
+const S={land:'',regio:'',min:0,type:'',sort:'volgorde',pick:null,open:false};
+const campsMetPunt=()=>CAMPINGS.filter(c=>c.id);
+function passend(c){if(S.land&&landVan(c)!=S.land)return false;if(S.regio&&regioVan(c)!=S.regio)return false;if(S.type&&c.type!=S.type)return false;if(S.min){const n=cijf(c);if(n==null||n<S.min)return false}if(S.pick&&!S.pick.includes(c.id))return false;return true}
+function gesorteerd(a){const b=a.slice();if(S.sort=='cijfer')b.sort((x,y)=>(cijf(y)??-1)-(cijf(x)??-1)||String(x.naam).localeCompare(y.naam,'nl'));else if(S.sort=='naam')b.sort((x,y)=>String(x.naam).localeCompare(y.naam,'nl'));else if(S.sort=='regio')b.sort((x,y)=>landVan(x).localeCompare(landVan(y),'nl')||regioVan(x).localeCompare(regioVan(y),'nl')||String(x.naam).localeCompare(y.naam,'nl'));return b}
+const eh=x=>String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const aantalActief=()=>(S.land?1:0)+(S.regio?1:0)+(S.min?1:0)+(S.type?1:0)+(S.pick?1:0);
+/* ---- Kaart 1: echte kaart (Leaflet + OpenStreetMap), pas na een klik van de bezoeker ---- */
+const LJS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',LCSS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+let LM=null,LLAAG=null,LFOUT=false,LBEZIG=false;
+const kaartToegestaan=()=>{try{return sessionStorage.getItem('kaartok')=='1'}catch(e){return false}};
+function laadLeaflet(){return new Promise((ok,nee)=>{if(window.L&&L.map)return ok();if(!document.getElementById('lcss')){const c=document.createElement('link');c.id='lcss';c.rel='stylesheet';c.href=LCSS;document.head.appendChild(c)}const s=document.createElement('script');s.src=LJS;s.onload=()=>window.L&&L.map?ok():nee();s.onerror=nee;document.head.appendChild(s)})}
+function popupHtml(cs){return `<div class="lpop">${cs.map(c=>`<div><a href="#camping/${eh(c.id)}">${eh(c.naam)}</a>${c.cijfer?` <span>cijfer ${eh(c.cijfer)}</span>`:''}${punt(c)[2]!='exact'?'<br><small>Plek bij benadering</small>':''}</div>`).join('')}</div>`}
+function leafBijwerken(vis){
+LLAAG.clearLayers();const grp={};
+vis.forEach(c=>{const p=punt(c);if(!p)return;const key=p[0].toFixed(3)+'|'+p[1].toFixed(3);(grp[key]=grp[key]||{p,cs:[]}).cs.push(c)});
+const pts=[];
+Object.values(grp).forEach(g=>{const n=g.cs.length,ic=L.divIcon({className:'lpin',html:`<span>${n>1?n:''}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]});
+const mk=L.marker([g.p[0],g.p[1]],{icon:ic,title:n==1?g.cs[0].naam:n+' campings',alt:n==1?g.cs[0].naam:n+' campings',keyboard:true});mk.bindPopup(popupHtml(g.cs),{maxWidth:260});mk.addTo(LLAAG);pts.push([g.p[0],g.p[1]])});
+LM.invalidateSize();
+if(!pts.length)return;
+const max=S.regio?11:9;
+if(pts.length==1)LM.setView(pts[0],S.regio?11:S.land?9:8,{animate:true});
+else LM.fitBounds(pts,{padding:[34,34],maxZoom:max,animate:true})}
+async function tekenLeaflet(v,vis){
+let div=document.getElementById('lkaart');
+if(!div||!LM){v.innerHTML=`<div class="kaartvak"><div id="lkaart" role="region" aria-label="Kaart met onze campings"></div><p class="kaartnoot">Kaart: &copy; OpenStreetMap-bijdragers. Tik op een oranje stip om de camping te zien. Met twee vingers of de plus en min zoom je in en uit.</p></div>`;div=document.getElementById('lkaart');
+LM=L.map(div,{scrollWheelZoom:false,worldCopyJump:false,minZoom:3}).setView([50.5,6],5);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(LM);
+LLAAG=L.layerGroup().addTo(LM);
+LM.on('focus',()=>LM.scrollWheelZoom.enable());LM.on('blur',()=>LM.scrollWheelZoom.disable())}
+leafBijwerken(vis)}
+function leafWeg(){if(LM){try{LM.remove()}catch(e){}LM=null;LLAAG=null}}
+/* ---- Kaart 2: eenvoudige kaart zonder externe diensten (voorbeeld of als de echte kaart niet laadt) ---- */
+function kaartSvg(vis){
+const W=600,pts=[];vis.forEach(c=>{const p=punt(c);if(p)pts.push({c,p})});
+if(!pts.length)return'';
+const la0=Math.min(...pts.map(x=>x.p[0])),la1=Math.max(...pts.map(x=>x.p[0])),lo0=Math.min(...pts.map(x=>x.p[1])),lo1=Math.max(...pts.map(x=>x.p[1]));
+const midla=(la0+la1)/2,midlo=(lo0+lo1)/2,k=Math.cos(midla*Math.PI/180),pad=1.32;
+const dla=Math.max(la1-la0,1.3)*pad,dlo=Math.max((lo1-lo0)*k,1.3*k)*pad;
+let sc=Math.min(W/dlo,380/dla);const H=Math.round(Math.min(380,Math.max(240,dla*sc)));sc=Math.min(W/dlo,H/dla);
+const X=lo=>W/2+(lo-midlo)*k*sc,Y=la=>H/2-(la-midla)*sc;
+const groepen={};pts.forEach(x=>{const key=x.p[0].toFixed(2)+'|'+x.p[1].toFixed(2);(groepen[key]=groepen[key]||{p:x.p,cs:[]}).cs.push(x.c)});
+let svg=`<svg class="kaartsvg" viewBox="0 0 ${W} ${H}" role="group" aria-label="Kaart met onze campings" xmlns="http://www.w3.org/2000/svg">`;
+Object.entries(OMTREK).forEach(([n,poly])=>{svg+=`<polygon points="${poly.map(q=>X(q[0]).toFixed(1)+','+Y(q[1]).toFixed(1)).join(' ')}" fill="${MAPKLEUR}" fill-opacity=".10" stroke="${MAPKLEUR}" stroke-opacity=".45" stroke-width="1.2" stroke-linejoin="round"><title>${eh(n)}</title></polygon>`});
+Object.values(groepen).forEach(g=>{const n=g.cs.length,r=9+4*Math.sqrt(n),cx=X(g.p[1]).toFixed(1),cy=Y(g.p[0]).toFixed(1),act=S.pick&&g.cs.every(c=>S.pick.includes(c.id)),naam=n==1?g.cs[0].naam:n+' campings';
+svg+=`<g class="kp" tabindex="0" role="button" data-ids="${eh(g.cs.map(c=>c.id).join(','))}" aria-label="${eh(naam)}"><circle cx="${cx}" cy="${cy}" r="${(r+4).toFixed(1)}" fill="#f08a3c" fill-opacity=".22"/><circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="#f08a3c" stroke="${act?'#f6ecd6':'#1a0f05'}" stroke-width="${act?3:2}"/>${n>1?`<text x="${cx}" y="${(+cy+5).toFixed(1)}" text-anchor="middle" font-family="Fredoka,sans-serif" font-weight="700" font-size="15" fill="#1a0f05">${n}</text>`:''}<title>${eh(naam)}</title></g>`});
+return svg+'</svg>'}
+function tekenSvg(v,vis,uitleg){const svg=kaartSvg(vis);
+v.innerHTML=svg?`<div class="kaartvak">${svg}<p class="kaartnoot">${uitleg||''}Elke oranje stip is een camping of een groep campings. Tik op een stip om alleen die te zien.${S.pick?' <button type="button" class="fklein" id="fpickwis">Toon weer alles</button>':''}</p></div>`:'';
+v.querySelectorAll('.kp').forEach(g=>{const go=()=>{const ids=g.dataset.ids.split(',');if(ids.length==1){location.hash='#camping/'+ids[0];return}S.pick=ids;teken()};g.onclick=go;g.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();go()}}});
+const pw=document.getElementById('fpickwis');if(pw)pw.onclick=()=>{S.pick=null;teken()}}
+/* ---- Kaartvak kiezen ---- */
+function tekenKaart(vis){const v=document.getElementById('fkaartvak');if(!v||!S.open)return;
+if(!campsMetPunt().some(c=>punt(c))){v.innerHTML='';return}
+if(window.KAART_ZONDER_TEGELS||LFOUT){leafWeg();tekenSvg(v,vis,LFOUT?'De gedetailleerde kaart kon niet laden, dit is een eenvoudige kaart. ':'');return}
+if(!kaartToegestaan()){leafWeg();v.innerHTML=`<div class="kaartvak kaartvraag"><p><b>Kaart van onze campings</b></p><p>Voor een kaart waarop je goed kunt zien waar we zijn geweest, gebruiken we OpenStreetMap. Als je de kaart laadt, krijgt OpenStreetMap je IP-adres te zien. Je kunt ook gewoon de lijst hieronder gebruiken.</p><button type="button" id="fkaartlaad">Kaart laden</button></div>`;document.getElementById('fkaartlaad').onclick=()=>{try{sessionStorage.setItem('kaartok','1')}catch(e){}teken()};return}
+if(window.L&&L.map){tekenLeaflet(v,vis);return}
+if(LBEZIG)return;LBEZIG=true;v.innerHTML='<div class="kaartvak"><p class="kaartnoot">Kaart laden...</p></div>';
+laadLeaflet().then(()=>{LBEZIG=false;teken(true)}).catch(()=>{LBEZIG=false;LFOUT=true;teken(true)})}
+/* ---- Filterbalk en lijst ---- */
+function bouwFilters(){
+const alle=campsMetPunt(),landen=[...new Set(alle.map(landVan))],types=[...new Set(alle.map(c=>c.type).filter(Boolean))];
+const regios=[...new Set(alle.filter(c=>!S.land||landVan(c)==S.land).map(regioVan).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'nl'));
+if(S.regio&&!regios.includes(S.regio))S.regio='';
+const n=fn=>alle.filter(fn).length;
+const chips=(naam,items,cur,sleutel)=>`<div class="fgroep"><span class="flabel">${naam}</span><div class="fchips">${items.map(([w,t,aant])=>`<button type="button" data-f="${sleutel}" data-w="${eh(w)}" aria-pressed="${String(w)===String(cur)}">${eh(t)}${aant!=null?` <small>${aant}</small>`:''}</button>`).join('')}</div></div>`;
+let h='';
+if(landen.length>1)h+=chips('Land',[['','Alle landen',alle.length],...landen.map(x=>[x,x,n(c=>landVan(c)==x)])],S.land,'land');
+if(regios.length)h+=`<div class="fgroep"><label class="flabel" for="fregio">Provincie of regio</label><select id="fregio"><option value="">Alle${S.land?' in '+eh(S.land):''}</option>${regios.map(r=>`<option value="${eh(r)}" ${r==S.regio?'selected':''}>${eh(r)} (${n(c=>regioVan(c)==r&&(!S.land||landVan(c)==S.land))})</option>`).join('')}</select></div>`;
+h+=chips('Ons cijfer',[[0,'Alle'],[7,'7 of hoger'],[8,'8 of hoger'],[9,'9 of hoger']],S.min,'min');
+if(types.length>1)h+=chips('Soort',[['','Alle'],...types.map(t=>[t,t])],S.type,'type');
+h+=`<div class="fgroep"><label class="flabel" for="fsort">Sorteren</label><select id="fsort"><option value="volgorde" ${S.sort=='volgorde'?'selected':''}>Zoals wij ze op een rij zetten</option><option value="cijfer" ${S.sort=='cijfer'?'selected':''}>Hoogste cijfer eerst</option><option value="naam" ${S.sort=='naam'?'selected':''}>Naam, van A tot Z</option><option value="regio" ${S.sort=='regio'?'selected':''}>Per land en provincie</option></select></div>`;
+const fb=document.getElementById('fbouw');fb.innerHTML=h;
+fb.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{const k=b.dataset.f,w=b.dataset.w;if(k=='min')S.min=+w;else{S[k]=w;if(k=='land')S.regio=''}S.pick=null;teken()});
+const sr=document.getElementById('fregio');if(sr)sr.onchange=()=>{S.regio=sr.value;S.pick=null;teken()};
+document.getElementById('fsort').onchange=e=>{S.sort=e.target.value;teken(true)}}
+function kopBijwerken(vis){const a=aantalActief(),kop=document.getElementById('fkop');
+kop.innerHTML=`<button type="button" id="ftoggle" class="ftoggle" aria-expanded="${S.open}" aria-controls="fpanel"><span aria-hidden="true">&#9776;</span> Filteren${a?` <span class="fbadge">${a}</span>`:''} <span class="fpijl" aria-hidden="true">${S.open?'&#9650;':'&#9660;'}</span></button><span id="ftel" aria-live="polite">${vis.length==campsMetPunt().length?`Alle ${vis.length} campings`:`${vis.length} van de ${campsMetPunt().length} campings`}</span>${a?'<button type="button" id="fwis" class="fklein">Wis filters</button>':''}`;
+document.getElementById('ftoggle').onclick=()=>{S.open=!S.open;document.getElementById('fpanel').hidden=!S.open;kopBijwerken(vis);if(S.open)teken(true)};
+const w=document.getElementById('fwis');if(w)w.onclick=()=>{S.land=S.regio=S.type='';S.min=0;S.pick=null;teken()}}
+function bouwSkelet(){f.innerHTML='<div class="fkop" id="fkop"></div><div id="fpanel" hidden><div id="fbouw"></div><div id="fkaartvak"></div></div>'}
+function teken(alleenLijst){
+if(!document.getElementById('fkop'))bouwSkelet();
+const vis=gesorteerd(campsMetPunt().filter(passend)),meerLanden=new Set(campsMetPunt().map(landVan)).size>1;
+if(!alleenLijst)bouwFilters();
+kopBijwerken(vis);
+tekenKaart(vis);
+l.innerHTML=vis.length?vis.map(c=>{const wo=[c.plaats,regioVan(c),meerLanden?landVan(c):''].filter(Boolean);return`<a class="camp" href="#camping/${c.id}">${c.foto?`<img src="${c.foto}" alt="" style="width:84px;height:64px;object-fit:cover;border-radius:10px;flex:none">`:''}<div class="cijfer">${c.cijfer||'&ndash;'}</div><div><h3>${c.naam} <small>${wo.join(' &middot; ')}</small></h3><p>${c.tekst}</p></div></a>`}).join(''):'<p class="lead">Geen campings gevonden met deze keuze. Probeer een filter uit te zetten, of druk op Wis filters.</p>'}
+teken();
 function showCamp(id){const c=CAMPINGS.find(x=>x.id==id);if(!c)return false;
 const ul=a=>a&&a.length?`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`:'';
-document.getElementById('campdetail').innerHTML=`<a class="terug" href="#campings">${TXH('terug.campings','Terug naar alle campings')}</a><h2>${c.naam}</h2>${c.foto?`<img class="foto" style="max-height:380px" src="${c.foto}" alt="${c.naam}">`:`<div class="banner" role="img" aria-label="${c.naam}">${c.emoji||'⛺'}</div>`}<p class="lead">${[c.plaats,c.type,c.cijfer?TXT('camping.cijfer','Ons cijfer:')+' '+c.cijfer:''].filter(Boolean).join(' &middot; ')}</p><p class="lead">${c.tekst}</p>
-${c.url?`<p><a class="btn" href="${c.url}" target="_blank" rel="noopener">${TXH('camping.website','Naar de website')}</a></p>`:''}
-${(()=>{const e=[[TXT('feit.plaatsnr','Plaatsnummer'),c.plaatsnr],[TXT('feit.stroom','Stroom'),c.stroom?c.stroom+' A':''],[TXT('feit.opp','Oppervlakte'),c.opp?c.opp+' m²':''],[TXT('feit.water','Water op de plaats'),c.water],[TXT('feit.afvoer','Afvoer op de plaats'),c.afvoer]].filter(x=>x[1]).concat(Object.entries(c.info||{}));return e.length?`<div class="feiten">${e.map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>`:''})()}
-${c.plus||c.min?`<div class="pm"><div class="vlak"><h3>${TXH('camping.fijn','Dit vonden we fijn')}</h3>${ul(c.plus)}</div><div class="vlak"><h3>${TXH('camping.beter','Dit kan beter')}</h3>${ul(c.min)}</div></div>`:''}`;return true}
+document.getElementById('campdetail').innerHTML=`<a class="terug" href="#campings">Terug naar alle campings</a><h2>${c.naam}</h2>${c.foto?`<img class="foto" style="max-height:380px" src="${c.foto}" alt="${c.naam}">`:`<div class="banner" role="img" aria-label="${c.naam}">${c.emoji||'⛺'}</div>`}<p class="lead">${[c.plaats,c.type,c.cijfer?'Ons cijfer: '+c.cijfer:''].filter(Boolean).join(' &middot; ')}</p><p class="lead">${c.tekst}</p>
+${c.url?`<p><a class="btn" href="${c.url}" target="_blank" rel="noopener">Naar de website</a></p>`:''}
+${(()=>{const e=[['Plaatsnummer',c.plaatsnr],['Stroom',c.stroom?c.stroom+' A':''],['Oppervlakte',c.opp?c.opp+' m²':''],['Water op de plaats',c.water],['Afvoer op de plaats',c.afvoer]].filter(x=>x[1]).concat(Object.entries(c.info||{}));return e.length?`<div class="feiten">${e.map(([k,v])=>`<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>`:''})()}
+${c.plus||c.min?`<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${ul(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${ul(c.min)}</div></div>`:''}`;return true}
 const ut=document.getElementById('uittabs'),ul=document.getElementById('uitlijst');let uc=Object.keys(UIT)[0];
 function cl(u){try{const x=new URL(u);[...x.searchParams.keys()].forEach(k=>{if(/^(utm_|gad_|gclid$|gclsrc$|gbraid$|wbraid$|fbclid$|_gl$|referrer$)/i.test(k))x.searchParams.delete(k)});return x.toString()}catch(e){return u}}
 const eu=x=>String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');let us='';
@@ -325,13 +436,13 @@ function drawU(){const cat=UIT[uc]||{},subs=Object.keys(cat);if(!subs.includes(u
 ut.innerHTML=Object.keys(UIT).map(k=>`<button aria-pressed="${k==uc}">${eu(k)}</button>`).join('');
 ut.querySelectorAll('button').forEach(b=>b.onclick=()=>{uc=b.textContent;us='';drawU()});
 const v=cat[us],t=typeof v=='string'?v:(v&&v.t)||'',p=(v&&v.p)||[],ov=t.split(/\s*(?:,(?!\d)|\n)\s*/).map(x=>x.trim()).filter(Boolean);
-ul.innerHTML=(subs.length>1?`<div class="tabs" id="subtabs" role="group" aria-label="Onderdeel">${subs.map(s=>`<button aria-pressed="${s==us}">${eu(s)}</button>`).join('')}</div>`:`<h3 class="sub">${eu(us)}</h3>`)+(p.length?`<div class="pgrid">${p.map(q=>`<div class="pk">${q.foto?`<img src="${eu(q.foto)}" alt="${eu(q.n)}" loading="lazy">`:''}<b>${eu(q.n)}</b>${q.code?`<div class="kc">${TXH('product.code','Kortingscode:')} <b>${eu(q.code)}</b> <button type="button" data-kc="${eu(q.code)}">${TXH('product.kopieer','Kopieer')}</button></div>`:''}${/^https?:\/\//.test(q.url||'')?`<a class="btn" data-gcn="${eu(q.n)}" href="${eu(cl(q.url))}" target="_blank" rel="noopener noreferrer sponsored">${TXH('product.koop','Bekijk / koop')}</a>`:''}</div>`).join('')}</div>`:'')+(ov.length?`<div class="overig"><h3>${TXH('overig.kop','Overige spullen')}</h3><p class="oi">${p.length?TXH('overig.met','Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.'):TXH('overig.zonder','Dit gebruiken wij hiervoor.')}</p><ul>${ov.map(x=>`<li>${eu(x)}</li>`).join('')}</ul></div>`:'');
-ul.querySelectorAll('[data-kc]').forEach(x=>x.onclick=()=>{const c=x.dataset.kc,d=()=>{x.textContent=TXT('product.gekopieerd','Gekopieerd')};window.gcCount&&gcCount('/code/'+c,'Code gekopieerd: '+c,1);try{navigator.clipboard.writeText(c).then(d,d)}catch(e){d()}});
+ul.innerHTML=(subs.length>1?`<div class="tabs" id="subtabs" role="group" aria-label="Onderdeel">${subs.map(s=>`<button aria-pressed="${s==us}">${eu(s)}</button>`).join('')}</div>`:`<h3 class="sub">${eu(us)}</h3>`)+(p.length?`<div class="pgrid">${p.map(q=>`<div class="pk">${q.foto?`<img src="${eu(q.foto)}" alt="${eu(q.n)}" loading="lazy">`:''}<b>${eu(q.n)}</b>${q.code?`<div class="kc">Kortingscode: <b>${eu(q.code)}</b> <button type="button" data-kc="${eu(q.code)}">Kopieer</button></div>`:''}${/^https?:\/\//.test(q.url||'')?`<a class="btn" data-gcn="${eu(q.n)}" href="${eu(cl(q.url))}" target="_blank" rel="noopener noreferrer sponsored">Bekijk / koop</a>`:''}</div>`).join('')}</div>`:'')+(ov.length?`<div class="overig"><h3>Overige spullen</h3><p class="oi">${p.length?'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.':'Dit gebruiken wij hiervoor.'}</p><ul>${ov.map(x=>`<li>${eu(x)}</li>`).join('')}</ul></div>`:'');
+ul.querySelectorAll('[data-kc]').forEach(x=>x.onclick=()=>{const c=x.dataset.kc,d=()=>{x.textContent='Gekopieerd'};window.gcCount&&gcCount('/code/'+c,'Code gekopieerd: '+c,1);try{navigator.clipboard.writeText(c).then(d,d)}catch(e){d()}});
 const sb=document.getElementById('subtabs');if(sb)sb.querySelectorAll('button').forEach(b=>b.onclick=()=>{us=b.textContent;drawU()})}
 drawU();
 const yt=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:''};
 const VV=(typeof VID!=='undefined'?VID:[]).filter(v=>v&&v.url&&yt(v.url));
-function drawVids(){const ok=ckOk('vid');document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart">${ok?`<iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>`:`<div class="vph" style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),url('${v.thumb||'img/thumbs/'+yt(v.url)+'.jpg'}')"><button type="button" class="vplay" data-ckvid aria-label="YouTube-video laden">▶</button><small>${TXH('videos.afspelen','Druk op afspelen om deze video van YouTube te laden.')}</small></div>`}<div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">'+TXH('videos.leeg',"Onze video's staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.")+'</p>'}drawVids();
+function drawVids(){const ok=ckOk('vid');document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart">${ok?`<iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>`:`<div class="vph" style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),url('${v.thumb||'img/thumbs/'+yt(v.url)+'.jpg'}')"><button type="button" class="vplay" data-ckvid aria-label="YouTube-video laden">▶</button><small>Druk op afspelen om deze video van YouTube te laden.</small></div>`}<div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">Onze video\'s staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>'}drawVids();
 const FO=typeof FOTOS!=='undefined'?FOTOS:{"Eerder": [{"src": "img/foto-4.jpg", "tekst": "Camping vanuit de lucht in de avond"}, {"src": "img/foto-8.jpg", "tekst": "Auto en caravan"}, {"src": "img/foto-9.jpg", "tekst": "Caravan in de sneeuw"}, {"src": "img/foto-1.jpg", "tekst": "Verlichte voortenten"}, {"src": "img/foto-10.jpg", "tekst": "Kampeerplek van boven"}, {"src": "img/foto-5.jpg", "tekst": "Gezin bij de westernhut"}, {"src": "img/foto-11.jpg", "tekst": "Twee kinderen op het gras"}, {"src": "img/foto-7.jpg", "tekst": "Twee kampeerders bij de caravans"}]};
 const fk=(()=>{const ks=Object.keys(FO).filter(k=>k.slice(0,2)!='__'&&FO[k]&&FO[k].length),o=Array.isArray(FO.__orde)?FO.__orde:[];return [...o.filter(k=>ks.includes(k)),...ks.filter(k=>!o.includes(k)).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}))]})();let curFotos=[];function drawF(){const h=(location.hash||'').split('/').slice(1).map(decodeURIComponent),g=document.getElementById('galerij'),nav=document.getElementById('fotonav');
 const SEP=' / ',NAAM="Overige foto's";
@@ -381,14 +492,14 @@ let tx0=null;d.addEventListener('touchstart',e=>{tx0=e.touches.length==1?e.touch
 d.addEventListener('touchend',e=>{if(tx0==null)return;const dx=e.changedTouches[0].clientX-tx0;tx0=null;if(Math.abs(dx)>50)lbGo(dx<0?1:-1)});
 const E=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'),par=t=>String(t||'').split('\n').map(x=>x.trim()).filter(Boolean).map(x=>`<p>${E(x)}</p>`).join('');
 const OV=typeof OVER!=='undefined'?OVER:{kop:"Wij zijn d'n Dennenappeltjes",tekst:["Wij zijn een kampeergezin uit Brabant. Met onze Hobby-caravan trekken we er zo vaak mogelijk op uit, in elk seizoen, ook als er sneeuw ligt.","Op ons YouTube-kanaal nemen we je mee naar de camping. Op deze site vind je alles wat we onderweg leren: wat we meenemen, wat werkt en waar het fijn is."],foto:"img/foto-3.jpg",alt:"Ons gezin op een uitkijktoren boven het bos"};
-document.getElementById('overwrap').innerHTML=`<div><h2>${E(OV.kop)}</h2>${(OV.tekst||[]).map(t=>`<p class="lead">${E(t)}</p>`).join('')}<a class="btn" href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">${TXH('over.youtube','Kijk op YouTube')}</a></div>${(()=>{const fs=[[OV.foto,OV.alt],[OV.foto2,OV.alt2]].filter(x=>x[0]);return fs.length?`<div class="fotos">${fs.map(x=>`<img class="foto" src="${E(x[0])}" alt="${E(x[1])}">`).join('')}</div>`:''})()}`;
+document.getElementById('overwrap').innerHTML=`<div><h2>${E(OV.kop)}</h2>${(OV.tekst||[]).map(t=>`<p class="lead">${E(t)}</p>`).join('')}<a class="btn" href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">Kijk op YouTube</a></div>${(()=>{const fs=[[OV.foto,OV.alt],[OV.foto2,OV.alt2]].filter(x=>x[0]);return fs.length?`<div class="fotos">${fs.map(x=>`<img class="foto" src="${E(x[0])}" alt="${E(x[1])}">`).join('')}</div>`:''})()}`;
 const TP=typeof TIPS!=='undefined'?TIPS:[{titel:"Plan je vertrek",tekst:"Maak een vaste checklist voor vertrek en aankomst. Dan vergeet je niets en staat alles sneller."},{titel:"Verlichting maakt de plek",tekst:"Ledstrips langs de dakrand van de voortent geven sfeer en je vindt 's avonds je weg."},{titel:"Een vloer onder de voortent",tekst:"Zo blijft het schoon en droog, ook na regen."},{titel:"Kamperen met kinderen",tekst:"Neem spelletjes mee en zoek een camping met speelruimte. Dan genieten ook de ouders."},{titel:"Fietsen mee",tekst:"Een fietsendrager op de caravandissel spaart ruimte in de auto en je ontdekt de omgeving."},{titel:"Winters kamperen",tekst:"Goed isoleren, verwarming op orde en sneeuw tijdig van het dak vegen."}];
 document.getElementById('tipslijst').innerHTML=TP.map(t=>`<div class="vlak"><h3>${E(t.titel)}</h3><p>${E(t.tekst)}</p></div>`).join('');
 const VH=typeof VERHALEN!=='undefined'?VERHALEN:[{titel:"Een avond vol kleur",tekst:"De hele rij voortenten licht op. Gezien vanuit de lucht zie je pas hoe mooi het is.",foto:"img/foto-4.jpg"},{titel:"Een dag naar het pretpark",tekst:"Even weg van de camping met het hele gezin, en in het westernstadje op de foto.",foto:"img/foto-5.jpg"},{titel:"Boven de boomtoppen",tekst:"Een toren beklimmen en uitkijken over het bos: ons favoriete uitje onderweg.",foto:"img/foto-6.jpg"}];
 const VS=[];VH.forEach(v=>{const b=String(v.titel||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'verhaal';let id=b,n=2;while(VS.includes(id))id=b+'-'+n++;VS.push(id)});
 const heeftLang=v=>!!(v.lang&&String(v.lang).trim());
-const vk=(v,i,vol)=>`<article class="kaart">${v.foto?`<img src="${E(v.foto)}" alt="${E(v.titel)}" loading="lazy">`:''}<div><h3>${E(v.titel)}</h3>${par(v.tekst)}${!vol&&heeftLang(v)?`<a class="btn" href="#verhaal/${VS[i]}">${TXH('verhalen.leesmeer','Lees meer')}</a>`:''}</div></article>`;
-document.getElementById('verhalenlijst').innerHTML=VH.length?VH.map((v,i)=>vk(v,i,false)).join(''):'<p class="lead">'+TXH('verhalen.leeg','Hier komen binnenkort onze verhalen te staan.')+'</p>';
+const vk=(v,i,vol)=>`<article class="kaart">${v.foto?`<img src="${E(v.foto)}" alt="${E(v.titel)}" loading="lazy">`:''}<div><h3>${E(v.titel)}</h3>${par(v.tekst)}${!vol&&heeftLang(v)?`<a class="btn" href="#verhaal/${VS[i]}">Lees meer</a>`:''}</div></article>`;
+document.getElementById('verhalenlijst').innerHTML=VH.length?VH.map((v,i)=>vk(v,i,false)).join(''):'<p class="lead">Hier komen binnenkort onze verhalen te staan.</p>';
 let curV=null;
 function vlang(v){const fo=Array.isArray(v.fotos)?v.fotos:[],used={},B=[],nb=()=>({kop:'',p:[],f:null,rows:[]});let c=nb();
 const push=()=>{if(c.kop||c.p.length||c.f!=null||c.rows.length)B.push(c);c=nb()};
@@ -419,7 +530,7 @@ return o}
 const carChk=()=>document.querySelectorAll('#verhaaldetail .car').forEach(c=>{const r=c.querySelector('.rij');if(r)c.classList.toggle('scroll',r.scrollWidth>r.clientWidth+4)});
 addEventListener('resize',carChk);
 function vkop(v){return `<article class="blok kop vol">${v.foto?`<figure class="ft"><img src="${E(v.foto)}" alt="${E(v.titel)}"></figure>`:''}<div class="tk"><h2>${E(v.titel)}</h2>${par(v.tekst)}</div></article>`}
-function showVerhaal(id){const i=VS.indexOf(id);if(i<0)return false;const v=VH[i];curV=v;document.getElementById('verhaaldetail').innerHTML=`<a class="terug" href="#verhalen">${TXH('terug.verhalen','Terug naar alle verhalen')}</a>${vkop(v)}${vlang(v)}`;
+function showVerhaal(id){const i=VS.indexOf(id);if(i<0)return false;const v=VH[i];curV=v;document.getElementById('verhaaldetail').innerHTML=`<a class="terug" href="#verhalen">Terug naar alle verhalen</a>${vkop(v)}${vlang(v)}`;
 document.querySelectorAll('#verhaaldetail .car').forEach(c=>{const r=c.querySelector('.rij');c.querySelector('.p').onclick=()=>r.scrollBy({left:-r.clientWidth,behavior:'smooth'});c.querySelector('.n').onclick=()=>r.scrollBy({left:r.clientWidth,behavior:'smooth'})});
 setTimeout(carChk,0);setTimeout(carChk,300);return true}
 document.getElementById('verhaaldetail').onclick=e=>{const im=e.target.closest('img[data-vn]');if(im&&curV&&Array.isArray(curV.fotos)){curFotos=curV.fotos;li=+im.dataset.vn||0;lbShow();d.showModal()}};
@@ -429,14 +540,14 @@ let okx={};try{okx=JSON.parse(localStorage.getItem('pakx')||'{}')}catch(e){}
 let ckOpen=null;
 function drawX(){const w=document.getElementById('uitgebreid');if(!CK.length){w.innerHTML='';return}
 const cur=CK.find(c=>c.id==ckOpen);document.getElementById('algemeen').style.display=cur?'none':'';
-if(cur){w.innerHTML=`<p><a class="btn" href="#meenemen" id="ckterug" style="margin:0">&larr; ${TXH('checklists.terug','Terug naar de algemene paklijst')}</a></p><h2>${E(cur.naam)}</h2><p class="lead">${E(cur.tekst||'Uitgebreide checklist')}</p><div id="ckbody"></div>`;document.getElementById('ckterug').onclick=e=>{e.preventDefault();ckOpen=null;drawX();window.scrollTo(0,0)};window.scrollTo(0,0)}
-else w.innerHTML=`<div class="ukop"><h2>${TXH('checklists.h2','Uitgebreide checklists')}</h2><p class="lead">${TXH('checklists.lead','Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.')}</p><div class="ukeuze">${CK.map(c=>`<button type="button" data-ck="${E(c.id)}" aria-pressed="${c.id==ckOpen}"><b>${E(c.naam)}</b><small>${E(c.tekst||'Uitgebreide checklist')}</small></button>`).join('')}</div><div id="ckbody"></div></div>`;
+if(cur){w.innerHTML=`<p><a class="btn" href="#meenemen" id="ckterug" style="margin:0">&larr; Terug naar de algemene paklijst</a></p><h2>${E(cur.naam)}</h2><p class="lead">${E(cur.tekst||'Uitgebreide checklist')}</p><div id="ckbody"></div>`;document.getElementById('ckterug').onclick=e=>{e.preventDefault();ckOpen=null;drawX();window.scrollTo(0,0)};window.scrollTo(0,0)}
+else w.innerHTML=`<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p><div class="ukeuze">${CK.map(c=>`<button type="button" data-ck="${E(c.id)}" aria-pressed="${c.id==ckOpen}"><b>${E(c.naam)}</b><small>${E(c.tekst||'Uitgebreide checklist')}</small></button>`).join('')}</div><div id="ckbody"></div></div>`;
 if(!cur)w.querySelectorAll('[data-ck]').forEach(b=>b.onclick=()=>{ckOpen=ckOpen==b.dataset.ck?null:b.dataset.ck;drawX()});
 if(!cur)return;
 const key=(c,t,x)=>c.id+'|'+t+'|'+x;
-document.getElementById('ckbody').innerHTML=`<div class="voortgang"><div class="balk"><i id="xbar"></i></div><b id="xtel"></b><button class="btn" id="xreset" style="border:0;cursor:pointer;font:inherit;font-weight:700">${TXH('checklists.wissen','Deze lijst wissen')}</button></div><div class="lijst">${(cur.cats||[]).map(t=>`<div class="cat"><h3>${E(t.n)}</h3>${(t.i||[]).map(x=>`<label><input type="checkbox" data-xk="${E(key(cur,t.n,x))}"><span>${E(x)}</span></label>`).join('')}</div>`).join('')}</div>`;
+document.getElementById('ckbody').innerHTML=`<div class="voortgang"><div class="balk"><i id="xbar"></i></div><b id="xtel"></b><button class="btn" id="xreset" style="border:0;cursor:pointer;font:inherit;font-weight:700">Deze lijst wissen</button></div><div class="lijst">${(cur.cats||[]).map(t=>`<div class="cat"><h3>${E(t.n)}</h3>${(t.i||[]).map(x=>`<label><input type="checkbox" data-xk="${E(key(cur,t.n,x))}"><span>${E(x)}</span></label>`).join('')}</div>`).join('')}</div>`;
 const xb=[...document.querySelectorAll('#ckbody input')];
-const tx=()=>{const n=xb.filter(b=>b.checked).length;document.getElementById('xbar').style.width=(xb.length?100*n/xb.length:0)+'%';document.getElementById('xtel').textContent=TXT('meenemen.teller','{n} van {t} ingepakt').replace('{n}',n).replace('{t}',xb.length);xb.forEach(b=>{if(b.checked)okx[b.dataset.xk]=true;else delete okx[b.dataset.xk]});try{localStorage.setItem('pakx',JSON.stringify(okx))}catch(e){}};
+const tx=()=>{const n=xb.filter(b=>b.checked).length;document.getElementById('xbar').style.width=(xb.length?100*n/xb.length:0)+'%';document.getElementById('xtel').textContent=n+' van '+xb.length+' ingepakt';xb.forEach(b=>{if(b.checked)okx[b.dataset.xk]=true;else delete okx[b.dataset.xk]});try{localStorage.setItem('pakx',JSON.stringify(okx))}catch(e){}};
 xb.forEach(b=>{b.checked=!!okx[b.dataset.xk];b.onchange=tx});tx();
 document.getElementById('xreset').onclick=()=>{xb.forEach(b=>b.checked=false);tx()}}
 drawX();
@@ -456,10 +567,9 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 var h=document.querySelector('.hero'),c=document.querySelector('#p-contact img.foto');
 if(INST.hero&&h)h.style.backgroundImage='url("'+INST.hero+'")';
 if(INST.contact&&c)c.src=INST.contact;
-var PTS=[['home.h1','#p-home .hero h1'],['home.intro','#p-home .hero p'],['home.kop','#p-home .s-den h2'],['meenemen.h2','#algemeen h2'],['meenemen.lead','#algemeen .lead'],['uitrusting.h2','#p-uitrusting h2'],['uitrusting.lead','#p-uitrusting p.lead'],['uitrusting.lead2','#p-uitrusting p.lead + p.lead'],['verhalen.h2','#p-verhalen h2'],['verhalen.lead','#p-verhalen .lead'],['tips.h2','#p-tips h2'],['tips.lead','#p-tips .lead'],['campings.h2','#p-campings h2'],['campings.lead','#p-campings .lead'],['videos.h2','#p-videos h2'],['videos.lead','#p-videos .lead'],['videos.lead2','#p-videos .grid ~ p.lead'],['contact.h2','#p-contact h2'],['contact.lead','#p-contact .lead'],['fotos.h2','#p-fotos h2'],['fotos.lead','#p-fotos .lead'],['nav.naam','nav .wrap > b'],['nav.menu','#mk'],['nav.home','#lk a:nth-child(1)'],['nav.over','#lk a:nth-child(2)'],['nav.paklijst','#lk a:nth-child(3)'],['nav.uitrusting','#lk a:nth-child(4)'],['nav.campings','#lk a:nth-child(5)'],['nav.verhalen','#lk a:nth-child(6)'],['nav.tips','#lk a:nth-child(7)'],['nav.fotos','#lk a:nth-child(8)'],['nav.videos','#lk a:nth-child(9)'],['nav.contact','#lk a:nth-child(10)'],['home.knop1','#p-home .hero a.btn:not(.rood)'],['home.knop2','#p-home .hero a.btn.rood'],['meenemen.wissen','#reset'],['videos.knop1','#p-videos a.btn.rood'],['videos.knop2','#p-videos a.btn:not(.rood)'],['contact.verstuur','#cf button'],['omhoog','#fotoboven'],['deel.kop','.deel p'],['deel.whatsapp','#dwa'],['deel.delen','#dsh'],['deel.kopieer','#dkp'],['footer.tekst','footer .wrap > p'],['footer.cookie','.ck-link'],['footer.privacy','footer a[href="privacyverklaring.html"]'],['footer.cookieverklaring','footer a[href="cookieverklaring.html"]']];
+var PTS=[['home.h1','#p-home .hero h1'],['home.intro','#p-home .hero p'],['home.kop','#p-home .s-den h2'],['meenemen.h2','#algemeen h2'],['meenemen.lead','#algemeen .lead'],['uitrusting.h2','#p-uitrusting h2'],['uitrusting.lead','#p-uitrusting p.lead'],['uitrusting.lead2','#p-uitrusting p.lead + p.lead'],['verhalen.h2','#p-verhalen h2'],['verhalen.lead','#p-verhalen .lead'],['tips.h2','#p-tips h2'],['tips.lead','#p-tips .lead'],['campings.h2','#p-campings h2'],['campings.lead','#p-campings .lead'],['videos.h2','#p-videos h2'],['videos.lead','#p-videos .lead'],['videos.lead2','#p-videos .grid ~ p.lead'],['contact.h2','#p-contact h2'],['contact.lead','#p-contact .lead'],['fotos.h2','#p-fotos h2'],['fotos.lead','#p-fotos .lead']];
 var T=INST.teksten||{};
 PTS.forEach(function(p){var v=T[p[0]],e=v&&document.querySelector(p[1]);if(e)e.textContent=v});
-[['contact.naam','#cn'],['contact.bericht','#cb']].forEach(function(p){var v=T[p[0]],e=v&&document.querySelector(p[1]);if(e){e.setAttribute('placeholder',v);e.setAttribute('aria-label',v)}});
 var TG={paklijst:['🎒','Wat neem je mee','Onze complete paklijst om af te vinken.','paklijst/'],campings:['⛺','Campings','Waar we waren en wat we ervan vonden.','campings/'],verhalen:['📖','Verhalen','Verslagen van onze trips.','verhalen/'],tips:['💡','Tips','Dit hebben we onderweg geleerd.','tips/'],uitrusting:['🧰','Uitrusting','Wat er in onze caravan en voortent zit.','uitrusting/'],fotos:['📷',"Foto's",'Beelden van onze reizen.','#fotos'],videos:['🎬',"Video's",'Kijk mee op ons YouTube-kanaal.','#videos'],over:['🌲','Over ons','Maak kennis met ons gezin.','over-ons/'],contact:['✉️','Contact','Stuur ons een bericht.','#contact']};
 var TI=INST.tegelinfo||{},EQ=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
 Object.keys(TI).forEach(function(k){var o=TI[k];if(TG[k]&&o){if(o.i)TG[k][0]=o.i;if(o.t)TG[k][1]=o.t;if(o.p)TG[k][2]=o.p;if(o.img)TG[k][4]=o.img}});
@@ -490,7 +600,7 @@ var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 function deelUpd(){var a=document.getElementById('dwa');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href)}
 (function(){var sh=document.getElementById('dsh'),kp=document.getElementById('dkp');
 if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}
-kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent=TXT('deel.gekopieerd','Gekopieerd!');setTimeout(function(){kp.textContent=t},1800)}
+kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}};
 addEventListener('hashchange',function(){setTimeout(deelUpd,0)});deelUpd();})();
 </script>

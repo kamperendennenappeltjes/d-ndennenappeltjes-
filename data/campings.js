@@ -45,8 +45,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Overijssel",
-  "lat": 52.4064,
-  "lon": 6.36548
+  "lat": 52.393103,
+  "lon": 6.363265
  },
  {
   "id": "de-lente-van-drenthe",

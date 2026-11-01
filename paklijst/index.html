@@ -147,7 +147,23 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
 .pk.oud img{filter:grayscale(.85);opacity:.7}
 .pk.oud b{color:var(--zacht)}
-.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}</style><link rel="stylesheet" href="../extras.css"></head><body class="mos">
+.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}
+.filters button{font:inherit;font-weight:700;background:transparent;color:var(--room);border:2px solid var(--oranje);border-radius:999px;padding:7px 18px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--oranje);color:#1a0f05}
+.filters{display:block;margin:22px 0}.fkop{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.fkop #ftel{font-weight:700}
+.filters .ftoggle{display:inline-flex;align-items:center;gap:8px;font-size:1.05rem;padding:9px 20px}.filters .ftoggle[aria-expanded=true]{background:var(--oranje);color:#1a0f05}.fbadge{background:var(--rood);color:#fff;border-radius:999px;min-width:22px;padding:0 7px;font-size:.85rem;line-height:22px;text-align:center}.fpijl{font-size:.7rem}
+#fpanel{background:rgba(13,26,21,.55);border-radius:18px;padding:18px 18px 6px;margin-top:14px}#fpanel[hidden]{display:none}
+#fbouw{display:flex;flex-wrap:wrap;gap:0 28px;align-items:flex-start}
+.fgroep{margin:0 0 14px}.flabel{display:block;font-weight:800;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--zacht);margin-bottom:6px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}.filters button small{opacity:.75;font-weight:600}
+.filters select{font:inherit;font-weight:700;color:var(--room);background:var(--nacht);border:2px solid var(--oranje);border-radius:12px;padding:9px 12px;max-width:100%;min-width:220px}
+.filters button.fklein{padding:5px 14px;font-size:.9rem}
+.kaartvak{background:var(--nacht);border-radius:16px;padding:12px;margin:4px 0 14px}.kaartvraag{text-align:center;padding:22px}.kaartvraag p{margin:0 0 12px;max-width:560px;margin-left:auto;margin-right:auto}.kaartvraag button{font:inherit;font-weight:700;background:var(--oranje);color:#1a0f05;border:0;border-radius:999px;padding:10px 24px;cursor:pointer}
+#lkaart{height:min(62vh,480px);border-radius:12px;position:relative;z-index:0;isolation:isolate;background:#1b2a24}
+.kaartsvg{width:100%;height:auto;max-height:420px;display:block}.kp{cursor:pointer}.kp:focus{outline:none}.kp:hover circle:nth-child(2),.kp:focus circle:nth-child(2){stroke:#f6ecd6}.kaartnoot{margin:8px 0 0;color:var(--zacht);font-size:.9rem}
+.lpin{background:transparent;border:0}.lpin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#f08a3c;border:3px solid #1a0f05;color:#1a0f05;font:700 14px Fredoka,sans-serif;box-shadow:0 0 0 4px rgba(240,138,60,.4)}
+.lpop{font:15px/1.4 Nunito,system-ui,sans-serif;color:#1a0f05}.lpop div+div{margin-top:6px}.lpop a{color:#a33f00;font-weight:800}.lpop small{color:#555}
+.camp[hidden]{display:none}</style><link rel="stylesheet" href="../extras.css"></head><body class="mos">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk"><a href="../index.html">Home</a><a href="../over-ons/">Over ons</a><a href="../paklijst/" class="on">Wat neem je mee</a><a href="../uitrusting/">Uitrusting</a><a href="../campings/">Campings</a><a href="../verhalen/">Verhalen</a><a href="../tips/">Tips</a><a href="../index.html#fotos">Foto's</a><a href="../index.html#videos">Video's</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <main><div class="wrap">
 <h1>Wat neem je mee</h1>

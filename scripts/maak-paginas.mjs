@@ -213,7 +213,7 @@ var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 
 function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, achter = '', script = '' }) {
   const volledig = `${titel} | ${SITE}`;
-  const link = (h, t, k) => `<a href="${h}"${actief === k ? ' class="on"' : ''}>${t}</a>`;
+  const link = (h, t, k) => `<a href="${h}"${actief === k ? ' class="on"' : ''}>${esc(tx('menu.' + k, t))}</a>`;
   return `<!DOCTYPE html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(volledig)}</title>
@@ -227,13 +227,13 @@ function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, ac
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>${CSS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
-<nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
+<nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('menu.knop', 'Menu'))}</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
 <main><div class="wrap">
 ${body}
 </div></main>
 <div class="ruit"></div>
-<div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopi\u00ebren</button></div></div>
-<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p>${SOC}<p>${MAIL}${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
+<div class="deel"><div class="wrap"><p>${esc(tx('alle.deel', 'Deel deze pagina met andere kampeerders'))}</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopi\u00ebren</button></div></div>
+<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>${esc(tx('footer.tekst', 'Kamperen met d\'n Dennenappeltjes. Samen op pad, in elk seizoen.'))}</p>${SOC}<p>${MAIL}${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
 <script>${COOKIEJS}</script>
 <script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();${script}</script>
 <script src="../extras.js" defer></script>
@@ -392,15 +392,15 @@ for (const c of CAMPINGS) {
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
   const titel = `${c.naam} | onze ervaring${plaatsKort && !String(c.naam).toLowerCase().includes(plaatsKort.toLowerCase()) ? ' in ' + plaatsKort : ''}`;
   const beschrijving = kort(`${c.naam}${c.plaats ? ' (' + c.plaats + ')' : ''}: ${c.tekst || ''}`, 158);
-  const body = `<a class="terug" href="./">Terug naar alle campings</a>
+  const body = `<a class="terug" href="./">${esc(tx('campings.terug', 'Terug naar alle campings'))}</a>
 <h1>${esc(c.naam)}</h1>
 ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}">` : ''}
-<p class="lead">${esc([c.plaats, c.regio, c.land, c.type, c.cijfer ? 'Ons cijfer: ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
+<p class="lead">${esc([c.plaats, c.regio, c.land, c.type, c.cijfer ? tx('campings.cijfer', 'Ons cijfer') + ': ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
 <p class="lead">${esc(c.tekst || '')}</p>
-${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">Naar de website</a></p>` : ''}
-${feiten.length ? `<h2 class="sec">Info over het park</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
-${plekFotos.length ? `<h2 class="sec">Onze foto’s van deze plek</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">Bekijk hier alle foto’s</a></p>` : ''}
-${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${lijst(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${lijst(c.min)}</div></div>` : ''}
+${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">${esc(tx('campings.web', 'Naar de website'))}</a></p>` : ''}
+${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
+${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>Opent YouTube in een nieuw tabblad</small></span></a>`).join('')}</div>` : ''}
 <p><a class="btn s" href="./">Alle campings</a></p>`;
   const jsonld = c.cijfer ? {
@@ -485,7 +485,7 @@ VERHALEN.forEach(v => {
   while (gebruikt.includes(id)) id = b + '-' + n++;
   gebruikt.push(id);
   const kop = `<article class="blok kop vol">${v.foto ? `<figure class="ft"><img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}"></figure>` : ''}<div class="tk"><h1>${esc(v.titel)}</h1>${par(v.tekst)}</div></article>`;
-  const body = `<a class="terug" href="./">Terug naar alle verhalen</a>
+  const body = `<a class="terug" href="./">${esc(tx('verhalen.terug', 'Terug naar alle verhalen'))}</a>
 ${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
 <p><a class="btn s" href="./">Alle verhalen</a></p>`;
@@ -547,12 +547,12 @@ for (const c of UITCATS) {
   const secties = c.subs.map(s => `<section class="sub" id="${s.id}">
 <h2>${esc(s.naam)}</h2>
 ${s.p.length ? `<div class="pgrid">${s.p.map(q => product(q, s)).join('')}</div>` : ''}
-${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length || s.oud.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
-${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
+${s.ov.length ? `<div class="overig"><h3>${esc(tx('uitrusting.overig', 'Overige spullen'))}</h3><p class="klein">${esc(s.p.length || s.oud.length ? tx('uitrusting.overig.lead', 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.') : tx('uitrusting.overig.lead2', 'Dit gebruiken wij hiervoor.'))}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+${s.oud.length ? `<div class="eerder"><h3>${esc(tx('uitrusting.eerder', 'Eerder gebruikt'))}</h3><p class="klein">${esc(tx('uitrusting.eerder.lead', 'Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.'))}</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
 </section>`).join('\n');
-  const body = `<a class="terug" href="./">Terug naar alle uitrusting</a>
+  const body = `<a class="terug" href="./">${esc(tx('uitrusting.terug', 'Terug naar alle uitrusting'))}</a>
 <h1>${esc(c.naam)}: onze uitrusting</h1>
-<p class="lead">Dit is onze uitrusting in de categorie ${esc(c.naam.toLowerCase())}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.</p>
+<p class="lead">${esc(tx('uitrusting.cat.lead', 'Dit is onze uitrusting in de categorie {categorie}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.').split('{categorie}').join(c.naam.toLowerCase()))}</p>
 ${c.subs.length > 1 ? `<div class="chips">${c.subs.map(s => `<a href="#${s.id}">${esc(s.naam)}</a>`).join('')}</div>` : ''}
 ${secties}
 ${NAARBOVEN}`;
@@ -592,7 +592,7 @@ fs.writeFileSync('paklijst/index.html', pagina({
 <p class="lead">${esc(tx('meenemen.lead', 'Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.'))}</p>
 <div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
 <div class="lijst">${PAKCATS.map(([k, a]) => `<div class="cat"><h2>${esc(k)}</h2>${a.map(x => vink('data-k', x, x)).join('')}</div>`).join('')}</div></div>
-${CHKLIJST.length ? `<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p>
+${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('paklijst.chk', 'Uitgebreide checklists'))}</h2><p class="lead">${esc(tx('paklijst.chk.lead', 'Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.'))}</p>
 ${CHKLIJST.map(c => { const n = c.cats.reduce((s, t) => s + (t.i || []).length, 0); return `<details class="uk" id="${esc(c.id)}"><summary><b>${esc(c.naam)}</b><small>${esc(c.tekst || 'Uitgebreide checklist')}</small></summary>
 ${voortgang(n, 'Deze lijst wissen')}
 <div class="lijst">${c.cats.map(t => `<div class="cat"><h3>${esc(t.n)}</h3>${(t.i || []).map(x => vink('data-xk', c.id + '|' + t.n + '|' + x, x)).join('')}</div>`).join('')}</div></details>`; }).join('\n')}</div>` : ''}

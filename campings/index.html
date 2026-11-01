@@ -186,7 +186,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 (function(){
 var b=document.createElement('div');b.className='ck-bar';b.setAttribute('role','dialog');b.setAttribute('aria-label','Cookies');b.hidden=true;
 b.innerHTML='<h2>Deze cookies zijn niet voor bij de koffie en laten ook geen kruimels achter in de caravan. 🍪</h2>'
-+'<details><summary>Benieuwd wat er gebeurt? <u>Lees hier</u>.</summary><p><b>Alles accepteren:</b> GoatCounter wordt gestart om bezoekstatistieken bij te houden. YouTube-video’s worden pas ingeladen wanneer je daarvoor kiest; YouTube kan daarbij gegevens ontvangen en eventueel cookies of vergelijkbare technieken gebruiken. <b>Alleen noodzakelijk:</b> GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw. <b>Paklijst:</b> je paklijst wordt lokaal op je eigen toestel bewaard, zodat die blijft werken zonder optionele onderdelen. De website gebruikt ook externe Google Fonts; je browser kan daarvoor verbinding maken met Google wanneer de pagina wordt geladen. Je kunt je keuze later aanpassen via Cookie-instellingen onderaan de pagina. Lees ook onze <a href="../cookieverklaring.html">cookieverklaring</a> en <a href="../privacyverklaring.html">privacyverklaring</a>.</p></details>'
++'<details><summary>Benieuwd wat er gebeurt? <u>Lees hier</u>.</summary><p><b>Alles accepteren:</b> GoatCounter wordt gestart om bezoekstatistieken bij te houden. YouTube-video’s worden pas ingeladen wanneer je daarvoor kiest; YouTube kan daarbij gegevens ontvangen en eventueel cookies of vergelijkbare technieken gebruiken. Ook de kaart met campings (OpenStreetMap) wordt dan automatisch geladen; OpenStreetMap kan daarbij je IP-adres zien. <b>Alleen noodzakelijk:</b> GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. De kaart met campings laden we dan pas nadat je daar zelf om vraagt. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw. <b>Paklijst:</b> je paklijst wordt lokaal op je eigen toestel bewaard, zodat die blijft werken zonder optionele onderdelen. De website gebruikt ook externe Google Fonts; je browser kan daarvoor verbinding maken met Google wanneer de pagina wordt geladen. Je kunt je keuze later aanpassen via Cookie-instellingen onderaan de pagina. Lees ook onze <a href="../cookieverklaring.html">cookieverklaring</a> en <a href="../privacyverklaring.html">privacyverklaring</a>.</p></details>'
 +'<div class="ck-knoppen"><button type="button" class="ck-knop ja" data-ck="ja">Alles accepteren</button><button type="button" class="ck-knop nee" data-ck="nodig">Alleen noodzakelijk</button></div>';
 document.body.appendChild(b);
 function kies(c){ckSave(c);b.hidden=true;if(c.stat&&window.startGC)startGC()}
@@ -219,7 +219,7 @@ function aantalActief(){return (S.land?1:0)+(S.regio?1:0)+(S.min?1:0)+(S.type?1:
 /* ---- Echte kaart (Leaflet + OpenStreetMap), pas na een klik van de bezoeker ---- */
 var LJS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',LCSS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
 var LM=null,LLAAG=null,LFOUT=false,LBEZIG=false;
-function kaartToegestaan(){try{return sessionStorage.getItem('kaartok')=='1'}catch(e){return false}}
+function kaartToegestaan(){try{if(typeof ckOk=='function'&&ckOk('stat')&&ckOk('vid'))return true;return sessionStorage.getItem('kaartok')=='1'}catch(e){return false}}
 function laadLeaflet(){return new Promise(function(ok,nee){if(window.L&&L.map)return ok();if(!document.getElementById('lcss')){var c=document.createElement('link');c.id='lcss';c.rel='stylesheet';c.href=LCSS;document.head.appendChild(c)}var s=document.createElement('script');s.src=LJS;s.onload=function(){window.L&&L.map?ok():nee()};s.onerror=nee;document.head.appendChild(s)})}
 function popupHtml(cs){return '<div class="lpop">'+cs.map(function(c){return '<div><a href="'+eh(c.id)+'.html">'+eh(c.naam)+'</a>'+(c.cijfer?' <span>cijfer '+eh(c.cijfer)+'</span>':'')+(c.p[2]!='exact'?'<br><small>Plek bij benadering</small>':'')+'</div>'}).join('')+'</div>'}
 function leafBijwerken(vis){
@@ -304,6 +304,7 @@ var zicht={};vis.forEach(function(c){zicht[c.id]=1});
 C.forEach(function(c){if(els[c.id])els[c.id].hidden=!zicht[c.id]});
 vis.forEach(function(c){if(els[c.id])l.appendChild(els[c.id])});
 leeg.hidden=vis.length>0}
+document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest('[data-ck]'):null;if(t)setTimeout(function(){teken(true)},0)});
 teken();
 })();
 </script>

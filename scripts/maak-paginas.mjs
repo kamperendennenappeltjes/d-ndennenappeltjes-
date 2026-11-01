@@ -190,7 +190,7 @@ var t=e.target.closest?e.target:e.target.parentNode;if(!t||!t.closest)return;
 if(t.closest('[data-ck="ja"]')){kies({stat:1,vid:1});return}
 if(t.closest('[data-ck="nodig"]')){kies({stat:0,vid:0});return}
 if(t.closest('[data-ckopen]')){b.hidden=false;return}
-var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){k.textContent='Gekopieerd'};gcCount('/code/'+c,'Code gekopieerd: '+c,1);try{navigator.clipboard.writeText(c).then(d,d)}catch(x){d()}}
+var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){k.textContent=${JSON.stringify(tx('product.gekopieerd', 'Gekopieerd')).replace(/</g, '\\u003c')}};gcCount('/code/'+c,'Code gekopieerd: '+c,1);try{navigator.clipboard.writeText(c).then(d,d)}catch(x){d()}}
 });
 var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 })();`;
@@ -211,21 +211,21 @@ function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, ac
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap">
 <style>${CSS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
-<nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">Menu</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
+<nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>${esc(tx('nav.naam', "d'n Dennenappeltjes"))}</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('nav.menu', 'Menu'))}</button><div class="links" id="lk">${link('../index.html', tx('nav.home', 'Home'), 'home')}${link('../over-ons/', tx('nav.over', 'Over ons'), 'over')}${link('../paklijst/', tx('nav.paklijst', 'Wat neem je mee'), 'paklijst')}${link('../uitrusting/', tx('nav.uitrusting', 'Uitrusting'), 'uitrusting')}${link('../campings/', tx('nav.campings', 'Campings'), 'campings')}${link('../verhalen/', tx('nav.verhalen', 'Verhalen'), 'verhalen')}${link('../tips/', tx('nav.tips', 'Tips'), 'tips')}${link('../index.html#fotos', tx('nav.fotos', 'Foto\'s'), 'fotos')}${link('../index.html#videos', tx('nav.videos', 'Video\'s'), 'videos')}${link('../index.html#contact', tx('nav.contact', 'Contact'), 'contact')}</div></div></nav>
 <main><div class="wrap">
 ${body}
 </div></main>
 <div class="ruit"></div>
-<div class="deel"><div class="wrap"><p>Deel deze pagina met andere kampeerders</p><a class="dk" id="dwa" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="dk" id="dsh" hidden>Delen</button><button type="button" class="dk" id="dkp">Link kopi\u00ebren</button></div></div>
-<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.</p>${SOC}<p>${MAIL}${VERSIE}<button type="button" class="ck-link" data-ckopen>Cookie-instellingen</button> &middot; <a href="../privacyverklaring.html">Privacyverklaring</a> &middot; <a href="../cookieverklaring.html">Cookieverklaring</a></p></div></footer>
+<div class="deel"><div class="wrap"><p>${esc(tx('deel.kop', 'Deel deze pagina met andere kampeerders'))}</p><a class="dk" id="dwa" target="_blank" rel="noopener">${esc(tx('deel.whatsapp', 'WhatsApp'))}</a><button type="button" class="dk" id="dsh" hidden>${esc(tx('deel.delen', 'Delen'))}</button><button type="button" class="dk" id="dkp">${esc(tx('deel.kopieer', 'Link kopiëren'))}</button></div></div>
+<footer><div class="wrap"><img src="../img/logo.png" alt="${esc(SITE)}"><p>${esc(tx('footer.tekst', 'Kamperen met d\'n Dennenappeltjes. Samen op pad, in elk seizoen.'))}</p>${SOC}<p>${MAIL}${VERSIE}<button type="button" class="ck-link" data-ckopen>${esc(tx('footer.cookie', 'Cookie-instellingen'))}</button> &middot; <a href="../privacyverklaring.html">${esc(tx('footer.privacy', 'Privacyverklaring'))}</a> &middot; <a href="../cookieverklaring.html">${esc(tx('footer.cookieverklaring', 'Cookieverklaring'))}</a></p></div></footer>
 <script>${COOKIEJS}</script>
-<script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent='Gekopieerd!';setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();${script}</script>
+<script>var mk=document.getElementById('mk'),lk=document.getElementById('lk');mk.onclick=function(){var o=lk.classList.toggle('open');mk.setAttribute('aria-expanded',o)};(function(){var a=document.getElementById('dwa'),sh=document.getElementById('dsh'),kp=document.getElementById('dkp');if(!a)return;a.href='https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href);if(navigator.share){sh.hidden=false;sh.onclick=function(){navigator.share({title:document.title,url:location.href}).catch(function(){})}}kp.onclick=function(){var t=kp.textContent;function ok(){kp.textContent=${JSON.stringify(tx('deel.gekopieerd', 'Gekopieerd!')).replace(/</g, '\\u003c')};setTimeout(function(){kp.textContent=t},1800)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){})}else{var i=document.createElement('input');i.value=location.href;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}}})();${script}</script>
 <script src="../extras.js" defer></script>
 </body></html>
 `;
 }
 
-const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Terug naar boven</a></p>`;
+const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">${esc(tx('omhoog', 'Terug naar boven'))}</a></p>`;
 // Versienummer overnemen uit index.html (dezelfde plek als in de footer van de home page)
 let VERSIE = '', SOC = '', MAIL = '';
 try { const h = fs.readFileSync('index.html', 'utf8'); const f = (h.match(/<footer[\s\S]*?<\/footer>/i) || [''])[0];
@@ -247,22 +247,22 @@ for (const c of CAMPINGS) {
   const geldig = u => /^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(String(u || '').trim());
   const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].filter(Boolean).map(r => { if (typeof r === 'object') return { titel: schoon(r.titel), url: String(r.url || '').trim() }; const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
   const vloggen = handmatig.filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
-  const feiten = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
+  const feiten = [[tx('feit.plaatsnr', 'Plaatsnummer'), c.plaatsnr], [tx('feit.stroom', 'Stroom'), c.stroom ? c.stroom + ' A' : ''], [tx('feit.opp', 'Oppervlakte'), c.opp ? c.opp + ' m\u00b2' : ''], [tx('feit.water', 'Water op de plaats'), c.water], [tx('feit.afvoer', 'Afvoer op de plaats'), c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
   const naamPlaats = c.plaats && !String(c.naam).toLowerCase().includes(String(c.plaats).split(',')[0].toLowerCase()) ? `${c.naam} in ${c.plaats}` : c.naam;
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
   const titel = `${c.naam} | onze ervaring${plaatsKort && !String(c.naam).toLowerCase().includes(plaatsKort.toLowerCase()) ? ' in ' + plaatsKort : ''}`;
   const beschrijving = kort(`${c.naam}${c.plaats ? ' (' + c.plaats + ')' : ''}: ${c.tekst || ''}`, 158);
-  const body = `<a class="terug" href="./">Terug naar alle campings</a>
+  const body = `<a class="terug" href="./">${esc(tx('terug.campings', 'Terug naar alle campings'))}</a>
 <h1>${esc(c.naam)}</h1>
 ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}">` : ''}
-<p class="lead">${esc([c.plaats, c.type, c.cijfer ? 'Ons cijfer: ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
+<p class="lead">${esc([c.plaats, c.type, c.cijfer ? tx('camping.cijfer', 'Ons cijfer:') + ' ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
 <p class="lead">${esc(c.tekst || '')}</p>
-${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">Naar de website</a></p>` : ''}
-${feiten.length ? `<h2 class="sec">Info over het park</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
-${plekFotos.length ? `<h2 class="sec">Onze foto’s van deze plek</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">Bekijk hier alle foto’s</a></p>` : ''}
-${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>Dit vonden we fijn</h3>${lijst(c.plus)}</div><div class="vlak"><h3>Dit kan beter</h3>${lijst(c.min)}</div></div>` : ''}
-${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>Opent YouTube in een nieuw tabblad</small></span></a>`).join('')}</div>` : ''}
-<p><a class="btn s" href="./">Alle campings</a></p>`;
+${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">${esc(tx('camping.website', 'Naar de website'))}</a></p>` : ''}
+${feiten.length ? `<h2 class="sec">${esc(tx('camping.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${plekFotos.length ? `<h2 class="sec">${esc(tx('camping.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('camping.allefotos', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
+${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('camping.fijn', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('camping.beter', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
+${vloggen.length ? `<h2 class="sec">${esc(vloggen.length > 1 ? tx('camping.vlogs', 'Onze video\u2019s') : tx('camping.vlog', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>${esc(tx('camping.opent', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
+<p><a class="btn s" href="./">${esc(tx('camping.alle', 'Alle campings'))}</a></p>`;
   const jsonld = c.cijfer ? {
     '@context': 'https://schema.org', '@type': 'Review',
     itemReviewed: { '@type': 'Campground', name: c.naam, ...(c.plaats ? { address: c.plaats } : {}), ...(c.url ? { url: c.url } : {}) },
@@ -343,10 +343,10 @@ VERHALEN.forEach(v => {
   while (gebruikt.includes(id)) id = b + '-' + n++;
   gebruikt.push(id);
   const kop = `<article class="blok kop vol">${v.foto ? `<figure class="ft"><img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}"></figure>` : ''}<div class="tk"><h1>${esc(v.titel)}</h1>${par(v.tekst)}</div></article>`;
-  const body = `<a class="terug" href="./">Terug naar alle verhalen</a>
+  const body = `<a class="terug" href="./">${esc(tx('terug.verhalen', 'Terug naar alle verhalen'))}</a>
 ${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
-<p><a class="btn s" href="./">Alle verhalen</a></p>`;
+<p><a class="btn s" href="./">${esc(tx('verhalen.alle', 'Alle verhalen'))}</a></p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'Article', headline: schoon(v.titel), description: kort(v.tekst, 200), image: abs(v.foto), author: { '@type': 'Organization', name: SITE }, mainEntityOfPage: `${BASE}/verhalen/${id}.html` };
   fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '' }));
   urls.push([`verhalen/${id}.html`, 0.6]);
@@ -356,7 +356,7 @@ fs.writeFileSync('verhalen/index.html', pagina({
   beschrijving: 'Korte verslagen van onze kampeertrips en uitjes met de caravan.',
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
   body: `<h1>${esc(tx('verhalen.h2', 'Verhalen van onze avonturen'))}</h1><p class="lead">${esc(tx('verhalen.lead', 'Korte verslagen van onze trips en uitjes.'))}</p>
-<div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">Lees meer</a>` : ''}</div></article>`).join('')}</div>
+<div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">${esc(tx('verhalen.leesmeer', 'Lees meer'))}</a>` : ''}</div></article>`).join('')}</div>
 `
 }));
 
@@ -373,7 +373,7 @@ const uniekId = (b, gebruiktLijst) => { let id = b, n = 2; while (gebruiktLijst.
 const product = (q, s) => { const oud = !!q.oud, opm = schoon(q.opm);
   // Bij een product dat niet meer in gebruik is: knop naar het product dat we nu gebruiken (zelfde onderdeel)
   const nu = oud && q.vv && s ? s.p.find(z => z.n === q.vv && z.pid) : null;
-  return `<div class="pk${oud ? ' oud' : ''}"${q.pid ? ` id="${esc(q.pid)}"` : ''}>${oud ? '<span class="badge">Niet meer in gebruik</span>' : ''}${nu ? `<a class="nu" href="#${esc(nu.pid)}">Dit gebruiken we nu: ${esc(nu.n)} \u203a</a>` : ''}${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${opm ? `<p class="opm">${esc(opm)}</p>` : ''}${!oud && q.code ? `<div class="kc">Kortingscode: <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">Kopieer</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn${oud ? ' s' : ''}" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">${oud ? 'Bekijk' : 'Bekijk / koop'}</a>` : ''}</div>`; };
+  return `<div class="pk${oud ? ' oud' : ''}"${q.pid ? ` id="${esc(q.pid)}"` : ''}>${oud ? `<span class="badge">${esc(tx('product.oud', 'Niet meer in gebruik'))}</span>` : ''}${nu ? `<a class="nu" href="#${esc(nu.pid)}">${esc(tx('product.nu', 'Dit gebruiken we nu:'))} ${esc(nu.n)} \u203a</a>` : ''}${q.foto ? `<img src="${esc(rel(q.foto))}" alt="${esc(q.n)}" loading="lazy">` : ''}<b>${esc(q.n)}</b>${opm ? `<p class="opm">${esc(opm)}</p>` : ''}${!oud && q.code ? `<div class="kc">${esc(tx('product.code', 'Kortingscode:'))} <b>${esc(q.code)}</b> <button type="button" data-kc="${esc(q.code)}">${esc(tx('product.kopieer', 'Kopieer'))}</button></div>` : ''}${/^https?:\/\//.test(q.url || '') ? `<a class="btn${oud ? ' s' : ''}" href="${esc(opschonen(q.url))}" target="_blank" rel="noopener noreferrer sponsored" data-gcn="${esc(q.n)}">${esc(oud ? tx('product.bekijk', 'Bekijk') : tx('product.koop', 'Bekijk / koop'))}</a>` : ''}</div>`; };
 
 const catIds = [];
 const UITCATS = [];
@@ -405,10 +405,10 @@ for (const c of UITCATS) {
   const secties = c.subs.map(s => `<section class="sub" id="${s.id}">
 <h2>${esc(s.naam)}</h2>
 ${s.p.length ? `<div class="pgrid">${s.p.map(q => product(q, s)).join('')}</div>` : ''}
-${s.ov.length ? `<div class="overig"><h3>Overige spullen</h3><p class="klein">${s.p.length || s.oud.length ? 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.' : 'Dit gebruiken wij hiervoor.'}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
-${s.oud.length ? `<div class="eerder"><h3>Eerder gebruikt</h3><p class="klein">Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
+${s.ov.length ? `<div class="overig"><h3>${esc(tx('overig.kop', 'Overige spullen'))}</h3><p class="klein">${esc(s.p.length || s.oud.length ? tx('overig.met', 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.') : tx('overig.zonder', 'Dit gebruiken wij hiervoor.'))}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+${s.oud.length ? `<div class="eerder"><h3>${esc(tx('eerder.kop', 'Eerder gebruikt'))}</h3><p class="klein">${esc(tx('eerder.tekst', 'Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.'))}</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
 </section>`).join('\n');
-  const body = `<a class="terug" href="./">Terug naar alle uitrusting</a>
+  const body = `<a class="terug" href="./">${esc(tx('terug.uitrusting', 'Terug naar alle uitrusting'))}</a>
 <h1>${esc(c.naam)}: onze uitrusting</h1>
 <p class="lead">Dit is onze uitrusting in de categorie ${esc(c.naam.toLowerCase())}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.</p>
 ${c.subs.length > 1 ? `<div class="chips">${c.subs.map(s => `<a href="#${s.id}">${esc(s.naam)}</a>`).join('')}</div>` : ''}
@@ -434,11 +434,11 @@ const PAKCATS = Object.entries(PAK || {}).map(([k, a]) => [schoon(k), (Array.isA
 const PAKAANTAL = PAKCATS.reduce((n, [, a]) => n + a.length, 0);
 const CHKLIJST = (Array.isArray(CHK) ? CHK : []).filter(c => c && c.id && Array.isArray(c.cats));
 const vink = (attr, waarde, tekst) => `<label><input type="checkbox" ${attr}="${esc(waarde)}"><span>${esc(tekst)}</span></label>`;
-const voortgang = (n, wis) => `<div class="voortgang"><div class="balk"><i></i></div><b class="tel">0 van ${n} ingepakt</b><button class="btn" type="button" style="border:0;cursor:pointer;font:inherit;font-weight:700">${wis}</button></div>`;
+const voortgang = (n, wis) => `<div class="voortgang"><div class="balk"><i></i></div><b class="tel">${esc(tx('meenemen.teller', '{n} van {t} ingepakt').replace('{n}', '0').replace('{t}', n))}</b><button class="btn" type="button" style="border:0;cursor:pointer;font:inherit;font-weight:700">${wis}</button></div>`;
 const PAKSCRIPT = `function maak(box,sleutel,attr,vol){var bx=[].slice.call(box.querySelectorAll('input')),balk=box.querySelector('.balk i'),tel=box.querySelector('.tel'),wis=box.querySelector('button.btn'),st={};
 try{st=JSON.parse(localStorage.getItem(sleutel)||'{}')}catch(e){}
 function upd(){var n=0;bx.forEach(function(b){var k=b.getAttribute(attr);if(b.checked)n++;if(vol)st[k]=b.checked;else if(b.checked)st[k]=true;else delete st[k]});
-balk.style.width=(bx.length?100*n/bx.length:0)+'%';tel.textContent=n+' van '+bx.length+' ingepakt';try{localStorage.setItem(sleutel,JSON.stringify(st))}catch(e){}}
+balk.style.width=(bx.length?100*n/bx.length:0)+'%';tel.textContent=${JSON.stringify(tx('meenemen.teller', '{n} van {t} ingepakt')).replace(/</g, '\\u003c')}.replace('{n}',n).replace('{t}',bx.length);try{localStorage.setItem(sleutel,JSON.stringify(st))}catch(e){}}
 bx.forEach(function(b){b.checked=!!st[b.getAttribute(attr)];b.onchange=upd});wis.onclick=function(){bx.forEach(function(b){b.checked=false});upd()};upd()}
 maak(document.getElementById('pakbox'),'pak','data-k',true);
 [].forEach.call(document.querySelectorAll('.uk'),function(d){maak(d,'pakx','data-xk',false)});`;
@@ -448,13 +448,13 @@ fs.writeFileSync('paklijst/index.html', pagina({
   pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: PAKSCRIPT,
   body: `<h1>${esc(tx('meenemen.h2', 'Wat neem je mee'))}</h1>
 <p class="lead">${esc(tx('meenemen.lead', 'Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.'))}</p>
-<div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
+<div id="pakbox">${voortgang(PAKAANTAL, esc(tx('meenemen.wissen', 'Alles wissen')))}
 <div class="lijst">${PAKCATS.map(([k, a]) => `<div class="cat"><h2>${esc(k)}</h2>${a.map(x => vink('data-k', x, x)).join('')}</div>`).join('')}</div></div>
-${CHKLIJST.length ? `<div class="ukop"><h2>Uitgebreide checklists</h2><p class="lead">Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.</p>
+${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('checklists.h2', 'Uitgebreide checklists'))}</h2><p class="lead">${esc(tx('checklists.lead', 'Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.'))}</p>
 ${CHKLIJST.map(c => { const n = c.cats.reduce((s, t) => s + (t.i || []).length, 0); return `<details class="uk" id="${esc(c.id)}"><summary><b>${esc(c.naam)}</b><small>${esc(c.tekst || 'Uitgebreide checklist')}</small></summary>
-${voortgang(n, 'Deze lijst wissen')}
+${voortgang(n, esc(tx('checklists.wissen', 'Deze lijst wissen')))}
 <div class="lijst">${c.cats.map(t => `<div class="cat"><h3>${esc(t.n)}</h3>${(t.i || []).map(x => vink('data-xk', c.id + '|' + t.n + '|' + x, x)).join('')}</div>`).join('')}</div></details>`; }).join('\n')}</div>` : ''}
-<p style="margin-top:32px"><a class="btn s" href="../uitrusting/">Onze uitrusting</a></p>`
+<p style="margin-top:32px"><a class="btn s" href="../uitrusting/">${esc(tx('knop.uitrusting', 'Onze uitrusting'))}</a></p>`
 }));
 
 // ---- tips
@@ -467,7 +467,7 @@ fs.writeFileSync('tips/index.html', pagina({
   body: `<h1>${esc(tx('tips.h2', 'Kampeertips voor het hele gezin'))}</h1>
 <p class="lead">${esc(tx('tips.lead', 'Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.'))}</p>
 <div class="pm" style="margin-top:22px">${TIPLIJST.map(t => `<div class="vlak"><h2>${esc(schoon(t.titel))}</h2><p>${esc(schoon(t.tekst))}</p></div>`).join('')}</div>
-<p><a class="btn" href="../paklijst/">Onze paklijst</a></p>`
+<p><a class="btn" href="../paklijst/">${esc(tx('knop.paklijst', 'Onze paklijst'))}</a></p>`
 }));
 
 // ---- over ons
@@ -490,3 +490,92 @@ ${fotos.length ? `<div class="fotos">${fotos.map(f => `<img class="foto" src="${
 fs.writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, pr]) => `  <url><loc>${BASE}/${p}</loc><lastmod>${vandaag}</lastmod><priority>${pr}</priority></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 console.log(`Klaar: ${CAMPINGS.length} campings, ${VERHALEN.length} verhalen, ${UITCATS.length} uitrustingspagina's, paklijst, ${TIPLIJST.length} tips, over ons, ${urls.length} adressen in de sitemap.`);
+
+// ---- Controle: staan er nieuwe vaste teksten in de code zonder eigen tekstvak in Beheer?
+// BEKEND = alle vaste teksten die we bewust hebben bekeken (aanpasbaar via Beheer, of juridisch/technisch en dus vast).
+// Komt er een nieuwe tekst bij, dan staat die na de volgende publicatie in teksten-controle.json en in Beheer > Paginateksten.
+const BEKEND = [
+ "'+TXH('verhalen.leeg','Hier komen binnenkort onze verhalen te staan.')+'",
+ "'+TXH('videos.leeg',\"Onze video's staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.\")+'",
+ "Alle video's",
+ "Alleen noodzakelijk",
+ "Alleen noodzakelijk:",
+ "Alles accepteren",
+ "Alles accepteren:",
+ "Alles wissen",
+ "Benieuwd wat er gebeurt?",
+ "Campings",
+ "Contact",
+ "Cookie-instellingen",
+ "Cookieverklaring",
+ "Deel deze pagina met andere kampeerders",
+ "Delen",
+ "Deze cookies zijn niet voor bij de koffie en laten ook geen kruimels achter in de caravan. 🍪",
+ "Dit hebben we onderweg geleerd.",
+ "Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.",
+ "Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.",
+ "Een vraag over een camping, onze uitrusting of een video? Stuur ons een bericht, we reageren zo snel mogelijk.",
+ "Foto's",
+ "GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw.",
+ "Home",
+ "Kamperen met d'n Dennenappeltjes",
+ "Kamperen met d'n Dennenappeltjes. Samen op pad, in elk seizoen.",
+ "Kijk op YouTube",
+ "Korte verslagen van onze trips en uitjes.",
+ "Lees hier",
+ "Lees onze verhalen",
+ "Link kopiëren",
+ "Menu",
+ "Met de caravan op pad, met het hele gezin. Onze uitrusting, verhalen, tips en favoriete campings, bij elkaar op één plek.",
+ "Naar ons YouTube-kanaal",
+ "Nieuw hier? Abonneer je en zet het belletje aan, dan mis je geen video.",
+ "Onze campings",
+ "Onze complete paklijst om af te vinken.",
+ "Onze paklijst voor een kampeertrip. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.",
+ "Onze uitrusting",
+ "Onze video's",
+ "Open in mijn mailprogramma",
+ "Over ons",
+ "Paklijst:",
+ "Privacyverklaring",
+ "Terug naar boven",
+ "Tips",
+ "Tips van ons",
+ "Uitrusting",
+ "Verhalen",
+ "Verhalen van onze avonturen",
+ "Verslagen van onze trips.",
+ "Video's",
+ "Waar we waren en wat we ervan vonden.",
+ "Waar zoek je naar?",
+ "Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt. Kies een categorie en daarna een onderdeel.",
+ "Wat neem je mee",
+ "Wat wij hebben geleerd, kort en duidelijk.",
+ "WhatsApp",
+ "Wij houden van kamperen en caravans, klussen eraan en leuke uitjes. Kijk gezellig mee op ons YouTube-kanaal.",
+ "cookieverklaring",
+ "d'n Dennenappeltjes",
+ "kamperendennenappeltjes@gmail.com",
+ "privacyverklaring",
+ "versie 22"
+];
+function vindTeksten(bron, isMjs) {
+  let s = bron.replace(/<style>[\s\S]*?<\/style>/g, ' ').replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, ' ').replace(/<!--[\s\S]*?-->/g, ' ');
+  if (isMjs) s = s.replace(/const CSS = `[\s\S]*?`;\n/, ' ');
+  const uit = new Set();
+  for (const m of s.matchAll(/>([^<>]+)</g)) {
+    const t = m[1].replace(/\s+/g, ' ').trim();
+    if (t.length < 3 || !/[A-Za-z\u00c0-\u00ff]{3}/.test(t)) continue;
+    if (/[=;{}$`|]|\[|\]|\\|\w\)|\w\(\w|&&/.test(t)) continue;
+    uit.add(t);
+  }
+  return [...uit].sort();
+}
+try {
+  const bekend = new Set(BEKEND);
+  const nieuwIndex = vindTeksten(fs.readFileSync('index.html', 'utf8'), false).filter(t => !bekend.has(t));
+  const nieuwMjs = vindTeksten((src => src.slice(0, src.indexOf('// ---- Controle:')))(fs.readFileSync(new URL(import.meta.url), 'utf8')), true).filter(t => !bekend.has(t));
+  fs.writeFileSync('teksten-controle.json', JSON.stringify({ gecontroleerd: vandaag, index: nieuwIndex, paginas: nieuwMjs }, null, 1));
+  [...nieuwIndex, ...nieuwMjs].forEach(t => console.log(`::warning::Nieuwe vaste tekst zonder tekstvak in Beheer: ${t}`));
+  console.log(nieuwIndex.length + nieuwMjs.length ? `Let op: ${nieuwIndex.length + nieuwMjs.length} nieuwe vaste tekst(en) zonder eigen tekstvak, zie teksten-controle.json.` : 'Tekstcontrole: geen nieuwe vaste teksten gevonden.');
+} catch (e) { console.log('Tekstcontrole overgeslagen:', e.message); }

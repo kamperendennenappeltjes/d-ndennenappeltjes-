@@ -93,8 +93,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Drenthe",
-  "lat": 52.97789,
-  "lon": 6.75909
+  "lat": 52.976661,
+  "lon": 6.757163
  },
  {
   "id": "de-berckt",
@@ -142,8 +142,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Limburg",
-  "lat": 51.33195,
-  "lon": 6.09673
+  "lat": 51.347372,
+  "lon": 6.105569
  },
  {
   "id": "vakantiepark-prinsenmeer",
@@ -279,8 +279,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Noord-Brabant",
-  "lat": 51.30291,
-  "lon": 5.57262
+  "lat": 51.32071,
+  "lon": 5.575566
  },
  {
   "id": "blauwemeer",
@@ -336,8 +336,8 @@ const CAMPINGS=[
   ],
   "land": "België",
   "regio": "Limburg",
-  "lat": 51.23057,
-  "lon": 5.30769
+  "lat": 51.194783,
+  "lon": 5.305854
  },
  {
   "id": "camping-het-peelvenneke",
@@ -397,8 +397,8 @@ const CAMPINGS=[
   ],
   "land": "Nederland",
   "regio": "Noord-Brabant",
-  "lat": 51.67087,
-  "lon": 5.73521
+  "lat": 51.67081,
+  "lon": 5.735004
  },
  {
   "id": "goolderheide",
@@ -453,8 +453,8 @@ const CAMPINGS=[
   ],
   "land": "België",
   "regio": "Limburg",
-  "lat": 51.17298,
-  "lon": 5.57758
+  "lat": 51.170546,
+  "lon": 5.542602
  },
  {
   "id": "esch-camping-kaampert",
@@ -496,8 +496,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Overijssel",
-  "lat": 52.2483,
-  "lon": 6.5123
+  "lat": 52.248157,
+  "lon": 6.51284
  },
  {
   "id": "landal-klein-vink-voorheen-roompot-klein-vink",
@@ -558,7 +558,7 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "Nederland",
   "regio": "Limburg",
-  "lat": 51.47626,
-  "lon": 6.17851
+  "lat": 51.496779,
+  "lon": 6.187858
  }
 ];

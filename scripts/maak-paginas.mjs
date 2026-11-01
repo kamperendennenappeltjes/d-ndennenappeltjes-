@@ -168,7 +168,23 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .pk.oud{background:transparent;border:2px dashed rgba(201,214,196,.4)}
 .pk.oud img{filter:grayscale(.85);opacity:.7}
 .pk.oud b{color:var(--zacht)}
-.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}`;
+.eerder{margin-top:34px}.eerder>h3{font-size:1.4rem;color:var(--zacht);margin:0 0 .15em}.eerder .klein{margin:0 0 6px}
+.filters button{font:inherit;font-weight:700;background:transparent;color:var(--room);border:2px solid var(--oranje);border-radius:999px;padding:7px 18px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--oranje);color:#1a0f05}
+.filters{display:block;margin:22px 0}.fkop{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.fkop #ftel{font-weight:700}
+.filters .ftoggle{display:inline-flex;align-items:center;gap:8px;font-size:1.05rem;padding:9px 20px}.filters .ftoggle[aria-expanded=true]{background:var(--oranje);color:#1a0f05}.fbadge{background:var(--rood);color:#fff;border-radius:999px;min-width:22px;padding:0 7px;font-size:.85rem;line-height:22px;text-align:center}.fpijl{font-size:.7rem}
+#fpanel{background:rgba(13,26,21,.55);border-radius:18px;padding:18px 18px 6px;margin-top:14px}#fpanel[hidden]{display:none}
+#fbouw{display:flex;flex-wrap:wrap;gap:0 28px;align-items:flex-start}
+.fgroep{margin:0 0 14px}.flabel{display:block;font-weight:800;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--zacht);margin-bottom:6px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}.filters button small{opacity:.75;font-weight:600}
+.filters select{font:inherit;font-weight:700;color:var(--room);background:var(--nacht);border:2px solid var(--oranje);border-radius:12px;padding:9px 12px;max-width:100%;min-width:220px}
+.filters button.fklein{padding:5px 14px;font-size:.9rem}
+.kaartvak{background:var(--nacht);border-radius:16px;padding:12px;margin:4px 0 14px}.kaartvraag{text-align:center;padding:22px}.kaartvraag p{margin:0 0 12px;max-width:560px;margin-left:auto;margin-right:auto}.kaartvraag button{font:inherit;font-weight:700;background:var(--oranje);color:#1a0f05;border:0;border-radius:999px;padding:10px 24px;cursor:pointer}
+#lkaart{height:min(62vh,480px);border-radius:12px;position:relative;z-index:0;isolation:isolate;background:#1b2a24}
+.kaartsvg{width:100%;height:auto;max-height:420px;display:block}.kp{cursor:pointer}.kp:focus{outline:none}.kp:hover circle:nth-child(2),.kp:focus circle:nth-child(2){stroke:#f6ecd6}.kaartnoot{margin:8px 0 0;color:var(--zacht);font-size:.9rem}
+.lpin{background:transparent;border:0}.lpin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#f08a3c;border:3px solid #1a0f05;color:#1a0f05;font:700 14px Fredoka,sans-serif;box-shadow:0 0 0 4px rgba(240,138,60,.4)}
+.lpop{font:15px/1.4 Nunito,system-ui,sans-serif;color:#1a0f05}.lpop div+div{margin-top:6px}.lpop a{color:#a33f00;font-weight:800}.lpop small{color:#555}
+.camp[hidden]{display:none}`;
 
 const COOKIEJS = `var CKEY='dennenappeltjes-cookies';function ckRead(){try{var r=localStorage.getItem(CKEY)||sessionStorage.getItem(CKEY);return r?JSON.parse(r):null}catch(e){return null}}function ckSave(o){try{var j=JSON.stringify(o);if(o.stat||o.vid){localStorage.setItem(CKEY,j);sessionStorage.removeItem(CKEY)}else{sessionStorage.setItem(CKEY,j);localStorage.removeItem(CKEY)}}catch(e){}}function ckOk(k){var c=ckRead();return !!(c&&c[k])}
 var GC_CODE='dennenappeltjes';
@@ -238,6 +254,130 @@ const MAPPEN = ['campings', 'verhalen', 'uitrusting', 'paklijst', 'tips', 'over-
 for (const dir of MAPPEN) { fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true }); }
 const urls = [['', 1.0], ['campings/', 0.8], ['verhalen/', 0.7], ['uitrusting/', 0.8], ['paklijst/', 0.8], ['tips/', 0.7], ['over-ons/', 0.6], ['privacyverklaring.html', 0.2], ['cookieverklaring.html', 0.2]];
 
+// ---- Filter en kaart op de campingpagina (zelfde werking als in het voorbeeld)
+const CK0 = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const LANDNAAM = { nl: 'Nederland', nederland: 'Nederland', holland: 'Nederland', be: 'Belgi\u00eb', belgie: 'Belgi\u00eb', de: 'Duitsland', duitsland: 'Duitsland', deutschland: 'Duitsland', fr: 'Frankrijk', frankrijk: 'Frankrijk', lu: 'Luxemburg', luxemburg: 'Luxemburg', at: 'Oostenrijk', oostenrijk: 'Oostenrijk', dk: 'Denemarken', denemarken: 'Denemarken', es: 'Spanje', spanje: 'Spanje', it: 'Itali\u00eb', italie: 'Itali\u00eb', ch: 'Zwitserland', zwitserland: 'Zwitserland' };
+const landVan = c => { const t = String(c.land || '').trim(); return t ? (LANDNAAM[CK0(t)] || t) : 'Nederland'; };
+const REGIOALIAS = { fryslan: 'Friesland', noordbrabant: 'Noord-Brabant', noordholland: 'Noord-Holland', zuidholland: 'Zuid-Holland' };
+const regioVan = c => { const r = String(c.regio || '').trim(); return r ? (REGIOALIAS[CK0(r)] || r) : ''; };
+const LANDPUNT = { Nederland: [52.2, 5.3], 'Belgi\u00eb': [50.6, 4.6], Duitsland: [51.2, 10.4], Frankrijk: [46.6, 2.4], Luxemburg: [49.8, 6.1], Oostenrijk: [47.6, 14.1], Denemarken: [56, 9.5], Spanje: [40.2, -3.7], 'Itali\u00eb': [42.5, 12.5], Zwitserland: [46.8, 8.2] };
+const REGIOPUNT = { 'Nederland|groningen': [53.22, 6.74], 'Nederland|friesland': [53.1, 5.85], 'Nederland|drenthe': [52.85, 6.6], 'Nederland|overijssel': [52.45, 6.4], 'Nederland|flevoland': [52.5, 5.55], 'Nederland|gelderland': [52.05, 5.9], 'Nederland|utrecht': [52.08, 5.15], 'Nederland|noordholland': [52.6, 4.8], 'Nederland|zuidholland': [52, 4.5], 'Nederland|zeeland': [51.45, 3.8], 'Nederland|noordbrabant': [51.55, 5.1], 'Nederland|limburg': [51.2, 5.9],
+  'Belgi\u00eb|antwerpen': [51.2, 4.6], 'Belgi\u00eb|limburg': [50.95, 5.4], 'Belgi\u00eb|oostvlaanderen': [51, 3.9], 'Belgi\u00eb|westvlaanderen': [51.05, 3.1], 'Belgi\u00eb|vlaamsbrabant': [50.9, 4.5], 'Belgi\u00eb|waalsbrabant': [50.65, 4.6], 'Belgi\u00eb|henegouwen': [50.45, 3.9], 'Belgi\u00eb|luik': [50.5, 5.6], 'Belgi\u00eb|luxemburg': [49.95, 5.45], 'Belgi\u00eb|luxemburgprovincie': [49.95, 5.45], 'Belgi\u00eb|namen': [50.35, 4.9], 'Belgi\u00eb|brussel': [50.85, 4.35] };
+const punt = c => {
+  if (c.lat != null && c.lon != null && c.lat !== '' && c.lon !== '' && isFinite(+c.lat) && isFinite(+c.lon)) return [+c.lat, +c.lon, 'exact'];
+  const ln = landVan(c), r = regioVan(c), rp = r && REGIOPUNT[ln + '|' + CK0(r)];
+  if (rp) return [rp[0], rp[1], 'regio'];
+  const lp = LANDPUNT[ln]; return lp ? [lp[0], lp[1], 'land'] : null;
+};
+const FILTERJS = `(function(){
+var C=window.CAMPDATA||[],f=document.getElementById('filters'),l=document.getElementById('lijst');
+if(!f||!l||!C.length)return;
+var S={land:'',regio:'',min:0,type:'',sort:'volgorde',pick:null,open:false};
+var MAPKLEUR='#c9d6c4';
+var OMTREK={Nederland:[[6.9,53.45],[6.2,53.4],[5.4,53.17],[5.05,52.95],[4.75,52.96],[4.6,52.6],[4.55,52.46],[4.4,52.2],[4.1,51.98],[3.85,51.82],[3.55,51.55],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.05,50.85],[6.2,51.1],[6.2,51.4],[5.95,51.8],[6.7,51.9],[6.8,52.05],[6.7,52.45],[7.05,52.65],[7.2,53.0],[7.2,53.2],[7.0,53.3]],
+'België':[[2.55,51.09],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.2,50.55],[6.4,50.32],[6.1,50.13],[5.8,49.55],[5.4,49.55],[4.85,50.15],[4.2,49.95],[3.6,50.35],[3.2,50.75],[2.6,50.8]]};
+var eh=function(x){return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+var els={};[].slice.call(l.querySelectorAll('a.camp')).forEach(function(a){els[a.getAttribute('data-id')]=a});
+var leeg=document.createElement('p');leeg.className='lead';leeg.hidden=true;leeg.textContent='Geen campings gevonden met deze keuze. Probeer een filter uit te zetten, of druk op Wis filters.';l.parentNode.insertBefore(leeg,l.nextSibling);
+function passend(c){if(S.land&&c.land!=S.land)return false;if(S.regio&&c.regio!=S.regio)return false;if(S.type&&c.type!=S.type)return false;if(S.min){if(c.n==null||c.n<S.min)return false}if(S.pick&&S.pick.indexOf(c.id)<0)return false;return true}
+function gesorteerd(a){var b=a.slice(),nl=function(x,y){return String(x).localeCompare(String(y),'nl')};
+if(S.sort=='cijfer')b.sort(function(x,y){return ((y.n==null?-1:y.n)-(x.n==null?-1:x.n))||nl(x.naam,y.naam)});
+else if(S.sort=='naam')b.sort(function(x,y){return nl(x.naam,y.naam)});
+else if(S.sort=='regio')b.sort(function(x,y){return nl(x.land,y.land)||nl(x.regio,y.regio)||nl(x.naam,y.naam)});
+return b}
+function aantalActief(){return (S.land?1:0)+(S.regio?1:0)+(S.min?1:0)+(S.type?1:0)+(S.pick?1:0)}
+/* ---- Echte kaart (Leaflet + OpenStreetMap), pas na een klik van de bezoeker ---- */
+var LJS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',LCSS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+var LM=null,LLAAG=null,LFOUT=false,LBEZIG=false;
+function kaartToegestaan(){try{return sessionStorage.getItem('kaartok')=='1'}catch(e){return false}}
+function laadLeaflet(){return new Promise(function(ok,nee){if(window.L&&L.map)return ok();if(!document.getElementById('lcss')){var c=document.createElement('link');c.id='lcss';c.rel='stylesheet';c.href=LCSS;document.head.appendChild(c)}var s=document.createElement('script');s.src=LJS;s.onload=function(){window.L&&L.map?ok():nee()};s.onerror=nee;document.head.appendChild(s)})}
+function popupHtml(cs){return '<div class="lpop">'+cs.map(function(c){return '<div><a href="'+eh(c.id)+'.html">'+eh(c.naam)+'</a>'+(c.cijfer?' <span>cijfer '+eh(c.cijfer)+'</span>':'')+(c.p[2]!='exact'?'<br><small>Plek bij benadering</small>':'')+'</div>'}).join('')+'</div>'}
+function leafBijwerken(vis){
+LLAAG.clearLayers();var grp={};
+vis.forEach(function(c){var p=c.p;if(!p)return;var key=p[0].toFixed(3)+'|'+p[1].toFixed(3);(grp[key]=grp[key]||{p:p,cs:[]}).cs.push(c)});
+var pts=[];
+Object.keys(grp).forEach(function(k){var g=grp[k],n=g.cs.length,ic=L.divIcon({className:'lpin',html:'<span>'+(n>1?n:'')+'</span>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]});
+var t=n==1?g.cs[0].naam:n+' campings';
+var mk=L.marker([g.p[0],g.p[1]],{icon:ic,title:t,alt:t,keyboard:true});mk.bindPopup(popupHtml(g.cs),{maxWidth:260});mk.addTo(LLAAG);pts.push([g.p[0],g.p[1]])});
+LM.invalidateSize();
+if(!pts.length)return;
+var max=S.regio?11:9;
+if(pts.length==1)LM.setView(pts[0],S.regio?11:S.land?9:8,{animate:true});
+else LM.fitBounds(pts,{padding:[34,34],maxZoom:max,animate:true})}
+function tekenLeaflet(v,vis){
+var div=document.getElementById('lkaart');
+if(!div||!LM){v.innerHTML='<div class="kaartvak"><div id="lkaart" role="region" aria-label="Kaart met onze campings"></div><p class="kaartnoot">Kaart: &copy; OpenStreetMap-bijdragers. Tik op een oranje stip om de camping te zien. Met twee vingers of de plus en min zoom je in en uit.</p></div>';div=document.getElementById('lkaart');
+LM=L.map(div,{scrollWheelZoom:false,worldCopyJump:false,minZoom:3}).setView([50.5,6],5);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(LM);
+LLAAG=L.layerGroup().addTo(LM);
+LM.on('focus',function(){LM.scrollWheelZoom.enable()});LM.on('blur',function(){LM.scrollWheelZoom.disable()})}
+leafBijwerken(vis)}
+function leafWeg(){if(LM){try{LM.remove()}catch(e){}LM=null;LLAAG=null}}
+/* ---- Eenvoudige kaart zonder externe diensten (als de echte kaart niet laadt) ---- */
+function kaartSvg(vis){
+var W=600,pts=[];vis.forEach(function(c){if(c.p)pts.push({c:c,p:c.p})});
+if(!pts.length)return'';
+var la=pts.map(function(x){return x.p[0]}),lo=pts.map(function(x){return x.p[1]});
+var la0=Math.min.apply(0,la),la1=Math.max.apply(0,la),lo0=Math.min.apply(0,lo),lo1=Math.max.apply(0,lo);
+var midla=(la0+la1)/2,midlo=(lo0+lo1)/2,k=Math.cos(midla*Math.PI/180),pad=1.32;
+var dla=Math.max(la1-la0,1.3)*pad,dlo=Math.max((lo1-lo0)*k,1.3*k)*pad;
+var sc=Math.min(W/dlo,380/dla),H=Math.round(Math.min(380,Math.max(240,dla*sc)));sc=Math.min(W/dlo,H/dla);
+var X=function(x){return W/2+(x-midlo)*k*sc},Y=function(y){return H/2-(y-midla)*sc};
+var groepen={};pts.forEach(function(x){var key=x.p[0].toFixed(2)+'|'+x.p[1].toFixed(2);(groepen[key]=groepen[key]||{p:x.p,cs:[]}).cs.push(x.c)});
+var svg='<svg class="kaartsvg" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Kaart met onze campings" xmlns="http://www.w3.org/2000/svg">';
+Object.keys(OMTREK).forEach(function(n){svg+='<polygon points="'+OMTREK[n].map(function(q){return X(q[0]).toFixed(1)+','+Y(q[1]).toFixed(1)}).join(' ')+'" fill="'+MAPKLEUR+'" fill-opacity=".10" stroke="'+MAPKLEUR+'" stroke-opacity=".45" stroke-width="1.2" stroke-linejoin="round"><title>'+eh(n)+'</title></polygon>'});
+Object.keys(groepen).forEach(function(key){var g=groepen[key],n=g.cs.length,r=9+4*Math.sqrt(n),cx=X(g.p[1]).toFixed(1),cy=Y(g.p[0]).toFixed(1),
+act=S.pick&&g.cs.every(function(c){return S.pick.indexOf(c.id)>=0}),naam=n==1?g.cs[0].naam:n+' campings';
+svg+='<g class="kp" tabindex="0" role="button" data-ids="'+eh(g.cs.map(function(c){return c.id}).join(','))+'" aria-label="'+eh(naam)+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+(r+4).toFixed(1)+'" fill="#f08a3c" fill-opacity=".22"/><circle cx="'+cx+'" cy="'+cy+'" r="'+r.toFixed(1)+'" fill="#f08a3c" stroke="'+(act?'#f6ecd6':'#1a0f05')+'" stroke-width="'+(act?3:2)+'"/>'+(n>1?'<text x="'+cx+'" y="'+(+cy+5).toFixed(1)+'" text-anchor="middle" font-family="Fredoka,sans-serif" font-weight="700" font-size="15" fill="#1a0f05">'+n+'</text>':'')+'<title>'+eh(naam)+'</title></g>'});
+return svg+'</svg>'}
+function tekenSvg(v,vis,uitleg){var svg=kaartSvg(vis);
+v.innerHTML=svg?'<div class="kaartvak">'+svg+'<p class="kaartnoot">'+(uitleg||'')+'Elke oranje stip is een camping of een groep campings. Tik op een stip om alleen die te zien.'+(S.pick?' <button type="button" class="fklein" id="fpickwis">Toon weer alles</button>':'')+'</p></div>':'';
+[].slice.call(v.querySelectorAll('.kp')).forEach(function(g){var go=function(){var ids=g.getAttribute('data-ids').split(',');if(ids.length==1){location.href=ids[0]+'.html';return}S.pick=ids;teken()};g.onclick=go;g.onkeydown=function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();go()}}});
+var pw=document.getElementById('fpickwis');if(pw)pw.onclick=function(){S.pick=null;teken()}}
+function tekenKaart(vis){var v=document.getElementById('fkaartvak');if(!v||!S.open)return;
+if(!C.some(function(c){return c.p})){v.innerHTML='';return}
+if(window.KAART_ZONDER_TEGELS||LFOUT){leafWeg();tekenSvg(v,vis,LFOUT?'De gedetailleerde kaart kon niet laden, dit is een eenvoudige kaart. ':'');return}
+if(!kaartToegestaan()){leafWeg();v.innerHTML='<div class="kaartvak kaartvraag"><p><b>Kaart van onze campings</b></p><p>Voor een kaart waarop je goed kunt zien waar we zijn geweest, gebruiken we OpenStreetMap. Als je de kaart laadt, krijgt OpenStreetMap je IP-adres te zien. Je kunt ook gewoon de lijst hieronder gebruiken.</p><button type="button" id="fkaartlaad">Kaart laden</button></div>';document.getElementById('fkaartlaad').onclick=function(){try{sessionStorage.setItem('kaartok','1')}catch(e){}teken()};return}
+if(window.L&&L.map){tekenLeaflet(v,vis);return}
+if(LBEZIG)return;LBEZIG=true;v.innerHTML='<div class="kaartvak"><p class="kaartnoot">Kaart laden...</p></div>';
+laadLeaflet().then(function(){LBEZIG=false;teken(true)}).catch(function(){LBEZIG=false;LFOUT=true;teken(true)})}
+/* ---- Filterbalk en lijst ---- */
+function bouwFilters(){
+var landen=[],types=[];C.forEach(function(c){if(landen.indexOf(c.land)<0)landen.push(c.land);if(c.type&&types.indexOf(c.type)<0)types.push(c.type)});
+var regios=[];C.forEach(function(c){if((!S.land||c.land==S.land)&&c.regio&&regios.indexOf(c.regio)<0)regios.push(c.regio)});regios.sort(function(a,b){return a.localeCompare(b,'nl')});
+if(S.regio&&regios.indexOf(S.regio)<0)S.regio='';
+var n=function(fn){return C.filter(fn).length};
+var chips=function(naam,items,cur,sleutel){return '<div class="fgroep"><span class="flabel">'+naam+'</span><div class="fchips">'+items.map(function(it){return '<button type="button" data-f="'+sleutel+'" data-w="'+eh(it[0])+'" aria-pressed="'+(String(it[0])===String(cur))+'">'+eh(it[1])+(it[2]!=null?' <small>'+it[2]+'</small>':'')+'</button>'}).join('')+'</div></div>'};
+var h='';
+if(landen.length>1)h+=chips('Land',[['','Alle landen',C.length]].concat(landen.map(function(x){return [x,x,n(function(c){return c.land==x})]})),S.land,'land');
+if(regios.length)h+='<div class="fgroep"><label class="flabel" for="fregio">Provincie of regio</label><select id="fregio"><option value="">Alle'+(S.land?' in '+eh(S.land):'')+'</option>'+regios.map(function(r){return '<option value="'+eh(r)+'"'+(r==S.regio?' selected':'')+'>'+eh(r)+' ('+n(function(c){return c.regio==r&&(!S.land||c.land==S.land)})+')</option>'}).join('')+'</select></div>';
+h+=chips('Ons cijfer',[[0,'Alle'],[7,'7 of hoger'],[8,'8 of hoger'],[9,'9 of hoger']],S.min,'min');
+if(types.length>1)h+=chips('Soort',[['','Alle']].concat(types.map(function(t){return [t,t]})),S.type,'type');
+var o=function(w,t){return '<option value="'+w+'"'+(S.sort==w?' selected':'')+'>'+t+'</option>'};
+h+='<div class="fgroep"><label class="flabel" for="fsort">Sorteren</label><select id="fsort">'+o('volgorde','Zoals wij ze op een rij zetten')+o('cijfer','Hoogste cijfer eerst')+o('naam','Naam, van A tot Z')+o('regio','Per land en provincie')+'</select></div>';
+var fb=document.getElementById('fbouw');fb.innerHTML=h;
+[].slice.call(fb.querySelectorAll('[data-f]')).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-f'),w=b.getAttribute('data-w');if(k=='min')S.min=+w;else{S[k]=w;if(k=='land')S.regio=''}S.pick=null;teken()}});
+var sr=document.getElementById('fregio');if(sr)sr.onchange=function(){S.regio=sr.value;S.pick=null;teken()};
+document.getElementById('fsort').onchange=function(e){S.sort=e.target.value;teken(true)}}
+function kopBijwerken(vis){var a=aantalActief(),kop=document.getElementById('fkop');
+kop.innerHTML='<button type="button" id="ftoggle" class="ftoggle" aria-expanded="'+S.open+'" aria-controls="fpanel"><span aria-hidden="true">&#9776;</span> Filteren'+(a?' <span class="fbadge">'+a+'</span>':'')+' <span class="fpijl" aria-hidden="true">'+(S.open?'&#9650;':'&#9660;')+'</span></button><span id="ftel" aria-live="polite">'+(vis.length==C.length?'Alle '+vis.length+' campings':vis.length+' van de '+C.length+' campings')+'</span>'+(a?'<button type="button" id="fwis" class="fklein">Wis filters</button>':'');
+document.getElementById('ftoggle').onclick=function(){S.open=!S.open;document.getElementById('fpanel').hidden=!S.open;kopBijwerken(vis);if(S.open)teken(true)};
+var w=document.getElementById('fwis');if(w)w.onclick=function(){S.land=S.regio=S.type='';S.min=0;S.pick=null;teken()}}
+function bouwSkelet(){f.innerHTML='<div class="fkop" id="fkop"></div><div id="fpanel" hidden><div id="fbouw"></div><div id="fkaartvak"></div></div>'}
+function teken(alleenLijst){
+if(!document.getElementById('fkop'))bouwSkelet();
+var vis=gesorteerd(C.filter(passend));
+if(!alleenLijst)bouwFilters();
+kopBijwerken(vis);
+tekenKaart(vis);
+var zicht={};vis.forEach(function(c){zicht[c.id]=1});
+C.forEach(function(c){if(els[c.id])els[c.id].hidden=!zicht[c.id]});
+vis.forEach(function(c){if(els[c.id])l.appendChild(els[c.id])});
+leeg.hidden=vis.length>0}
+teken();
+})();
+`;
+
 // ---- campings
 for (const c of CAMPINGS) {
   if (!c.id) continue;
@@ -276,9 +416,11 @@ fs.writeFileSync('campings/index.html', pagina({
   titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
   pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
+  script: `window.CAMPDATA=${JSON.stringify(CAMPINGS.filter(c => c.id).map(c => { const n = parseFloat(String(c.cijfer).replace(',', '.')); return { id: c.id, naam: schoon(c.naam), cijfer: c.cijfer ? String(c.cijfer) : '', n: isFinite(n) ? n : null, land: landVan(c), regio: regioVan(c), type: c.type || '', p: punt(c) }; })).replace(/</g, '\\u003c')};` + FILTERJS,
   body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
-<div style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc([c.plaats, c.regio, c.land].filter(Boolean).join(' \u00b7 '))}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
+<div class="filters" id="filters"></div>
+<div id="lijst" style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" data-id="${esc(c.id)}" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc([c.plaats, c.regio, c.land].filter(Boolean).join(' \u00b7 '))}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
 ${NAARBOVEN}`
 }));
 

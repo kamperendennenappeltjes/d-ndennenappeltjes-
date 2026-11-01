@@ -229,8 +229,8 @@ const CAMPINGS=[
   "vlogs": [],
   "land": "België",
   "regio": "Limburg",
-  "lat": 51.0567,
-  "lon": 5.38306
+  "lat": 51.014012,
+  "lon": 5.46176
  },
  {
   "id": "slot-cranendonck",

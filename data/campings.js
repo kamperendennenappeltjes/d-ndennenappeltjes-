@@ -42,7 +42,11 @@ const CAMPINGS=[
     "tekst": "Gezelligheid maak je samen"
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Overijssel",
+  "lat": 52.4064,
+  "lon": 6.36548
  },
  {
   "id": "de-lente-van-drenthe",
@@ -86,7 +90,11 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Drenthe",
+  "lat": 52.97789,
+  "lon": 6.75909
  },
  {
   "id": "de-berckt",
@@ -131,7 +139,11 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Limburg",
+  "lat": 51.33195,
+  "lon": 6.09673
  },
  {
   "id": "vakantiepark-prinsenmeer",
@@ -164,7 +176,11 @@ const CAMPINGS=[
   ],
   "foto": "img/vakantiepark-prinsenmeer-1792216847794.jpg",
   "fotos": [],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Noord-Brabant",
+  "lat": 51.422604,
+  "lon": 5.73267
  },
  {
   "id": "vakantiepark-hengelhoef",
@@ -210,7 +226,11 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "België",
+  "regio": "Limburg",
+  "lat": 51.0567,
+  "lon": 5.38306
  },
  {
   "id": "slot-cranendonck",
@@ -256,7 +276,11 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Noord-Brabant",
+  "lat": 51.30291,
+  "lon": 5.57262
  },
  {
   "id": "blauwemeer",
@@ -309,7 +333,11 @@ const CAMPINGS=[
     "titel": "Aankomst dag op Blauwemeer",
     "url": "https://youtu.be/pm7bqh99BFE?si=o_BpkO2efNBFWKTm"
    }
-  ]
+  ],
+  "land": "België",
+  "regio": "Limburg",
+  "lat": 51.23057,
+  "lon": 5.30769
  },
  {
   "id": "camping-het-peelvenneke",
@@ -366,7 +394,11 @@ const CAMPINGS=[
     "titel": "peelvenneke deel2",
     "url": "https://youtu.be/IgO2s0leCjg?si=h9Om710vHj4Lp8hB"
    }
-  ]
+  ],
+  "land": "Nederland",
+  "regio": "Noord-Brabant",
+  "lat": 51.67087,
+  "lon": 5.73521
  },
  {
   "id": "goolderheide",
@@ -418,7 +450,11 @@ const CAMPINGS=[
     "titel": "aankomst dag Goolderheide",
     "url": "https://youtu.be/s6LHHR2VJUE?si=90GVWyolYvXJV1Ja"
    }
-  ]
+  ],
+  "land": "België",
+  "regio": "Limburg",
+  "lat": 51.17298,
+  "lon": 5.57758
  },
  {
   "id": "esch-camping-kaampert",
@@ -457,7 +493,11 @@ const CAMPINGS=[
   ],
   "foto": "img/esch-camping-kaampert-1791997332207.jpg",
   "fotos": [],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Overijssel",
+  "lat": 52.2483,
+  "lon": 6.5123
  },
  {
   "id": "landal-klein-vink-voorheen-roompot-klein-vink",
@@ -515,6 +555,10 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": []
+  "vlogs": [],
+  "land": "Nederland",
+  "regio": "Limburg",
+  "lat": 51.47626,
+  "lon": 6.17851
  }
 ];

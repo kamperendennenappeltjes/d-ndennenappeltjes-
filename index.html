@@ -331,23 +331,41 @@ const yt=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{
 const VV=(typeof VID!=='undefined'?VID:[]).filter(v=>v&&v.url&&yt(v.url));
 function drawVids(){const ok=ckOk('vid');document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart">${ok?`<iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>`:`<div class="vph" style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),url('${v.thumb||'img/thumbs/'+yt(v.url)+'.jpg'}')"><button type="button" class="vplay" data-ckvid aria-label="YouTube-video laden">▶</button><small>Druk op afspelen om deze video van YouTube te laden.</small></div>`}<div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">Onze video\'s staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>'}drawVids();
 const FO=typeof FOTOS!=='undefined'?FOTOS:{"Eerder": [{"src": "img/foto-4.jpg", "tekst": "Camping vanuit de lucht in de avond"}, {"src": "img/foto-8.jpg", "tekst": "Auto en caravan"}, {"src": "img/foto-9.jpg", "tekst": "Caravan in de sneeuw"}, {"src": "img/foto-1.jpg", "tekst": "Verlichte voortenten"}, {"src": "img/foto-10.jpg", "tekst": "Kampeerplek van boven"}, {"src": "img/foto-5.jpg", "tekst": "Gezin bij de westernhut"}, {"src": "img/foto-11.jpg", "tekst": "Twee kinderen op het gras"}, {"src": "img/foto-7.jpg", "tekst": "Twee kampeerders bij de caravans"}]};
-const fk=(()=>{const ks=Object.keys(FO).filter(k=>k.slice(0,2)!='__'&&FO[k]&&FO[k].length),o=Array.isArray(FO.__orde)?FO.__orde:[];return [...o.filter(k=>ks.includes(k)),...ks.filter(k=>!o.includes(k)).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}))]})();let curFotos=[];function drawF(){const h=(location.hash||'').split('/').slice(1).map(decodeURIComponent),jaar=h[0],plek=h[1],alb=h[2],g=document.getElementById('galerij'),nav=document.getElementById('fotonav');
+const fk=(()=>{const ks=Object.keys(FO).filter(k=>k.slice(0,2)!='__'&&FO[k]&&FO[k].length),o=Array.isArray(FO.__orde)?FO.__orde:[];return [...o.filter(k=>ks.includes(k)),...ks.filter(k=>!o.includes(k)).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}))]})();let curFotos=[];function drawF(){const h=(location.hash||'').split('/').slice(1).map(decodeURIComponent),g=document.getElementById('galerij'),nav=document.getElementById('fotonav');
+const SEP=' / ',NAAM="Overige foto's";
 const link=(...a)=>'#fotos'+a.map(x=>'/'+encodeURIComponent(x)).join('');
-const card=(href,src,t,n)=>`<a class="fcard" href="${href}"><img src="${src}" alt="" loading="lazy"><span><b>${t}</b><small>${n} foto's</small></span></a>`;
-const crumbs=(path,extra,jaarAlleen)=>{const it=[["Foto's",'#fotos'],[jaar,link(jaar)]];if(!jaarAlleen){it.push([plek||'Algemeen',link(jaar,plek)]);path.forEach((x,i)=>it.push([x,link(jaar,plek,...path.slice(0,i+1))]))}if(extra)it.push([extra]);else it[it.length-1]=[it[it.length-1][0]];return it.map(([t,h])=>h?`<a href="${h}">${t}</a>`:t).join(' &rsaquo; ')};
-if(!jaar||jaar.slice(0,2)=='__'||!FO[jaar]){nav.innerHTML='';g.innerHTML=`<div class="fgrid">${fk.map(k=>card(link(k),FO[k][0].src,k,FO[k].length)).join('')}</div>`;return}
-const by={};FO[jaar].forEach(p=>(by[p.camping||'']=by[p.camping||'']||[]).push(p));const po=(FO.__plekken&&FO.__plekken[jaar])||[],bk=Object.keys(by),pk=po.filter(k=>bk.includes(k)).concat(bk.filter(k=>!po.includes(k)).sort((a,b)=>a.localeCompare(b,'nl')));
-if(plek===undefined||!by[plek]){nav.innerHTML=`<a class="terug" href="#fotos">Terug naar alle jaren</a><h3 class="sub">${crumbs([],0,1)}</h3>`;g.innerHTML=`<div class="fgrid">${pk.map(k=>card(link(jaar,k),by[k][0].src,k||'Algemeen',by[k].length)).join('')}</div>`;return}
-const SEP=' / ',seg=p=>(p.album||'').split(SEP).map(x=>x.trim()).filter(Boolean),ba={};by[plek].forEach(p=>(ba[p.album||'']=ba[p.album||'']||[]).push(p));const ao=(FO.__albums&&FO.__albums[jaar+'|'+plek])||[],abk=Object.keys(ba),hasA=abk.some(k=>k!==''),ak=ao.filter(k=>abk.includes(k)).concat(abk.filter(k=>k!==''&&!ao.includes(k)).sort((a,b)=>a.localeCompare(b,'nl')));
-if(!hasA){nav.innerHTML=`<a class="terug" href="${link(jaar)}">Terug naar ${jaar}</a><h3 class="sub">${crumbs([])}</h3>`;curFotos=by[plek]}
-else{let path=h.slice(2),direct=false;if(path.length&&path[path.length-1]===''){direct=true;path=path.slice(0,-1)}
-const inP=p=>{const s=seg(p);return path.every((x,i)=>s[i]===x)};let sub=by[plek].filter(inP);if(!sub.length){path=[];direct=false;sub=by[plek]}
-const d=path.length,dir=sub.filter(p=>seg(p).length==d),ch=[];ak.forEach(a=>{const s=a.split(SEP).map(x=>x.trim()).filter(Boolean);if(s.length>d&&path.every((x,i)=>s[i]===x)&&!ch.includes(s[d]))ch.push(s[d])});
-const kop=(x)=>`${jaar}: ${plek||'Algemeen'}${x.length?': '+x.join(': '):''}`;
-if(!direct&&ch.length){const par=path.slice(0,-1);nav.innerHTML=(d?`<a class="terug" href="${link(jaar,plek,...par)}">Terug naar ${par.length?par[par.length-1]:plek||'Algemeen'}</a>`:`<a class="terug" href="${link(jaar)}">Terug naar ${jaar}</a>`)+`<h3 class="sub">${crumbs(path)}</h3>`;
-const cs=ch.map(c=>{const L=sub.filter(p=>seg(p)[d]===c);return card(link(jaar,plek,...path,c),L[0].src,c,L.length)});if(dir.length)cs.push(card(link(jaar,plek,...path,''),dir[0].src,"Overige foto's",dir.length));
-g.innerHTML=`<div class="fgrid">${cs.join('')}</div>`;return}
-const par=direct?path:path.slice(0,-1);nav.innerHTML=`<a class="terug" href="${link(jaar,plek,...par)}">Terug naar ${par.length?par[par.length-1]:plek||'Algemeen'}</a><h3 class="sub">${crumbs(path,direct?"Overige foto's":'')}</h3>`;curFotos=dir}g.innerHTML=`<div class="galerij">${curFotos.map((p,n)=>`<figure><img src="${E(p.src)}" alt="${E(p.tekst||plek)}" data-n="${n}" loading="lazy">${p.tekst?`<figcaption>${E(p.tekst)}</figcaption>`:''}</figure>`).join('')}</div>`}
+const card=(href,src,t,n)=>`<a class="fcard" href="${href}"><img src="${E(src)}" alt="" loading="lazy"><span><b>${E(t)}</b><small>${n} foto's</small></span></a>`;
+const seg=p=>(p.album||'').split(SEP).map(x=>x.trim()).filter(Boolean);
+const cache={},by=j=>cache[j]||(cache[j]=(()=>{const o={};FO[j].forEach(p=>(o[p.camping||'']=o[p.camping||'']||[]).push(p));return o})());
+const plekken=j=>{const b=by(j),po=(FO.__plekken&&FO.__plekken[j])||[],bk=Object.keys(b);return po.filter(k=>bk.includes(k)).concat(bk.filter(k=>!po.includes(k)).sort((x,y)=>(x===''?1:0)-(y===''?1:0)||x.localeCompare(y,'nl')))};
+/* Wat zit er op dit niveau? kids = mappen om uit te kiezen, dir = foto's die hier los in zitten */
+const info=P=>{
+if(!P.length)return{kids:fk.map(k=>({s:k,src:FO[k][0].src,n:FO[k].length})),dir:[]};
+const j=P[0],b=by(j);
+if(P.length==1)return{kids:plekken(j).map(k=>({s:k,src:b[k][0].src,n:b[k].length})),dir:[]};
+const k=P[1],path=P.slice(2),dd=path.length,L=b[k]||[],sub=L.filter(p=>{const s=seg(p);return path.every((x,i)=>s[i]===x)});
+const ao=(FO.__albums&&FO.__albums[j+'|'+k])||[],abk=[...new Set(L.map(p=>p.album||''))],ak=ao.filter(x=>abk.includes(x)).concat(abk.filter(x=>x!==''&&!ao.includes(x)).sort((x,y)=>x.localeCompare(y,'nl'))),ch=[];
+ak.forEach(a=>{const s=a.split(SEP).map(x=>x.trim()).filter(Boolean);if(s.length>dd&&path.every((x,i)=>s[i]===x)&&!ch.includes(s[dd]))ch.push(s[dd])});
+return{kids:ch.map(c=>{const M=sub.filter(p=>seg(p)[dd]===c);return{s:c,src:M[0].src,n:M.length}}),dir:sub.filter(p=>seg(p).length==dd)}};
+const node=(P,df)=>({P,df,...info(P)});
+/* Loop door de map-keuzes uit de link, en sla mappen over waar maar 1 keuze is */
+let cur=node([],false);const chain=[cur];
+for(const s of h){if(cur.df)break;
+if(cur.P.length>=2&&s===''){if(cur.dir.length&&cur.kids.length){cur=node(cur.P,true);chain.push(cur)}break}
+if(!cur.kids.find(x=>x.s===s))break;cur=node([...cur.P,s],false);chain.push(cur)}
+const enkel=n=>!n.df&&n.kids.length==1&&!n.dir.length;
+while(enkel(cur)){cur=node([...cur.P,cur.kids[0].s],false);chain.push(cur)}
+const last=chain.length-1;
+const naam=n=>!n.P.length?"Foto's":n.df?NAAM:n.P.length==1?n.P[0]:n.P.length==2?(n.P[1]||NAAM):n.P[n.P.length-1];
+/* Kruimelpad: alleen mappen waar je echt iets kon kiezen zijn klikbaar */
+const crumbs=chain.map((n,i)=>{if(i&&n.P.length==2&&!n.P[1]&&!n.df&&enkel(chain[i-1]))return'';const t=E(naam(n));return(i<last&&!enkel(n))?`<a href="${link(...n.P)}">${t}</a>`:t}).filter(Boolean).join(' &rsaquo; ');
+let back='';for(let i=last-1;i>=0;i--){if(!enkel(chain[i])){back=`<a class="terug" href="${link(...chain[i].P)}">Terug naar ${i?E(naam(chain[i])):'alle jaren'}</a>`;break}}
+if(!last){nav.innerHTML='';g.innerHTML=`<div class="fgrid">${cur.kids.map(k=>card(link(k.s),k.src,k.s,k.n)).join('')}</div>`;return}
+nav.innerHTML=back+`<h3 class="sub">${crumbs}</h3>`;
+if(cur.df||!cur.kids.length){curFotos=cur.dir;const plek=cur.P[1]||'';g.innerHTML=`<div class="galerij">${curFotos.map((p,n)=>`<figure><img src="${E(p.src)}" alt="${E(p.tekst||plek)}" data-n="${n}" loading="lazy">${p.tekst?`<figcaption>${E(p.tekst)}</figcaption>`:''}</figure>`).join('')}</div>`;return}
+const cs=cur.kids.map(k=>card(link(...cur.P,k.s),k.src,(cur.P.length==1&&k.s==='')?NAAM:k.s,k.n));
+if(cur.dir.length)cs.push(card(link(...cur.P,''),cur.dir[0].src,NAAM,cur.dir.length));
+g.innerHTML=`<div class="fgrid">${cs.join('')}</div>`}
 document.getElementById('cf').onsubmit=e=>{e.preventDefault();location.href='mailto:kamperendennenappeltjes@gmail.com?subject='+encodeURIComponent('Bericht via de website van '+document.getElementById('cn').value)+'&body='+encodeURIComponent(document.getElementById('cb').value)};
 const d=document.getElementById('dlg'),di=d.querySelector('img'),dc=d.querySelector('figcaption'),dn=d.querySelector('.lbt'),bp=d.querySelector('.lbp'),bv=d.querySelector('.lbv');let li=0;
 function lbShow(){const p=curFotos[li];if(!p)return;di.src=p.src;di.alt=p.tekst||'';dc.textContent=p.tekst||'';dc.style.display=p.tekst?'':'none';const m=curFotos.length>1;bp.style.display=bv.style.display=m?'':'none';dn.textContent=m?(li+1)+' / '+curFotos.length:'';

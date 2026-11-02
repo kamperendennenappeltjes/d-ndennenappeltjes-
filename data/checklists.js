@@ -178,5 +178,448 @@ const CHK=[
     ]
    }
   ]
+ },
+ {
+  "id": "zomervakantie",
+  "naam": "Zomervakantie",
+  "tekst": "Zomervakantie met de caravan: uitgebreide checklist voor 3 weken",
+  "cats": [
+   {
+    "n": "Documenten",
+    "i": [
+     "Rijbewijs",
+     "Identiteitsbewijs / paspoort",
+     "Pinpas",
+     "Contant geld",
+     "Zorgverzekeringspas",
+     "Verzekeringsbewijs auto (groene kaart)",
+     "Kentekenbewijs auto",
+     "Kentekenbewijs caravan",
+     "Verzekeringsdocumenten caravan",
+     "Kopieën van belangrijke documenten",
+     "Reserveringsbevestiging",
+     "Medicijnpaspoort",
+     "Reisverzekeringsdocumenten (buitenland)",
+     "Vaccinatieboekje (buitenland)",
+     "Europees schadeformulier",
+     "Lidmaatschapspas ANWB of campingpas",
+     "Tolbadge (optioneel)"
+    ]
+   },
+   {
+    "n": "Auto",
+    "i": [
+     "EHBO-set",
+     "Veiligheidshesjes voor iedereen",
+     "Gevarendriehoek",
+     "Brandblusser",
+     "Milieusticker",
+     "Vignet (indien nodig)",
+     "Navigatiesysteem",
+     "Autolader",
+     "Dakkoffer (optioneel)",
+     "Fietsendrager (optioneel)",
+     "Reservesleutel auto",
+     "Reservewiel",
+     "Bandenreparatieset",
+     "Autokrik",
+     "Reservelampen auto",
+     "Startkabels",
+     "Sleepkabel",
+     "Jerrycan met brandstof (indien verplicht)",
+     "1 liter olie voor de auto",
+     "Drinken voor onderweg",
+     "Snacks voor onderweg",
+     "Spelletjes voor de autorit"
+    ]
+   },
+   {
+    "n": "Caravan",
+    "i": [
+     "Caravanspiegels",
+     "Koppelingslot / disselslot",
+     "Wielklem",
+     "Oprijblokken / levellers",
+     "Wielkeggen",
+     "Onderlegplaten voor uitdraaisteunen",
+     "Waterpas",
+     "Bandenpomp",
+     "Caravanopstap",
+     "Reservesleutel caravan",
+     "Reservelampen caravan",
+     "Caravanaccu (opgeladen)",
+     "Boiler controleren",
+     "Airco (optioneel)",
+     "Ventilator",
+     "Brandblusser",
+     "Rookmelder",
+     "Koolmonoxidemelder",
+     "Waterpomp (reserve of losse dompelpomp)",
+     "Handleiding caravan",
+     "Gereedschap",
+     "Accuschroefmachine",
+     "Reserve zekeringen",
+     "Reservelampjes",
+     "Zaklamp"
+    ]
+   },
+   {
+    "n": "Voortent",
+    "i": [
+     "Voortent",
+     "Frame",
+     "Binnentent (optioneel)",
+     "Haringen",
+     "Reserveharingen",
+     "Haringhamer",
+     "Haringtrekker",
+     "Scheerlijnen",
+     "Stormbanden",
+     "Stormstangen",
+     "Dakliggers",
+     "Tochtstrook",
+     "Wielflap",
+     "Grondzeil",
+     "Tent tapijt",
+     "Afspanrubbers",
+     "Verlichting voortent",
+     "Zijwanden voortent (optioneel)"
+    ]
+   },
+   {
+    "n": "Luifel (indien mee)",
+    "i": [
+     "Luifel / zonnescherm",
+     "Zijwanden luifel (optioneel)",
+     "Bevestigingsclips",
+     "Koppelstrips (bij volledige luifeltent)",
+     "Rafter(s)",
+     "Aandrukstang(en)"
+    ]
+   },
+   {
+    "n": "Slapen",
+    "i": [
+     "Dekbed of dunne slaapzak",
+     "Hoofdkussens",
+     "Hoeslakens",
+     "Molton",
+     "Extra dekens voor koele avonden",
+     "Slaapknuffels",
+     "Slaapmasker",
+     "Bedden en hoezen voor de kinderen",
+     "Onderlakens of plaswekker (indien nodig)",
+     "Kindertent of slaaptent",
+     "Luchtbed / slaapmat (optioneel)",
+     "Luchtpomp (bij luchtbed)"
+    ]
+   },
+   {
+    "n": "Kampeermeubelen en buiten",
+    "i": [
+     "Campingtafel",
+     "Campingstoelen",
+     "Campingkast (optioneel)",
+     "Opblaasbare bank",
+     "Parasol",
+     "Windscherm",
+     "Buitenverlichting",
+     "Sfeerverlichting",
+     "Vlaggetjes",
+     "Droogmolen",
+     "Droogrek"
+    ]
+   },
+   {
+    "n": "Fietsen en buiten spelen",
+    "i": [
+     "Fietsen",
+     "Fietshelmen",
+     "Fietsslot",
+     "Fietspomp",
+     "Steps",
+     "E-step",
+     "Telefoonhouder voor fiets",
+     "Accu's van de fietsen",
+     "Opladers van de fietsen"
+    ]
+   },
+   {
+    "n": "Gas",
+    "i": [
+     "Gasfles",
+     "Reserve gasflesje(s)",
+     "Gaspit",
+     "Reserve gaspitjes",
+     "Gasdrukregelaar (indien niet vast gemonteerd / los toestel)",
+     "Gasslang (indien niet vast gemonteerd / los toestel)"
+    ]
+   },
+   {
+    "n": "Elektronica",
+    "i": [
+     "CEE-stekker",
+     "CEE-verlengkabel / kabelhaspel",
+     "CEE-verloopstekker",
+     "Stekkerdoos",
+     "Verlengsnoer",
+     "Opladers",
+     "Telefoons",
+     "Powerbank",
+     "Laptop of tablet",
+     "Spelcomputer",
+     "Oplader spelcomputer",
+     "Horloges",
+     "Opladers horloges",
+     "Muziekbox",
+     "Oortjes",
+     "Koptelefoon",
+     "Mifi of Starlink (internet)",
+     "Wifi-versterker (optioneel)",
+     "Satellietschotel / -ontvanger (optioneel)",
+     "Tv",
+     "Tv-kabels",
+     "Camera",
+     "Drone",
+     "Action cam",
+     "Laders van camera, drone en action cam",
+     "Batterijen",
+     "Accu's van gereedschap",
+     "Opladers van gereedschap"
+    ]
+   },
+   {
+    "n": "Keuken",
+    "i": [
+     "Inductiekookplaat",
+     "Kooktoestel (optioneel)",
+     "Pannenset",
+     "Kookgerei",
+     "Combi-magnetron",
+     "Campingoven (optioneel)",
+     "Skottelbraai / gasbarbecue",
+     "Koelkast",
+     "Koelbox (optioneel)",
+     "Koelelementen",
+     "Waterkoker (optioneel)",
+     "Koffiezetapparaat (optioneel)",
+     "Thermoskan (optioneel)",
+     "Bestek",
+     "Borden / melamine servies",
+     "Glazen / bekers",
+     "Snijplank",
+     "Bewaardozen",
+     "Kurkentrekker",
+     "Blikopener",
+     "Flesopener",
+     "Lucifers / aansteker",
+     "Afwasbak",
+     "Afwasborstel",
+     "Afwasmiddel",
+     "Vaatdoekjes",
+     "Theedoeken",
+     "Keukenhanddoeken",
+     "Keukenpapier"
+    ]
+   },
+   {
+    "n": "Eten en drinken",
+    "i": [
+     "Boodschappen voor de eerste dagen van aankomst",
+     "Bakboter",
+     "Olie",
+     "Boter",
+     "Brood",
+     "Vleeswaren (wat thuis open is)",
+     "Beleg",
+     "Aardappels (wat thuis open is)",
+     "Uien (wat thuis open is)",
+     "Kruiden",
+     "Bouillon",
+     "Sauzen",
+     "Ranja",
+     "Thee",
+     "Koffie",
+     "Drinkwater",
+     "Soep",
+     "Cup-a-soup",
+     "Receptenlijst voor makkelijke maaltijden",
+     "Herbruikbare drinkflessen"
+    ]
+   },
+   {
+    "n": "Sanitair en water",
+    "i": [
+     "Toiletvloeistof",
+     "Toiletpapier",
+     "Afvalwatertank",
+     "Jerrycan / watertank",
+     "Waterslang",
+     "Wateraansluiting / wateradapter (indien nodig)"
+    ]
+   },
+   {
+    "n": "Huishoudelijk",
+    "i": [
+     "Stoffer en blik",
+     "Bezem",
+     "Dweil",
+     "Emmer",
+     "Waslijn",
+     "Wasknijpers",
+     "Vuilnisemmer / afvalbak",
+     "Vuilniszakken"
+    ]
+   },
+   {
+    "n": "Kleding",
+    "i": [
+     "T-shirts",
+     "Hemdjes",
+     "Korte broeken",
+     "Lange broek",
+     "Legging voor de avond",
+     "Trui",
+     "Vest voor koele avonden",
+     "Regenjas",
+     "Ondergoed",
+     "Sokken (hoog)",
+     "Sokken (laag)",
+     "Pyjama / slaapkleding",
+     "Zwemkleding",
+     "Petten",
+     "Hoedjes",
+     "Zonnebrillen",
+     "Paraplu",
+     "Riemen",
+     "Sandalen",
+     "Slippers",
+     "Crocs",
+     "Gesloten schoenen",
+     "Wandelschoenen",
+     "Klompen",
+     "Badjas",
+     "Onesie",
+     "Reservekleding"
+    ]
+   },
+   {
+    "n": "Persoonlijk en badkamer",
+    "i": [
+     "Tandenborstels",
+     "Tandpasta",
+     "Shampoo",
+     "Crèmespoeling",
+     "Wasgel",
+     "Zeep",
+     "Deodorant",
+     "Parfum",
+     "Haarborstel",
+     "Haarproducten",
+     "Scheerspullen",
+     "Scheermesjes",
+     "Billendoekjes of vochtige doekjes",
+     "Maandverband / tampons",
+     "Inlegkruisjes",
+     "Verzorgingsartikelen",
+     "Handdoeken",
+     "Washandjes",
+     "Badslippers",
+     "Toilettas"
+    ]
+   },
+   {
+    "n": "Zon, water en zwemmen",
+    "i": [
+     "Zonnebrandcrème",
+     "After sun",
+     "Insectenspray",
+     "Muggenbalsem",
+     "Tekenpincet of tekentang",
+     "Strandlaken",
+     "Zwemvesten",
+     "Zwembandjes",
+     "Opblaasspullen",
+     "Waterspeelgoed",
+     "Strandtas",
+     "Koeltas",
+     "Waterfles",
+     "Schaduwdoek",
+     "Strandtent (optioneel)"
+    ]
+   },
+   {
+    "n": "Kinderen en vermaak",
+    "i": [
+     "Kaartspellen",
+     "Bordspellen",
+     "Speelgoed",
+     "Boeken",
+     "E-reader",
+     "Visspullen",
+     "Bal",
+     "Frisbee",
+     "Badmintonset",
+     "Tennisset",
+     "Bellenblaas",
+     "Stoepkrijt"
+    ]
+   },
+   {
+    "n": "Gezondheid en EHBO",
+    "i": [
+     "EHBO-set (aanvullen en datum controleren)",
+     "Persoonlijke medicijnen (op naam)",
+     "Pijnstillers",
+     "Pleisters",
+     "Middel tegen insectenbeten",
+     "Hooikoortsmedicatie (indien nodig)",
+     "Thermometer",
+     "Desinfectiemiddel",
+     "Reservebril",
+     "Lenzen",
+     "SOS-armbandje voor de kinderen",
+     "GPS-horloge voor de kinderen"
+    ]
+   },
+   {
+    "n": "Overig",
+    "i": [
+     "Bigshopper",
+     "Organizer",
+     "Vliegenmepper",
+     "Lantaarn",
+     "Tiewraps",
+     "Ducttape",
+     "(Seconde)lijm",
+     "Schaar",
+     "Multitool (optioneel)",
+     "Plastic zakken"
+    ]
+   },
+   {
+    "n": "Voor vertrek thuis",
+    "i": [
+     "Gas dichtzetten",
+     "Water dichtzetten",
+     "Prullenbakken leegmaken",
+     "Koelkast leegmaken",
+     "Open spullen opruimen of inpakken",
+     "Planten water geven of iemand vragen",
+     "Post laten ophalen",
+     "Lampen uit",
+     "Apparaten uit",
+     "Deuren dicht",
+     "Ramen dicht",
+     "Ramen en luiken caravan goed gesloten",
+     "Bandenspanning auto controleren",
+     "Bandenspanning caravan controleren",
+     "Verlichting caravan controleren",
+     "Trekhaak controleren",
+     "Mover van de caravan af",
+     "Handrem caravan los"
+    ]
+   }
+  ]
  }
 ];

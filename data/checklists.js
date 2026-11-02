@@ -319,12 +319,11 @@ const CHK=[
      "Campingtafel",
      "Campingstoelen",
      "Campingkast (optioneel)",
-     "Opblaasbare bank",
+     "Opblaasbare bank (optioneel)",
      "Parasol",
-     "Windscherm",
      "Buitenverlichting",
      "Sfeerverlichting",
-     "Vlaggetjes",
+     "Vlaggetje (optioneel)",
      "Droogmolen",
      "Droogrek"
     ]

@@ -535,6 +535,7 @@ const CHK=[
      "Tekenpincet of tekentang",
      "Strandlaken",
      "Zwembandjes",
+     "Zwem oordopjes",
      "Opblaasspullen",
      "Waterspeelgoed",
      "Strandtas",

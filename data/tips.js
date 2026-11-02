@@ -34,5 +34,9 @@ const TIPS=[
  {
   "titel": "Opslaan zoetigheid",
   "tekst": "Bewaar zoetigheid in afsluitbare bakjes zodat je geen last van mieren krijgt."
+ },
+ {
+  "titel": "Geen bellenblaas",
+  "tekst": "Geef je kinderen geen bellenblaas omdat dit de coating van je tent kan aantasten en je tent hierdoor dus niet meer waterdicht is."
  }
 ];

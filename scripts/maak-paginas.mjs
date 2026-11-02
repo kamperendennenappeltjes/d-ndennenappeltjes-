@@ -430,7 +430,7 @@ ${ytcta(vloggen.length ? tx('yt.kop.vlog', 'Abonneer je op ons YouTube-kanaal') 
 fs.writeFileSync('campings/index.html', pagina({
   titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
-  pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
+  pad: 'campings/', kruimels: [['Campings']], afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
   script: `window.CAMPDATA=${JSON.stringify(CAMPINGS.filter(c => c.id).map(c => { const n = parseFloat(String(c.cijfer).replace(',', '.')); return { id: c.id, naam: schoon(c.naam), cijfer: c.cijfer ? String(c.cijfer) : '', n: isFinite(n) ? n : null, land: landVan(c), regio: regioVan(c), type: c.type || '', p: punt(c) }; })).replace(/</g, '\\u003c')};` + FILTERJS,
   body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
@@ -512,7 +512,7 @@ ${ytcta(tx('yt.kop.verhaal', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.
 fs.writeFileSync('verhalen/index.html', pagina({
   titel: 'Verhalen van onze kampeertrips',
   beschrijving: 'Korte verslagen van onze kampeertrips en uitjes met de caravan.',
-  pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
+  pad: 'verhalen/', kruimels: [['Verhalen']], afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
   body: `<h1>${esc(tx('verhalen.h2', 'Verhalen van onze avonturen'))}</h1><p class="lead">${esc(tx('verhalen.lead', 'Korte verslagen van onze trips en uitjes.'))}</p>
 <div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">Lees meer</a>` : ''}</div></article>`).join('')}</div>
 ${ytcta(tx('yt.kop', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
@@ -580,7 +580,7 @@ ${NAARBOVEN}`;
 fs.writeFileSync('uitrusting/index.html', pagina({
   titel: 'Onze uitrusting voor caravan en voortent',
   beschrijving: kort(`Wat er bij ons in de caravan en de voortent zit, per onderdeel: ${UITCATS.map(c => c.naam.toLowerCase()).join(', ')}.`, 158),
-  pad: 'uitrusting/', afbeelding: UITCATS[0] ? catFoto(UITCATS[0]) : '', actief: 'uitrusting', achter: 'nacht',
+  pad: 'uitrusting/', kruimels: [['Uitrusting']], afbeelding: UITCATS[0] ? catFoto(UITCATS[0]) : '', actief: 'uitrusting', achter: 'nacht',
   body: `<h1>${esc(tx('uitrusting.h2', 'Onze uitrusting'))}</h1>
 <p class="lead">${esc(tx('uitrusting.lead', 'Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt.') + ' ' + tx('uitrusting.lead2', 'Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.'))}</p>
 <div style="margin-top:22px">${UITCATS.map(c => { const f = catFoto(c); return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
@@ -627,7 +627,7 @@ ${NAARBOVEN}`
 fs.writeFileSync('paklijst/index.html', pagina({
   titel: 'Paklijst voor de caravan: wat neem je mee?',
   beschrijving: kort(`Onze paklijst voor kamperen met de caravan: ${PAKAANTAL} dingen in ${PAKCATS.length} onderdelen, van vertrek en slapen tot koken en kinderen${CHKLIJST.length ? ', plus uitgebreide checklists per seizoen' : ''}. Zo vergeet je niets.`, 158),
-  pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: (CHKLIJST.length ? CHKREDIR(CHKLIJST.map(c => c.id)) : '') + PAKSCRIPT,
+  pad: 'paklijst/', kruimels: [['Wat neem je mee']], afbeelding: '', actief: 'paklijst', achter: 'mos', script: (CHKLIJST.length ? CHKREDIR(CHKLIJST.map(c => c.id)) : '') + PAKSCRIPT,
   body: `<h1>${esc(tx('meenemen.h2', 'Wat neem je mee'))}</h1>
 <p class="lead">${esc(tx('meenemen.lead', 'Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.'))}</p>
 <div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
@@ -642,7 +642,7 @@ const TIPLIJST = (Array.isArray(TIPS) ? TIPS : []).filter(t => t && t.titel);
 fs.writeFileSync('tips/index.html', pagina({
   titel: 'Kampeertips voor het hele gezin, uit eigen ervaring',
   beschrijving: kort(`${TIPLIJST.length} praktische tips voor kamperen met de caravan: ${TIPLIJST.map(t => schoon(t.titel).toLowerCase()).join(', ')}.`, 158),
-  pad: 'tips/', afbeelding: '', actief: 'tips', achter: 'nacht',
+  pad: 'tips/', kruimels: [['Tips']], afbeelding: '', actief: 'tips', achter: 'nacht',
   jsonld: TIPLIJST.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Kampeertips voor het hele gezin', itemListElement: TIPLIJST.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(t.titel), description: schoon(t.tekst) })) } : null,
   body: `<h1>${esc(tx('tips.h2', 'Kampeertips voor het hele gezin'))}</h1>
 <p class="lead">${esc(tx('tips.lead', 'Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.'))}</p>
@@ -658,7 +658,7 @@ if (OVER && OVER.kop) {
   fs.writeFileSync('over-ons/index.html', pagina({
     titel: "Over ons: het kampeergezin achter d'n Dennenappeltjes",
     beschrijving: kort(alinea[0] || `Maak kennis met ${SITE}.`, 158),
-    pad: 'over-ons/', afbeelding: OVER.foto, actief: 'over',
+    pad: 'over-ons/', kruimels: [['Over ons']], afbeelding: OVER.foto, actief: 'over',
     jsonld: { '@context': 'https://schema.org', '@type': 'AboutPage', name: schoon(OVER.kop), mainEntity: { '@type': 'Organization', name: SITE, url: BASE, sameAs: ['https://youtube.com/@kamperenmetdndennenappeltjes'] } },
     body: `<div class="twee"><div><h1>${esc(OVER.kop)}</h1>
 ${alinea.map(t => `<p class="lead">${esc(t)}</p>`).join('\n')}

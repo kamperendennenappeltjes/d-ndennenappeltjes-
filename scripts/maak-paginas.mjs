@@ -576,27 +576,49 @@ fs.writeFileSync('uitrusting/index.html', pagina({
 const PAKCATS = Object.entries(PAK || {}).map(([k, a]) => [schoon(k), (Array.isArray(a) ? a : []).filter(x => schoon(x))]).filter(([, a]) => a.length);
 const PAKAANTAL = PAKCATS.reduce((n, [, a]) => n + a.length, 0);
 const CHKLIJST = (Array.isArray(CHK) ? CHK : []).filter(c => c && c.id && Array.isArray(c.cats));
+const chkAantal = c => c.cats.reduce((n, t) => n + (t.i || []).length, 0);
 const vink = (attr, waarde, tekst) => `<label><input type="checkbox" ${attr}="${esc(waarde)}"><span>${esc(tekst)}</span></label>`;
 const voortgang = (n, wis) => `<div class="voortgang"><div class="balk"><i></i></div><b class="tel">0 van ${n} ingepakt</b><button class="btn" type="button" style="border:0;cursor:pointer;font:inherit;font-weight:700">${wis}</button></div>`;
-const PAKSCRIPT = `function maak(box,sleutel,attr,vol){var bx=[].slice.call(box.querySelectorAll('input')),balk=box.querySelector('.balk i'),tel=box.querySelector('.tel'),wis=box.querySelector('button.btn'),st={};
+const MAAKFN = `function maak(box,sleutel,attr,vol){var bx=[].slice.call(box.querySelectorAll('input')),balk=box.querySelector('.balk i'),tel=box.querySelector('.tel'),wis=box.querySelector('button.btn'),st={};
 try{st=JSON.parse(localStorage.getItem(sleutel)||'{}')}catch(e){}
 function upd(){var n=0;bx.forEach(function(b){var k=b.getAttribute(attr);if(b.checked)n++;if(vol)st[k]=b.checked;else if(b.checked)st[k]=true;else delete st[k]});
 balk.style.width=(bx.length?100*n/bx.length:0)+'%';tel.textContent=n+' van '+bx.length+' ingepakt';try{localStorage.setItem(sleutel,JSON.stringify(st))}catch(e){}}
-bx.forEach(function(b){b.checked=!!st[b.getAttribute(attr)];b.onchange=upd});wis.onclick=function(){bx.forEach(function(b){b.checked=false});upd()};upd()}
-maak(document.getElementById('pakbox'),'pak','data-k',true);
-[].forEach.call(document.querySelectorAll('.uk'),function(d){maak(d,'pakx','data-xk',false)});`;
+bx.forEach(function(b){b.checked=!!st[b.getAttribute(attr)];b.onchange=upd});wis.onclick=function(){bx.forEach(function(b){b.checked=false});upd()};upd()}`;
+const PAKSCRIPT = MAAKFN + `
+maak(document.getElementById('pakbox'),'pak','data-k',true);`;
+const CHKSCRIPT = MAAKFN + `
+maak(document.getElementById('chkbox'),'pakx','data-xk',false);`;
+// Oude links zoals /paklijst/#zomer sturen door naar de eigen pagina
+const CHKREDIR = ids => `var h=decodeURIComponent((location.hash||'').slice(1));if(h&&${JSON.stringify(ids)}.indexOf(h)>-1)location.replace(h+'.html');`;
+// ---- losse checklistpagina's (een eigen adres per lijst, zodat Google ze apart vindt)
+for (const c of CHKLIJST) {
+  const n = chkAantal(c), naam = schoon(c.naam), laag = naam.toLowerCase();
+  const titel = schoon(c.seoTitel) || `Checklist ${laag} kamperen met de caravan`;
+  const beschrijving = kort(schoon(c.seoBeschrijving) || `${schoon(c.tekst) || 'Uitgebreide checklist'}: ${n} dingen in ${c.cats.length} onderdelen, zoals ${c.cats.slice(0, 4).map(t => schoon(t.n).toLowerCase()).join(', ')}. Vink af wat al is ingepakt.`, 158);
+  const anderen = CHKLIJST.filter(x => x !== c);
+  fs.writeFileSync(`paklijst/${c.id}.html`, pagina({
+    titel, beschrijving, pad: `paklijst/${c.id}.html`, afbeelding: '', actief: 'paklijst', achter: 'mos', script: CHKSCRIPT,
+    jsonld: { '@context': 'https://schema.org', '@type': 'ItemList', name: `${naam}: checklist kamperen met de caravan`, itemListElement: c.cats.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(t.n) })) },
+    body: `<a class="terug" href="./">Terug naar Wat neem je mee</a>
+<h1>${esc(schoon(c.tekst) || `Checklist ${laag}`)}</h1>
+<p class="lead">${esc(`Onze uitgebreide checklist voor kamperen met de caravan: ${n} dingen in ${c.cats.length} onderdelen. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.`)}</p>
+<div id="chkbox">${voortgang(n, 'Deze lijst wissen')}
+<div class="lijst">${c.cats.map(t => `<div class="cat"><h2>${esc(t.n)}</h2>${(t.i || []).map(x => vink('data-xk', c.id + '|' + t.n + '|' + x, x)).join('')}</div>`).join('')}</div></div>
+<p style="margin-top:32px"><a class="btn" href="../paklijst/">Algemene paklijst</a>${anderen.map(x => `<a class="btn s" href="${esc(x.id)}.html">${esc(x.naam)}</a>`).join('')}</p>
+${NAARBOVEN}`
+  }));
+  urls.push([`paklijst/${c.id}.html`, 0.8]);
+}
 fs.writeFileSync('paklijst/index.html', pagina({
   titel: 'Paklijst voor de caravan: wat neem je mee?',
   beschrijving: kort(`Onze paklijst voor kamperen met de caravan: ${PAKAANTAL} dingen in ${PAKCATS.length} onderdelen, van vertrek en slapen tot koken en kinderen${CHKLIJST.length ? ', plus uitgebreide checklists per seizoen' : ''}. Zo vergeet je niets.`, 158),
-  pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: PAKSCRIPT,
+  pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: (CHKLIJST.length ? CHKREDIR(CHKLIJST.map(c => c.id)) : '') + PAKSCRIPT,
   body: `<h1>${esc(tx('meenemen.h2', 'Wat neem je mee'))}</h1>
 <p class="lead">${esc(tx('meenemen.lead', 'Onze paklijst voor een kampeertrip met de caravan. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.'))}</p>
 <div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
 <div class="lijst">${PAKCATS.map(([k, a]) => `<div class="cat"><h2>${esc(k)}</h2>${a.map(x => vink('data-k', x, x)).join('')}</div>`).join('')}</div></div>
-${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('paklijst.chk', 'Uitgebreide checklists'))}</h2><p class="lead">${esc(tx('paklijst.chk.lead', 'Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen vinkjes.'))}</p>
-${CHKLIJST.map(c => { const n = c.cats.reduce((s, t) => s + (t.i || []).length, 0); return `<details class="uk" id="${esc(c.id)}"><summary><b>${esc(c.naam)}</b><small>${esc(c.tekst || 'Uitgebreide checklist')}</small></summary>
-${voortgang(n, 'Deze lijst wissen')}
-<div class="lijst">${c.cats.map(t => `<div class="cat"><h3>${esc(t.n)}</h3>${(t.i || []).map(x => vink('data-xk', c.id + '|' + t.n + '|' + x, x)).join('')}</div>`).join('')}</div></details>`; }).join('\n')}</div>` : ''}
+${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('paklijst.chk', 'Uitgebreide checklists'))}</h2><p class="lead">${esc(tx('paklijst.chk.lead', 'Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen pagina en zijn eigen vinkjes.'))}</p>
+<div style="margin-top:22px">${CHKLIJST.map(c => `<a class="camp" href="${esc(c.id)}.html"><div class="cijfer">${chkAantal(c)}</div><div><h3>${esc(c.naam)}<small>${esc(c.tekst || 'Uitgebreide checklist')}</small></h3><p>${esc(kort(c.cats.map(t => t.n).join(', '), 160))}</p></div></a>`).join('')}</div></div>` : ''}
 <p style="margin-top:32px"><a class="btn s" href="../uitrusting/">Onze uitrusting</a></p>`
 }));
 

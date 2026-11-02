@@ -228,6 +228,7 @@ const CHK=[
      "Sleepkabel",
      "Jerrycan met brandstof (indien verplicht)",
      "1 liter olie voor de auto",
+     "Flesje water voor noodgevallen",
      "Drinken voor onderweg",
      "Snacks voor onderweg",
      "Spelletjes voor de autorit"
@@ -268,7 +269,6 @@ const CHK=[
     "i": [
      "Voortent",
      "Frame",
-     "Binnentent (optioneel)",
      "Haringen",
      "Reserveharingen",
      "Haringhamer",
@@ -293,8 +293,7 @@ const CHK=[
      "Zijwanden luifel (optioneel)",
      "Bevestigingsclips",
      "Koppelstrips (bij volledige luifeltent)",
-     "Rafter(s)",
-     "Aandrukstang(en)"
+     "Frame"
     ]
    },
    {
@@ -341,16 +340,15 @@ const CHK=[
      "E-step",
      "Telefoonhouder voor fiets",
      "Accu's van de fietsen",
-     "Opladers van de fietsen"
+     "Opladers van de fietsen en e-step"
     ]
    },
    {
     "n": "Gas",
     "i": [
      "Gasfles",
+     "Gaspitje",
      "Reserve gasflesje(s)",
-     "Gaspit",
-     "Reserve gaspitjes",
      "Gasdrukregelaar (indien niet vast gemonteerd / los toestel)",
      "Gasslang (indien niet vast gemonteerd / los toestel)"
     ]
@@ -375,7 +373,6 @@ const CHK=[
      "Oortjes",
      "Koptelefoon",
      "Mifi of Starlink (internet)",
-     "Wifi-versterker (optioneel)",
      "Satellietschotel / -ontvanger (optioneel)",
      "Tv",
      "Tv-kabels",
@@ -395,17 +392,17 @@ const CHK=[
      "Kooktoestel (optioneel)",
      "Pannenset",
      "Kookgerei",
-     "Combi-magnetron",
+     "Combi-magnetron of",
      "Campingoven (optioneel)",
      "Skottelbraai / gasbarbecue",
-     "Koelkast",
+     "Koelkast of",
      "Koelbox (optioneel)",
      "Koelelementen",
      "Waterkoker (optioneel)",
      "Koffiezetapparaat (optioneel)",
      "Thermoskan (optioneel)",
      "Bestek",
-     "Borden / melamine servies",
+     "Borden / servies",
      "Glazen / bekers",
      "Snijplank",
      "Bewaardozen",
@@ -419,7 +416,8 @@ const CHK=[
      "Vaatdoekjes",
      "Theedoeken",
      "Keukenhanddoeken",
-     "Keukenpapier"
+     "Keukenpapier",
+     "Wegwerp poetsdoekjes (vochtig)"
     ]
    },
    {
@@ -451,9 +449,10 @@ const CHK=[
     "n": "Sanitair en water",
     "i": [
      "Toiletvloeistof",
-     "Toiletpapier",
+     "Toiletpapier chemisch",
+     "Toiletpapier gewoon",
      "Afvalwatertank",
-     "Jerrycan / watertank",
+     "Schoonwater gieter",
      "Waterslang",
      "Wateraansluiting / wateradapter (indien nodig)"
     ]
@@ -468,7 +467,10 @@ const CHK=[
      "Waslijn",
      "Wasknijpers",
      "Vuilnisemmer / afvalbak",
-     "Vuilniszakken"
+     "Vuilniszakken",
+     "Stofzuiger",
+     "Wasmiddel",
+     "Wasmachine / wasemmer (tupperware)"
     ]
    },
    {
@@ -477,14 +479,10 @@ const CHK=[
      "T-shirts",
      "Hemdjes",
      "Korte broeken",
-     "Lange broek",
-     "Legging voor de avond",
-     "Trui",
-     "Vest voor koele avonden",
-     "Regenjas",
+     "Lange broek of legging voor de avond",
+     "Trui of vest voor koele avonden",
      "Ondergoed",
-     "Sokken (hoog)",
-     "Sokken (laag)",
+     "Sokken (hoog / laag)",
      "Pyjama / slaapkleding",
      "Zwemkleding",
      "Petten",
@@ -525,7 +523,8 @@ const CHK=[
      "Handdoeken",
      "Washandjes",
      "Badslippers",
-     "Toilettas"
+     "Toilettas",
+     "Wegwerp washandjes"
     ]
    },
    {
@@ -537,7 +536,6 @@ const CHK=[
      "Muggenbalsem",
      "Tekenpincet of tekentang",
      "Strandlaken",
-     "Zwemvesten",
      "Zwembandjes",
      "Opblaasspullen",
      "Waterspeelgoed",
@@ -545,6 +543,7 @@ const CHK=[
      "Koeltas",
      "Waterfles",
      "Schaduwdoek",
+     "Snorkel set (optioneel)",
      "Strandtent (optioneel)"
     ]
    },
@@ -554,14 +553,12 @@ const CHK=[
      "Kaartspellen",
      "Bordspellen",
      "Speelgoed",
-     "Boeken",
-     "E-reader",
-     "Visspullen",
+     "Boeken / E-reader",
+     "Visspullen (optioneel)",
      "Bal",
      "Frisbee",
      "Badmintonset",
      "Tennisset",
-     "Bellenblaas",
      "Stoepkrijt"
     ]
    },
@@ -586,7 +583,6 @@ const CHK=[
     "n": "Overig",
     "i": [
      "Bigshopper",
-     "Organizer",
      "Vliegenmepper",
      "Lantaarn",
      "Tiewraps",
@@ -594,14 +590,15 @@ const CHK=[
      "(Seconde)lijm",
      "Schaar",
      "Multitool (optioneel)",
-     "Plastic zakken"
+     "Plastic zakken",
+     "Handgereedschap"
     ]
    },
    {
     "n": "Voor vertrek thuis",
     "i": [
-     "Gas dichtzetten",
-     "Water dichtzetten",
+     "Gasfornuis controleren",
+     "Waterkranen controleren",
      "Prullenbakken leegmaken",
      "Koelkast leegmaken",
      "Open spullen opruimen of inpakken",
@@ -614,6 +611,7 @@ const CHK=[
      "Ramen en luiken caravan goed gesloten",
      "Bandenspanning auto controleren",
      "Bandenspanning caravan controleren",
+     "Vloeistoffen auto controleren zo nodig bijvullen",
      "Verlichting caravan controleren",
      "Trekhaak controleren",
      "Mover van de caravan af",

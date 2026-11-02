@@ -2,7 +2,7 @@ const CHK=[
  {
   "id": "najaar",
   "naam": "Voor- en najaar",
-  "tekst": "Herfstkamperen: uitgebreide checklist",
+  "tekst": "Voorjaar of herfstkamperen: uitgebreide checklist",
   "cats": [
    {
     "n": "Kleding",

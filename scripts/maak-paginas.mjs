@@ -48,6 +48,9 @@ nav a:hover{color:var(--oranje)}nav .links{display:flex;gap:16px;flex-wrap:wrap}
 nav a.on{color:var(--oranje);box-shadow:0 3px 0 var(--oranje)}
 main{padding:64px 0 72px;min-height:60vh}
 .terug{display:inline-block;margin-bottom:18px;font-weight:700}
+.bk{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:.92rem;margin:0 0 14px;color:var(--zacht)}.bk a{color:var(--zacht);text-decoration:none;border-bottom:1px solid rgba(240,138,60,.5)}.bk a:hover,.bk a:focus-visible{color:var(--oranje)}.bk span[aria-current]{color:var(--room);font-weight:700}
+.ytcta{margin-top:26px;border:2px solid var(--oranje)}
+@media print{.bk,.ytcta{display:none!important}}
 .lead{color:var(--zacht);max-width:62ch}
 .foto{width:100%;max-height:380px;border-radius:18px;display:block;object-fit:cover;margin:0 0 18px}
 .btn{display:inline-block;background:var(--oranje);color:#1a0f05;font-weight:700;text-decoration:none;padding:12px 24px;border-radius:999px;margin:6px 10px 0 0}
@@ -197,7 +200,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 (function(){
 var b=document.createElement('div');b.className='ck-bar';b.setAttribute('role','dialog');b.setAttribute('aria-label','Cookies');b.hidden=true;
 b.innerHTML='<h2>Deze cookies zijn niet voor bij de koffie en laten ook geen kruimels achter in de caravan. 🍪</h2>'
-+'<details><summary>Benieuwd wat er gebeurt? <u>Lees hier</u>.</summary><p><b>Alles accepteren:</b> GoatCounter wordt gestart om bezoekstatistieken bij te houden. YouTube-video’s worden pas ingeladen wanneer je daarvoor kiest; YouTube kan daarbij gegevens ontvangen en eventueel cookies of vergelijkbare technieken gebruiken. Ook de kaart met campings (OpenStreetMap) wordt dan automatisch geladen; OpenStreetMap kan daarbij je IP-adres zien. <b>Alleen noodzakelijk:</b> GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. De kaart met campings laden we dan pas nadat je daar zelf om vraagt. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw. <b>Paklijst:</b> je paklijst wordt lokaal op je eigen toestel bewaard, zodat die blijft werken zonder optionele onderdelen. De website gebruikt ook externe Google Fonts; je browser kan daarvoor verbinding maken met Google wanneer de pagina wordt geladen. Je kunt je keuze later aanpassen via Cookie-instellingen onderaan de pagina. Lees ook onze <a href="../cookieverklaring.html">cookieverklaring</a> en <a href="../privacyverklaring.html">privacyverklaring</a>.</p></details>'
++'<details><summary>Benieuwd wat er gebeurt? <u>Lees hier</u>.</summary><p><b>Alles accepteren:</b> GoatCounter wordt gestart om bezoekstatistieken bij te houden. YouTube-video’s worden pas ingeladen wanneer je daarvoor kiest; YouTube kan daarbij gegevens ontvangen en eventueel cookies of vergelijkbare technieken gebruiken. Ook de kaart met campings (OpenStreetMap) wordt dan automatisch geladen; OpenStreetMap kan daarbij je IP-adres zien. <b>Alleen noodzakelijk:</b> GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. De kaart met campings laden we dan pas nadat je daar zelf om vraagt. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw. <b>Paklijst:</b> je paklijst wordt lokaal op je eigen toestel bewaard, zodat die blijft werken zonder optionele onderdelen. Je kunt je keuze later aanpassen via Cookie-instellingen onderaan de pagina. Lees ook onze <a href="../cookieverklaring.html">cookieverklaring</a> en <a href="../privacyverklaring.html">privacyverklaring</a>.</p></details>'
 +'<div class="ck-knoppen"><button type="button" class="ck-knop ja" data-ck="ja">Alles accepteren</button><button type="button" class="ck-knop nee" data-ck="nodig">Alleen noodzakelijk</button></div>';
 document.body.appendChild(b);
 function kies(c){ckSave(c);b.hidden=true;if(c.stat&&window.startGC)startGC()}
@@ -211,7 +214,14 @@ var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){
 var c0=ckRead();if(!c0)b.hidden=false;else if(c0.stat&&window.startGC)startGC();
 })();`;
 
-function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, achter = '', script = '' }) {
+// kruimels: [[naam, pad], ..., [naam]] zonder pad voor de huidige pagina
+function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, achter = '', script = '', kruimels = null }) {
+  if (kruimels && kruimels.length) {
+    const lijstKr = [['Home', ''], ...kruimels];
+    const ld = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: lijstKr.map(([n, pd], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: pd == null ? `${BASE}/${pad}` : `${BASE}/${pd}` })) };
+    jsonld = jsonld ? [jsonld, ld] : ld;
+    body = `<div role="navigation" aria-label="Broodkruimels" class="bk">${lijstKr.map(([n, pd], i) => (i === lijstKr.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${pd === '' ? '../index.html' : '../' + pd}">${esc(n)}</a><span aria-hidden="true">\u203a</span>`)).join('')}</div>\n` + body;
+  }
   const volledig = `${titel} | ${SITE}`;
   const link = (h, t, k) => `<a href="${h}"${actief === k ? ' class="on"' : ''}>${esc(tx('menu.' + k, t))}</a>`;
   return `<!DOCTYPE html>
@@ -225,7 +235,9 @@ function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, ac
 <meta property="og:url" content="${BASE}/${pad}"><meta property="og:image" content="${esc(abs(afbeelding))}">
 <meta name="twitter:card" content="summary_large_image">
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>` : ''}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap">
+<link rel="preload" href="../fonts/nunito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/fonts.css">
 <style>${CSS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../img/logo.png" alt="Home"></a><b>d'n Dennenappeltjes</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('menu.knop', 'Menu'))}</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
 <main><div class="wrap">
@@ -241,6 +253,8 @@ ${body}
 `;
 }
 
+const YTKANAAL = 'https://youtube.com/@kamperenmetdndennenappeltjes';
+const ytcta = (kop, tekst) => `<a class="vlog ytcta" href="${YTKANAAL}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(kop)}</b><small>${esc(tekst)}</small></span></a>`;
 const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Terug naar boven</a></p>`;
 // Versienummer overnemen uit index.html (dezelfde plek als in de footer van de home page)
 let VERSIE = '', SOC = '', MAIL = '';
@@ -393,8 +407,7 @@ for (const c of CAMPINGS) {
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
   const titel = `${c.naam} | onze ervaring${plaatsKort && !String(c.naam).toLowerCase().includes(plaatsKort.toLowerCase()) ? ' in ' + plaatsKort : ''}`;
   const beschrijving = kort(`${c.naam}${c.plaats ? ' (' + c.plaats + ')' : ''}: ${c.tekst || ''}`, 158);
-  const body = `<a class="terug" href="./">${esc(tx('campings.terug', 'Terug naar alle campings'))}</a>
-<h1>${esc(c.naam)}</h1>
+  const body = `<h1>${esc(c.naam)}</h1>
 ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}">` : ''}
 <p class="lead">${esc([c.plaats, c.regio, c.land, c.type, c.cijfer ? tx('campings.cijfer', 'Ons cijfer') + ': ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
 <p class="lead">${esc(c.tekst || '')}</p>
@@ -403,6 +416,7 @@ ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>Opent YouTube in een nieuw tabblad</small></span></a>`).join('')}</div>` : ''}
+${ytcta(vloggen.length ? tx('yt.kop.vlog', 'Abonneer je op ons YouTube-kanaal') : tx('yt.kop', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
 <p><a class="btn s" href="./">Alle campings</a></p>`;
   const jsonld = c.cijfer ? {
     '@context': 'https://schema.org', '@type': 'Review',
@@ -410,7 +424,7 @@ ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' :
     reviewRating: { '@type': 'Rating', ratingValue: c.cijfer, bestRating: 10, worstRating: 1 },
     author: { '@type': 'Organization', name: SITE }, reviewBody: schoon(c.tekst)
   } : null;
-  fs.writeFileSync(`campings/${c.id}.html`, pagina({ titel, beschrijving, pad: `campings/${c.id}.html`, afbeelding: c.foto, body, jsonld, actief: 'campings' }));
+  fs.writeFileSync(`campings/${c.id}.html`, pagina({ titel, beschrijving, pad: `campings/${c.id}.html`, afbeelding: c.foto, body, jsonld, actief: 'campings', kruimels: [['Campings', 'campings/'], [schoon(c.naam)]] }));
   urls.push([`campings/${c.id}.html`, 0.7]);
 }
 fs.writeFileSync('campings/index.html', pagina({
@@ -486,12 +500,12 @@ VERHALEN.forEach(v => {
   while (gebruikt.includes(id)) id = b + '-' + n++;
   gebruikt.push(id);
   const kop = `<article class="blok kop vol">${v.foto ? `<figure class="ft"><img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}"></figure>` : ''}<div class="tk"><h1>${esc(v.titel)}</h1>${par(v.tekst)}</div></article>`;
-  const body = `<a class="terug" href="./">${esc(tx('verhalen.terug', 'Terug naar alle verhalen'))}</a>
-${kop}
+  const body = `${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
+${ytcta(tx('yt.kop.verhaal', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
 <p><a class="btn s" href="./">Alle verhalen</a></p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'Article', headline: schoon(v.titel), description: kort(v.tekst, 200), image: abs(v.foto), author: { '@type': 'Organization', name: SITE }, mainEntityOfPage: `${BASE}/verhalen/${id}.html` };
-  fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '' }));
+  fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '', kruimels: [['Verhalen', 'verhalen/'], [schoon(v.titel)]] }));
   urls.push([`verhalen/${id}.html`, 0.6]);
 });
 fs.writeFileSync('verhalen/index.html', pagina({
@@ -551,15 +565,14 @@ ${s.p.length ? `<div class="pgrid">${s.p.map(q => product(q, s)).join('')}</div>
 ${s.ov.length ? `<div class="overig"><h3>${esc(tx('uitrusting.overig', 'Overige spullen'))}</h3><p class="klein">${esc(s.p.length || s.oud.length ? tx('uitrusting.overig.lead', 'Hier hebben we geen afbeelding of link van, maar dit gebruiken we ook.') : tx('uitrusting.overig.lead2', 'Dit gebruiken wij hiervoor.'))}</p><ul>${s.ov.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
 ${s.oud.length ? `<div class="eerder"><h3>${esc(tx('uitrusting.eerder', 'Eerder gebruikt'))}</h3><p class="klein">${esc(tx('uitrusting.eerder.lead', 'Dit hebben we eerder gebruikt, maar nu niet meer. Zo zie je wat er bij ons is veranderd.'))}</p><div class="pgrid">${s.oud.map(q => product(q, s)).join('')}</div></div>` : ''}
 </section>`).join('\n');
-  const body = `<a class="terug" href="./">${esc(tx('uitrusting.terug', 'Terug naar alle uitrusting'))}</a>
-<h1>${esc(c.naam)}: onze uitrusting</h1>
+  const body = `<h1>${esc(c.naam)}: onze uitrusting</h1>
 <p class="lead">${esc(tx('uitrusting.cat.lead', 'Dit is onze uitrusting in de categorie {categorie}, zoals wij die gebruiken als we met de caravan op pad gaan. De links gaan naar webshops van andere partijen.').split('{categorie}').join(c.naam.toLowerCase()))}</p>
 ${c.subs.length > 1 ? `<div class="chips">${c.subs.map(s => `<a href="#${s.id}">${esc(s.naam)}</a>`).join('')}</div>` : ''}
 ${secties}
 ${NAARBOVEN}`;
   const items = c.subs.flatMap(s => s.p).map((q, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(q.n) }));
   const jsonld = items.length ? { '@context': 'https://schema.org', '@type': 'ItemList', name: `${c.naam}: onze uitrusting`, itemListElement: items } : null;
-  fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS }));
+  fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS, kruimels: [['Uitrusting', 'uitrusting/'], [schoon(c.naam)]] }));
   urls.push([`uitrusting/${c.id}.html`, 0.7]);
 }
 fs.writeFileSync('uitrusting/index.html', pagina({
@@ -599,8 +612,8 @@ for (const c of CHKLIJST) {
   fs.writeFileSync(`paklijst/${c.id}.html`, pagina({
     titel, beschrijving, pad: `paklijst/${c.id}.html`, afbeelding: '', actief: 'paklijst', achter: 'mos', script: CHKSCRIPT,
     jsonld: { '@context': 'https://schema.org', '@type': 'ItemList', name: `${naam}: checklist kamperen met de caravan`, itemListElement: c.cats.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: schoon(t.n) })) },
-    body: `<a class="terug" href="./">Terug naar Wat neem je mee</a>
-<h1>${esc(schoon(c.tekst) || `Checklist ${laag}`)}</h1>
+    kruimels: [['Wat neem je mee', 'paklijst/'], [naam]],
+    body: `<h1>${esc(schoon(c.tekst) || `Checklist ${laag}`)}</h1>
 <p class="lead">${esc(`Onze uitgebreide checklist voor kamperen met de caravan: ${n} dingen in ${c.cats.length} onderdelen. Vink af wat al in de auto of caravan ligt. Jouw vinkjes blijven bewaard in deze browser.`)}</p>
 <div id="chkbox">${voortgang(n, 'Deze lijst wissen')}
 <div class="lijst">${c.cats.map(t => `<div class="cat"><h2>${esc(t.n)}</h2>${(t.i || []).map(x => vink('data-xk', c.id + '|' + t.n + '|' + x, x)).join('')}</div>`).join('')}</div></div>

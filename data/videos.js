@@ -1,5 +1,9 @@
 const VID=[
  {
+  "titel": "Zomerafsluiting weekend met CK deel 2",
+  "url": "https://youtu.be/6OD2eBm9deY?si=59AskPxfsa19Do4j"
+ },
+ {
   "titel": "Zomerafsluiting weekend met CK deel 1",
   "url": "https://youtu.be/ZgR6WX7aOx0"
  },

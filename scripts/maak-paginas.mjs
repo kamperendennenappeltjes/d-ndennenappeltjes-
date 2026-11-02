@@ -618,7 +618,7 @@ fs.writeFileSync('paklijst/index.html', pagina({
 <div id="pakbox">${voortgang(PAKAANTAL, 'Alles wissen')}
 <div class="lijst">${PAKCATS.map(([k, a]) => `<div class="cat"><h2>${esc(k)}</h2>${a.map(x => vink('data-k', x, x)).join('')}</div>`).join('')}</div></div>
 ${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('paklijst.chk', 'Uitgebreide checklists'))}</h2><p class="lead">${esc(tx('paklijst.chk.lead', 'Wil je het nog uitgebreider? Kies een lijst, bijvoorbeeld voor een bepaald seizoen. Elke lijst heeft zijn eigen pagina en zijn eigen vinkjes.'))}</p>
-<div style="margin-top:22px">${CHKLIJST.map(c => `<a class="camp" href="${esc(c.id)}.html"><div class="cijfer">${chkAantal(c)}</div><div><h3>${esc(c.naam)}<small>${esc(c.tekst || 'Uitgebreide checklist')}</small></h3><p>${esc(kort(c.cats.map(t => t.n).join(', '), 160))}</p></div></a>`).join('')}</div></div>` : ''}
+<div style="margin-top:22px">${CHKLIJST.map(c => `<a class="camp" href="${esc(c.id)}.html"><div><h3>${esc(c.naam)}<small>${esc(c.tekst || 'Uitgebreide checklist')}</small></h3><p>${esc(kort(c.cats.map(t => t.n).join(', '), 160))}</p></div></a>`).join('')}</div></div>` : ''}
 <p style="margin-top:32px"><a class="btn s" href="../uitrusting/">Onze uitrusting</a></p>`
 }));
 

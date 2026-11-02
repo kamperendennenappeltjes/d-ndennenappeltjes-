@@ -2487,6 +2487,11 @@ const FOTOS={
    "camping": "Herfstvakantie"
   },
   {
+   "src": "img/fotos/2025/camping-blauwemeer/1792186630836-7.jpg",
+   "tekst": "",
+   "camping": "Camping BlauweMeer"
+  },
+  {
    "src": "img/fotos/2025/camping-blauwemeer/1792186618975-1.jpg",
    "tekst": "",
    "camping": "Camping BlauweMeer"
@@ -2513,11 +2518,6 @@ const FOTOS={
   },
   {
    "src": "img/fotos/2025/camping-blauwemeer/1792186628988-6.jpg",
-   "tekst": "",
-   "camping": "Camping BlauweMeer"
-  },
-  {
-   "src": "img/fotos/2025/camping-blauwemeer/1792186630836-7.jpg",
    "tekst": "",
    "camping": "Camping BlauweMeer"
   },

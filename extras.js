@@ -33,7 +33,7 @@
     if (modus === 'print-ck') {
       doel.classList.add('print-doel');
       if (doel.tagName === 'DETAILS') { was = doel.open; doel.open = true; }
-      var t = ((doel.querySelector('summary b') || doel.querySelector('h2') || {}).textContent || 'Checklist');
+      var t = ((doel.id === 'chkbox' ? d.querySelector('h1') : (doel.querySelector('summary b') || doel.querySelector('h2'))) || {}).textContent || 'Checklist';
       kop = el('div', 'printkop', '<b></b> &middot; Kamperen met d\u2019n Dennenappeltjes<br><small>' + DATUM + '</small>');
       kop.firstChild.textContent = t;
       var sm = doel.querySelector('summary');
@@ -65,7 +65,7 @@
       var v = dt.querySelector('.voortgang'); if (!v) return;
       v.parentNode.insertBefore(knoppen('data-ck', 'Deze lijst printen / PDF', 'Lege lijst printen'), v);
     });
-    var cb = d.getElementById('ckbody');
+    var cb = d.getElementById('chkbox') || d.getElementById('ckbody');
     if (cb && cb.querySelector('.voortgang') && !cb.querySelector('.pakacties'))
       cb.insertBefore(knoppen('data-ck', 'Deze lijst printen / PDF', 'Lege lijst printen'), cb.querySelector('.voortgang'));
   }
@@ -77,7 +77,7 @@
     var p = e.target.closest && e.target.closest('button[data-p],button[data-ck]'); if (!p) return;
     var leeg = (p.getAttribute('data-p') || p.getAttribute('data-ck')) === 'leeg';
     if (p.hasAttribute('data-p')) return druk('print-pak', null, leeg);
-    var doel = p.closest('details.uk') || d.getElementById('uitgebreid');
+    var doel = p.closest('details.uk') || d.getElementById('chkbox') || d.getElementById('uitgebreid');
     if (doel) druk('print-ck', doel, leeg);
   });
 })();

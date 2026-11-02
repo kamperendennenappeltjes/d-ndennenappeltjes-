@@ -388,9 +388,10 @@ const CHK=[
    {
     "n": "Keuken",
     "i": [
-     "Inductiekookplaat",
+     "Inductiekookplaat (optioneel)",
+     "Pannen voor inductie (optioneel)",
      "Kooktoestel (optioneel)",
-     "Pannenset",
+     "Pannenset gas",
      "Kookgerei",
      "Combi-magnetron of campingoven (optioneel)",
      "Skottelbraai / gasbarbecue",

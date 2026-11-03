@@ -13,8 +13,8 @@ const INST={
   "uitrusting.lead": "Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt of heeft gewerkt. Kies een categorie en daarna een onderdeel.",
   "uitrusting.lead2": "Dit is wat wij zelf gebruiken of gebruikt hebben. De links gaan naar webshops van andere partijen.",
   "campings.vlog.sub": "Klik hier om de volledige vlog te bekijken en abonneer je, dan mis je geen enkele kampeertrip.",
-  "campings.vlog.kop": "Één van onze vlog",
-  "campings.vlog.kopmeer": "Enkele van onze video’s"
+  "campings.vlog.kop": "Één van onze vlog's",
+  "campings.vlog.kopmeer": "Enkele van onze vlog's"
  },
  "tegelinfo": {
   "paklijst": {

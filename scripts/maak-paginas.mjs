@@ -438,7 +438,7 @@ ${ytcta(vloggen.length ? tx('yt.kop.vlog', 'Abonneer je op ons YouTube-kanaal') 
   fs.writeFileSync(`campings/${c.id}.html`, pagina({ titel, beschrijving, pad: `campings/${c.id}.html`, afbeelding: c.foto, body, jsonld, actief: 'campings', kruimels: [[tx('menu.campings', 'Campings'), 'campings/'], [schoon(c.naam)]] }));
   urls.push([`campings/${c.id}.html`, 0.7]);
 }
-fs.writeFileSync('campings/index.html', pagina({ extra: 'campings',
+fs.writeFileSync('campings/index.html', pagina({ extra: 'campings', kruimels: [[tx('menu.campings', 'Campings')]],
   titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
   pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
@@ -519,7 +519,7 @@ ${ytcta(tx('yt.kop.verhaal', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.
   fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '', kruimels: [[tx('menu.verhalen', 'Verhalen'), 'verhalen/'], [schoon(v.titel)]] }));
   urls.push([`verhalen/${id}.html`, 0.6]);
 });
-fs.writeFileSync('verhalen/index.html', pagina({ extra: 'verhalen',
+fs.writeFileSync('verhalen/index.html', pagina({ extra: 'verhalen', kruimels: [[tx('menu.verhalen', 'Verhalen')]],
   titel: 'Verhalen van onze kampeertrips',
   beschrijving: 'Korte verslagen van onze kampeertrips en uitjes met de caravan.',
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
@@ -586,7 +586,7 @@ ${NAARBOVEN}`;
   fs.writeFileSync(`uitrusting/${c.id}.html`, pagina({ titel: `${c.naam}: onze uitrusting voor de caravan`, beschrijving, pad: `uitrusting/${c.id}.html`, afbeelding: foto, body, jsonld, actief: 'uitrusting', achter: 'nacht', script: SUBTABS, kruimels: [[tx('menu.uitrusting', 'Uitrusting'), 'uitrusting/'], [schoon(c.naam)]] }));
   urls.push([`uitrusting/${c.id}.html`, 0.7]);
 }
-fs.writeFileSync('uitrusting/index.html', pagina({ extra: 'uitrusting',
+fs.writeFileSync('uitrusting/index.html', pagina({ extra: 'uitrusting', kruimels: [[tx('menu.uitrusting', 'Uitrusting')]],
   titel: 'Onze uitrusting voor caravan en voortent',
   beschrijving: kort(`Wat er bij ons in de caravan en de voortent zit, per onderdeel: ${UITCATS.map(c => c.naam.toLowerCase()).join(', ')}.`, 158),
   pad: 'uitrusting/', afbeelding: UITCATS[0] ? catFoto(UITCATS[0]) : '', actief: 'uitrusting', achter: 'nacht',
@@ -633,7 +633,7 @@ ${NAARBOVEN}`
   }));
   urls.push([`paklijst/${c.id}.html`, 0.8]);
 }
-fs.writeFileSync('paklijst/index.html', pagina({ extra: 'paklijst',
+fs.writeFileSync('paklijst/index.html', pagina({ extra: 'paklijst', kruimels: [[tx('menu.paklijst', 'Wat neem je mee')]],
   titel: 'Paklijst voor de caravan: wat neem je mee?',
   beschrijving: kort(`Onze paklijst voor kamperen met de caravan: ${PAKAANTAL} dingen in ${PAKCATS.length} onderdelen, van vertrek en slapen tot koken en kinderen${CHKLIJST.length ? ', plus uitgebreide checklists per seizoen' : ''}. Zo vergeet je niets.`, 158),
   pad: 'paklijst/', afbeelding: '', actief: 'paklijst', achter: 'mos', script: (CHKLIJST.length ? CHKREDIR(CHKLIJST.map(c => c.id)) : '') + PAKSCRIPT,
@@ -648,7 +648,7 @@ ${CHKLIJST.length ? `<div class="ukop"><h2>${esc(tx('paklijst.chk', 'Uitgebreide
 
 // ---- tips
 const TIPLIJST = (Array.isArray(TIPS) ? TIPS : []).filter(t => t && t.titel);
-fs.writeFileSync('tips/index.html', pagina({ extra: 'tips',
+fs.writeFileSync('tips/index.html', pagina({ extra: 'tips', kruimels: [[tx('menu.tips', 'Tips')]],
   titel: 'Kampeertips voor het hele gezin, uit eigen ervaring',
   beschrijving: kort(`${TIPLIJST.length} praktische tips voor kamperen met de caravan: ${TIPLIJST.map(t => schoon(t.titel).toLowerCase()).join(', ')}.`, 158),
   pad: 'tips/', afbeelding: '', actief: 'tips', achter: 'nacht',
@@ -663,7 +663,7 @@ fs.writeFileSync('tips/index.html', pagina({ extra: 'tips',
 if (OVER && OVER.kop) {
   const alinea = (Array.isArray(OVER.tekst) ? OVER.tekst : [OVER.tekst]).map(schoon).filter(Boolean);
   const fotos = [[OVER.foto, OVER.alt], [OVER.foto2, OVER.alt2]].filter(f => f[0]);
-  fs.writeFileSync('over-ons/index.html', pagina({ extra: 'over',
+  fs.writeFileSync('over-ons/index.html', pagina({ extra: 'over', kruimels: [[tx('menu.over', 'Over ons')]],
     titel: "Over ons: het kampeergezin achter d'n Dennenappeltjes",
     beschrijving: kort(alinea[0] || `Maak kennis met ${SITE}.`, 158),
     pad: 'over-ons/', afbeelding: OVER.foto, actief: 'over',

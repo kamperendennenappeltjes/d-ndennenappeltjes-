@@ -496,8 +496,22 @@ const CAMPINGS=[
    "Douche waren zeer netjes en schoon maar de ruimte was krap"
   ],
   "foto": "img/esch-camping-kaampert-1791997332207.jpg",
-  "fotos": [],
-  "vlogs": [],
+  "fotos": [
+   {
+    "src": "img/campings/esch-camping-kaampert/1793712653059-1.jpg",
+    "tekst": ""
+   },
+   {
+    "src": "img/campings/esch-camping-kaampert/1793712656113-2.jpg",
+    "tekst": ""
+   }
+  ],
+  "vlogs": [
+   {
+    "titel": "Zomerafsluiting weekend met CK deel 1",
+    "url": "https://youtu.be/ZgR6WX7aOx0"
+   }
+  ],
   "land": "Nederland",
   "regio": "Overijssel",
   "lat": 52.248157,

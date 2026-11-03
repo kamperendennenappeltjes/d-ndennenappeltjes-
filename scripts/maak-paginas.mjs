@@ -70,6 +70,12 @@ main{padding:64px 0 72px;min-height:60vh}
 .btn.kl{padding:6px 16px;font-size:.9rem;margin-top:0}
 .vlogs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:0 0 18px}.vlogs .vlog{margin:0}
 .vlog b{display:block}.vlog small{color:var(--zacht)}
+.vlog.vmet{flex-direction:column;align-items:stretch;gap:0;padding:0;overflow:hidden}
+.vlog.vmet>span:last-child{padding:14px 18px 16px}
+.vth{position:relative;display:block;aspect-ratio:16/9;background:var(--nacht)}
+.vth img{width:100%;height:100%;object-fit:cover;display:block}
+.vth i{position:absolute;left:50%;top:50%;margin:-20px 0 0 -28px}
+@media(min-width:760px){.vlogs .vlog.vmet:only-child{flex-direction:row;align-items:center}.vlogs .vlog.vmet:only-child .vth{width:300px;flex:none}.vlogs .vlog.vmet:only-child>span:last-child{padding:18px 26px}}
 .vlak{padding:26px;background:var(--nacht);border-radius:20px;border-left:6px solid var(--oranje)}
 .vlak ul{margin:0;padding-left:20px}
 .camp{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center;padding:16px;background:var(--den);border-radius:16px;margin-bottom:12px;text-decoration:none;color:var(--room);border:1px solid rgba(240,138,60,.25)}
@@ -405,6 +411,27 @@ teken();
 })();
 `;
 
+// ---- thumbnails voor vlogknoppen: eenmalig ophalen en lokaal bewaren (geen verbinding met YouTube voor bezoekers)
+const ytIdVan = u => { const r = String(u || '').match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/); return r ? r[1] : ''; };
+const haalThumb = async id => {
+  if (!id) return '';
+  const pad = `img/thumbs/${id}.jpg`;
+  if (fs.existsSync(pad)) return pad;
+  for (const naam of ['maxresdefault', 'mqdefault']) {
+    try {
+      const r = await fetch(`https://i.ytimg.com/vi/${id}/${naam}.jpg`);
+      if (!r.ok) continue;
+      const b = Buffer.from(await r.arrayBuffer());
+      if (b.length < 2000) continue;
+      fs.mkdirSync('img/thumbs', { recursive: true });
+      fs.writeFileSync(pad, b);
+      return pad;
+    } catch (e) { /* geen internet: val terug op het logo */ }
+  }
+  console.warn(`Thumbnail van ${id} niet gevonden, het YouTube-logo blijft staan.`);
+  return '';
+};
+
 // ---- campings
 for (const c of CAMPINGS) {
   if (!c.id) continue;
@@ -414,6 +441,7 @@ for (const c of CAMPINGS) {
   const geldig = u => /^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(String(u || '').trim());
   const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].filter(Boolean).map(r => { if (typeof r === 'object') return { titel: schoon(r.titel), url: String(r.url || '').trim() }; const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
   const vloggen = handmatig.filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
+  for (const v of vloggen) v.thumb = await haalThumb(ytIdVan(v.url));
   const feiten = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
   const naamPlaats = c.plaats && !String(c.naam).toLowerCase().includes(String(c.plaats).split(',')[0].toLowerCase()) ? `${c.naam} in ${c.plaats}` : c.naam;
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
@@ -427,7 +455,7 @@ ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener 
 ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
-${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
+${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
 ${vloggen.length ? '' : ytStd()}
 <p><a class="btn s" href="./">${esc(tx('campings.alle.knop', 'Alle campings'))}</a></p>`;
   const jsonld = c.cijfer ? {

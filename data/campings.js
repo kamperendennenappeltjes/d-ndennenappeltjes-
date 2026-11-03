@@ -9,9 +9,14 @@ const CAMPINGS=[
   "tekst": "Een gemoedelijk familiepark aan de bosrand, aan de voet van de Sallandse Heuvelrug. Je loopt zo het bos in, er zijn meerdere speeltuinen en het park heeft een binnenbad, een buitenbad en een sauna. Ook handig als je wilt fietsen.",
   "info": {
    "Provincie": "Overijssel",
-   "Zwembad": "Binnen en buiten",
+   "Zwembad binnen": "Ja",
+   "Zwembad buiten": "Ja",
    "Speeltuin": "Ja",
-   "Honden": "Aan de lijn"
+   "Wifi": "ja",
+   "Tv aansluiting": "ja",
+   "Tennisbaan": "Ja",
+   "Midgetgolf": "Ja",
+   "Honden": "Ja, aan de lijn"
   },
   "cijfer": 7,
   "plus": [
@@ -59,9 +64,10 @@ const CAMPINGS=[
   "info": {
    "Provincie": "Drenthe",
    "Zwembad": "Ja",
-   "Zwemplas": "'t Nije Hemelriek op loopafstand",
+   "Zwemplas": "Ja, 't Nije Hemelriek op loopafstand",
    "Speeltuin": "Ja",
-   "Honden": "Toegestaan"
+   "Tv aansluiting": "Ja",
+   "Honden": "Ja"
   },
   "cijfer": 6,
   "plus": [
@@ -106,7 +112,9 @@ const CAMPINGS=[
   "info": {
    "Provincie": "Limburg",
    "Thema": "Middeleeuwen",
-   "Zwembad": "Binnen, met glijbaan",
+   "Zwembad binnen": "Ja, met glijbaan",
+   "Speeltuin": "Ja",
+   "Huisdieren toegestaan": "Ja",
    "Omgeving": "Maasdal, fiets- en wandelroutes"
   },
   "cijfer": 7,
@@ -155,10 +163,12 @@ const CAMPINGS=[
   "info": {
    "Oppervlakte park": "ca. 54 hectare",
    "Toeristische plaatsen": "483",
-   "Water": "recreatieplas met zandstrand",
-   "Zwembad": "subtropisch zwembad met glijbanen",
-   "Sport en spel": "sportvelden, tennisbanen, speeltuinen, midgetgolf",
-   "Honden": "aan de lijn toegestaan",
+   "Zwemplas": "Ja, met zandstrand en glijbanen",
+   "Zwembad": "Ja, subtropisch zwembad met glijbanen",
+   "Speeltuin": "Ja",
+   "Speeltuin binnen": "Ja",
+   "Sport en spel": "sportvelden, tennisbanen, midgetgolf",
+   "Honden": "Ja, aan de lijn toegestaan",
    "Status": "gesloten sinds december 2023"
   },
   "plaatsnr": "Park gesloten",
@@ -196,7 +206,12 @@ const CAMPINGS=[
    "Honden": "toegestaan in bepaalde delen (maximaal 1 per verblijf)",
    "Sanitair": "warme douches, wasmachines en gehandicaptentoilet",
    "Camperservice": "aanwezig",
-   "Afstand centrum": "ongeveer 6 km"
+   "Afstand centrum": "ongeveer 6 km",
+   "Zwembad binnen": "Ja",
+   "Speeltuin": "Ja",
+   "Speeltuin binnen": "ja",
+   "Tv aansluiting": "Ja",
+   "Huisdieren toegestaan": "Ja"
   },
   "plaatsnr": "79",
   "stroom": "10",
@@ -241,8 +256,12 @@ const CAMPINGS=[
   "tekst": "Een gezinspark in het groen. Midden op het terrein ligt een visvijver met autovrije plekken eromheen. Er zijn speeltoestellen op de velden, een binnenspeelplaats, tennisbanen en een binnen- en buitenbad.",
   "info": {
    "Provincie": "Noord-Brabant",
-   "Zwembad": "Binnen en buiten",
+   "Zwembad binnen": "Ja",
+   "Zwembad buiten": "Ja",
    "Speeltuin": "Ja",
+   "Wifi": "ja",
+   "Tv aansluiting": "Ja",
+   "Huisdieren toegestaan": "Ja",
    "Bijzonder": "Visvijver midden op het park"
   },
   "cijfer": 7,
@@ -292,8 +311,11 @@ const CAMPINGS=[
   "info": {
    "Land": "België, Limburg",
    "Zwembad": "Binnen",
+   "Speeltuin": "Ja",
+   "Speeltuin binnen": "Ja, zand en strand dus wel in het water",
    "Strand": "Aan het meer",
-   "Eten": "Restaurant op het park"
+   "Eten": "Restaurant op het park",
+   "Huisdieren toegestaan": "Ja"
   },
   "cijfer": 7.5,
   "url": "https://www.campingblauwemeer.be/",
@@ -353,7 +375,9 @@ const CAMPINGS=[
    "Honden": "toegestaan; aanlijnen is verplicht",
    "Sanitair": "vernieuwd sanitairgebouw, mindervalidenruimte, douches en afwasmogelijkheden",
    "Wasmachine en droger": "aanwezig",
-   "Camperservice": "water vullen, grijs water lozen en chemisch toilet legen"
+   "Camperservice": "water vullen, grijs water lozen en chemisch toilet legen",
+   "Wifi": "Ja",
+   "Huisdieren toegestaan": "Ja"
   },
   "plaatsnr": "5",
   "stroom": "10",
@@ -409,10 +433,11 @@ const CAMPINGS=[
   "tekst": "Een uitgebreid familiepark in Belgisch Limburg met buitenbaden, een strand aan het meer, een speeltuin, een restaurant en een winkel. Er is ook een kinderboerderij. Het Nationaal Park Hoge Kempen ligt op ongeveer een half uur rijden.",
   "info": {
    "Land": "België, Limburg",
-   "Zwembad": "Buitenbaden",
-   "Strand": "Aan het meer",
+   "Zwembad buiten": "Ja",
+   "Strandplas": "Ja, Aan het meer",
    "Speeltuin": "Ja",
-   "Dieren": "Kinderboerderij"
+   "Dieren": "Kinderboerderij",
+   "huisdieren toegestaan": "Ja"
   },
   "cijfer": 8.5,
   "url": "https://www.goolderheide.be",
@@ -471,9 +496,9 @@ const CAMPINGS=[
    "Adres": "Rijssenseweg 18b, 7475 VB Markelo",
    "Aantal plaatsen": "25",
    "Open": "niet vermeld op de geraadpleegde officiële pagina’s",
-   "Honden": "welkom, aangelijnd",
+   "Honden": "Ja, aangelijnd",
    "Sanitair": "nieuw sanitairgebouw; warm water inbegrepen",
-   "Wi-Fi": "gratis",
+   "Wi-Fi": "Ja",
    "Chemisch toilet": "uitstort aanwezig",
    "Duurzaamheid": "zonnepanelen en zonnecollectoren"
   },
@@ -528,11 +553,12 @@ const CAMPINGS=[
    "Adres": "Klein Vink 4, 5944 EX Arcen",
    "Type plaats": "Comfortplaats",
    "Tv aansluiting": "Ja",
-   "Wifi": "Gratis",
-   "Honden": "Toegestaan",
-   "Zwembad": "Ja",
+   "Wifi": "Ja",
+   "Honden Toegestaan": "Ja",
+   "Zwembad binnen": "Ja",
    "Speeltuin": "Ja",
-   "Zwemwater": "Recreatieplas met zandstrand",
+   "Speeltuin binnen": "Ja",
+   "Zwemplas": "Ja recreatieplas met zandstrand",
    "Wellness": "Thermaalbad Arcen naast het park",
    "Afstand dorpscentrum": "3 km (Arcen)",
    "Aantal standplaatsen": "ca. 215",

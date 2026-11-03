@@ -449,6 +449,10 @@ const CAMPINGS=[
    {
     "titel": "aankomst dag Goolderheide",
     "url": "https://youtu.be/s6LHHR2VJUE?si=90GVWyolYvXJV1Ja"
+   },
+   {
+    "titel": "Aan al het mooie komt een einde",
+    "url": "https://youtu.be/RLh1zhHDYXo?si=D7N15l8vXpjW4eSG"
    }
   ],
   "land": "België",

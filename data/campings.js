@@ -527,7 +527,7 @@ const CAMPINGS=[
   "info": {
    "Adres": "Klein Vink 4, 5944 EX Arcen",
    "Type plaats": "Comfortplaats",
-   "Kabel-tv": "Ja",
+   "Tv aansluiting": "Ja",
    "Wifi": "Gratis",
    "Honden": "Toegestaan",
    "Zwembad": "Ja",

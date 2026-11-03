@@ -266,6 +266,7 @@ ${body}
 
 const YTKANAAL = 'https://youtube.com/@kamperenmetdndennenappeltjes';
 const ytcta = (kop, tekst) => `<a class="vlog ytcta" href="${YTKANAAL}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(kop)}</b><small>${esc(tekst)}</small></span></a>`;
+const ytStd = () => ytcta(tx('yt.kop', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'));
 const NAARBOVEN = `<p style="margin-top:32px"><a class="btn s" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">${esc(tx('alle.omhoog', 'Terug naar boven'))}</a></p>`;
 // Versienummer overnemen uit index.html (dezelfde plek als in de footer van de home page)
 let VERSIE = '', SOC = '', MAIL = '';
@@ -427,7 +428,7 @@ ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
-${ytcta(vloggen.length ? tx('yt.kop.vlog', 'Abonneer je op ons YouTube-kanaal') : tx('yt.kop', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
+${vloggen.length ? '' : ytStd()}
 <p><a class="btn s" href="./">${esc(tx('campings.alle.knop', 'Alle campings'))}</a></p>`;
   const jsonld = c.cijfer ? {
     '@context': 'https://schema.org', '@type': 'Review',
@@ -447,6 +448,7 @@ fs.writeFileSync('campings/index.html', pagina({ extra: 'campings', kruimels: [[
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
 <div class="filters" id="filters"></div>
 <div id="lijst" style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" data-id="${esc(c.id)}" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc([c.plaats, c.regio, c.land].filter(Boolean).join(' \u00b7 '))}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
+${ytStd()}
 ${NAARBOVEN}`
 }));
 
@@ -513,7 +515,7 @@ VERHALEN.forEach(v => {
   const kop = `<article class="blok kop vol">${v.foto ? `<figure class="ft"><img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}"></figure>` : ''}<div class="tk"><h1>${esc(v.titel)}</h1>${par(v.tekst)}</div></article>`;
   const body = `${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
-${ytcta(tx('yt.kop.verhaal', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
+${ytStd()}
 <p><a class="btn s" href="./">${esc(tx('verhalen.alle.knop', 'Alle verhalen'))}</a></p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'Article', headline: schoon(v.titel), description: kort(v.tekst, 200), image: abs(v.foto), author: { '@type': 'Organization', name: SITE }, mainEntityOfPage: `${BASE}/verhalen/${id}.html` };
   fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '', kruimels: [[tx('menu.verhalen', 'Verhalen'), 'verhalen/'], [schoon(v.titel)]] }));
@@ -525,6 +527,7 @@ fs.writeFileSync('verhalen/index.html', pagina({ extra: 'verhalen', kruimels: [[
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
   body: `<h1>${esc(tx('verhalen.h2', 'Verhalen van onze avonturen'))}</h1><p class="lead">${esc(tx('verhalen.lead', 'Korte verslagen van onze trips en uitjes.'))}</p>
 <div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">${esc(tx('verhalen.meer', 'Lees meer'))}</a>` : ''}</div></article>`).join('')}</div>
+${ytStd()}
 `
 }));
 
@@ -656,7 +659,8 @@ fs.writeFileSync('tips/index.html', pagina({ extra: 'tips', kruimels: [[tx('menu
   body: `<h1>${esc(tx('tips.h2', 'Kampeertips voor het hele gezin'))}</h1>
 <p class="lead">${esc(tx('tips.lead', 'Dit hebben wij onderweg geleerd. Kleine dingen die het kamperen met de caravan makkelijker en gezelliger maken.'))}</p>
 <div class="pm" style="margin-top:22px">${TIPLIJST.map(t => `<div class="vlak"><h2>${esc(schoon(t.titel))}</h2><p>${esc(schoon(t.tekst))}</p></div>`).join('')}</div>
-<p><a class="btn" href="../paklijst/">${esc(tx('tips.knop', 'Onze paklijst'))}</a></p>`
+<p><a class="btn" href="../paklijst/">${esc(tx('tips.knop', 'Onze paklijst'))}</a></p>
+${ytStd()}`
 }));
 
 // ---- over ons

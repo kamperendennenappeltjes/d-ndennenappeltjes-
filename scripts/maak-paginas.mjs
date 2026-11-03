@@ -315,6 +315,17 @@ const zoekWaarde = (c, exact, begin = []) => {
   }
   return undefined;
 };
+// Zoals zoekWaarde, maar geeft ALLE passende velden terug (bijvoorbeeld Zwembad binnen, Zwembad buiten en Zwemplas).
+const zoekAlle = (c, exact, begin = []) => {
+  const alles = [...Object.entries(c || {}), ...Object.entries((c && c.info) || {})];
+  const uit = [];
+  for (const [k, v] of alles) {
+    if (v == null || typeof v === 'object' || String(v).trim() === '') continue;
+    const sl = CK0(k);
+    if (exact.includes(sl) || begin.some(b => sl.startsWith(b))) uit.push(v);
+  }
+  return uit;
+};
 const GETAL = v => { const n = parseFloat(String(v ?? '').replace(',', '.')); return isFinite(n) ? n : null; };
 const JANEE = v => {
   if (v === true) return true;
@@ -328,12 +339,12 @@ const KENMERKEN = [
   { id: 'water', exact: ['water', 'wateropdeplaats', 'wateraansluiting'], begin: [] },
   { id: 'afvoer', exact: ['afvoer', 'afvoeropdeplaats', 'afvoeraansluiting'], begin: [] },
   { id: 'zwem', exact: [], begin: ['zwem'] },
-  { id: 'wifi', exact: ['wifi', 'wlan', 'internet'], begin: ['wifi'] },
-  { id: 'tv', exact: ['tv', 'televisie', 'tvontvangst'], begin: ['televisie', 'tvaansluiting'] },
+  { id: 'wifi', exact: ['wifi', 'wlan', 'internet'], begin: ['wifi', 'wlan'] },
+  { id: 'tv', exact: ['tv', 'televisie', 'tvontvangst'], begin: ['televisie', 'tvaansluiting', 'tvontvangst'] },
   { id: 'speeltuin', exact: [], begin: ['speel'] },
   { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'] }
 ];
-const kenmerkenVan = c => KENMERKEN.filter(k => JANEE(zoekWaarde(c, k.exact, k.begin)) === true).map(k => k.id);
+const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin).some(v => JANEE(v) === true)).map(k => k.id);
 const stroomVan = c => GETAL(zoekWaarde(c, ['stroom', 'ampere', 'stroomampere']));
 const oppVan = c => GETAL(zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']));
 const FILTERJS = `(function(){

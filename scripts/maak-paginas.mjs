@@ -316,12 +316,13 @@ const zoekWaarde = (c, exact, begin = []) => {
   return undefined;
 };
 // Zoals zoekWaarde, maar geeft ALLE passende velden terug (bijvoorbeeld Zwembad binnen, Zwembad buiten en Zwemplas).
-const zoekAlle = (c, exact, begin = []) => {
+const zoekAlle = (c, exact, begin = [], niet = []) => {
   const alles = [...Object.entries(c || {}), ...Object.entries((c && c.info) || {})];
   const uit = [];
   for (const [k, v] of alles) {
     if (v == null || typeof v === 'object' || String(v).trim() === '') continue;
     const sl = CK0(k);
+    if (niet.some(n => sl.includes(n))) continue;
     if (exact.includes(sl) || begin.some(b => sl.startsWith(b))) uit.push(v);
   }
   return uit;
@@ -341,16 +342,20 @@ const KENMERKEN = [
   { id: 'zwem', exact: [], begin: ['zwem'] },
   { id: 'wifi', exact: ['wifi', 'wlan', 'internet'], begin: ['wifi', 'wlan'] },
   { id: 'tv', exact: ['tv', 'televisie', 'tvontvangst'], begin: ['televisie', 'tvaansluiting', 'tvontvangst'] },
-  { id: 'speeltuin', exact: [], begin: ['speel'] },
+  { id: 'zwembinnen', exact: [], begin: ['zwembadbinnen', 'binnenzwembad', 'zwembadoverdekt', 'overdektzwembad'] },
+  { id: 'zwembuiten', exact: [], begin: ['zwembadbuiten', 'buitenzwembad', 'zwembadopenlucht', 'openluchtzwembad'] },
+  { id: 'zwemplas', exact: [], begin: ['zwemplas', 'zwemvijver', 'zwemmeer'] },
+  { id: 'speeltuin', exact: [], begin: ['speel'], niet: ['binnen', 'overdekt'] },
+  { id: 'speelbinnen', exact: [], begin: ['speeltuinbinnen', 'binnenspeeltuin', 'speelhal', 'speelruimtebinnen', 'speeltuinoverdekt'] },
   { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'] }
 ];
-const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin).some(v => JANEE(v) === true)).map(k => k.id);
+const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || []).some(v => JANEE(v) === true)).map(k => k.id);
 const stroomVan = c => GETAL(zoekWaarde(c, ['stroom', 'ampere', 'stroomampere']));
 const oppVan = c => GETAL(zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']));
 const FILTERJS = `(function(){
 var C=window.CAMPDATA||[],f=document.getElementById('filters'),l=document.getElementById('lijst');
 if(!f||!l||!C.length)return;
-var S={land:[],regio:[],min:[],type:'',stroom:[],opp:[],kenm:[],sort:'volgorde',pick:null,open:false};
+var S={land:[],regio:[],min:[],type:[],stroom:[],opp:[],kenm:[],sort:'volgorde',pick:null,open:false};
 var OPPB=[80,90,100,120,150];
 function ob(o){var b=0;OPPB.forEach(function(x){if(o>=x)b=x});return b}
 function rk(c){return c.land+'|'+c.regio}
@@ -366,7 +371,7 @@ function heeft(c,k){return !!c.k&&c.k.indexOf(k)>=0}
 function pas(c,skip){
 if(S.land.length&&!sk(skip,'land')&&S.land.indexOf(c.land)<0)return false;
 if(S.regio.length&&!sk(skip,'regio')&&(!c.regio||S.regio.indexOf(rk(c))<0))return false;
-if(S.type&&!sk(skip,'type')&&c.type!=S.type)return false;
+if(S.type.length&&!sk(skip,'type')&&S.type.indexOf(c.type)<0)return false;
 if(S.min.length&&!sk(skip,'min')&&(c.n==null||S.min.indexOf(c.n)<0))return false;
 if(S.stroom.length&&!sk(skip,'stroom')&&(c.s==null||S.stroom.indexOf(c.s)<0))return false;
 if(S.opp.length&&!sk(skip,'opp')&&(c.o==null||S.opp.indexOf(ob(c.o))<0))return false;
@@ -378,7 +383,7 @@ if(S.sort=='cijfer')b.sort(function(x,y){return ((y.n==null?-1:y.n)-(x.n==null?-
 else if(S.sort=='naam')b.sort(function(x,y){return nl(x.naam,y.naam)});
 else if(S.sort=='regio')b.sort(function(x,y){return nl(x.land,y.land)||nl(x.regio,y.regio)||nl(x.naam,y.naam)});
 return b}
-function aantalActief(){return S.land.length+S.regio.length+S.min.length+(S.type?1:0)+S.stroom.length+S.opp.length+S.kenm.length+(S.pick?1:0)}
+function aantalActief(){return S.land.length+S.regio.length+S.min.length+S.type.length+S.stroom.length+S.opp.length+S.kenm.length+(S.pick?1:0)}
 /* ---- Echte kaart (Leaflet + OpenStreetMap), pas na een klik van de bezoeker ---- */
 var LJS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',LCSS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
 var LM=null,LLAAG=null,LFOUT=false,LBEZIG=false;
@@ -451,20 +456,20 @@ if(landen.length>1)h+=mchips('Land',[alle('','Alle landen',aant(' land regio ',f
 if(regios.length)h+=mchips('Provincie of regio',[alle('','Alle'+(S.land.length==1?' in '+S.land[0]:''),aant(' regio ',function(){return true}))].concat(regios.map(function(r){return optieM(r.k,r.n+(dubbel[r.n]>1?' ('+r.l+')':''),' regio ',function(c){return rk(c)==r.k},S.regio)})),S.regio,'regio',true);
 var cw=[];C.forEach(function(c){if(c.n!=null&&cw.indexOf(c.n)<0)cw.push(c.n)});cw.sort(function(x,y){return x-y});
 if(cw.length)h+=mchips('Ons cijfer',[alle('','Alle',null)].concat(cw.map(function(m){return optieM(m,String(m).replace('.',','),' min ',function(c){return c.n===m},S.min)})),S.min,'min');
-if(types.length>1)h+=chips('Soort',[alle('','Alle',null)].concat(types.map(function(t){return optie(t,t,' type ',function(c){return c.type==t},S.type,false)})),S.type,'type');
+if(types.length>1)h+=mchips('Soort',[alle('','Alle',null)].concat(types.map(function(t){return optieM(t,t,' type ',function(c){return c.type==t},S.type)})),S.type,'type');
 var sw=[];C.forEach(function(c){if(c.s!=null&&sw.indexOf(c.s)<0)sw.push(c.s)});sw.sort(function(x,y){return x-y});
 if(sw.length)h+=mchips('Stroom',[alle('','Alle',null)].concat(sw.map(function(m){return optieM(m,m+' A',' stroom ',function(c){return c.s===m},S.stroom)})),S.stroom,'stroom');
 var ow=OPPB.concat([0]).sort(function(x,y){return x-y}).filter(function(m){return C.some(function(c){return c.o!=null&&ob(c.o)==m})});
 var olab=function(m){var i=OPPB.indexOf(m);return m==0?'Minder dan '+OPPB[0]+' m\u00b2':i==OPPB.length-1?m+' m\u00b2 of meer':m+'\u2013'+(OPPB[i+1]-1)+' m\u00b2'};
 if(ow.length)h+=mchips('Oppervlakte',[alle('','Alle',null)].concat(ow.map(function(m){return optieM(m,olab(m),' opp ',function(c){return c.o!=null&&ob(c.o)==m},S.opp)})),S.opp,'opp');
-var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['huisdieren','Huisdieren toegestaan']];
+var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['zwembinnen','Zwembad binnen'],['zwembuiten','Zwembad buiten'],['zwemplas','Zwemplas'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['speelbinnen','Speeltuin binnen'],['huisdieren','Huisdieren toegestaan']];
 h+='<div class="fgroep fvol"><span class="flabel">Voorzieningen</span><div class="fchips">'+KN.map(function(x){var aan=S.kenm.indexOf(x[0])>=0,a=aant(' k:'+x[0]+' ',function(c){return heeft(c,x[0])});return '<button type="button" data-f="k" data-w="'+x[0]+'" aria-pressed="'+aan+'"'+(a==0&&!aan?' disabled':'')+'>'+(aan?'✓ ':'')+eh(x[1])+' <small>'+a+'</small></button>'}).join('')+'</div></div>';
 if(S.stroom.length||S.opp.length||S.kenm.length)h+='<p class="fnoot">Campings waarvan we dit nog niet hebben ingevuld, vallen af zodra je hierop filtert.</p>';
 var o=function(w,t){return '<option value="'+w+'"'+(S.sort==w?' selected':'')+'>'+t+'</option>'};
 h+='<div class="fgroep"><label class="flabel" for="fsort">Sorteren</label><select id="fsort">'+o('volgorde','Zoals wij ze op een rij zetten')+o('cijfer','Hoogste cijfer eerst')+o('naam','Naam, van A tot Z')+o('regio','Per land en provincie')+'</select></div>';
 var fb=document.getElementById('fbouw');fb.innerHTML=h;
 [].slice.call(fb.querySelectorAll('[data-f]')).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-f'),w=b.getAttribute('data-w');
-if(k=='land'||k=='regio'||k=='stroom'||k=='opp'||k=='min'){if(w==='')S[k]=[];else{var v=(k=='stroom'||k=='opp'||k=='min')?+w:w,ix=S[k].indexOf(v);if(ix>=0)S[k].splice(ix,1);else S[k].push(v)}
+if(k=='land'||k=='regio'||k=='stroom'||k=='opp'||k=='min'||k=='type'){if(w==='')S[k]=[];else{var v=(k=='stroom'||k=='opp'||k=='min')?+w:w,ix=S[k].indexOf(v);if(ix>=0)S[k].splice(ix,1);else S[k].push(v)}
 if(k=='land')S.regio=S.regio.filter(function(r){return !S.land.length||S.land.indexOf(r.split('|')[0])>=0})}
 else if(k=='k'){var ix2=S.kenm.indexOf(w);if(ix2>=0)S.kenm.splice(ix2,1);else S.kenm.push(w)}
 else S[k]=w;
@@ -473,7 +478,7 @@ document.getElementById('fsort').onchange=function(e){S.sort=e.target.value;teke
 function kopBijwerken(vis){var a=aantalActief(),kop=document.getElementById('fkop');
 kop.innerHTML='<button type="button" id="ftoggle" class="ftoggle" aria-expanded="'+S.open+'" aria-controls="fpanel"><span aria-hidden="true">&#9776;</span> Filteren'+(a?' <span class="fbadge">'+a+'</span>':'')+' <span class="fpijl" aria-hidden="true">'+(S.open?'&#9650;':'&#9660;')+'</span></button><span id="ftel" aria-live="polite">'+(vis.length==C.length?'Alle '+vis.length+' campings':vis.length+' van de '+C.length+' campings')+'</span>'+(a?'<button type="button" id="fwis" class="fklein">Wis filters</button>':'');
 document.getElementById('ftoggle').onclick=function(){S.open=!S.open;document.getElementById('fpanel').hidden=!S.open;kopBijwerken(vis);if(S.open)teken(true)};
-var w=document.getElementById('fwis');if(w)w.onclick=function(){S.land=[];S.regio=[];S.stroom=[];S.opp=[];S.type='';S.min=[];S.kenm=[];S.pick=null;teken()}}
+var w=document.getElementById('fwis');if(w)w.onclick=function(){S.land=[];S.regio=[];S.stroom=[];S.opp=[];S.type=[];S.min=[];S.kenm=[];S.pick=null;teken()}}
 function bouwSkelet(){f.innerHTML='<div class="fkop" id="fkop"></div><div id="fpanel" hidden><div id="fbouw"></div><div id="fkaartvak"></div></div>'}
 function teken(alleenLijst){
 if(!document.getElementById('fkop'))bouwSkelet();

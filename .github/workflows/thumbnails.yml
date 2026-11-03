@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - 'data/videos.js'
-      - 'data/campings.js'
   workflow_dispatch:
 permissions:
   contents: write
@@ -49,4 +48,4 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add img/thumbs
-          git diff --cached --quiet || (git commit -m "Thumbnails bijgewerkt" && git push)
+          git diff --cached --quiet || (git commit -m "Thumbnails bijgewerkt" && git pull --rebase && git push)

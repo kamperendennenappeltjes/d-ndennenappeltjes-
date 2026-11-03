@@ -14,7 +14,8 @@ const INST={
   "uitrusting.lead2": "Dit is wat wij zelf gebruiken of gebruikt hebben. De links gaan naar webshops van andere partijen.",
   "campings.vlog.sub": "Klik hier om de volledige vlog te bekijken en abonneer je, dan mis je geen enkele kampeertrip.",
   "campings.vlog.kop": "Één van onze vlog's",
-  "campings.vlog.kopmeer": "Enkele van onze vlog's"
+  "campings.vlog.kopmeer": "Enkele van onze vlog's",
+  "campings.fotos": "Enkele foto’s van deze plek"
  },
  "tegelinfo": {
   "paklijst": {

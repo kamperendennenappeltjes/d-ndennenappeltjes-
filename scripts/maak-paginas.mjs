@@ -63,7 +63,7 @@ main{padding:64px 0 72px;min-height:60vh}
 .sec{margin:34px 0 12px;font-size:1.4rem}
 .fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:0 0 22px}
 .fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
-.vlog{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--den);border-radius:16px;color:var(--room);text-decoration:none;margin:0 0 18px}
+.vlog{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--den);border-radius:16px;color:var(--room);text-decoration:none;margin:0 0 18px;border:2px solid var(--oranje)}
 .vlog:hover,.vlog:focus-visible{outline:2px solid var(--oranje)}
 .vlog i{flex:none;width:56px;height:40px;border-radius:12px;background:var(--rood);display:grid;place-items:center}
 .vlog i::after{content:"";border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
@@ -427,7 +427,7 @@ ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener 
 ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
-${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? 'Onze video\u2019s' : 'Onze vlog'}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? `Video ${i + 1} van ${c.naam}` : `Bekijk onze video van ${c.naam}`))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
+${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog" href="${esc(v.url)}" target="_blank" rel="noopener"><i aria-hidden="true"></i><span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
 ${vloggen.length ? '' : ytStd()}
 <p><a class="btn s" href="./">${esc(tx('campings.alle.knop', 'Alle campings'))}</a></p>`;
   const jsonld = c.cijfer ? {

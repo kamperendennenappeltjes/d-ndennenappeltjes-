@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'data/videos.js'
+      - 'data/campings.js'
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,17 +17,32 @@ jobs:
           python3 - <<'PY'
           import re, os, urllib.request
           os.makedirs('img/thumbs', exist_ok=True)
-          txt = open('data/videos.js', encoding='utf-8').read()
+          txt = ''
+          for f in ('data/videos.js', 'data/campings.js'):
+              if os.path.exists(f):
+                  txt += open(f, encoding='utf-8').read() + '\n'
           ids = sorted(set(re.findall(r'(?:v=|youtu\.be/|shorts/|embed/)([\w-]{11})', txt)))
+          def geldig(p):
+              try:
+                  b = open(p, 'rb').read()
+                  return len(b) > 2000 and b[:2] == b'\xff\xd8'
+              except Exception:
+                  return False
           for i in ids:
               dest = f'img/thumbs/{i}.jpg'
-              if os.path.exists(dest):
+              if geldig(dest):
                   continue
-              try:
-                  urllib.request.urlretrieve(f'https://i.ytimg.com/vi/{i}/hqdefault.jpg', dest)
-                  print('opgehaald', i)
-              except Exception as e:
-                  print('mislukt', i, e)
+              for naam in ('maxresdefault', 'hqdefault'):
+                  try:
+                      urllib.request.urlretrieve(f'https://i.ytimg.com/vi/{i}/{naam}.jpg', dest)
+                      if geldig(dest):
+                          print('opgehaald', i, naam)
+                          break
+                      os.remove(dest)
+                  except Exception as e:
+                      print('mislukt', i, naam, e)
+                      if os.path.exists(dest):
+                          os.remove(dest)
           PY
       - name: Opslaan
         run: |

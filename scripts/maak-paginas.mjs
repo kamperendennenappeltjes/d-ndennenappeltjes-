@@ -245,7 +245,7 @@ function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, ac
   const volledig = `${titel} | ${SITE}`;
   const link = (h, t, k) => `<a href="${h}"${actief === k ? ' class="on"' : ''}>${esc(tx('menu.' + k, t))}</a>`;
   return `<!DOCTYPE html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="nl"><head><meta charset="utf-8"><meta http-equiv="content-language" content="nl"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(volledig)}</title>
 <meta name="description" content="${esc(beschrijving)}">
 <link rel="canonical" href="${BASE}/${pad}">
@@ -316,14 +316,14 @@ const zoekWaarde = (c, exact, begin = []) => {
   return undefined;
 };
 // Zoals zoekWaarde, maar geeft ALLE passende velden terug (bijvoorbeeld Zwembad binnen, Zwembad buiten en Zwemplas).
-const zoekAlle = (c, exact, begin = [], niet = []) => {
+const zoekAlle = (c, exact, begin = [], niet = [], bevat = []) => {
   const alles = [...Object.entries(c || {}), ...Object.entries((c && c.info) || {})];
   const uit = [];
   for (const [k, v] of alles) {
     if (v == null || typeof v === 'object' || String(v).trim() === '') continue;
     const sl = CK0(k);
     if (niet.some(n => sl.includes(n))) continue;
-    if (exact.includes(sl) || begin.some(b => sl.startsWith(b))) uit.push(v);
+    if (exact.includes(sl) || begin.some(b => sl.startsWith(b)) || bevat.some(b => sl.includes(b))) uit.push(v);
   }
   return uit;
 };
@@ -347,9 +347,9 @@ const KENMERKEN = [
   { id: 'zwemplas', exact: [], begin: ['zwemplas', 'zwemvijver', 'zwemmeer'] },
   { id: 'speeltuin', exact: [], begin: ['speel'], niet: ['binnen', 'overdekt'] },
   { id: 'speelbinnen', exact: [], begin: ['speeltuinbinnen', 'binnenspeeltuin', 'speelhal', 'speelruimtebinnen', 'speeltuinoverdekt'] },
-  { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'] }
+  { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'], bevat: ['huisdier', 'hond'] }
 ];
-const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || []).some(v => JANEE(v) === true)).map(k => k.id);
+const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || [], k.bevat || []).some(v => JANEE(v) === true)).map(k => k.id);
 const stroomVan = c => GETAL(zoekWaarde(c, ['stroom', 'ampere', 'stroomampere']));
 const oppVan = c => GETAL(zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']));
 const FILTERJS = `(function(){

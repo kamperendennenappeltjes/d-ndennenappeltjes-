@@ -191,6 +191,8 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .fchips{display:flex;flex-wrap:wrap;gap:8px}.filters button small{opacity:.75;font-weight:600}
 .filters select{font:inherit;font-weight:700;color:var(--room);background:var(--nacht);border:2px solid var(--oranje);border-radius:12px;padding:9px 12px;max-width:100%;min-width:220px}
 .filters button.fklein{padding:5px 14px;font-size:.9rem}
+.fgroep.fvol{flex:0 0 100%}.fnoot{flex:0 0 100%;margin:0 0 14px;color:var(--zacht);font-size:.9rem}
+.filters button:disabled{opacity:.35;cursor:not-allowed;border-style:dashed}.filters select option:disabled{color:#7c8a80}
 .kaartvak{background:var(--nacht);border-radius:16px;padding:12px;margin:4px 0 14px}.kaartvraag{text-align:center;padding:22px}.kaartvraag p{margin:0 0 12px;max-width:560px;margin-left:auto;margin-right:auto}.kaartvraag button{font:inherit;font-weight:700;background:var(--oranje);color:#1a0f05;border:0;border-radius:999px;padding:10px 24px;cursor:pointer}
 #lkaart{height:min(62vh,480px);border-radius:12px;position:relative;z-index:0;isolation:isolate;background:#1b2a24}
 .kaartsvg{width:100%;height:auto;max-height:420px;display:block}.kp{cursor:pointer}.kp:focus{outline:none}.kp:hover circle:nth-child(2),.kp:focus circle:nth-child(2){stroke:#f6ecd6}.kaartnoot{margin:8px 0 0;color:var(--zacht);font-size:.9rem}
@@ -302,23 +304,70 @@ const punt = c => {
   if (rp) return [rp[0], rp[1], 'regio'];
   const lp = LANDPUNT[ln]; return lp ? [lp[0], lp[1], 'land'] : null;
 };
+// Gegevens voor de extra filters (stroom, oppervlakte en voorzieningen). Ze komen uit de velden van de camping
+// of uit "Info over het park" in Beheer (bijvoorbeeld de regel "Wifi: ja"). Wat niet is ingevuld, telt als onbekend.
+const zoekWaarde = (c, exact, begin = []) => {
+  const alles = [...Object.entries(c || {}), ...Object.entries((c && c.info) || {})];
+  for (const [k, v] of alles) {
+    if (v == null || typeof v === 'object' || String(v).trim() === '') continue;
+    const sl = CK0(k);
+    if (exact.includes(sl) || begin.some(b => sl.startsWith(b))) return v;
+  }
+  return undefined;
+};
+const GETAL = v => { const n = parseFloat(String(v ?? '').replace(',', '.')); return isFinite(n) ? n : null; };
+const JANEE = v => {
+  if (v === true) return true;
+  if (v === false) return false;
+  const t = String(v ?? '').trim().toLowerCase();
+  if (!t) return null;
+  if (t === 'n' || t === '-' || t === '\u2013' || t === '0') return false;
+  return !/^(nee|no|geen|niet|nvt|n\.v\.t|false|verboden)(?![a-z])/.test(t);
+};
+const KENMERKEN = [
+  { id: 'water', exact: ['water', 'wateropdeplaats', 'wateraansluiting'], begin: [] },
+  { id: 'afvoer', exact: ['afvoer', 'afvoeropdeplaats', 'afvoeraansluiting'], begin: [] },
+  { id: 'zwem', exact: [], begin: ['zwem'] },
+  { id: 'wifi', exact: ['wifi', 'wlan', 'internet'], begin: ['wifi'] },
+  { id: 'tv', exact: ['tv', 'televisie', 'tvontvangst'], begin: ['televisie', 'tvaansluiting'] },
+  { id: 'speeltuin', exact: [], begin: ['speel'] },
+  { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'] }
+];
+const kenmerkenVan = c => KENMERKEN.filter(k => JANEE(zoekWaarde(c, k.exact, k.begin)) === true).map(k => k.id);
+const stroomVan = c => GETAL(zoekWaarde(c, ['stroom', 'ampere', 'stroomampere']));
+const oppVan = c => GETAL(zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']));
 const FILTERJS = `(function(){
 var C=window.CAMPDATA||[],f=document.getElementById('filters'),l=document.getElementById('lijst');
 if(!f||!l||!C.length)return;
-var S={land:'',regio:'',min:0,type:'',sort:'volgorde',pick:null,open:false};
+var S={land:[],regio:[],min:[],type:'',stroom:[],opp:[],kenm:[],sort:'volgorde',pick:null,open:false};
+var OPPB=[80,90,100,120,150];
+function ob(o){var b=0;OPPB.forEach(function(x){if(o>=x)b=x});return b}
+function rk(c){return c.land+'|'+c.regio}
 var MAPKLEUR='#c9d6c4';
 var OMTREK={Nederland:[[6.9,53.45],[6.2,53.4],[5.4,53.17],[5.05,52.95],[4.75,52.96],[4.6,52.6],[4.55,52.46],[4.4,52.2],[4.1,51.98],[3.85,51.82],[3.55,51.55],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.05,50.85],[6.2,51.1],[6.2,51.4],[5.95,51.8],[6.7,51.9],[6.8,52.05],[6.7,52.45],[7.05,52.65],[7.2,53.0],[7.2,53.2],[7.0,53.3]],
 'België':[[2.55,51.09],[3.37,51.37],[3.9,51.2],[4.24,51.37],[4.75,51.5],[5.2,51.3],[5.55,51.2],[5.7,50.76],[6.2,50.55],[6.4,50.32],[6.1,50.13],[5.8,49.55],[5.4,49.55],[4.85,50.15],[4.2,49.95],[3.6,50.35],[3.2,50.75],[2.6,50.8]]};
 var eh=function(x){return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
 var els={};[].slice.call(l.querySelectorAll('a.camp')).forEach(function(a){els[a.getAttribute('data-id')]=a});
 var leeg=document.createElement('p');leeg.className='lead';leeg.hidden=true;leeg.textContent='Geen campings gevonden met deze keuze. Probeer een filter uit te zetten, of druk op Wis filters.';l.parentNode.insertBefore(leeg,l.nextSibling);
-function passend(c){if(S.land&&c.land!=S.land)return false;if(S.regio&&c.regio!=S.regio)return false;if(S.type&&c.type!=S.type)return false;if(S.min){if(c.n==null||c.n<S.min)return false}if(S.pick&&S.pick.indexOf(c.id)<0)return false;return true}
+function sk(skip,k){return skip.indexOf(' '+k+' ')>=0}
+function heeft(c,k){return !!c.k&&c.k.indexOf(k)>=0}
+/* Past een camping bij alle gekozen filters? Met skip sla je een of meer filters over (om te tellen wat er nog mogelijk is). */
+function pas(c,skip){
+if(S.land.length&&!sk(skip,'land')&&S.land.indexOf(c.land)<0)return false;
+if(S.regio.length&&!sk(skip,'regio')&&(!c.regio||S.regio.indexOf(rk(c))<0))return false;
+if(S.type&&!sk(skip,'type')&&c.type!=S.type)return false;
+if(S.min.length&&!sk(skip,'min')&&(c.n==null||S.min.indexOf(c.n)<0))return false;
+if(S.stroom.length&&!sk(skip,'stroom')&&(c.s==null||S.stroom.indexOf(c.s)<0))return false;
+if(S.opp.length&&!sk(skip,'opp')&&(c.o==null||S.opp.indexOf(ob(c.o))<0))return false;
+for(var i=0;i<S.kenm.length;i++){if(!sk(skip,'k:'+S.kenm[i])&&!heeft(c,S.kenm[i]))return false}
+return true}
+function passend(c){if(S.pick&&S.pick.indexOf(c.id)<0)return false;return pas(c,' ')}
 function gesorteerd(a){var b=a.slice(),nl=function(x,y){return String(x).localeCompare(String(y),'nl')};
 if(S.sort=='cijfer')b.sort(function(x,y){return ((y.n==null?-1:y.n)-(x.n==null?-1:x.n))||nl(x.naam,y.naam)});
 else if(S.sort=='naam')b.sort(function(x,y){return nl(x.naam,y.naam)});
 else if(S.sort=='regio')b.sort(function(x,y){return nl(x.land,y.land)||nl(x.regio,y.regio)||nl(x.naam,y.naam)});
 return b}
-function aantalActief(){return (S.land?1:0)+(S.regio?1:0)+(S.min?1:0)+(S.type?1:0)+(S.pick?1:0)}
+function aantalActief(){return S.land.length+S.regio.length+S.min.length+(S.type?1:0)+S.stroom.length+S.opp.length+S.kenm.length+(S.pick?1:0)}
 /* ---- Echte kaart (Leaflet + OpenStreetMap), pas na een klik van de bezoeker ---- */
 var LJS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',LCSS='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
 var LM=null,LLAAG=null,LFOUT=false,LBEZIG=false;
@@ -334,8 +383,8 @@ var t=n==1?g.cs[0].naam:n+' campings';
 var mk=L.marker([g.p[0],g.p[1]],{icon:ic,title:t,alt:t,keyboard:true});mk.bindPopup(popupHtml(g.cs),{maxWidth:260});mk.addTo(LLAAG);pts.push([g.p[0],g.p[1]])});
 LM.invalidateSize();
 if(!pts.length)return;
-var max=S.regio?11:9;
-if(pts.length==1)LM.setView(pts[0],S.regio?11:S.land?9:8,{animate:true});
+var max=S.regio.length?11:9;
+if(pts.length==1)LM.setView(pts[0],S.regio.length?11:S.land.length?9:8,{animate:true});
 else LM.fitBounds(pts,{padding:[34,34],maxZoom:max,animate:true})}
 function tekenLeaflet(v,vis){
 var div=document.getElementById('lkaart');
@@ -377,25 +426,43 @@ laadLeaflet().then(function(){LBEZIG=false;teken(true)}).catch(function(){LBEZIG
 /* ---- Filterbalk en lijst ---- */
 function bouwFilters(){
 var landen=[],types=[];C.forEach(function(c){if(landen.indexOf(c.land)<0)landen.push(c.land);if(c.type&&types.indexOf(c.type)<0)types.push(c.type)});
-var regios=[];C.forEach(function(c){if((!S.land||c.land==S.land)&&c.regio&&regios.indexOf(c.regio)<0)regios.push(c.regio)});regios.sort(function(a,b){return a.localeCompare(b,'nl')});
-if(S.regio&&regios.indexOf(S.regio)<0)S.regio='';
-var n=function(fn){return C.filter(fn).length};
-var chips=function(naam,items,cur,sleutel){return '<div class="fgroep"><span class="flabel">'+naam+'</span><div class="fchips">'+items.map(function(it){return '<button type="button" data-f="'+sleutel+'" data-w="'+eh(it[0])+'" aria-pressed="'+(String(it[0])===String(cur))+'">'+eh(it[1])+(it[2]!=null?' <small>'+it[2]+'</small>':'')+'</button>'}).join('')+'</div></div>'};
+var regios=[],rseen={};C.forEach(function(c){if((!S.land.length||S.land.indexOf(c.land)>=0)&&c.regio&&!rseen[rk(c)]){rseen[rk(c)]=1;regios.push({k:rk(c),n:c.regio,l:c.land})}});regios.sort(function(a,b){return a.l.localeCompare(b.l,'nl')||a.n.localeCompare(b.n,'nl')});
+var dubbel={};regios.forEach(function(r){dubbel[r.n]=(dubbel[r.n]||0)+1});
+S.regio=S.regio.filter(function(k){return regios.some(function(r){return r.k==k})});
+var aant=function(skip,fn){var r=0;C.forEach(function(c){if(pas(c,skip)&&fn(c))r++});return r};
+var optie=function(w,t,skip,fn,cur,metTal){var a=aant(skip,fn);return [w,t,metTal?a:null,a==0&&String(w)!=String(cur)]};
+var optieM=function(w,t,skip,fn,cur){var a=aant(skip,fn);return [w,t,a,a==0&&cur.indexOf(w)<0]};
+var alle=function(w,t,tal){return [w,t,tal,false]};
+var chips=function(naam,items,cur,sleutel){return '<div class=\"fgroep\"><span class=\"flabel\">'+naam+'</span><div class=\"fchips\">'+items.map(function(it){return '<button type=\"button\" data-f=\"'+sleutel+'\" data-w=\"'+eh(it[0])+'\" aria-pressed=\"'+(String(it[0])===String(cur))+'\"'+(it[3]?' disabled':'')+'>'+eh(it[1])+(it[2]!=null?' <small>'+it[2]+'</small>':'')+'</button>'}).join('')+'</div></div>'};
+var mchips=function(naam,items,cur,sleutel,vol){return '<div class=\"fgroep'+(vol?' fvol':'')+'\"><span class=\"flabel\">'+naam+'</span><div class=\"fchips\">'+items.map(function(it){var aan=it[0]===''?cur.length==0:cur.indexOf(it[0])>=0;return '<button type=\"button\" data-f=\"'+sleutel+'\" data-w=\"'+eh(it[0])+'\" aria-pressed=\"'+aan+'\"'+(it[3]?' disabled':'')+'>'+(aan&&it[0]!==''?'\u2713 ':'')+eh(it[1])+(it[2]!=null?' <small>'+it[2]+'</small>':'')+'</button>'}).join('')+'</div></div>'};
 var h='';
-if(landen.length>1)h+=chips('Land',[['','Alle landen',C.length]].concat(landen.map(function(x){return [x,x,n(function(c){return c.land==x})]})),S.land,'land');
-if(regios.length)h+='<div class="fgroep"><label class="flabel" for="fregio">Provincie of regio</label><select id="fregio"><option value="">Alle'+(S.land?' in '+eh(S.land):'')+'</option>'+regios.map(function(r){return '<option value="'+eh(r)+'"'+(r==S.regio?' selected':'')+'>'+eh(r)+' ('+n(function(c){return c.regio==r&&(!S.land||c.land==S.land)})+')</option>'}).join('')+'</select></div>';
-h+=chips('Ons cijfer',[[0,'Alle'],[7,'7 of hoger'],[8,'8 of hoger'],[9,'9 of hoger']],S.min,'min');
-if(types.length>1)h+=chips('Soort',[['','Alle']].concat(types.map(function(t){return [t,t]})),S.type,'type');
+if(landen.length>1)h+=mchips('Land',[alle('','Alle landen',aant(' land regio ',function(){return true}))].concat(landen.map(function(x){return optieM(x,x,' land regio ',function(c){return c.land==x},S.land)})),S.land,'land');
+if(regios.length)h+=mchips('Provincie of regio',[alle('','Alle'+(S.land.length==1?' in '+S.land[0]:''),aant(' regio ',function(){return true}))].concat(regios.map(function(r){return optieM(r.k,r.n+(dubbel[r.n]>1?' ('+r.l+')':''),' regio ',function(c){return rk(c)==r.k},S.regio)})),S.regio,'regio',true);
+var cw=[];C.forEach(function(c){if(c.n!=null&&cw.indexOf(c.n)<0)cw.push(c.n)});cw.sort(function(x,y){return x-y});
+if(cw.length)h+=mchips('Ons cijfer',[alle('','Alle',null)].concat(cw.map(function(m){return optieM(m,String(m).replace('.',','),' min ',function(c){return c.n===m},S.min)})),S.min,'min');
+if(types.length>1)h+=chips('Soort',[alle('','Alle',null)].concat(types.map(function(t){return optie(t,t,' type ',function(c){return c.type==t},S.type,false)})),S.type,'type');
+var sw=[];C.forEach(function(c){if(c.s!=null&&sw.indexOf(c.s)<0)sw.push(c.s)});sw.sort(function(x,y){return x-y});
+if(sw.length)h+=mchips('Stroom',[alle('','Alle',null)].concat(sw.map(function(m){return optieM(m,m+' A',' stroom ',function(c){return c.s===m},S.stroom)})),S.stroom,'stroom');
+var ow=OPPB.concat([0]).sort(function(x,y){return x-y}).filter(function(m){return C.some(function(c){return c.o!=null&&ob(c.o)==m})});
+var olab=function(m){var i=OPPB.indexOf(m);return m==0?'Minder dan '+OPPB[0]+' m\u00b2':i==OPPB.length-1?m+' m\u00b2 of meer':m+'\u2013'+(OPPB[i+1]-1)+' m\u00b2'};
+if(ow.length)h+=mchips('Oppervlakte',[alle('','Alle',null)].concat(ow.map(function(m){return optieM(m,olab(m),' opp ',function(c){return c.o!=null&&ob(c.o)==m},S.opp)})),S.opp,'opp');
+var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['huisdieren','Huisdieren toegestaan']];
+h+='<div class="fgroep fvol"><span class="flabel">Voorzieningen</span><div class="fchips">'+KN.map(function(x){var aan=S.kenm.indexOf(x[0])>=0,a=aant(' k:'+x[0]+' ',function(c){return heeft(c,x[0])});return '<button type="button" data-f="k" data-w="'+x[0]+'" aria-pressed="'+aan+'"'+(a==0&&!aan?' disabled':'')+'>'+(aan?'✓ ':'')+eh(x[1])+' <small>'+a+'</small></button>'}).join('')+'</div></div>';
+if(S.stroom.length||S.opp.length||S.kenm.length)h+='<p class="fnoot">Campings waarvan we dit nog niet hebben ingevuld, vallen af zodra je hierop filtert.</p>';
 var o=function(w,t){return '<option value="'+w+'"'+(S.sort==w?' selected':'')+'>'+t+'</option>'};
 h+='<div class="fgroep"><label class="flabel" for="fsort">Sorteren</label><select id="fsort">'+o('volgorde','Zoals wij ze op een rij zetten')+o('cijfer','Hoogste cijfer eerst')+o('naam','Naam, van A tot Z')+o('regio','Per land en provincie')+'</select></div>';
 var fb=document.getElementById('fbouw');fb.innerHTML=h;
-[].slice.call(fb.querySelectorAll('[data-f]')).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-f'),w=b.getAttribute('data-w');if(k=='min')S.min=+w;else{S[k]=w;if(k=='land')S.regio=''}S.pick=null;teken()}});
-var sr=document.getElementById('fregio');if(sr)sr.onchange=function(){S.regio=sr.value;S.pick=null;teken()};
+[].slice.call(fb.querySelectorAll('[data-f]')).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-f'),w=b.getAttribute('data-w');
+if(k=='land'||k=='regio'||k=='stroom'||k=='opp'||k=='min'){if(w==='')S[k]=[];else{var v=(k=='stroom'||k=='opp'||k=='min')?+w:w,ix=S[k].indexOf(v);if(ix>=0)S[k].splice(ix,1);else S[k].push(v)}
+if(k=='land')S.regio=S.regio.filter(function(r){return !S.land.length||S.land.indexOf(r.split('|')[0])>=0})}
+else if(k=='k'){var ix2=S.kenm.indexOf(w);if(ix2>=0)S.kenm.splice(ix2,1);else S.kenm.push(w)}
+else S[k]=w;
+S.pick=null;teken()}});
 document.getElementById('fsort').onchange=function(e){S.sort=e.target.value;teken(true)}}
 function kopBijwerken(vis){var a=aantalActief(),kop=document.getElementById('fkop');
 kop.innerHTML='<button type="button" id="ftoggle" class="ftoggle" aria-expanded="'+S.open+'" aria-controls="fpanel"><span aria-hidden="true">&#9776;</span> Filteren'+(a?' <span class="fbadge">'+a+'</span>':'')+' <span class="fpijl" aria-hidden="true">'+(S.open?'&#9650;':'&#9660;')+'</span></button><span id="ftel" aria-live="polite">'+(vis.length==C.length?'Alle '+vis.length+' campings':vis.length+' van de '+C.length+' campings')+'</span>'+(a?'<button type="button" id="fwis" class="fklein">Wis filters</button>':'');
 document.getElementById('ftoggle').onclick=function(){S.open=!S.open;document.getElementById('fpanel').hidden=!S.open;kopBijwerken(vis);if(S.open)teken(true)};
-var w=document.getElementById('fwis');if(w)w.onclick=function(){S.land=S.regio=S.type='';S.min=0;S.pick=null;teken()}}
+var w=document.getElementById('fwis');if(w)w.onclick=function(){S.land=[];S.regio=[];S.stroom=[];S.opp=[];S.type='';S.min=[];S.kenm=[];S.pick=null;teken()}}
 function bouwSkelet(){f.innerHTML='<div class="fkop" id="fkop"></div><div id="fpanel" hidden><div id="fbouw"></div><div id="fkaartvak"></div></div>'}
 function teken(alleenLijst){
 if(!document.getElementById('fkop'))bouwSkelet();
@@ -472,7 +539,7 @@ fs.writeFileSync('campings/index.html', pagina({ extra: 'campings', kruimels: [[
   titel: 'Onze campings: ervaringen en cijfers',
   beschrijving: `Alle ${CAMPINGS.length} campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest, met ons cijfer en wat wel en niet beviel.`,
   pad: 'campings/', afbeelding: (CAMPINGS[0] || {}).foto, actief: 'campings',
-  script: `window.CAMPDATA=${JSON.stringify(CAMPINGS.filter(c => c.id).map(c => { const n = parseFloat(String(c.cijfer).replace(',', '.')); return { id: c.id, naam: schoon(c.naam), cijfer: c.cijfer ? String(c.cijfer) : '', n: isFinite(n) ? n : null, land: landVan(c), regio: regioVan(c), type: c.type || '', p: punt(c) }; })).replace(/</g, '\\u003c')};` + FILTERJS,
+  script: `window.CAMPDATA=${JSON.stringify(CAMPINGS.filter(c => c.id).map(c => { const n = parseFloat(String(c.cijfer).replace(',', '.')); return { id: c.id, naam: schoon(c.naam), cijfer: c.cijfer ? String(c.cijfer) : '', n: isFinite(n) ? n : null, land: landVan(c), regio: regioVan(c), type: c.type || '', s: stroomVan(c), o: oppVan(c), k: kenmerkenVan(c), p: punt(c) }; })).replace(/</g, '\\u003c')};` + FILTERJS,
   body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
 <div class="filters" id="filters"></div>

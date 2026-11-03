@@ -521,7 +521,7 @@ const CAMPINGS=[
   "id": "landal-klein-vink-voorheen-roompot-klein-vink",
   "naam": "Landal Klein Vink (voorheen Roompot Klein Vink)",
   "plaats": "Arcen (Limburg)",
-  "type": "Vakantiepark met camping",
+  "type": "Vakantiepark",
   "cijfer": 6.5,
   "tekst": "Landal Klein Vink is een groot recreatiepark in het bos bij Arcen. Het ligt naast Thermaal bad Arcen en aan een recreatieplas met een zandstrand. De kampeerplaatsen zijn comfortplaatsen. Je hebt er stroom, water, afvoer, kabel-tv en gratis wifi. Het is een goede basis voor gezinnen, want er zijn speeltuinen en een zwembad. Het dorpscentrum van Arcen ligt op 3 km.",
   "info": {

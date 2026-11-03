@@ -63,19 +63,19 @@
     [].forEach.call(d.querySelectorAll('details.uk'), function (dt) {
       if (dt.querySelector('.pakacties')) return;
       var v = dt.querySelector('.voortgang'); if (!v) return;
-      v.parentNode.insertBefore(knoppen('data-ck', 'Deze lijst printen / PDF', 'Lege lijst printen'), v);
+      v.parentNode.insertBefore(knoppen('data-druk', 'Deze lijst printen / PDF', 'Lege lijst printen'), v);
     });
     var cb = d.getElementById('chkbox') || d.getElementById('ckbody');
     if (cb && cb.querySelector('.voortgang') && !cb.querySelector('.pakacties'))
-      cb.insertBefore(knoppen('data-ck', 'Deze lijst printen / PDF', 'Lege lijst printen'), cb.querySelector('.voortgang'));
+      cb.insertBefore(knoppen('data-druk', 'Deze lijst printen / PDF', 'Lege lijst printen'), cb.querySelector('.voortgang'));
   }
   ckKnoppen();
   var ub = d.getElementById('uitgebreid');
   if (ub && window.MutationObserver) new MutationObserver(ckKnoppen).observe(ub, { childList: true, subtree: true });
 
   d.addEventListener('click', function (e) {
-    var p = e.target.closest && e.target.closest('button[data-p],button[data-ck]'); if (!p) return;
-    var leeg = (p.getAttribute('data-p') || p.getAttribute('data-ck')) === 'leeg';
+    var p = e.target.closest && e.target.closest('button[data-p],button[data-druk]'); if (!p) return;
+    var leeg = (p.getAttribute('data-p') || p.getAttribute('data-druk')) === 'leeg';
     if (p.hasAttribute('data-p')) return druk('print-pak', null, leeg);
     var doel = p.closest('details.uk') || d.getElementById('chkbox') || d.getElementById('uitgebreid');
     if (doel) druk('print-ck', doel, leeg);

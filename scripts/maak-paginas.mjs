@@ -416,13 +416,13 @@ const ytIdVan = u => { const r = String(u || '').match(/(?:v=|youtu\.be\/|shorts
 const haalThumb = async id => {
   if (!id) return '';
   const pad = `img/thumbs/${id}.jpg`;
-  if (fs.existsSync(pad)) return pad;
-  for (const naam of ['maxresdefault', 'mqdefault']) {
+  try { const b0 = fs.readFileSync(pad); if (b0.length > 2000 && b0[0] === 0xFF && b0[1] === 0xD8) return pad; } catch (e) { /* nog niet aanwezig */ }
+  for (const naam of ['maxresdefault', 'hqdefault']) {
     try {
       const r = await fetch(`https://i.ytimg.com/vi/${id}/${naam}.jpg`);
       if (!r.ok) continue;
       const b = Buffer.from(await r.arrayBuffer());
-      if (b.length < 2000) continue;
+      if (b.length < 2000 || b[0] !== 0xFF || b[1] !== 0xD8) continue;
       fs.mkdirSync('img/thumbs', { recursive: true });
       fs.writeFileSync(pad, b);
       return pad;
@@ -455,7 +455,7 @@ ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener 
 ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
-${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
+${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy" onerror="this.closest('a').classList.remove('vmet');this.parentNode.replaceWith(document.createElement('i'))"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
 ${vloggen.length ? '' : ytStd()}
 <p><a class="btn s" href="./">${esc(tx('campings.alle.knop', 'Alle campings'))}</a></p>`;
   const jsonld = c.cijfer ? {

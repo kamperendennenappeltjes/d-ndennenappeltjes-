@@ -15,7 +15,8 @@ const INST={
   "campings.vlog.sub": "Klik hier om de volledige vlog te bekijken en abonneer je, dan mis je geen enkele kampeertrip.",
   "campings.vlog.kop": "Één van onze vlog's",
   "campings.vlog.kopmeer": "Enkele van onze vlog's",
-  "campings.fotos": "Enkele foto’s van deze plek"
+  "campings.fotos": "Enkele foto’s van deze plek",
+  "filt.k.tv": "TV-aansluiting"
  },
  "tegelinfo": {
   "paklijst": {

@@ -293,7 +293,8 @@ img[data-vn]{cursor:zoom-in}
 <a class="btn rood" href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">Naar ons YouTube-kanaal</a>
 <a class="btn" href="https://youtube.com/@kamperenmetdndennenappeltjes/videos" target="_blank" rel="noopener">Alle video's</a>
 <div class="grid" id="vids"></div>
-<p class="lead" style="margin-top:28px">Nieuw hier? Abonneer je en zet het belletje aan, dan mis je geen video.</p></div></section>
+<p class="lead" style="margin-top:28px">Nieuw hier? Abonneer je en zet het belletje aan, dan mis je geen video.</p>
+<p><a class="btn rood" id="ytonder" href="https://youtube.com/@kamperenmetdndennenappeltjes" target="_blank" rel="noopener">Naar ons YouTube-kanaal</a></p></div></section>
 
 <section id="p-contact" class="page s-mos"><div class="wrap twee">
 <div><h2>Contact</h2><p class="lead">Een vraag over een camping, onze uitrusting of een video? Stuur ons een bericht, we reageren zo snel mogelijk.</p>
@@ -474,6 +475,7 @@ drawU();
 const yt=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:''};
 const VV=(typeof VID!=='undefined'?VID:[]).filter(v=>v&&v.url&&yt(v.url));
 function drawVids(){const ok=ckOk('vid');document.getElementById('vids').innerHTML=VV.length?VV.map(v=>`<article class="kaart">${ok?`<iframe src="https://www.youtube-nocookie.com/embed/${yt(v.url)}" title="${v.titel||'Video'}" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>`:`<div class="vph" style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),url('${v.thumb||'img/thumbs/'+yt(v.url)+'.jpg'}')"><button type="button" class="vplay" data-ckvid aria-label="YouTube-video laden">▶</button><small>Druk op afspelen om deze video van YouTube te laden.</small></div>`}<div><h3>${v.titel||''}</h3></div></article>`).join(''):'<p class="lead">Onze video\'s staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>'}drawVids();
+{const yo=document.getElementById('ytonder');if(yo)yo.textContent=tk('videos.yt','Naar ons YouTube-kanaal')}
 const FO=typeof FOTOS!=='undefined'?FOTOS:{"Eerder": [{"src": "img/foto-4.jpg", "tekst": "Camping vanuit de lucht in de avond"}, {"src": "img/foto-8.jpg", "tekst": "Auto en caravan"}, {"src": "img/foto-9.jpg", "tekst": "Caravan in de sneeuw"}, {"src": "img/foto-1.jpg", "tekst": "Verlichte voortenten"}, {"src": "img/foto-10.jpg", "tekst": "Kampeerplek van boven"}, {"src": "img/foto-5.jpg", "tekst": "Gezin bij de westernhut"}, {"src": "img/foto-11.jpg", "tekst": "Twee kinderen op het gras"}, {"src": "img/foto-7.jpg", "tekst": "Twee kampeerders bij de caravans"}]};
 const fk=(()=>{const ks=Object.keys(FO).filter(k=>k.slice(0,2)!='__'&&FO[k]&&FO[k].length),o=Array.isArray(FO.__orde)?FO.__orde:[];return [...o.filter(k=>ks.includes(k)),...ks.filter(k=>!o.includes(k)).sort((a,b)=>b.localeCompare(a,'nl',{numeric:true}))]})();let curFotos=[];function drawF(){const h=(location.hash||'').split('/').slice(1).map(decodeURIComponent),g=document.getElementById('galerij'),nav=document.getElementById('fotonav');
 const SEP=' / ',NAAM="Overige foto's";

@@ -347,16 +347,24 @@ const KENMERKEN = [
   { id: 'zwemplas', exact: [], begin: ['zwemplas', 'zwemvijver', 'zwemmeer'] },
   { id: 'speeltuin', exact: [], begin: ['speel'], niet: ['binnen', 'overdekt'] },
   { id: 'speelbinnen', exact: [], begin: ['speeltuinbinnen', 'binnenspeeltuin', 'speelhal', 'speelruimtebinnen', 'speeltuinoverdekt'] },
-  { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'], bevat: ['huisdier', 'hond'] }
+  { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'], bevat: ['huisdier', 'hond'] },
+  { id: 'midgetgolf', exact: [], begin: ['midget', 'minigolf'], inw: ['midgetgolf', 'minigolf'] },
+  { id: 'tennis', exact: [], begin: ['tennis'], inw: ['tennis'] },
+  { id: 'wellness', exact: [], begin: ['wellness', 'sauna', 'spa'], inw: ['sauna', 'wellness', 'thermaal'] },
+  { id: 'eten', exact: [], begin: ['eten', 'restaurant', 'snackbar'], inw: ['restaurant', 'snackbar'] },
+  { id: 'kinderboerderij', exact: [], begin: ['kinderboerderij'], inw: ['kinderboerderij'] },
+  { id: 'wasmachine', exact: [], begin: ['wasmachine', 'wasserette'], inw: ['wasmachine', 'wasserette'] },
+  { id: 'camperservice', exact: [], begin: ['camperservice', 'campervoorziening'], inw: [] }
 ];
-const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || [], k.bevat || []).some(v => JANEE(v) === true)).map(k => k.id);
+const inWaarde = (c, termen) => Object.entries((c && c.info) || {}).some(([k, v]) => typeof v === 'string' && !/\b(geen|niet)\b/i.test(v) && termen.some(t => v.toLowerCase().includes(t)));
+const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || [], k.bevat || []).some(v => JANEE(v) === true) || (k.inw && k.inw.length && inWaarde(c, k.inw))).map(k => k.id);
 const stroomVan = c => GETAL(zoekWaarde(c, ['stroom', 'ampere', 'stroomampere']));
-const oppVan = c => GETAL(zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']));
+const oppVan = c => { const w = zoekWaarde(c, ['opp', 'oppervlakte', 'oppervlaktevandeplaats']); const m = String(w ?? '').replace(',', '.').match(/\d+(\.\d+)?/); return m ? parseFloat(m[0]) : null; };
 const FILTERJS = `(function(){
 var C=window.CAMPDATA||[],f=document.getElementById('filters'),l=document.getElementById('lijst');
 if(!f||!l||!C.length)return;
 var S={land:[],regio:[],min:[],type:[],stroom:[],opp:[],kenm:[],sort:'volgorde',pick:null,open:false};
-var OPPB=[80,90,100,120,150];
+var OPPB=[81,100,120,150];
 function ob(o){var b=0;OPPB.forEach(function(x){if(o>=x)b=x});return b}
 function rk(c){return c.land+'|'+c.regio}
 var MAPKLEUR='#c9d6c4';
@@ -460,9 +468,9 @@ if(types.length>1)h+=mchips('Soort',[alle('','Alle',null)].concat(types.map(func
 var sw=[];C.forEach(function(c){if(c.s!=null&&sw.indexOf(c.s)<0)sw.push(c.s)});sw.sort(function(x,y){return x-y});
 if(sw.length)h+=mchips('Stroom',[alle('','Alle',null)].concat(sw.map(function(m){return optieM(m,m+' A',' stroom ',function(c){return c.s===m},S.stroom)})),S.stroom,'stroom');
 var ow=OPPB.concat([0]).sort(function(x,y){return x-y}).filter(function(m){return C.some(function(c){return c.o!=null&&ob(c.o)==m})});
-var olab=function(m){var i=OPPB.indexOf(m);return m==0?'Minder dan '+OPPB[0]+' m\u00b2':i==OPPB.length-1?m+' m\u00b2 of meer':m+'\u2013'+(OPPB[i+1]-1)+' m\u00b2'};
+var olab=function(m){var i=OPPB.indexOf(m);return m==0?(OPPB[0]-1)+' m\u00b2 of minder':i==OPPB.length-1?m+' m\u00b2 of meer':m+'\u2013'+(OPPB[i+1]-1)+' m\u00b2'};
 if(ow.length)h+=mchips('Oppervlakte',[alle('','Alle',null)].concat(ow.map(function(m){return optieM(m,olab(m),' opp ',function(c){return c.o!=null&&ob(c.o)==m},S.opp)})),S.opp,'opp');
-var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['zwembinnen','Zwembad binnen'],['zwembuiten','Zwembad buiten'],['zwemplas','Zwemplas'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['speelbinnen','Speeltuin binnen'],['huisdieren','Huisdieren toegestaan']];
+var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['zwembinnen','Zwembad binnen'],['zwembuiten','Zwembad buiten'],['zwemplas','Zwemplas'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['speelbinnen','Speeltuin binnen'],['huisdieren','Huisdieren toegestaan'],['midgetgolf','Midgetgolf'],['tennis','Tennisbaan'],['wellness','Wellness / sauna'],['eten','Restaurant'],['kinderboerderij','Kinderboerderij'],['wasmachine','Wasmachine / droger'],['camperservice','Camperservice']];
 h+='<div class="fgroep fvol"><span class="flabel">Voorzieningen</span><div class="fchips">'+KN.map(function(x){var aan=S.kenm.indexOf(x[0])>=0,a=aant(' k:'+x[0]+' ',function(c){return heeft(c,x[0])});return '<button type="button" data-f="k" data-w="'+x[0]+'" aria-pressed="'+aan+'"'+(a==0&&!aan?' disabled':'')+'>'+(aan?'✓ ':'')+eh(x[1])+' <small>'+a+'</small></button>'}).join('')+'</div></div>';
 if(S.stroom.length||S.opp.length||S.kenm.length)h+='<p class="fnoot">Campings waarvan we dit nog niet hebben ingevuld, vallen af zodra je hierop filtert.</p>';
 var o=function(w,t){return '<option value="'+w+'"'+(S.sort==w?' selected':'')+'>'+t+'</option>'};

@@ -638,6 +638,7 @@ const CAMPINGS=[
    "Fietsverhuur": "Ja, tegen betaling",
    "Midgetgolf": "Ja, tegen betaling",
    "Tennisbaan": "Ja, tegen betaling",
+   "Vissen": "Ja",
    "Sport en spel": "Jeu-de-boules en tafeltennis",
    "Fitness": "Ja, binnen",
    "Elektrisch laden": "Ja, tegen betaling",

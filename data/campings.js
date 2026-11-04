@@ -9,6 +9,12 @@ const CAMPINGS=[
   "tekst": "Een gemoedelijk familiepark aan de bosrand, aan de voet van de Sallandse Heuvelrug. Je loopt zo het bos in, er zijn meerdere speeltuinen en het park heeft een binnenbad, een buitenbad en een sauna. Ook handig als je wilt fietsen.",
   "info": {
    "Provincie": "Overijssel",
+   "Adres": "Heuvelweg 9, 8105 SZ Luttenberg",
+   "Telefoonnummer": "0572 301 405",
+   "Type plaats": "Comfortplaatsen / kampeerplaatsen",
+   "Ondergrond": "Gras",
+   "Aantal standplaatsen": "166",
+   "Afstand dorpscentrum": "1,5 kilometer (Luttenberg)",
    "Zwembad binnen": "Ja",
    "Zwembad buiten": "Ja",
    "Speeltuin": "Ja",
@@ -16,7 +22,7 @@ const CAMPINGS=[
    "Tv aansluiting": "ja",
    "Tennisbaan": "Ja",
    "Midgetgolf": "Ja",
-   "Wellness": "Sauna",
+   "Wellness": "Ja, Sauna",
    "Honden": "Ja, aan de lijn",
    "Waterglijbaan": "Ja, familieglijbaan bij het buitenbad",
    "Kinderbad": "Ja",
@@ -24,10 +30,10 @@ const CAMPINGS=[
    "Snackbar": "Ja, snackplaza en ijssalon",
    "Wasmachine en droger": "Ja, tegen betaling",
    "Fietsverhuur": "Ja",
-   "Camperservice": "Uitstort chemisch toilet en afvoer grijs water (gratis)",
+   "Camperservice": "Ja, Uitstort chemisch toilet en afvoer grijs water (gratis)",
    "Elektrisch laden": "Ja, oplaadpunt voor elektrische auto's",
    "Mindervaliden": "Ja, sanitair voor rolstoelgebruikers",
-   "Barbecue": "Houtskool en gas toegestaan"
+   "Barbecue": "Ja, Houtskool en gas toegestaan"
   },
   "cijfer": 7,
   "plus": [

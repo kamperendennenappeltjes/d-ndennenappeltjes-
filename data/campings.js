@@ -431,7 +431,7 @@ const CAMPINGS=[
   "tekst": "Rustige minicamping aan een visvijver in Zeeland (Noord-Brabant). De ruime plaatsen liggen in zon of schaduw; vanaf veel plekken kijk je uit over het water. Een fijne uitvalsbasis voor vissen, wandelen en fietsen in de omgeving.",
   "info": {
    "Adres": "Peelweg 37a, 5411 VC Zeeland",
-   "Aantal plaatsen": "50",
+   "Aantal plaatsen": "50 (70m²-150m²)",
    "Open": "15 maart tot en met 1 november volgens de officiële website",
    "Honden": "Ja, aanlijnen is verplicht",
    "Sanitair": "Ja, vernieuwd sanitairgebouw, douches en afwasmogelijkheden",
@@ -446,7 +446,7 @@ const CAMPINGS=[
   },
   "plaatsnr": "5",
   "stroom": "10",
-  "opp": "70–150",
+  "opp": "100",
   "water": "Ja",
   "afvoer": "Nee",
   "url": "https://hetpeelvenneke.nl/",

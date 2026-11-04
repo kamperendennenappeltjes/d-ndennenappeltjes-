@@ -577,6 +577,9 @@ const CAMPINGS=[
   "tekst": "Kleinschalige, groene camping net buiten Markelo, op het Twentse platteland. De ruime plaatsen hebben water, stroom en een eigen afvoerpunt. Het dorp en de wandel- en fietsroutes in de omgeving liggen dichtbij.",
   "info": {
    "Adres": "Rijssenseweg 18b, 7475 VB Markelo",
+   "Type plaats": "comfortabele kampeerplaatsen (ca. 120 m²)",
+   "Ondergrond": "Een strakke, goed onderhouden grasmat op voormalige eschgrond",
+   "Afstand dorpscentrum": "ongeveer 2 kilometer (Markelo)",
    "Aantal plaatsen": "25",
    "Honden": "Ja, aangelijnd",
    "Sanitair": "Ja, nieuw sanitairgebouw; warm water inbegrepen",

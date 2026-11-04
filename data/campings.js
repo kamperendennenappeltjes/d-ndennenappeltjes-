@@ -309,7 +309,7 @@ const CAMPINGS=[
    "Wifi": "ja",
    "Tv aansluiting": "Ja",
    "Huisdieren toegestaan": "Ja",
-   "Vissen": "Visvijver midden op het park"
+   "Vissen": "Ja, Visvijver midden op het park"
   },
   "cijfer": 7,
   "url": "",

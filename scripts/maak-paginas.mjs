@@ -349,12 +349,24 @@ const KENMERKEN = [
   { id: 'speelbinnen', exact: [], begin: ['speeltuinbinnen', 'binnenspeeltuin', 'speelhal', 'speelruimtebinnen', 'speeltuinoverdekt'] },
   { id: 'huisdieren', exact: [], begin: ['huisdier', 'hond'], bevat: ['huisdier', 'hond'] },
   { id: 'midgetgolf', exact: [], begin: ['midget', 'minigolf'], inw: ['midgetgolf', 'minigolf'] },
-  { id: 'tennis', exact: [], begin: ['tennis'], inw: ['tennis'] },
+  { id: 'tennis', exact: [], begin: ['tennis'], inw: ['tennisbaan'] },
   { id: 'wellness', exact: [], begin: ['wellness', 'sauna', 'spa'], inw: ['sauna', 'wellness', 'thermaal'] },
   { id: 'eten', exact: [], begin: ['eten', 'restaurant', 'snackbar'], inw: ['restaurant', 'snackbar'] },
   { id: 'kinderboerderij', exact: [], begin: ['kinderboerderij'], inw: ['kinderboerderij'] },
   { id: 'wasmachine', exact: [], begin: ['wasmachine', 'wasserette'], inw: ['wasmachine', 'wasserette'] },
-  { id: 'camperservice', exact: [], begin: ['camperservice', 'campervoorziening'], inw: [] }
+  { id: 'camperservice', exact: [], begin: ['camperservice', 'campervoorziening'], inw: [] },
+  { id: 'fietsverhuur', exact: [], begin: ['fietsverhuur', 'fietshuur'], inw: ['fietsverhuur'] },
+  { id: 'kinderbad', exact: [], begin: ['kinderbad', 'kleuterbad', 'peuterbad'], inw: ['kinderbad', 'kleuterbad', 'peuterbad'] },
+  { id: 'glijbaan', exact: [], begin: ['waterglijbaan', 'glijbaan'], inw: ['glijbaan'] },
+  { id: 'winkel', exact: [], begin: ['winkel', 'supermarkt'], inw: ['parkwinkel', 'campingwinkel'] },
+  { id: 'mindervaliden', exact: [], begin: ['mindervalide', 'gehandicapt', 'rolstoel'], inw: ['mindervalide', 'gehandicapt', 'rolstoel'] },
+  { id: 'vissen', exact: [], begin: ['vissen', 'visvijver', 'hengelen'], inw: ['visvijver', 'vissteiger'] },
+  { id: 'fitness', exact: [], begin: ['fitness'], inw: ['fitness'] },
+  { id: 'animatie', exact: [], begin: ['animatie'], inw: [] },
+  { id: 'broodservice', exact: [], begin: ['broodservice'], inw: ['broodservice'] },
+  { id: 'laden', exact: [], begin: ['elektrischladen', 'laadpunt', 'laadpaal', 'oplaadpunt'], inw: ['oplaadpunt', 'laadpunt', 'laadpaal'] },
+  { id: 'barbecue', exact: [], begin: ['barbecue', 'bbq'], inw: [] },
+  { id: 'sportspel', exact: [], begin: ['sportenspel', 'sportveld'], inw: ['sportveld'] }
 ];
 const inWaarde = (c, termen) => Object.entries((c && c.info) || {}).some(([k, v]) => typeof v === 'string' && !/\b(geen|niet)\b/i.test(v) && termen.some(t => v.toLowerCase().includes(t)));
 const kenmerkenVan = c => KENMERKEN.filter(k => zoekAlle(c, k.exact, k.begin, k.niet || [], k.bevat || []).some(v => JANEE(v) === true) || (k.inw && k.inw.length && inWaarde(c, k.inw))).map(k => k.id);
@@ -471,7 +483,7 @@ if(sw.length)h+=mchips(T('filt.stroom','Stroom'),[alle('',T('filt.alle','Alle'),
 var ow=OPPB.concat([0]).sort(function(x,y){return x-y}).filter(function(m){return C.some(function(c){return c.o!=null&&ob(c.o)==m})});
 var olab=function(m){var i=OPPB.indexOf(m);return m==0?T('filt.opp.min','{n} m\u00b2 of minder').replace('{n}',OPPB[0]-1):i==OPPB.length-1?T('filt.opp.meer','{n} m\u00b2 of meer').replace('{n}',m):m+'\u2013'+(OPPB[i+1]-1)+' m\u00b2'};
 if(ow.length)h+=mchips(T('filt.opp','Oppervlakte'),[alle('',T('filt.alle','Alle'),null)].concat(ow.map(function(m){return optieM(m,olab(m),' opp ',function(c){return c.o!=null&&ob(c.o)==m},S.opp)})),S.opp,'opp');
-var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['zwembinnen','Zwembad binnen'],['zwembuiten','Zwembad buiten'],['zwemplas','Zwemplas'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['speelbinnen','Speeltuin binnen'],['huisdieren','Huisdieren toegestaan'],['midgetgolf','Midgetgolf'],['tennis','Tennisbaan'],['wellness','Wellness / sauna'],['eten','Restaurant'],['kinderboerderij','Kinderboerderij'],['wasmachine','Wasmachine / droger'],['camperservice','Camperservice']];KN.forEach(function(x){x[1]=T('filt.k.'+x[0],x[1])});
+var KN=[['water','Water op de plaats'],['afvoer','Afvoer op de plaats'],['zwem','Zwemmogelijkheid'],['zwembinnen','Zwembad binnen'],['zwembuiten','Zwembad buiten'],['zwemplas','Zwemplas'],['wifi','Wifi'],['tv','TV-ontvangst'],['speeltuin','Speeltuin'],['speelbinnen','Speeltuin binnen'],['huisdieren','Huisdieren toegestaan'],['midgetgolf','Midgetgolf'],['tennis','Tennisbaan'],['wellness','Wellness / sauna'],['eten','Restaurant'],['kinderboerderij','Kinderboerderij'],['wasmachine','Wasmachine / droger'],['camperservice','Camperservice'],['fietsverhuur','Fietsverhuur'],['kinderbad','Kinderbad'],['glijbaan','Waterglijbaan'],['winkel','Winkel'],['mindervaliden','Mindervaliden'],['vissen','Vissen'],['fitness','Fitness'],['animatie','Animatie'],['broodservice','Broodservice'],['laden','Elektrisch laden'],['barbecue','Barbecue'],['sportspel','Sport en spel']];KN.forEach(function(x){x[1]=T('filt.k.'+x[0],x[1])});
 h+='<div class="fgroep fvol"><span class="flabel">'+eh(T('filt.voorz','Voorzieningen'))+'</span><div class="fchips">'+KN.map(function(x){var aan=S.kenm.indexOf(x[0])>=0,a=aant(' k:'+x[0]+' ',function(c){return heeft(c,x[0])});return '<button type="button" data-f="k" data-w="'+x[0]+'" aria-pressed="'+aan+'"'+(a==0&&!aan?' disabled':'')+'>'+(aan?'✓ ':'')+eh(x[1])+' <small>'+a+'</small></button>'}).join('')+'</div></div>';
 if(S.stroom.length||S.opp.length||S.kenm.length)h+='<p class="fnoot">'+eh(T('filt.noot','Campings waarvan we dit nog niet hebben ingevuld, vallen af zodra je hierop filtert.'))+'</p>';
 var o=function(w,t){return '<option value="'+w+'"'+(S.sort==w?' selected':'')+'>'+t+'</option>'};

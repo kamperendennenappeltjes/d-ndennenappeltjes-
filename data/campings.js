@@ -79,8 +79,8 @@ const CAMPINGS=[
   ],
   "foto": "img/de-lente-van-drenthe-1791962091596.jpg",
   "plaatsnr": "niet meer beschikbaar",
-  "stroom": "",
-  "opp": "",
+  "stroom": "6",
+  "opp": "90",
   "water": "Ja",
   "afvoer": "Ja",
   "fotos": [

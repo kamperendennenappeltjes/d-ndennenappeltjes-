@@ -357,6 +357,11 @@ const CAMPINGS=[
   "tekst": "Een vakantiepark aan een meer en bos aan de rand van Lommel. Er is een strandje aan het meer, een restaurant, een binnenzwembad en een grote binnen speelruimte met water.",
   "info": {
    "Land": "België, Limburg",
+   "Adres": "Kattenbos 169, 3920 Lommel, België",
+   "Type plaats": "Ruime comfortplaatsen (ca. 100 m²) omringd door groen, eventueel nabij het water",
+   "Ondergrond": "gras",
+   "Afstand dorpscentrum": "ongeveer 3,5 tot 4 kilometer (Lommel)",
+   "Aantal plaatsen": "180 toeristische kampeerplaatsen",
    "Zwembad binnen": "Ja",
    "Speeltuin": "Ja",
    "Speeltuin binnen": "Ja, zand en strand dus wel in het water",

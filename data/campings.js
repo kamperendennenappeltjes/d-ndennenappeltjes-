@@ -64,7 +64,7 @@ const CAMPINGS=[
   "tekst": "Aan de rand van het Gieten-Borgerbos, op loopafstand van de zwemplas 't Nije Hemelriek. Ruime kampeerveldjes, een zwembad, speeltuinen en veel fiets- en wandelroutes in de buurt.",
   "info": {
    "Provincie": "Drenthe",
-   "Zwembad": "Ja",
+   "Zwembad buiten": "Ja, verwarmd",
    "Zwemplas": "Ja, 't Nije Hemelriek op loopafstand",
    "Speeltuin": "Ja",
    "Tv aansluiting": "Ja",

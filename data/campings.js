@@ -587,9 +587,7 @@ const CAMPINGS=[
    "Camperservice": "Ja, uitstort chemisch toilet aanwezig",
    "Duurzaamheid": "zonnepanelen en zonnecollectoren",
    "Wasmachine": "Ja, tegen betaling",
-   "Autovrij": "Ja, autovrije plaatsen",
-   "Schaduw": "Nee, Geen schaduw op de plekken (parasol of luifel handig)",
-   "Mindervaliden": "Nee, geen aangepast sanitair"
+   "Autovrij": "Ja, autovrije plaatsen"
   },
   "plaatsnr": "3",
   "stroom": "16",

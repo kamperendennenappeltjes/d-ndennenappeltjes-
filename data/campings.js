@@ -16,6 +16,7 @@ const CAMPINGS=[
    "Tv aansluiting": "ja",
    "Tennisbaan": "Ja",
    "Midgetgolf": "Ja",
+   "Wellness": "Sauna",
    "Honden": "Ja, aan de lijn"
   },
   "cijfer": 7,
@@ -164,7 +165,7 @@ const CAMPINGS=[
    "Oppervlakte park": "ca. 54 hectare",
    "Toeristische plaatsen": "483",
    "Zwemplas": "Ja, met zandstrand en glijbanen",
-   "Zwembad binnen": "Ja, subtropisch zwembad met glijbanen",
+   "Zwembad": "Ja, subtropisch zwembad met glijbanen",
    "Speeltuin": "Ja",
    "Speeltuin binnen": "Ja",
    "Sport en spel": "sportvelden, tennisbanen, midgetgolf",

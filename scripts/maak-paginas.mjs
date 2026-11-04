@@ -59,6 +59,9 @@ main{padding:64px 0 72px;min-height:60vh}
 .btn.s{background:transparent;color:var(--room);border:2px solid var(--oranje);padding:10px 22px}
 .feiten{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:20px 0}
 .feiten div{background:var(--nacht);border-radius:14px;padding:14px 16px}.feiten small{display:block;color:var(--zacht)}
+.sub{margin:26px 0 10px;font-size:1.05rem;color:var(--zacht);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 6px}.chips li{background:var(--nacht);border-radius:999px;padding:7px 14px;font-size:.95rem}.chips li:before{content:'\\2713';color:var(--oranje);margin-right:7px;font-weight:700}.chips li small{color:var(--zacht);font-size:.85em;margin-left:2px}
+.lijst{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 36px;margin:0}.lijst div{display:flex;justify-content:space-between;gap:16px;padding:10px 2px;border-bottom:1px solid rgba(255,255,255,.1)}.lijst dt{color:var(--zacht)}.lijst dd{margin:0;font-weight:700;text-align:right}
 .pm{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:18px}
 .sec{margin:34px 0 12px;font-size:1.4rem}
 .fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:0 0 22px}
@@ -547,7 +550,11 @@ for (const c of CAMPINGS) {
   const handmatig = [...(Array.isArray(c.vlogs) ? c.vlogs : []), ...(typeof c.vlog === 'string' ? c.vlog.split('\n') : [])].filter(Boolean).map(r => { if (typeof r === 'object') return { titel: schoon(r.titel), url: String(r.url || '').trim() }; const i = String(r).indexOf('|'); return i > 0 ? { titel: schoon(String(r).slice(0, i)), url: String(r).slice(i + 1).trim() } : { titel: '', url: String(r).trim() }; });
   const vloggen = handmatig.filter(v => geldig(v.url)).filter((v, i, A) => A.findIndex(x => x.url === v.url) === i);
   for (const v of vloggen) v.thumb = await haalThumb(ytIdVan(v.url));
-  const feiten = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]).concat(Object.entries(c.info || {})).filter(x => x[1]);
+  const feitenBasis = [['Plaatsnummer', c.plaatsnr], ['Stroom', c.stroom ? c.stroom + ' A' : ''], ['Oppervlakte', c.opp ? c.opp + ' m\u00b2' : ''], ['Water op de plaats', c.water], ['Afvoer op de plaats', c.afvoer]].filter(x => x[1]);
+  const infoRest = Object.entries(c.info || {}).filter(x => x[1]);
+  const infoJa = infoRest.filter(([, v]) => /^ja\b/i.test(String(v).trim()));
+  const infoMeer = infoRest.filter(x => !infoJa.includes(x));
+  const feiten = feitenBasis.concat(infoRest);
   const naamPlaats = c.plaats && !String(c.naam).toLowerCase().includes(String(c.plaats).split(',')[0].toLowerCase()) ? `${c.naam} in ${c.plaats}` : c.naam;
   const plaatsKort = c.plaats ? c.plaats.split(',')[0] : '';
   const titel = `${c.naam} | onze ervaring${plaatsKort && !String(c.naam).toLowerCase().includes(plaatsKort.toLowerCase()) ? ' in ' + plaatsKort : ''}`;
@@ -557,7 +564,10 @@ ${c.foto ? `<img class="foto" src="${esc(rel(c.foto))}" alt="${esc(naamPlaats)}"
 <p class="lead">${esc([c.plaats, c.regio, c.land, c.type, c.cijfer ? tx('campings.cijfer', 'Ons cijfer') + ': ' + c.cijfer : ''].filter(Boolean).join(' \u00b7 '))}</p>
 <p class="lead">${esc(c.tekst || '')}</p>
 ${c.url ? `<p><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener nofollow">${esc(tx('campings.web', 'Naar de website'))}</a></p>` : ''}
-${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2><div class="feiten">${feiten.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park'))}</h2>` : ''}
+${feitenBasis.length ? `<div class="feiten">${feitenBasis.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
+${infoJa.length ? `<h3 class="sub">${esc(tx('campings.voorz', 'Aanwezig'))}</h3><ul class="chips">${infoJa.map(([k, v]) => { const extra = String(v).trim().replace(/^ja[,.]?\s*/i, ''); return `<li>${esc(k)}${extra ? ` <small>(${esc(extra)})</small>` : ''}</li>`; }).join('')}</ul>` : ''}
+${infoMeer.length ? `<h3 class="sub">${esc(tx('campings.meer', 'Meer over het park'))}</h3><dl class="lijst">${infoMeer.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
 ${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy" onerror="this.closest('a').classList.remove('vmet');this.parentNode.replaceWith(document.createElement('i'))"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}

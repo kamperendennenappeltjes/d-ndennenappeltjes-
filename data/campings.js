@@ -700,7 +700,12 @@ const CAMPINGS=[
     "tekst": ""
    }
   ],
-  "vlogs": [],
+  "vlogs": [
+   {
+    "titel": "Daar gaan we weer",
+    "url": "https://youtu.be/C81OUh3e1RU"
+   }
+  ],
   "land": "Nederland",
   "regio": "Limburg",
   "lat": 51.496779,

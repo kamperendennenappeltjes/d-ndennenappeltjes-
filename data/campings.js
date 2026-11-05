@@ -516,6 +516,7 @@ const CAMPINGS=[
    "huisdieren toegestaan": "Ja",
    "Waterglijbaan": "Ja",
    "Kinderbad": "Ja, kinder- en kleuterbad",
+   "Tv aansluiting": "Ja",
    "Restaurant": "Ja, met bar",
    "Snackbar": "Ja, en afhaalmaaltijden",
    "Winkel": "Ja",

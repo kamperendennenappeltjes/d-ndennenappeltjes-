@@ -313,7 +313,7 @@ const CAMPINGS=[
    "Wifi": "ja",
    "Tv aansluiting": "Ja",
    "Huisdieren toegestaan": "Ja",
-   "Vissen": "Ja, Visvijver midden op het park"
+   "Vissen": "Ja, Visvijver midden op het park met leuk visbestand"
   },
   "cijfer": 7,
   "url": "",
@@ -510,7 +510,7 @@ const CAMPINGS=[
    "Aantal plaatsen": "Het park telt zo'n 230 standplaatsen voor toeristisch kamperen, aangevuld met ongeveer 40 huuraccommodaties",
    "Zwembad buiten": "Ja",
    "Zwemplas": "Ja, strandplas aan het meer",
-   "vissen": "ja",
+   "vissen": "ja, vis/zwemvijver met leuk visbestand",
    "Speeltuin": "Ja",
    "Dieren": "Ja, Kinderboerderij",
    "huisdieren toegestaan": "Ja",

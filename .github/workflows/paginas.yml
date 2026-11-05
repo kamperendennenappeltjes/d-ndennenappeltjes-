@@ -20,12 +20,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   paginas:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Pagina's maken
         run: node scripts/maak-paginas.mjs
       - name: Opslaan

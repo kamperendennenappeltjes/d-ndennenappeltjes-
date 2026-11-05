@@ -6,11 +6,14 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: thumbnails
+  cancel-in-progress: false
 jobs:
   thumbs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Thumbnails downloaden
         run: |
           python3 - <<'PY'

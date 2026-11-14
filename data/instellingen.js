@@ -16,7 +16,8 @@ const INST={
   "campings.vlog.kop": "Één van onze vlog's",
   "campings.vlog.kopmeer": "Enkele van onze vlog's",
   "campings.fotos": "Enkele foto’s van deze plek",
-  "filt.k.tv": "TV-aansluiting"
+  "filt.k.tv": "TV-aansluiting",
+  "abo.knop": "Abonneer op YouTube\nop ons kanaal"
  },
  "tegelinfo": {
   "paklijst": {

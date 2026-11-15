@@ -324,6 +324,26 @@ img[data-vn]{cursor:zoom-in}
 <dialog id="dlg" aria-label="Foto groter bekijken"><div class="lb"><button type="button" class="lbx" aria-label="Sluiten">&times;</button><span class="lbt" aria-live="polite"></span><button type="button" class="lbn lbp" aria-label="Vorige foto">&#8249;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="lbn lbv" aria-label="Volgende foto">&#8250;</button></div></dialog>
 <script>var CKEY='dennenappeltjes-cookies';function ckRead(){try{var r=localStorage.getItem(CKEY)||sessionStorage.getItem(CKEY);return r?JSON.parse(r):null}catch(e){return null}}function ckSave(o){try{var j=JSON.stringify(o);if(o.stat||o.vid){localStorage.setItem(CKEY,j);sessionStorage.removeItem(CKEY)}else{sessionStorage.setItem(CKEY,j);localStorage.removeItem(CKEY)}}catch(e){}}function ckOk(k){var c=ckRead();return !!(c&&c[k])}</script>
 <script>["campings","paklijst","checklists","uitrusting","videos","fotos","tips","verhalen","over","instellingen"].forEach(function(f){document.write('<script src="data/'+f+'.js?t='+Date.now()+'"><\/script>')})</script>
+<script>document.write('<script src="data/webp.js?t='+Date.now()+'"><\/script>')</script>
+<script>
+/* WebP: wijs foto's naar de .webp-versie als die bestaat (de lijst staat in data/webp.js) */
+(function(){
+var M=window.WEBP;if(!M)return;
+function W(s){if(typeof s!=='string')return s;var w=s.replace(/\.(jpe?g|png)$/i,'.webp');return w!==s&&M[w.replace(/^\//,'')]?w:s}
+function z(o,k){if(o&&typeof o[k]==='string')o[k]=W(o[k])}
+function fo(a){(Array.isArray(a)?a:[]).forEach(function(x){z(x,'src')})}
+try{
+if(typeof CAMPINGS!=='undefined')CAMPINGS.forEach(function(c){z(c,'foto');fo(c.fotos)});
+if(typeof VERHALEN!=='undefined')VERHALEN.forEach(function(v){z(v,'foto');fo(v.fotos)});
+if(typeof FOTOS!=='undefined')Object.keys(FOTOS).forEach(function(k){fo(FOTOS[k])});
+if(typeof UIT!=='undefined')Object.keys(UIT).forEach(function(c){Object.keys(UIT[c]||{}).forEach(function(s){var v=UIT[c][s];if(v&&Array.isArray(v.p))v.p.forEach(function(q){z(q,'foto')})})});
+if(typeof OVER!=='undefined'){z(OVER,'foto');z(OVER,'foto2')}
+if(typeof INST!=='undefined'&&INST){z(INST,'hero');z(INST,'contact');var T=INST.tegelinfo||{};Object.keys(T).forEach(function(k){z(T[k],'img')})}
+var h=document.querySelector('.hero');if(h&&!(typeof INST!=='undefined'&&INST&&INST.hero))h.style.backgroundImage='url("'+W('img/foto-1.jpg')+'")';
+var c=document.querySelector('#p-contact img.foto');if(c)c.setAttribute('src',W(c.getAttribute('src')));
+}catch(e){}
+})();
+</script>
 <script>
 let ok={};try{ok=JSON.parse(localStorage.getItem('pak')||'{}')}catch(e){}
 const pl=document.getElementById('paklijst');

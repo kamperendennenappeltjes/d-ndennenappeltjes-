@@ -1,5 +1,17 @@
 const VID=[
  {
+  "titel": "Op zoek naar de geschiedenis van klein vink",
+  "url": "https://youtu.be/ZEOjrcdplaY"
+ },
+ {
+  "titel": "Jayden en Egbert gaan proberen wat te vangen",
+  "url": "https://youtu.be/uvYFsypznj8"
+ },
+ {
+  "titel": "Wat heeft Egbert nu weer nodig",
+  "url": "https://youtu.be/Llro2Bi3EgI"
+ },
+ {
   "titel": "Daar gaan we weer",
   "url": "https://youtu.be/C81OUh3e1RU"
  },

@@ -31,7 +31,8 @@ const schoon = x => String(x ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' '
 const kort = (x, n) => { x = schoon(x); return x.length > n ? x.slice(0, n - 1).replace(/\s+\S*$/, '') + '\u2026' : x; };
 const slug = (t, terug = 'verhaal') => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || terug;
 const abs = p => p ? (/^https?:/.test(p) ? p : `${BASE}/${String(p).replace(/^\//, '')}`) : `${BASE}/${DELEN}`;
-const rel = p => p ? (/^https?:/.test(p) ? p : '../' + String(p).replace(/^\//, '')) : '';
+const webp = p => { const w = String(p).replace(/\.(jpe?g|png)$/i, '.webp'); return w !== p && fs.existsSync(w) ? w : p; };
+const rel = p => p ? (/^https?:/.test(p) ? p : '../' + webp(String(p).replace(/^\//, ''))) : '';
 
 const CSS = `:root{color-scheme:dark;--nacht:#0d1a15;--den:#17301f;--mos:#21402c;--oranje:#f08a3c;--rood:#d90f14;--room:#f6ecd6;--zacht:#c9d6c4}
 *,*::before,*::after{box-sizing:border-box}

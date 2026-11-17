@@ -27,10 +27,14 @@ const DELEN = (INST && INST.delen) || 'img/delen-logo.jpg';
 const tx = (k, std) => (TX[k] != null && String(TX[k]).trim() !== '') ? String(TX[k]).trim() : std;
 // Opmaak van uitgebreide verhalen (Beheer > Verhalen): tekstgrootte, breedte zijfoto's, plaats van de tekst. Zonder keuze blijft de standaard staan.
 const VI = (INST && INST.verhaal) || {};
-const VTG = (v => (isFinite(v) && v >= 0.8 && v <= 2.5) ? v : 1.15)(parseFloat(String(VI.tg).replace(',', '.')));
-const VZB = ({ smal: 20, middel: 24, breed: 32 })[VI.zb] || 24;
-const VZP = VI.zp == 'boven' ? 'start' : 'center';
-const VERHAALVARS = `:root{--vtg:${VTG}rem;--vtm:${Math.max(0.8, VTG - 0.1).toFixed(2)}rem;--vtz:${Math.max(0.8, VTG - 0.15).toFixed(2)}rem;--vzb:${VZB}%;--vzp:${VZP}}`;
+const verhaalVars = o => {
+  const w = { ...VI };
+  Object.entries(o || {}).forEach(([k, x]) => { if (x !== '' && x != null) w[k] = x; });
+  const v = parseFloat(String(w.tg).replace(',', '.')), tg = (isFinite(v) && v >= 0.8 && v <= 2.5) ? v : 1.15;
+  const zb = ({ smal: 20, middel: 24, breed: 32 })[w.zb] || 24, zp = w.zp == 'boven' ? 'start' : 'center';
+  return `:root{--vtg:${tg}rem;--vtm:${Math.max(0.8, tg - 0.1).toFixed(2)}rem;--vtz:${Math.max(0.8, tg - 0.15).toFixed(2)}rem;--vzb:${zb}%;--vzp:${zp}}`;
+};
+const VERHAALVARS = verhaalVars({});
 
 const esc = x => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const schoon = x => String(x ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -708,7 +712,8 @@ VERHALEN.forEach(v => {
   while (gebruikt.includes(id)) id = b + '-' + n++;
   gebruikt.push(id);
   const kop = `<article class="blok kop vol">${v.foto ? `<figure class="ft"><img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}"></figure>` : ''}<div class="tk"><h1>${esc(v.titel)}</h1>${par(v.tekst)}</div></article>`;
-  const body = `${kop}
+  const vv = (v.vo && Object.keys(v.vo).length) ? `<style>${verhaalVars(v.vo)}</style>` : '';
+  const body = `${vv}${kop}
 ${heeftLang(v) ? verhaalBlokken(v) : ''}
 ${ytStd()}
 <p><a class="btn s" href="./">${esc(tx('verhalen.alle.knop', 'Alle verhalen'))}</a></p>`;

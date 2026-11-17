@@ -122,6 +122,9 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .ftst{gap:6px;background:var(--nacht)}.ftst figure{margin:0;flex:1;display:flex;flex-direction:column;min-height:150px}.ftst img{flex:1;min-height:150px;width:100%;object-fit:cover;display:block}
 .sg{display:grid}.sg.met{grid-template-columns:1fr 2fr}.sg.met.r{grid-template-columns:2fr 1fr}.sg.r .ft{order:2}.multi .sg:not(.met)+.sg:not(.met) .tk{padding-top:0}
 @media(max-width:760px){.sg.met,.sg.met.r{grid-template-columns:1fr}.sg.r .ft{order:0}.blok.met,.blok.met.r,.duo{grid-template-columns:1fr}.ftst figure{min-height:0}.ftst img{height:200px;flex:none}.blok.r .ft{order:0}.ft img,.blok.kop .ft img{height:230px;flex:none}.rij figure{flex-basis:80%}.pijl{top:83px}}
+.btop,.brij{grid-column:1/-1;display:grid;gap:14px;padding:0 26px 24px}.btop{order:-1;padding:22px 26px 0}.brij{order:3}.btop .car,.brij .car{margin:0}
+.bfoto{margin:0}.bfoto img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;display:block}.bfoto figcaption{padding:6px 4px 0;color:var(--zacht);font-size:.9rem;line-height:1.35}.blok.vol .bfoto figcaption{color:#1a0f05}
+@media(max-width:760px){.blok.zij.met,.sg.zij.met{grid-template-columns:38% 1fr}.blok.zij.met.r,.sg.zij.met.r{grid-template-columns:1fr 38%}.blok.zij.r .ft,.sg.zij.r .ft{order:2}.blok.zij .ft,.sg.zij .ft{min-height:0}.blok.zij .ft img,.sg.zij .ft img{height:auto;aspect-ratio:3/4;flex:none;min-height:0}.blok.zij .tk,.sg.zij .tk{padding:14px}.blok.zij .tk p,.sg.zij .tk p{font-size:.95rem}.btop,.brij{padding-left:14px;padding-right:14px}}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}
@@ -603,17 +606,17 @@ const par = t => String(t || '').split('\n').map(x => x.trim()).filter(Boolean).
 const heeftLang = v => !!(v.lang && String(v.lang).trim());
 function verhaalBlokken(v) {
   const fo = Array.isArray(v.fotos) ? v.fotos : [], used = {}, B = [];
-  const ns = () => ({ p: [], f: null, more: [], z: null, rows: [] });
+  const ns = () => ({ p: [], f: null, more: [], z: null, top: [], rows: [], dicht: false });
   const nb = () => ({ kop: '', segs: [ns()] });
   let c = nb();
   const cs = () => c.segs[c.segs.length - 1];
-  const segLeeg = s => !s.p.length && s.f == null && !s.rows.length;
-  const heeftFoto = s => s.f != null || s.rows.length > 0;
+  const segLeeg = s => !s.p.length && s.f == null && !s.rows.length && !s.top.length;
+  const heeftFoto = s => s.f != null || s.rows.length > 0 || s.top.length > 0;
   const blokLeeg = () => !c.kop && c.segs.every(segLeeg);
   const push = () => { if (!blokLeeg()) { c.segs = c.segs.filter(s => !segLeeg(s)); if (!c.segs.length) c.segs = [ns()]; B.push(c); } c = nb(); };
   const take = g => {
     const r = [], add = n => { if (n >= 0 && fo[n] && fo[n].src && !used[n]) { used[n] = 1; r.push(n); } };
-    g.replace(/\s*[-\u2013]\s*/g, '-').split(/[\s,;]+/).forEach(t => {
+    g.replace(/\s*[-–]\s*/g, '-').split(/[\s,;]+/).forEach(t => {
       let m;
       if (m = t.match(/^(\d+)-(\d+)$/)) {
         let a = +m[1], b = +m[2];
@@ -626,12 +629,19 @@ function verhaalBlokken(v) {
   String(v.lang || '').split('\n').map(x => x.trim()).forEach(x => {
     let m;
     if (!x) { if (heeftFoto(cs())) c.segs.push(ns()); return; }
-    if (m = x.match(/^\[(foto|fotos|rij|links|rechts|onder)\s*([\d\s,;\-\u2013]+)\]$/i)) {
+    if (m = x.match(/^\[\s*(foto|fotos|rij|links|rechts|boven|onder)\s*:?\s*([\d\s,;\-–]+)\]$/i)) {
       const k = m[1].toLowerCase(), g = m[2].trim();
       if (k == 'foto' && /^\d+$/.test(g)) { const n = g - 1; if (fo[n] && fo[n].src && !used[n]) { used[n] = 1; if (cs().f != null) push(); cs().f = n; } }
       else if (k == 'links' || k == 'rechts') {
         const r = take(g);
-        if (r.length) { if (cs().f != null) push(); const s = cs(); s.f = r[0]; s.more = r.slice(1); s.z = k == 'links' ? 'l' : 'r'; }
+        if (r.length) { if (cs().f != null) c.segs.push(ns()); const s = cs(); s.f = r[0]; s.more = r.slice(1); s.z = k == 'links' ? 'l' : 'r'; if (s.p.length) s.dicht = true; }
+      }
+      else if (k == 'boven' || k == 'onder') {
+        const r = take(g);
+        if (r.length) {
+          if (k == 'onder' && blokLeeg()) B.push({ car: r, kop: '' });
+          else { const s = cs(); (k == 'boven' ? s.top : s.rows).push(r); if (s.p.length) s.dicht = true; }
+        }
       }
       else {
         const r = take(g);
@@ -644,39 +654,42 @@ function verhaalBlokken(v) {
     }
     else if (/^\[naast\]$/i.test(x)) { push(); if (B.length && !B[B.length - 1].car) B[B.length - 1].duo = 1; }
     else if (m = x.match(/^##(?:\s+(.*))?$/)) { push(); c.kop = (m[1] || '').trim(); }
-    else cs().p.push(x);
+    else { if (cs().dicht) c.segs.push(ns()); cs().p.push(x); }
   });
   push();
   const im = n => `<img src="${esc(rel(fo[n].src))}" alt="${esc(fo[n].tekst || v.titel)}" loading="lazy">`;
   const cap = n => fo[n].tekst ? `<figcaption>${esc(fo[n].tekst)}</figcaption>` : '';
   const ftH = s => s.more.length ? `<div class="ft ftst">${[s.f, ...s.more].map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div>` : `<figure class="ft">${im(s.f)}${cap(s.f)}</figure>`;
-  const carH = (r, kop) => `<div class="car">${kop ? `<h2 class="ckop">${esc(kop)}</h2>` : ''}<div class="cw"><button type="button" class="pijl p" aria-label="Vorige">\u2039</button><div class="rij">${r.map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button type="button" class="pijl n" aria-label="Volgende">\u203a</button></div></div>`;
+  const carH = (r, kop) => `<div class="car">${kop ? `<h2 class="ckop">${esc(kop)}</h2>` : ''}<div class="cw"><button type="button" class="pijl p" aria-label="Vorige">‹</button><div class="rij">${r.map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button type="button" class="pijl n" aria-label="Volgende">›</button></div></div>`;
+  const rowH = r => r.length == 1 ? `<figure class="bfoto">${im(r[0])}${cap(r[0])}</figure>` : carH(r, '');
   let t = 0, side = 0, o = '', open = 0;
   B.forEach(b => {
-    if (b.car) { if (open) { o += '</div>'; open = 0; } o += carH(b.car, b.kop); return; }
+    if (b.car) { if (open) { o += '</div>'; open = 0; } o += b.car.length == 1 && !b.kop ? `<figure class="vfoto2">${im(b.car[0])}${cap(b.car[0])}</figure>` : carH(b.car, b.kop); return; }
     const s0 = b.segs[0];
-    if (b.segs.length == 1 && s0.f != null && !b.kop && !s0.p.length && !s0.rows.length) {
+    if (b.segs.length == 1 && s0.f != null && !b.kop && !s0.p.length && !s0.rows.length && !s0.top.length) {
       if (open) { o += '</div>'; open = 0; }
       o += s0.more.length ? carH([s0.f, ...s0.more], '') : `<figure class="vfoto2">${im(s0.f)}${cap(s0.f)}</figure>`;
       return;
     }
     const vol = t++ % 2 == 0, inDuo = open || b.duo;
     if (!open && b.duo) { o += '<div class="duo">'; open = 1; }
-    const rij = s => s.rows.length ? `<div class="brij">${s.rows.map(r => carH(r, '')).join('')}</div>` : '';
+    const top = s => s.top.length ? `<div class="btop">${s.top.map(rowH).join('')}</div>` : '';
+    const rij = s => s.rows.length ? `<div class="brij">${s.rows.map(rowH).join('')}</div>` : '';
     const kopH = b.kop ? `<h2>${esc(b.kop)}</h2>` : '';
     const ps = s => s.p.map(x => `<p>${esc(x)}</p>`).join('');
-    const lay = s => { const hf = s.f != null; return { hf, r: !inDuo && hf && (s.z ? s.z == 'r' : (side++ % 2 == 1)) }; };
+    const lay = s => { const hf = s.f != null; return { hf, zij: hf && !!s.z && !inDuo, r: !inDuo && hf && (s.z ? s.z == 'r' : (side++ % 2 == 1)) }; };
     if (b.segs.length == 1) {
-      const { hf, r } = lay(s0);
-      o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${vol ? 'vol' : ''}">${hf ? ftH(s0) : ''}<div class="tk">${kopH}${ps(s0)}</div>${rij(s0)}</article>`;
+      const { hf, zij, r } = lay(s0);
+      o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${zij ? 'zij' : ''} ${vol ? 'vol' : ''}">${top(s0)}${hf ? ftH(s0) : ''}<div class="tk">${kopH}${ps(s0)}</div>${rij(s0)}</article>`;
     } else {
-      o += `<article class="blok multi ${inDuo ? 'kop' : ''} ${vol ? 'vol' : ''}">${b.segs.map((s, i) => { const { hf, r } = lay(s); return `<div class="sg ${hf && !inDuo ? 'met' : ''} ${r ? 'r' : ''}">${hf ? ftH(s) : ''}<div class="tk">${i == 0 ? kopH : ''}${ps(s)}</div>${rij(s)}</div>`; }).join('')}</article>`;
+      o += `<article class="blok multi ${inDuo ? 'kop' : ''} ${vol ? 'vol' : ''}">${b.segs.map((s, i) => { const { hf, zij, r } = lay(s); return `<div class="sg ${hf && !inDuo ? 'met' : ''} ${r ? 'r' : ''} ${zij ? 'zij' : ''}">${top(s)}${hf ? ftH(s) : ''}<div class="tk">${i == 0 ? kopH : ''}${ps(s)}</div>${rij(s)}</div>`; }).join('')}</article>`;
     }
     if (open && !b.duo) { o += '</div>'; open = 0; }
   });
   if (open) o += '</div>';
   return o;
 }
+
 const VERHAALSCRIPT = `function pijlen(){[].forEach.call(document.querySelectorAll('.car'),function(c){var r=c.querySelector('.rij');c.querySelector('.p').onclick=function(){r.scrollBy({left:-r.clientWidth,behavior:'smooth'})};c.querySelector('.n').onclick=function(){r.scrollBy({left:r.clientWidth,behavior:'smooth'})};c.classList.toggle('scroll',r.scrollWidth>r.clientWidth+4)})}
 pijlen();addEventListener('resize',pijlen);setTimeout(pijlen,300);`;
 const gebruikt = [];

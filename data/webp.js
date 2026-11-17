@@ -948,6 +948,7 @@ window.WEBP={
  "img/verhalen/kleine-vink-1792614878345-13.webp":1,
  "img/verhalen/kleine-vink-1792614880490-14.webp":1,
  "img/verhalen/verhaal-1792615732760.webp":1,
+ "img/verhalen/verhaal-1794936644275.webp":1,
  "img/verhalen/weekje-herfst-vakantie-1792615800580-1.webp":1,
  "img/verhalen/weekje-herfst-vakantie-1792615804879-2.webp":1,
  "img/verhalen/weekje-herfst-vakantie-1792615806743-3.webp":1,

@@ -725,16 +725,17 @@ const LIGHTBOXSCRIPT = `(function(){var im=[].slice.call(document.querySelectorA
 var lb=document.createElement('div');lb.className='vlb';lb.hidden=true;lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Foto vergroot');
 lb.innerHTML='<button type="button" class="vlbx" aria-label="Sluiten">&times;</button><button type="button" class="vlbn vlbp" aria-label="Vorige foto">&lsaquo;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="vlbn vlbv" aria-label="Volgende foto">&rsaquo;</button><span class="vlbt"></span>';
 document.body.appendChild(lb);
-var big=lb.querySelector('img'),cap=lb.querySelector('figcaption'),tel=lb.querySelector('.vlbt'),cur=0,aan=false,x0=null,terug=null;
-if(im.length<2){[].forEach.call(lb.querySelectorAll('.vlbn'),function(b){b.hidden=true})}
-function toon(i){cur=(i+im.length)%im.length;var s=im[cur],f=s.closest('figure'),c=f&&f.querySelector('figcaption');big.src=s.currentSrc||s.src;big.alt=s.alt||'';cap.textContent=c?c.textContent:'';cap.hidden=!c||!c.textContent;tel.textContent=im.length>1?(cur+1)+' / '+im.length:''}
-function open(i,el){terug=el;toon(i);lb.hidden=false;aan=true;document.documentElement.style.overflow='hidden';lb.querySelector('.vlbx').focus()}
+var big=lb.querySelector('img'),cap=lb.querySelector('figcaption'),tel=lb.querySelector('.vlbt'),cur=0,aan=false,x0=null,terug=null,lijst=im;
+function groep(s){return s.closest('.sg,.blok')||s.closest('.car,.vfoto2')||s}
+function knoppen(){[].forEach.call(lb.querySelectorAll('.vlbn'),function(b){b.hidden=lijst.length<2})}
+function toon(i){cur=(i+lijst.length)%lijst.length;var s=lijst[cur],f=s.closest('figure'),c=f&&f.querySelector('figcaption');big.src=s.currentSrc||s.src;big.alt=s.alt||'';cap.textContent=c?c.textContent:'';cap.hidden=!c||!c.textContent;tel.textContent=lijst.length>1?(cur+1)+' / '+lijst.length:''}
+function open(el){terug=el;var g=groep(el);lijst=im.filter(function(x){return groep(x)===g});knoppen();toon(lijst.indexOf(el));lb.hidden=false;aan=true;document.documentElement.style.overflow='hidden';lb.querySelector('.vlbx').focus()}
 function sluit(){lb.hidden=true;aan=false;document.documentElement.style.overflow='';big.removeAttribute('src');if(terug&&terug.focus)terug.focus()}
-im.forEach(function(s,k){s.setAttribute('tabindex','0');s.setAttribute('role','button');s.addEventListener('click',function(e){e.preventDefault();open(k,s)});s.addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();open(k,s)}})});
+im.forEach(function(s){s.setAttribute('tabindex','0');s.setAttribute('role','button');s.addEventListener('click',function(e){e.preventDefault();open(s)});s.addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();open(s)}})});
 lb.addEventListener('click',function(e){var t=e.target;if(t.classList.contains('vlbp'))toon(cur-1);else if(t.classList.contains('vlbv'))toon(cur+1);else sluit()});
 document.addEventListener('keydown',function(e){if(!aan)return;if(e.key=='Escape')sluit();else if(e.key=='ArrowLeft')toon(cur-1);else if(e.key=='ArrowRight')toon(cur+1)});
 lb.addEventListener('touchstart',function(e){x0=e.touches.length==1?e.touches[0].clientX:null},{passive:true});
-lb.addEventListener('touchend',function(e){if(x0==null||im.length<2)return;var d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>50)toon(cur+(d<0?1:-1))},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0==null||lijst.length<2)return;var d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>50)toon(cur+(d<0?1:-1))},{passive:true});
 })();`;
 const gebruikt = [];
 VERHALEN.forEach(v => {

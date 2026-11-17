@@ -32,7 +32,8 @@ const verhaalVars = o => {
   Object.entries(o || {}).forEach(([k, x]) => { if (x !== '' && x != null) w[k] = x; });
   const v = parseFloat(String(w.tg).replace(',', '.')), tg = (isFinite(v) && v >= 0.8 && v <= 2.5) ? v : 1.15;
   const zb = ({ smal: 20, middel: 24, breed: 32 })[w.zb] || 24, zp = w.zp == 'boven' ? 'start' : 'center';
-  return `:root{--vtg:${tg}rem;--vtm:${Math.max(0.8, tg - 0.1).toFixed(2)}rem;--vtz:${Math.max(0.8, tg - 0.15).toFixed(2)}rem;--vzb:${zb}%;--vzp:${zp}}`;
+  const kv = parseFloat(String(w.kg).replace(',', '.')), kg = (isFinite(kv) && kv >= 0.8 && kv <= 4) ? kv : +(tg * 1.6 / 1.15).toFixed(2);
+  return `:root{--vtg:${tg}rem;--vtm:${Math.max(0.8, tg - 0.1).toFixed(2)}rem;--vtz:${Math.max(0.8, tg - 0.15).toFixed(2)}rem;--vzb:${zb}%;--vzp:${zp};--vkg:${kg}rem}`;
 };
 const VERHAALVARS = verhaalVars({});
 
@@ -139,6 +140,7 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .blok .tk p{font-size:var(--vtg,1.15rem);line-height:1.6}.blok.met .tk,.sg.met .tk{align-self:var(--vzp,center)}
 @media(max-width:760px){.blok .tk p{font-size:var(--vtm,1.05rem)}.blok.zij .tk p,.sg.zij .tk p{font-size:var(--vtz,1rem)}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
 .blok.met .ftst,.sg.met .ftst{align-self:start;background:none}.blok.met .ftst figure,.sg.met .ftst figure{flex:none}
+.blok .tk h1,.blok .tk h2,.blok .tk h3{font-size:var(--vkg,1.6rem)}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}

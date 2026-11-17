@@ -53,7 +53,10 @@ const VERHALEN=[
     "src": "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794939826163-12.png",
     "tekst": ""
    }
-  ]
+  ],
+  "vo": {
+   "tg": 1.3
+  }
  },
  {
   "titel": "Een avond vol kleur",

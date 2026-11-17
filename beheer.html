@@ -239,24 +239,24 @@ if(!Array.isArray(c.vlogs))c.vlogs=typeof c.vlog=='string'?c.vlog.split('\n').fi
 c.vlogs=c.vlogs.map(v=>typeof v=='string'?pa(v):v);
 const have=new Set(c.vlogs.map(v=>v.url)),keuze=D.VID.filter(v=>v&&v.url&&!have.has(v.url));
 return `<h3>Video's van deze plek</h3><small>Plak een YouTube-link. De titel is niet verplicht.</small>`+c.vlogs.map((v,j,A)=>`<div data-cvr style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0"><input data-cvt placeholder="Titel (mag leeg)" value="${esc(v.titel)}" style="flex:1;min-width:150px"><input data-cvu placeholder="YouTube-link" value="${esc(v.url)}" style="flex:2;min-width:200px"><div class="mv"><button data-cvm="-1" data-j="${j}" ${j==0?'disabled':''}>&uarr;</button><button data-cvm="1" data-j="${j}" ${j==A.length-1?'disabled':''}>&darr;</button><button class="r" data-cvd="${j}">Weghalen</button></div></div>`).join('')+`<button data-cva>Video toevoegen</button>`+(keuze.length?`<details><summary>Of kies uit je video's (${keuze.length})</summary>${keuze.map(v=>`<label class="cvp"><input type="checkbox" data-cvp value="${esc(v.url)}"><span>${esc(v.titel||v.url)}</span></label>`).join('')}<button data-cvpadd>Geselecteerde video's toevoegen</button></details>`:'')}
-function vfotos(v){const f=v.fotos||[];return `<h3>Extra foto's bij het verhaal</h3><small>Typ <b>[foto 1]</b> op een eigen regel in een blok om die foto naast de tekst te zetten. Typ <b>[rechts 12, 2]</b> of <b>[links 12, 2]</b> om één of meer foto's onder elkaar aan de zijkant van de tekst te zetten. Zet je na een foto-code een lege regel, dan begint er in hetzelfde blok een nieuwe alinea met eigen foto's. Typ <b>[onder 2, 9-11, 13]</b> (of <b>[fotos ...]</b>) voor een rij foto's in het blok, onder de tekst, of <b>[rij 2, 9-11, 13]</b> voor een losse rij tussen de blokken. Foto's die je nergens neerzet, worden niet getoond.</small>`+f.map((p,j)=>`<div style="display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap"><img class="p" style="width:110px;height:80px;object-fit:cover;margin:0" src="${esc(prev[p.src]||p.src)}"><div style="flex:1;min-width:180px"><b>Foto ${j+1}</b> <small>(typ [foto ${j+1}])</small><input data-fc="${j}" placeholder="Bijschrift (mag leeg)" value="${esc(p.tekst)}"></div><button data-fdel="${j}" style="background:transparent;border:2px solid var(--oranje);color:var(--room)">Weghalen</button></div>`).join('')+`<label>Foto's toevoegen (je mag er meerdere tegelijk kiezen)<input type="file" accept="image/*" multiple data-vfs></label>`}
+function vfotos(v){const f=v.fotos||[];return `<h3>Extra foto's bij het verhaal</h3><small>Zet een code op een eigen regel, direct onder de alinea waar de foto's bij horen. De volgende alinea begint dan vanzelf opnieuw, in hetzelfde blok. <b>[rechts 12, 2]</b> of <b>[links 12, 2]</b>: foto's onder elkaar aan de zijkant. <b>[boven 2, 9-11]</b>: foto's boven de tekst. <b>[onder 2, 9-11]</b>: foto's onder de tekst. <b>[foto 1]</b>: één foto naast de tekst (wisselt vanzelf links en rechts). <b>[rij 2, 9-11]</b>: een losse rij tussen de blokken. Een nieuw blok met een andere kleur begin je met <b>##</b>. Foto's die je nergens neerzet, worden niet getoond.</small>`+f.map((p,j)=>`<div style="display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap"><img class="p" style="width:110px;height:80px;object-fit:cover;margin:0" src="${esc(prev[p.src]||p.src)}"><div style="flex:1;min-width:180px"><b>Foto ${j+1}</b> <small>(typ [foto ${j+1}])</small><input data-fc="${j}" placeholder="Bijschrift (mag leeg)" value="${esc(p.tekst)}"></div><button data-fdel="${j}" style="background:transparent;border:2px solid var(--oranje);color:var(--room)">Weghalen</button></div>`).join('')+`<label>Foto's toevoegen (je mag er meerdere tegelijk kiezen)<input type="file" accept="image/*" multiple data-vfs></label>`}
 function wireI(){document.querySelectorAll('[data-if]').forEach(inp=>inp.onchange=async()=>{const f=inp.files[0];if(!f)return;const k=inp.dataset.if;toast('Foto uploaden...');try{D.INST[k]=await prep(f,'img/'+k+'-'+Date.now()+'.jpg','Foto '+k);draw();toast('Foto staat erin. Kies nog Opslaan en publiceren.')}catch(e){toast('Foto uploaden mislukte: '+e.message)}});
 document.querySelectorAll('[data-ifr]').forEach(x=>x.onclick=()=>{D.INST[x.dataset.ifr]=INSTDEF[x.dataset.ifr];draw()})}
 
 const PV=(()=>{const E=esc,par=t=>String(t||'').split('\n').map(x=>x.trim()).filter(Boolean).map(x=>`<p>${E(x)}</p>`).join('');
 function vlang(v){
   const fo = Array.isArray(v.fotos) ? v.fotos : [], used = {}, B = [];
-  const ns = () => ({ p: [], f: null, more: [], z: null, rows: [] });
+  const ns = () => ({ p: [], f: null, more: [], z: null, top: [], rows: [], dicht: false });
   const nb = () => ({ kop: '', segs: [ns()] });
   let c = nb();
   const cs = () => c.segs[c.segs.length - 1];
-  const segLeeg = s => !s.p.length && s.f == null && !s.rows.length;
-  const heeftFoto = s => s.f != null || s.rows.length > 0;
+  const segLeeg = s => !s.p.length && s.f == null && !s.rows.length && !s.top.length;
+  const heeftFoto = s => s.f != null || s.rows.length > 0 || s.top.length > 0;
   const blokLeeg = () => !c.kop && c.segs.every(segLeeg);
   const push = () => { if (!blokLeeg()) { c.segs = c.segs.filter(s => !segLeeg(s)); if (!c.segs.length) c.segs = [ns()]; B.push(c); } c = nb(); };
   const take = g => {
     const r = [], add = n => { if (n >= 0 && fo[n] && fo[n].src && !used[n]) { used[n] = 1; r.push(n); } };
-    g.replace(/\s*[-\u2013]\s*/g, '-').split(/[\s,;]+/).forEach(t => {
+    g.replace(/\s*[-–]\s*/g, '-').split(/[\s,;]+/).forEach(t => {
       let m;
       if (m = t.match(/^(\d+)-(\d+)$/)) {
         let a = +m[1], b = +m[2];
@@ -269,12 +269,19 @@ function vlang(v){
   String(v.lang || '').split('\n').map(x => x.trim()).forEach(x => {
     let m;
     if (!x) { if (heeftFoto(cs())) c.segs.push(ns()); return; }
-    if (m = x.match(/^\[(foto|fotos|rij|links|rechts|onder)\s*([\d\s,;\-\u2013]+)\]$/i)) {
+    if (m = x.match(/^\[\s*(foto|fotos|rij|links|rechts|boven|onder)\s*:?\s*([\d\s,;\-–]+)\]$/i)) {
       const k = m[1].toLowerCase(), g = m[2].trim();
       if (k == 'foto' && /^\d+$/.test(g)) { const n = g - 1; if (fo[n] && fo[n].src && !used[n]) { used[n] = 1; if (cs().f != null) push(); cs().f = n; } }
       else if (k == 'links' || k == 'rechts') {
         const r = take(g);
-        if (r.length) { if (cs().f != null) push(); const s = cs(); s.f = r[0]; s.more = r.slice(1); s.z = k == 'links' ? 'l' : 'r'; }
+        if (r.length) { if (cs().f != null) c.segs.push(ns()); const s = cs(); s.f = r[0]; s.more = r.slice(1); s.z = k == 'links' ? 'l' : 'r'; if (s.p.length) s.dicht = true; }
+      }
+      else if (k == 'boven' || k == 'onder') {
+        const r = take(g);
+        if (r.length) {
+          if (k == 'onder' && blokLeeg()) B.push({ car: r, kop: '' });
+          else { const s = cs(); (k == 'boven' ? s.top : s.rows).push(r); if (s.p.length) s.dicht = true; }
+        }
       }
       else {
         const r = take(g);
@@ -287,33 +294,35 @@ function vlang(v){
     }
     else if (/^\[naast\]$/i.test(x)) { push(); if (B.length && !B[B.length - 1].car) B[B.length - 1].duo = 1; }
     else if (m = x.match(/^##(?:\s+(.*))?$/)) { push(); c.kop = (m[1] || '').trim(); }
-    else cs().p.push(x);
+    else { if (cs().dicht) c.segs.push(ns()); cs().p.push(x); }
   });
   push();
   const im = n => `<img src="${E(fo[n].src)}" alt="${E(fo[n].tekst || v.titel)}" data-vn="${n}" loading="lazy">`;
   const cap = n => fo[n].tekst ? `<figcaption>${E(fo[n].tekst)}</figcaption>` : '';
   const ftH = s => s.more.length ? `<div class="ft ftst">${[s.f, ...s.more].map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div>` : `<figure class="ft">${im(s.f)}${cap(s.f)}</figure>`;
-  const carH = (r, kop) => `<div class="car">${kop ? `<h3 class="ckop">${E(kop)}</h3>` : ''}<div class="cw"><button class="pijl p" aria-label="Vorige">\u2039</button><div class="rij">${r.map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button class="pijl n" aria-label="Volgende">\u203a</button></div></div>`;
+  const carH = (r, kop) => `<div class="car">${kop ? `<h3 class="ckop">${E(kop)}</h3>` : ''}<div class="cw"><button class="pijl p" aria-label="Vorige">‹</button><div class="rij">${r.map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button class="pijl n" aria-label="Volgende">›</button></div></div>`;
+  const rowH = r => r.length == 1 ? `<figure class="bfoto">${im(r[0])}${cap(r[0])}</figure>` : carH(r, '');
   let t = 0, side = 0, o = '', open = 0;
   B.forEach(b => {
-    if (b.car) { if (open) { o += '</div>'; open = 0; } o += carH(b.car, b.kop); return; }
+    if (b.car) { if (open) { o += '</div>'; open = 0; } o += b.car.length == 1 && !b.kop ? `<figure class="vfoto2">${im(b.car[0])}${cap(b.car[0])}</figure>` : carH(b.car, b.kop); return; }
     const s0 = b.segs[0];
-    if (b.segs.length == 1 && s0.f != null && !b.kop && !s0.p.length && !s0.rows.length) {
+    if (b.segs.length == 1 && s0.f != null && !b.kop && !s0.p.length && !s0.rows.length && !s0.top.length) {
       if (open) { o += '</div>'; open = 0; }
       o += s0.more.length ? carH([s0.f, ...s0.more], '') : `<figure class="vfoto2">${im(s0.f)}${cap(s0.f)}</figure>`;
       return;
     }
     const vol = t++ % 2 == 0, inDuo = open || b.duo;
     if (!open && b.duo) { o += '<div class="duo">'; open = 1; }
-    const rij = s => s.rows.length ? `<div class="brij">${s.rows.map(r => carH(r, '')).join('')}</div>` : '';
+    const top = s => s.top.length ? `<div class="btop">${s.top.map(rowH).join('')}</div>` : '';
+    const rij = s => s.rows.length ? `<div class="brij">${s.rows.map(rowH).join('')}</div>` : '';
     const kopH = b.kop ? `<h3>${E(b.kop)}</h3>` : '';
     const ps = s => s.p.map(x => `<p>${E(x)}</p>`).join('');
-    const lay = s => { const hf = s.f != null; return { hf, r: !inDuo && hf && (s.z ? s.z == 'r' : (side++ % 2 == 1)) }; };
+    const lay = s => { const hf = s.f != null; return { hf, zij: hf && !!s.z && !inDuo, r: !inDuo && hf && (s.z ? s.z == 'r' : (side++ % 2 == 1)) }; };
     if (b.segs.length == 1) {
-      const { hf, r } = lay(s0);
-      o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${vol ? 'vol' : ''}">${hf ? ftH(s0) : ''}<div class="tk">${kopH}${ps(s0)}</div>${rij(s0)}</article>`;
+      const { hf, zij, r } = lay(s0);
+      o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${zij ? 'zij' : ''} ${vol ? 'vol' : ''}">${top(s0)}${hf ? ftH(s0) : ''}<div class="tk">${kopH}${ps(s0)}</div>${rij(s0)}</article>`;
     } else {
-      o += `<article class="blok multi ${inDuo ? 'kop' : ''} ${vol ? 'vol' : ''}">${b.segs.map((s, i) => { const { hf, r } = lay(s); return `<div class="sg ${hf && !inDuo ? 'met' : ''} ${r ? 'r' : ''}">${hf ? ftH(s) : ''}<div class="tk">${i == 0 ? kopH : ''}${ps(s)}</div>${rij(s)}</div>`; }).join('')}</article>`;
+      o += `<article class="blok multi ${inDuo ? 'kop' : ''} ${vol ? 'vol' : ''}">${b.segs.map((s, i) => { const { hf, zij, r } = lay(s); return `<div class="sg ${hf && !inDuo ? 'met' : ''} ${r ? 'r' : ''} ${zij ? 'zij' : ''}">${top(s)}${hf ? ftH(s) : ''}<div class="tk">${i == 0 ? kopH : ''}${ps(s)}</div>${rij(s)}</div>`; }).join('')}</article>`;
     }
     if (open && !b.duo) { o += '</div>'; open = 0; }
   });
@@ -424,6 +433,10 @@ const eigen=g=>g.v.filter(([k])=>T[k]!=null&&T[k]!==''&&T[k]!=d[k]).length;
 return `<div class="t pg" role="tablist" aria-label="Pagina">${G.map(g=>{const e=eigen(g);return `<button type="button" role="tab" data-pg="${esc(g.n)}" class="${g.n==ptG?'on':''}" onclick="ptTab(this)">${esc(g.n)}${e?`<i title="${e} aangepast">&bull;</i>`:''}</button>`}).join('')}</div>`+G.map(g=>`<div class="pp ${g.n==ptG?'on':''}" data-pp="${esc(g.n)}">${g.n=='Home'?tegels():''}${g.v.length?`<div class="bk"><h3>Teksten op ${esc(g.n)}</h3>${g.v.map(([k,t])=>{const v=T[k]!=null&&T[k]!==''?T[k]:(d[k]||'');return `<label>${esc(t.charAt(0).toUpperCase()+t.slice(1))}<textarea data-tk="${k}" rows="${v.length>90?3:1}">${esc(v)}</textarea></label>`}).join('')}</div>`:''}</div>`).join('')+'<small>Een bolletje bij een pagina betekent dat daar een tekst is aangepast.</small>'}
 function ptTab(b){ptG=b.dataset.pg;document.querySelectorAll('[data-pg]').forEach(x=>x.classList.toggle('on',x==b));document.querySelectorAll('[data-pp]').forEach(x=>x.classList.toggle('on',x.dataset.pp==ptG))}
 function wireT(){if(tab!='Teksten')return;ptDefaults().then(d=>{const e=$('#pt');if(e&&tab=='Teksten')e.innerHTML=tekstHTML(d)}).catch(e=>{const x=$('#pt');if(x)x.textContent='Laden mislukte: '+e.message})}
+const STORYCSS=`.btop,.brij{grid-column:1/-1;display:grid;gap:14px;padding:0 26px 24px}.btop{order:-1;padding:22px 26px 0}.brij{order:3}.btop .car,.brij .car{margin:0}
+.bfoto{margin:0}.bfoto img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;display:block}.bfoto figcaption{padding:6px 4px 0;color:var(--zacht);font-size:.9rem;line-height:1.35}.blok.vol .bfoto figcaption{color:#1a0f05}
+@media(max-width:760px){.blok.zij.met,.sg.zij.met{grid-template-columns:38% 1fr}.blok.zij.met.r,.sg.zij.met.r{grid-template-columns:1fr 38%}.blok.zij.r .ft,.sg.zij.r .ft{order:2}.blok.zij .ft,.sg.zij .ft{min-height:0}.blok.zij .ft img,.sg.zij .ft img{height:auto;aspect-ratio:3/4;flex:none;min-height:0}.blok.zij .tk,.sg.zij .tk{padding:14px}.blok.zij .tk p,.sg.zij .tk p{font-size:.95rem}.btop,.brij{padding-left:14px;padding-right:14px}}
+`;
 let SITECSS='';
 async function siteCss(){if(SITECSS)return SITECSS;const u=location.href.replace(/[?#].*$/,'').replace(/[^\/]*$/,'')+'index.html';const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('index.html niet gevonden ('+r.status+')');const t=await r.text(),m=t.match(/<style>([\s\S]*?)<\/style>/);if(!m)throw new Error('opmaak van de site niet gevonden');return SITECSS=m[1]}
 async function voorbeeld(i){const v0=D.VERHALEN[i];if(!v0)return;let css;try{css=await siteCss()}catch(e){toast('Voorbeeld niet beschikbaar: '+e.message);return}
@@ -431,7 +444,7 @@ const U=x=>x?(prev[x]||x):x,v={...v0,foto:U(v0.foto),fotos:(v0.fotos||[]).map(p=
 const kaart=`<section class="page s-mos on"><div class="wrap"><h2>Verhalen van onze avonturen</h2><div class="grid"><article class="kaart">${v.foto?`<img src="${esc(v.foto)}" alt="" loading="lazy">`:''}<div><h3>${esc(v.titel)}</h3>${PV.par(v.tekst)}${heeft?'<a class="btn" href="#">Lees meer</a>':''}</div></article></div></div></section>`;
 const detail=`<section class="page s-mos on"><div class="wrap" id="verhaaldetail"><a class="terug" href="#">Terug naar alle verhalen</a>${PV.vkop(v)}${PV.vlang(v)}</div></section>`;
 const scr="document.addEventListener('click',function(e){if(e.target.closest('a'))e.preventDefault()});var chk=function(){document.querySelectorAll('.car').forEach(function(c){var r=c.querySelector('.rij');if(r)c.classList.toggle('scroll',r.scrollWidth>r.clientWidth+4)})};document.querySelectorAll('.car').forEach(function(c){var r=c.querySelector('.rij');c.querySelector('.p').onclick=function(){r.scrollBy({left:-r.clientWidth,behavior:'smooth'})};c.querySelector('.n').onclick=function(){r.scrollBy({left:r.clientWidth,behavior:'smooth'})}});addEventListener('resize',chk);setTimeout(chk,0);setTimeout(chk,400);";
-const mk=inner=>`<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="${esc(base)}"><link rel="stylesheet" href="fonts/fonts.css"><style>${css}</style></head><body>${inner}<script>${scr}<\/script></body></html>`;
+const mk=inner=>`<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="${esc(base)}"><link rel="stylesheet" href="fonts/fonts.css"><style>${css}${STORYCSS}</style></head><body>${inner}<script>${scr}<\/script></body></html>`;
 const old=$('#pvo');if(old)old.remove();
 const o=document.createElement('div');o.id='pvo';o.style.cssText='position:fixed;inset:0;z-index:100;background:#0d1a15;display:flex;flex-direction:column';
 o.innerHTML=`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 12px;background:#17301f;border-bottom:2px solid #f08a3c"><b style="flex:1;min-width:150px">Voorbeeld, nog niet opgeslagen</b><button data-pt="0">Blokje op de site</button>${heeft?'<button data-pt="1">Na Lees meer</button>':''}<button class="r" data-px>Sluiten</button></div><iframe style="flex:1;border:0;width:100%;background:#0d1a15" title="Voorbeeld"></iframe>`;

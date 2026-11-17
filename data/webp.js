@@ -944,6 +944,7 @@ window.WEBP={
  "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794936699922-10.webp":1,
  "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794936702121-11.webp":1,
  "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794936704267-12.webp":1,
+ "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794939417857.webp":1,
  "img/verhalen/kleine-vink-1792614830131.webp":1,
  "img/verhalen/kleine-vink-1792614850847-1.webp":1,
  "img/verhalen/kleine-vink-1792614853621-2.webp":1,

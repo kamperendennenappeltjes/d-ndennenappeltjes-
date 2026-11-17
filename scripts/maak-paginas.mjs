@@ -119,7 +119,9 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .pijl{position:absolute;top:83px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(240,138,60,.95);color:#1a0f05;font:700 1.6rem/1 Fredoka,sans-serif;cursor:pointer;display:none;place-items:center;z-index:2}
 .pijl.p{left:8px}.pijl.n{right:8px}.car.scroll .pijl{display:grid}
 .brij{grid-column:1/-1;order:3;padding:0 26px 24px;display:grid;gap:14px}.brij .car{margin:0}.blok.vol .rij figcaption{color:#1a0f05}.blok.vol .rij{scrollbar-color:var(--nacht) rgba(0,0,0,.2)}.blok.vol .rij::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}.blok.vol .rij::-webkit-scrollbar-thumb{background:var(--nacht)}.duo .rij figure{flex-basis:calc((100% - 14px)/2)}
-@media(max-width:760px){.blok.met,.blok.met.r,.duo{grid-template-columns:1fr}.blok.r .ft{order:0}.ft img,.blok.kop .ft img{height:230px;flex:none}.rij figure{flex-basis:80%}.pijl{top:83px}}
+.ftst{gap:6px;background:var(--nacht)}.ftst figure{margin:0;flex:1;display:flex;flex-direction:column;min-height:150px}.ftst img{flex:1;min-height:150px;width:100%;object-fit:cover;display:block}
+.sg{display:grid}.sg.met{grid-template-columns:1fr 2fr}.sg.met.r{grid-template-columns:2fr 1fr}.sg.r .ft{order:2}.multi .sg:not(.met)+.sg:not(.met) .tk{padding-top:0}
+@media(max-width:760px){.sg.met,.sg.met.r{grid-template-columns:1fr}.sg.r .ft{order:0}.blok.met,.blok.met.r,.duo{grid-template-columns:1fr}.ftst figure{min-height:0}.ftst img{height:200px;flex:none}.blok.r .ft{order:0}.ft img,.blok.kop .ft img{height:230px;flex:none}.rij figure{flex-basis:80%}.pijl{top:83px}}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}
@@ -600,9 +602,15 @@ ${NAARBOVEN}`
 const par = t => String(t || '').split('\n').map(x => x.trim()).filter(Boolean).map(x => `<p>${esc(x)}</p>`).join('');
 const heeftLang = v => !!(v.lang && String(v.lang).trim());
 function verhaalBlokken(v) {
-  const fo = Array.isArray(v.fotos) ? v.fotos : [], used = {}, B = [], nb = () => ({ kop: '', p: [], f: null, rows: [] });
+  const fo = Array.isArray(v.fotos) ? v.fotos : [], used = {}, B = [];
+  const ns = () => ({ p: [], f: null, more: [], z: null, rows: [] });
+  const nb = () => ({ kop: '', segs: [ns()] });
   let c = nb();
-  const push = () => { if (c.kop || c.p.length || c.f != null || c.rows.length) B.push(c); c = nb(); };
+  const cs = () => c.segs[c.segs.length - 1];
+  const segLeeg = s => !s.p.length && s.f == null && !s.rows.length;
+  const heeftFoto = s => s.f != null || s.rows.length > 0;
+  const blokLeeg = () => !c.kop && c.segs.every(segLeeg);
+  const push = () => { if (!blokLeeg()) { c.segs = c.segs.filter(s => !segLeeg(s)); if (!c.segs.length) c.segs = [ns()]; B.push(c); } c = nb(); };
   const take = g => {
     const r = [], add = n => { if (n >= 0 && fo[n] && fo[n].src && !used[n]) { used[n] = 1; r.push(n); } };
     g.replace(/\s*[-\u2013]\s*/g, '-').split(/[\s,;]+/).forEach(t => {
@@ -615,35 +623,55 @@ function verhaalBlokken(v) {
     });
     return r;
   };
-  String(v.lang || '').split('\n').map(x => x.trim()).filter(Boolean).forEach(x => {
+  String(v.lang || '').split('\n').map(x => x.trim()).forEach(x => {
     let m;
-    if (m = x.match(/^\[(foto|fotos|rij)\s*([\d\s,;\-\u2013]+)\]$/i)) {
+    if (!x) { if (heeftFoto(cs())) c.segs.push(ns()); return; }
+    if (m = x.match(/^\[(foto|fotos|rij|links|rechts|onder)\s*([\d\s,;\-\u2013]+)\]$/i)) {
       const k = m[1].toLowerCase(), g = m[2].trim();
-      if (k == 'foto' && /^\d+$/.test(g)) { const n = g - 1; if (fo[n] && fo[n].src && !used[n]) { used[n] = 1; if (c.f != null) push(); c.f = n; } }
+      if (k == 'foto' && /^\d+$/.test(g)) { const n = g - 1; if (fo[n] && fo[n].src && !used[n]) { used[n] = 1; if (cs().f != null) push(); cs().f = n; } }
+      else if (k == 'links' || k == 'rechts') {
+        const r = take(g);
+        if (r.length) { if (cs().f != null) push(); const s = cs(); s.f = r[0]; s.more = r.slice(1); s.z = k == 'links' ? 'l' : 'r'; }
+      }
       else {
         const r = take(g);
         if (r.length) {
-          if (k == 'rij') { let kop = ''; if (c.kop && !c.p.length && c.f == null && !c.rows.length) { kop = c.kop; c = nb(); } else push(); B.push({ car: r, kop }); }
-          else if (c.kop || c.p.length || c.f != null || c.rows.length) c.rows.push(r);
+          if (k == 'rij') { let kop = ''; if (c.kop && c.segs.every(segLeeg)) { kop = c.kop; c = nb(); } else push(); B.push({ car: r, kop }); }
+          else if (!blokLeeg()) cs().rows.push(r);
           else B.push({ car: r, kop: '' });
         }
       }
     }
     else if (/^\[naast\]$/i.test(x)) { push(); if (B.length && !B[B.length - 1].car) B[B.length - 1].duo = 1; }
     else if (m = x.match(/^##(?:\s+(.*))?$/)) { push(); c.kop = (m[1] || '').trim(); }
-    else c.p.push(x);
+    else cs().p.push(x);
   });
   push();
   const im = n => `<img src="${esc(rel(fo[n].src))}" alt="${esc(fo[n].tekst || v.titel)}" loading="lazy">`;
   const cap = n => fo[n].tekst ? `<figcaption>${esc(fo[n].tekst)}</figcaption>` : '';
+  const ftH = s => s.more.length ? `<div class="ft ftst">${[s.f, ...s.more].map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div>` : `<figure class="ft">${im(s.f)}${cap(s.f)}</figure>`;
   const carH = (r, kop) => `<div class="car">${kop ? `<h2 class="ckop">${esc(kop)}</h2>` : ''}<div class="cw"><button type="button" class="pijl p" aria-label="Vorige">\u2039</button><div class="rij">${r.map(n => `<figure>${im(n)}${cap(n)}</figure>`).join('')}</div><button type="button" class="pijl n" aria-label="Volgende">\u203a</button></div></div>`;
   let t = 0, side = 0, o = '', open = 0;
   B.forEach(b => {
     if (b.car) { if (open) { o += '</div>'; open = 0; } o += carH(b.car, b.kop); return; }
-    if (b.f != null && !b.kop && !b.p.length && !b.rows.length) { if (open) { o += '</div>'; open = 0; } o += `<figure class="vfoto2">${im(b.f)}${cap(b.f)}</figure>`; return; }
-    const vol = t++ % 2 == 0, hf = b.f != null, inDuo = open || b.duo, r = !inDuo && hf && (side++ % 2 == 1);
+    const s0 = b.segs[0];
+    if (b.segs.length == 1 && s0.f != null && !b.kop && !s0.p.length && !s0.rows.length) {
+      if (open) { o += '</div>'; open = 0; }
+      o += s0.more.length ? carH([s0.f, ...s0.more], '') : `<figure class="vfoto2">${im(s0.f)}${cap(s0.f)}</figure>`;
+      return;
+    }
+    const vol = t++ % 2 == 0, inDuo = open || b.duo;
     if (!open && b.duo) { o += '<div class="duo">'; open = 1; }
-    o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${vol ? 'vol' : ''}">${hf ? `<figure class="ft">${im(b.f)}${cap(b.f)}</figure>` : ''}<div class="tk">${b.kop ? `<h2>${esc(b.kop)}</h2>` : ''}${b.p.map(x => `<p>${esc(x)}</p>`).join('')}</div>${b.rows.length ? `<div class="brij">${b.rows.map(r => carH(r, '')).join('')}</div>` : ''}</article>`;
+    const rij = s => s.rows.length ? `<div class="brij">${s.rows.map(r => carH(r, '')).join('')}</div>` : '';
+    const kopH = b.kop ? `<h2>${esc(b.kop)}</h2>` : '';
+    const ps = s => s.p.map(x => `<p>${esc(x)}</p>`).join('');
+    const lay = s => { const hf = s.f != null; return { hf, r: !inDuo && hf && (s.z ? s.z == 'r' : (side++ % 2 == 1)) }; };
+    if (b.segs.length == 1) {
+      const { hf, r } = lay(s0);
+      o += `<article class="blok ${hf ? (inDuo ? 'kop' : 'met') : ''} ${r ? 'r' : ''} ${vol ? 'vol' : ''}">${hf ? ftH(s0) : ''}<div class="tk">${kopH}${ps(s0)}</div>${rij(s0)}</article>`;
+    } else {
+      o += `<article class="blok multi ${inDuo ? 'kop' : ''} ${vol ? 'vol' : ''}">${b.segs.map((s, i) => { const { hf, r } = lay(s); return `<div class="sg ${hf && !inDuo ? 'met' : ''} ${r ? 'r' : ''}">${hf ? ftH(s) : ''}<div class="tk">${i == 0 ? kopH : ''}${ps(s)}</div>${rij(s)}</div>`; }).join('')}</article>`;
+    }
     if (open && !b.duo) { o += '</div>'; open = 0; }
   });
   if (open) o += '</div>';

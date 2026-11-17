@@ -141,6 +141,18 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 @media(max-width:760px){.blok .tk p{font-size:var(--vtm,1.05rem)}.blok.zij .tk p,.sg.zij .tk p{font-size:var(--vtz,1rem)}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
 .blok.met .ftst,.sg.met .ftst{align-self:start;background:none}.blok.met .ftst figure,.sg.met .ftst figure{flex:none}
 .blok .tk h1,.blok .tk h2,.blok .tk h3{font-size:var(--vkg,1.6rem)}
+.blok img,.vfoto2 img,.car img{cursor:zoom-in}
+.vlb{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.97);display:flex;align-items:center;justify-content:center;padding:56px 64px 28px;color:var(--room)}
+.vlb[hidden]{display:none}
+.vlb figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:100%;max-height:100%}
+.vlb img{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);border-radius:12px;display:block;object-fit:contain;cursor:zoom-out}
+.vlb figcaption{text-align:center;max-width:70ch;font-size:1.05rem;line-height:1.45}
+.vlbn,.vlbx{position:absolute;border:0;border-radius:50%;background:rgba(240,138,60,.92);color:#1a0f05;font:700 1.9rem/1 Fredoka,sans-serif;cursor:pointer;display:grid;place-items:center}
+.vlbn{top:50%;transform:translateY(-50%);width:52px;height:52px}.vlbp{left:max(10px,env(safe-area-inset-left,0px))}.vlbv{right:max(10px,env(safe-area-inset-right,0px))}
+.vlbx{top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:44px;height:44px;font-size:1.6rem;background:rgba(246,236,214,.92)}
+.vlbt{position:absolute;top:max(22px,calc(env(safe-area-inset-top,0px) + 10px));left:20px;font-weight:700;color:var(--zacht)}
+@media(max-width:640px){.vlb{padding:56px 8px 24px}.vlbn{width:44px;height:44px;top:46%}}
+.vlbn[hidden]{display:none}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}
@@ -708,6 +720,22 @@ function verhaalBlokken(v) {
 
 const VERHAALSCRIPT = `function pijlen(){[].forEach.call(document.querySelectorAll('.car'),function(c){var r=c.querySelector('.rij');c.querySelector('.p').onclick=function(){r.scrollBy({left:-r.clientWidth,behavior:'smooth'})};c.querySelector('.n').onclick=function(){r.scrollBy({left:r.clientWidth,behavior:'smooth'})};c.classList.toggle('scroll',r.scrollWidth>r.clientWidth+4)})}
 pijlen();addEventListener('resize',pijlen);setTimeout(pijlen,300);`;
+// Foto's in een verhaal aanklikken: vergroot tonen (sluiten met kruisje, Escape of tikken; bladeren met pijltjes of vegen)
+const LIGHTBOXSCRIPT = `(function(){var im=[].slice.call(document.querySelectorAll('.blok img,.vfoto2 img,.car img'));if(!im.length)return;
+var lb=document.createElement('div');lb.className='vlb';lb.hidden=true;lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Foto vergroot');
+lb.innerHTML='<button type="button" class="vlbx" aria-label="Sluiten">&times;</button><button type="button" class="vlbn vlbp" aria-label="Vorige foto">&lsaquo;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="vlbn vlbv" aria-label="Volgende foto">&rsaquo;</button><span class="vlbt"></span>';
+document.body.appendChild(lb);
+var big=lb.querySelector('img'),cap=lb.querySelector('figcaption'),tel=lb.querySelector('.vlbt'),cur=0,aan=false,x0=null,terug=null;
+if(im.length<2){[].forEach.call(lb.querySelectorAll('.vlbn'),function(b){b.hidden=true})}
+function toon(i){cur=(i+im.length)%im.length;var s=im[cur],f=s.closest('figure'),c=f&&f.querySelector('figcaption');big.src=s.currentSrc||s.src;big.alt=s.alt||'';cap.textContent=c?c.textContent:'';cap.hidden=!c||!c.textContent;tel.textContent=im.length>1?(cur+1)+' / '+im.length:''}
+function open(i,el){terug=el;toon(i);lb.hidden=false;aan=true;document.documentElement.style.overflow='hidden';lb.querySelector('.vlbx').focus()}
+function sluit(){lb.hidden=true;aan=false;document.documentElement.style.overflow='';big.removeAttribute('src');if(terug&&terug.focus)terug.focus()}
+im.forEach(function(s,k){s.setAttribute('tabindex','0');s.setAttribute('role','button');s.addEventListener('click',function(e){e.preventDefault();open(k,s)});s.addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();open(k,s)}})});
+lb.addEventListener('click',function(e){var t=e.target;if(t.classList.contains('vlbp'))toon(cur-1);else if(t.classList.contains('vlbv'))toon(cur+1);else sluit()});
+document.addEventListener('keydown',function(e){if(!aan)return;if(e.key=='Escape')sluit();else if(e.key=='ArrowLeft')toon(cur-1);else if(e.key=='ArrowRight')toon(cur+1)});
+lb.addEventListener('touchstart',function(e){x0=e.touches.length==1?e.touches[0].clientX:null},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0==null||im.length<2)return;var d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>50)toon(cur+(d<0?1:-1))},{passive:true});
+})();`;
 const gebruikt = [];
 VERHALEN.forEach(v => {
   const b = slug(v.titel); let id = b, n = 2;
@@ -720,7 +748,7 @@ ${heeftLang(v) ? verhaalBlokken(v) : ''}
 ${ytStd()}
 <p><a class="btn s" href="./">${esc(tx('verhalen.alle.knop', 'Alle verhalen'))}</a></p>`;
   const jsonld = { '@context': 'https://schema.org', '@type': 'Article', headline: schoon(v.titel), description: kort(v.tekst, 200), image: abs(v.foto), author: { '@type': 'Organization', name: SITE }, mainEntityOfPage: `${BASE}/verhalen/${id}.html` };
-  fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: heeftLang(v) ? VERHAALSCRIPT : '', kruimels: [[tx('menu.verhalen', 'Verhalen'), 'verhalen/'], [schoon(v.titel)]] }));
+  fs.writeFileSync(`verhalen/${id}.html`, pagina({ titel: schoon(v.titel), beschrijving: kort(v.tekst, 158) || `Een verhaal van ${SITE}.`, pad: `verhalen/${id}.html`, afbeelding: v.foto, body, jsonld, actief: 'verhalen', achter: 'mos', script: (heeftLang(v) ? VERHAALSCRIPT : '') + '\n' + LIGHTBOXSCRIPT, kruimels: [[tx('menu.verhalen', 'Verhalen'), 'verhalen/'], [schoon(v.titel)]] }));
   urls.push([`verhalen/${id}.html`, 0.6]);
 });
 fs.writeFileSync('verhalen/index.html', pagina({ extra: 'verhalen', kruimels: [[tx('menu.verhalen', 'Verhalen')]],

@@ -906,6 +906,7 @@ window.WEBP={
  "img/vakantiepark-slot-cranendonck-1791962537179.webp":1,
  "img/vakantiepark-slot-cranendonck-1791997290859.webp":1,
  "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794929562786.webp":1,
+ "img/verhalen/de-herfstvakantie-van-2026-op-klein-vink-in-arcen-1794931360018-1.webp":1,
  "img/verhalen/kleine-vink-1792614830131.webp":1,
  "img/verhalen/kleine-vink-1792614850847-1.webp":1,
  "img/verhalen/kleine-vink-1792614853621-2.webp":1,

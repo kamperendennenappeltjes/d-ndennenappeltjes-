@@ -25,6 +25,12 @@ const TX = (INST && INST.teksten) || {};
 const LOGO = (INST && INST.logo) || 'img/logo.png';
 const DELEN = (INST && INST.delen) || 'img/delen-logo.jpg';
 const tx = (k, std) => (TX[k] != null && String(TX[k]).trim() !== '') ? String(TX[k]).trim() : std;
+// Opmaak van uitgebreide verhalen (Beheer > Verhalen): tekstgrootte, breedte zijfoto's, plaats van de tekst. Zonder keuze blijft de standaard staan.
+const VI = (INST && INST.verhaal) || {};
+const VTG = (v => (isFinite(v) && v >= 0.8 && v <= 2.5) ? v : 1.15)(parseFloat(String(VI.tg).replace(',', '.')));
+const VZB = ({ smal: 20, middel: 24, breed: 32 })[VI.zb] || 24;
+const VZP = VI.zp == 'boven' ? 'start' : 'center';
+const VERHAALVARS = `:root{--vtg:${VTG}rem;--vtm:${Math.max(0.8, VTG - 0.1).toFixed(2)}rem;--vtz:${Math.max(0.8, VTG - 0.15).toFixed(2)}rem;--vzb:${VZB}%;--vzp:${VZP}}`;
 
 const esc = x => String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const schoon = x => String(x ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -125,9 +131,9 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .btop,.brij{grid-column:1/-1;display:grid;gap:14px;padding:0 26px 24px}.btop{order:-1;padding:22px 26px 0}.brij{order:3}.btop .car,.brij .car{margin:0}
 .bfoto{margin:0}.bfoto img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;display:block}.bfoto figcaption{padding:6px 4px 0;color:var(--zacht);font-size:.9rem;line-height:1.35}.blok.vol .bfoto figcaption{color:#1a0f05}
 @media(max-width:760px){.blok.zij.met,.sg.zij.met{grid-template-columns:38% 1fr}.blok.zij.met.r,.sg.zij.met.r{grid-template-columns:1fr 38%}.blok.zij.r .ft,.sg.zij.r .ft{order:2}.blok.zij .ft,.sg.zij .ft{min-height:0}.blok.zij .ft img,.sg.zij .ft img{height:auto;aspect-ratio:3/4;flex:none;min-height:0}.blok.zij .tk,.sg.zij .tk{padding:14px}.blok.zij .tk p,.sg.zij .tk p{font-size:.95rem}.btop,.brij{padding-left:14px;padding-right:14px}}
-@media(min-width:761px){.blok.met,.sg.met{grid-template-columns:24% 1fr}.blok.met.r,.sg.met.r{grid-template-columns:1fr 24%}.blok.met .ft,.sg.met .ft,.blok.met .ftst figure,.sg.met .ftst figure{min-height:0}.blok.met .ft img,.sg.met .ft img{flex:none;height:auto;aspect-ratio:3/2;min-height:0}}
-.blok .tk p{font-size:1.15rem;line-height:1.6}.blok.met .tk,.sg.met .tk{align-self:center}
-@media(max-width:760px){.blok .tk p{font-size:1.05rem}.blok.zij .tk p,.sg.zij .tk p{font-size:1rem}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
+@media(min-width:761px){.blok.met,.sg.met{grid-template-columns:var(--vzb,24%) 1fr}.blok.met.r,.sg.met.r{grid-template-columns:1fr var(--vzb,24%)}.blok.met .ft,.sg.met .ft,.blok.met .ftst figure,.sg.met .ftst figure{min-height:0}.blok.met .ft img,.sg.met .ft img{flex:none;height:auto;aspect-ratio:3/2;min-height:0}}
+.blok .tk p{font-size:var(--vtg,1.15rem);line-height:1.6}.blok.met .tk,.sg.met .tk{align-self:var(--vzp,center)}
+@media(max-width:760px){.blok .tk p{font-size:var(--vtm,1.05rem)}.blok.zij .tk p,.sg.zij .tk p{font-size:var(--vtz,1rem)}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
 .blok.met .ftst,.sg.met .ftst{align-self:start;background:none}.blok.met .ftst figure,.sg.met .ftst figure{flex:none}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
@@ -271,7 +277,7 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(
 <link rel="preload" href="../fonts/nunito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../fonts/fonts.css">
-<style>${CSS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
+<style>${CSS}${VERHAALVARS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
 <nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../${esc(LOGO)}" alt="Home"></a><b>${esc(tx('menu.naam', "d'n Dennenappeltjes"))}</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('menu.knop', 'Menu'))}</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
 <main><div class="wrap">
 ${body}

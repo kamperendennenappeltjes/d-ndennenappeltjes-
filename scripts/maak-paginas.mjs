@@ -125,6 +125,10 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 .btop,.brij{grid-column:1/-1;display:grid;gap:14px;padding:0 26px 24px}.btop{order:-1;padding:22px 26px 0}.brij{order:3}.btop .car,.brij .car{margin:0}
 .bfoto{margin:0}.bfoto img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;display:block}.bfoto figcaption{padding:6px 4px 0;color:var(--zacht);font-size:.9rem;line-height:1.35}.blok.vol .bfoto figcaption{color:#1a0f05}
 @media(max-width:760px){.blok.zij.met,.sg.zij.met{grid-template-columns:38% 1fr}.blok.zij.met.r,.sg.zij.met.r{grid-template-columns:1fr 38%}.blok.zij.r .ft,.sg.zij.r .ft{order:2}.blok.zij .ft,.sg.zij .ft{min-height:0}.blok.zij .ft img,.sg.zij .ft img{height:auto;aspect-ratio:3/4;flex:none;min-height:0}.blok.zij .tk,.sg.zij .tk{padding:14px}.blok.zij .tk p,.sg.zij .tk p{font-size:.95rem}.btop,.brij{padding-left:14px;padding-right:14px}}
+@media(min-width:761px){.blok.met,.sg.met{grid-template-columns:24% 1fr}.blok.met.r,.sg.met.r{grid-template-columns:1fr 24%}.blok.met .ft,.sg.met .ft,.blok.met .ftst figure,.sg.met .ftst figure{min-height:0}.blok.met .ft img,.sg.met .ft img{flex:none;height:auto;aspect-ratio:3/2;min-height:0}}
+.blok .tk p{font-size:1.15rem;line-height:1.6}.blok.met .tk,.sg.met .tk{align-self:center}
+@media(max-width:760px){.blok .tk p{font-size:1.05rem}.blok.zij .tk p,.sg.zij .tk p{font-size:1rem}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
+.blok.met .ftst,.sg.met .ftst{align-self:start;background:none}.blok.met .ftst figure,.sg.met .ftst figure{flex:none}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}

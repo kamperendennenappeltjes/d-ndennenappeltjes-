@@ -108,6 +108,18 @@ body.mos{background:var(--mos)}body.nacht{background:var(--nacht)}
 @media(max-width:760px){.blok .tk p{font-size:var(--vtm,1.05rem)}.blok.zij .tk p,.sg.zij .tk p{font-size:var(--vtz,1rem)}.blok.zij .ft img,.sg.zij .ft img{aspect-ratio:1/1}}
 .blok.met .ftst,.sg.met .ftst{align-self:start;background:none}.blok.met .ftst figure,.sg.met .ftst figure{flex:none}
 .blok .tk h1,.blok .tk h2,.blok .tk h3{font-size:var(--vkg,1.6rem)}
+.blok img,.vfoto2 img,.car img{cursor:zoom-in}
+.vlb{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.97);display:flex;align-items:center;justify-content:center;padding:56px 64px 28px;color:var(--room)}
+.vlb[hidden]{display:none}
+.vlb figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:100%;max-height:100%}
+.vlb img{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);border-radius:12px;display:block;object-fit:contain;cursor:zoom-out}
+.vlb figcaption{text-align:center;max-width:70ch;font-size:1.05rem;line-height:1.45}
+.vlbn,.vlbx{position:absolute;border:0;border-radius:50%;background:rgba(240,138,60,.92);color:#1a0f05;font:700 1.9rem/1 Fredoka,sans-serif;cursor:pointer;display:grid;place-items:center}
+.vlbn{top:50%;transform:translateY(-50%);width:52px;height:52px}.vlbp{left:max(10px,env(safe-area-inset-left,0px))}.vlbv{right:max(10px,env(safe-area-inset-right,0px))}
+.vlbx{top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:44px;height:44px;font-size:1.6rem;background:rgba(246,236,214,.92)}
+.vlbt{position:absolute;top:max(22px,calc(env(safe-area-inset-top,0px) + 10px));left:20px;font-weight:700;color:var(--zacht)}
+@media(max-width:640px){.vlb{padding:56px 8px 24px}.vlbn{width:44px;height:44px;top:46%}}
+.vlbn[hidden]{display:none}
 .tk h1{font-size:1.6rem}.kaart h3 a{color:var(--room);text-decoration:none}.kaart h3 a:hover{color:var(--oranje)}
 .ck-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9999;max-width:760px;margin:0 auto;background:var(--den);border:2px solid var(--oranje);border-radius:22px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.6);color:var(--room)}
 .ck-bar[hidden]{display:none}

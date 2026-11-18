@@ -252,11 +252,12 @@ b.innerHTML='<h2>Deze cookies zijn niet voor bij de koffie en laten ook geen kru
 +'<details><summary>Benieuwd wat er gebeurt? <u>Lees hier</u>.</summary><p><b>Alles accepteren:</b> GoatCounter wordt gestart om bezoekstatistieken bij te houden. YouTube-video’s worden pas ingeladen wanneer je daarvoor kiest; YouTube kan daarbij gegevens ontvangen en eventueel cookies of vergelijkbare technieken gebruiken. Ook de kaart met campings (OpenStreetMap) wordt dan automatisch geladen; OpenStreetMap kan daarbij je IP-adres zien. <b>Alleen noodzakelijk:</b> GoatCounter wordt niet gestart en ingesloten YouTube-video’s blijven uit. De kaart met campings laden we dan pas nadat je daar zelf om vraagt. Als je bij een video op afspelen drukt, wordt YouTube alsnog geladen. Kies je dit, dan vragen we het bij je volgende bezoek opnieuw. <b>Paklijst:</b> je paklijst wordt lokaal op je eigen toestel bewaard, zodat die blijft werken zonder optionele onderdelen. Je kunt je keuze later aanpassen via Cookie-instellingen onderaan de pagina. Lees ook onze <a href="../cookieverklaring.html">cookieverklaring</a> en <a href="../privacyverklaring.html">privacyverklaring</a>.</p></details>'
 +'<div class="ck-knoppen"><button type="button" class="ck-knop ja" data-ck="ja">Alles accepteren</button><button type="button" class="ck-knop nee" data-ck="nodig">Alleen noodzakelijk</button></div>';
 document.body.appendChild(b);
-function kies(c){ckSave(c);b.hidden=true;if(c.stat&&window.startGC)startGC()}
+function kies(c){ckSave(c);b.hidden=true;if(typeof drawVids==='function')drawVids();if(c.stat&&window.startGC)startGC()}
 document.addEventListener('click',function(e){
 var t=e.target.closest?e.target:e.target.parentNode;if(!t||!t.closest)return;
 if(t.closest('[data-ck="ja"]')){kies({stat:1,vid:1});return}
 if(t.closest('[data-ck="nodig"]')){kies({stat:0,vid:0});return}
+if(t.closest('[data-ckvid]')){var cv=ckRead()||{stat:0,vid:0};cv.vid=1;kies(cv);return}
 if(t.closest('[data-ckopen]')){b.hidden=false;return}
 var k=t.closest('[data-kc]');if(k){var c=k.getAttribute('data-kc'),d=function(){k.textContent='Gekopieerd'};gcCount('/code/'+c,'Code gekopieerd: '+c,1);try{navigator.clipboard.writeText(c).then(d,d)}catch(x){d()}}
 });
@@ -278,7 +279,7 @@ function pagina({ titel, beschrijving, pad, afbeelding, body, jsonld, actief, ac
     const lijstKr = [[tx('menu.home', 'Home'), ''], ...kruimels];
     const ld = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: lijstKr.map(([n, pd], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: pd == null ? `${BASE}/${pad}` : `${BASE}/${pd}` })) };
     jsonld = jsonld ? [jsonld, ld] : ld;
-    body = `<div role="navigation" aria-label="Broodkruimels" class="bk">${lijstKr.map(([n, pd], i) => (i === lijstKr.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${pd === '' ? '../index.html' : '../' + pd}">${esc(n)}</a><span aria-hidden="true">\u203a</span>`)).join('')}</div>\n` + body;
+    body = `<div role="navigation" aria-label="Broodkruimels" class="bk">${lijstKr.map(([n, pd], i) => (i === lijstKr.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${pd === '' ? '../' : '../' + pd}">${esc(n)}</a><span aria-hidden="true">\u203a</span>`)).join('')}</div>\n` + body;
   }
   const volledig = `${titel} | ${SITE}`;
   const link = (h, t, k) => `<a href="${h}"${actief === k ? ' class="on"' : ''}>${esc(tx('menu.' + k, t))}</a>`;
@@ -297,7 +298,7 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(
 <link rel="preload" href="../fonts/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../fonts/fonts.css">
 <style>${CSS}${VERHAALVARS}</style><link rel="stylesheet" href="../extras.css"></head><body class="${achter}">
-<nav><div class="wrap"><a href="../index.html" style="display:flex"><img src="../${esc(LOGO)}" alt="Home"></a><b>${esc(tx('menu.naam', "d'n Dennenappeltjes"))}</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('menu.knop', 'Menu'))}</button><div class="links" id="lk">${link('../index.html', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../index.html#fotos', "Foto's", 'fotos')}${link('../index.html#videos', "Video's", 'videos')}${link('../index.html#contact', 'Contact', 'contact')}</div></div></nav>
+<nav><div class="wrap"><a href="../" style="display:flex"><img src="../${esc(LOGO)}" alt="Home"></a><b>${esc(tx('menu.naam', "d'n Dennenappeltjes"))}</b><button class="menuknop" id="mk" aria-expanded="false" aria-controls="lk">${esc(tx('menu.knop', 'Menu'))}</button><div class="links" id="lk">${link('../', 'Home', 'home')}${link('../over-ons/', 'Over ons', 'over')}${link('../paklijst/', 'Wat neem je mee', 'paklijst')}${link('../uitrusting/', 'Uitrusting', 'uitrusting')}${link('../campings/', 'Campings', 'campings')}${link('../verhalen/', 'Verhalen', 'verhalen')}${link('../tips/', 'Tips', 'tips')}${link('../fotos/', "Foto's", 'fotos')}${link('../videos/', "Video's", 'videos')}${link('../contact/', 'Contact', 'contact')}</div></div></nav>
 <main><div class="wrap">
 ${body}
 </div></main>
@@ -603,7 +604,7 @@ ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park
 ${feitenBasis.length ? `<div class="feiten">${feitenBasis.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${infoJa.length ? `<h3 class="sub">${esc(tx('campings.voorz', 'Aanwezig'))}</h3><ul class="chips">${infoJa.map(([k, v]) => { const extra = String(v).trim().replace(/^ja[,.]?\s*/i, ''); return `<li>${esc(k)}${extra ? ` <small>(${esc(extra)})</small>` : ''}</li>`; }).join('')}</ul>` : ''}
 ${infoMeer.length ? `<h3 class="sub">${esc(tx('campings.meer', 'Meer over het park'))}</h3><dl class="lijst">${infoMeer.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
-${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../index.html#fotos">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
+${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../fotos/">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy" onerror="this.closest('a').classList.remove('vmet');this.parentNode.replaceWith(document.createElement('i'))"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
 ${vloggen.length ? '' : ytStd()}
@@ -910,6 +911,177 @@ ${alinea.map(t => `<p class="lead">${esc(t)}</p>`).join('\n')}
 ${fotos.length ? `<div class="fotos">${fotos.map(f => `<img class="foto" src="${esc(rel(f[0]))}" alt="${esc(f[1] || OVER.kop)}" loading="lazy">`).join('')}</div>` : ''}</div>`
   }));
 }
+
+
+// ---- foto's, video's en contact: eigen nette adressen (/fotos/, /videos/, /contact/) in plaats van index.html#fotos
+// Deze mappen worden niet eerst leeggemaakt: alleen index.html erin wordt (opnieuw) geschreven.
+for (const dir of ['fotos', 'videos', 'contact', 'home']) fs.mkdirSync(dir, { recursive: true });
+const EXTRACSS = `<style>.btn.rood{background:var(--rood);color:#fff}
+.kaart .vph{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px;background:var(--mos) center/cover no-repeat;text-align:center}
+.vplay{width:70px;height:50px;border:0;border-radius:14px;background:#d90f14;color:#fff;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center}.vplay:hover,.vplay:focus-visible{background:#f12a2e}
+.vph small{color:var(--room);font-size:.82rem;line-height:1.3;text-shadow:0 1px 3px rgba(0,0,0,.9);max-width:280px}
+.form{display:grid;gap:14px;max-width:560px;margin-top:20px}.form input,.form textarea{font:inherit;color:var(--room);background:var(--nacht);border:2px solid rgba(240,138,60,.45);border-radius:12px;padding:12px}
+.twee .foto{margin:0}
+.fkr{margin:26px 0 8px;font-size:1.25rem;color:var(--oranje)}.fkr a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:20px}.fcard{position:relative;display:block;border-radius:18px;overflow:hidden;height:230px;background:var(--nacht);text-decoration:none;color:var(--room);border:2px solid rgba(240,138,60,.4)}.fcard img{width:100%;height:100%;object-fit:cover;display:block}.fcard span{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(13,26,21,.92));display:grid}.fcard b{font:700 1.3rem Fredoka,sans-serif}.fcard small{opacity:.85}
+.galerij{columns:3 240px;column-gap:14px;margin-top:28px}.galerij figure{margin:0 0 14px;break-inside:avoid}.galerij img{width:100%;border-radius:14px;display:block;cursor:zoom-in}.galerij figcaption{padding:7px 4px 0;color:var(--zacht);font-size:.95rem;line-height:1.4}
+dialog{border:0;background:transparent;max-width:none;max-height:none;padding:0;width:100vw;height:100vh;height:100dvh;overflow:hidden;color:var(--room)}dialog::backdrop{background:rgba(0,0,0,.92)}
+.lb{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:56px 64px}.lb figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:100%;max-height:100%}
+dialog img{max-width:100%;max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px);border-radius:12px;display:block;object-fit:contain}.lb figcaption{text-align:center;max-width:70ch;font-size:1.05rem;line-height:1.45}
+.lbn,.lbx{position:absolute;border:0;border-radius:50%;background:rgba(240,138,60,.92);color:#1a0f05;font:700 1.9rem/1 Fredoka,sans-serif;cursor:pointer;display:grid;place-items:center}.lbn{top:50%;transform:translateY(-50%);width:52px;height:52px}
+.lbp{left:max(10px,env(safe-area-inset-left,0px))}.lbv{right:max(10px,env(safe-area-inset-right,0px))}.lbx{top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:44px;height:44px;font-size:1.6rem;background:rgba(246,236,214,.92)}
+.lbt{position:absolute;top:max(22px,calc(env(safe-area-inset-top,0px) + 10px));left:20px;font-weight:700;color:var(--zacht)}
+@media(max-width:640px){.lb{padding:56px 8px 24px}.lbn{width:44px;height:44px;top:42%}}</style>`;
+
+// -- video's
+const VIDLIJST = (Array.isArray(VIDDATA) ? VIDDATA : []).filter(v => v && v.url && ytIdVan(v.url));
+for (const v of VIDLIJST) v.th = v.thumb || await haalThumb(ytIdVan(v.url));
+const vidKaart = v => { const id = ytIdVan(v.url), th = v.th ? rel(v.th) : ''; return `<article class="kaart" data-yt="${esc(id)}" data-t="${esc(schoon(v.titel) || 'Video')}"><div class="vph"${th ? ` style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),url('${esc(th)}')"` : ''}><button type="button" class="vplay" data-ckvid aria-label="YouTube-video laden">▶</button><small>Druk op afspelen om deze video van YouTube te laden.</small></div><div><h3>${esc(schoon(v.titel))}</h3></div></article>`; };
+function vidScript() {
+  window.drawVids = function () {
+    if (!(typeof ckOk == 'function' && ckOk('vid'))) return;
+    [].forEach.call(document.querySelectorAll('#vids [data-yt]'), function (a) {
+      var p = a.querySelector('.vph'); if (!p) return;
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt');
+      f.title = a.getAttribute('data-t') || 'Video'; f.loading = 'lazy'; f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.style.cssText = 'width:100%;aspect-ratio:16/9;border:0;display:block';
+      p.replaceWith(f);
+    });
+  };
+  window.drawVids();
+}
+fs.writeFileSync('videos/index.html', pagina({ kruimels: [[tx('menu.videos', "Video's")]],
+  titel: "Kampeervideo's en vlogs", beschrijving: "Onze kampeervlogs en video's van de reizen met de caravan.",
+  pad: 'videos/', afbeelding: '', actief: 'videos', script: '(' + vidScript.toString() + ')();',
+  body: `${EXTRACSS}<h1>${esc(tx('videos.h2', "Onze video's"))}</h1>
+<p class="lead">${esc(tx('videos.lead', 'Wij houden van kamperen en caravans, klussen eraan en leuke uitjes. Kijk gezellig mee op ons YouTube-kanaal.'))}</p>
+<a class="btn rood" href="${YTKANAAL}" target="_blank" rel="noopener">${esc(tx('videos.yt', 'Naar ons YouTube-kanaal'))}</a><a class="btn" href="${YTKANAAL}/videos" target="_blank" rel="noopener">${esc(tx('videos.alle', "Alle video's"))}</a>
+<div class="grid" id="vids">${VIDLIJST.length ? VIDLIJST.map(vidKaart).join('') : `<p class="lead">Onze video's staan op ons YouTube-kanaal. Hier komen binnenkort de nieuwste te staan.</p>`}</div>
+<p class="lead" style="margin-top:28px">${esc(tx('videos.lead2', 'Nieuw hier? Abonneer je en zet het belletje aan, dan mis je geen video.'))}</p>
+<p><a class="btn rood" href="${YTKANAAL}" target="_blank" rel="noopener">${esc(tx('videos.yt', 'Naar ons YouTube-kanaal'))}</a></p>
+${NAARBOVEN}`
+}));
+urls.push(['videos/', 0.6]);
+
+// -- contact
+const MAILADRES = (MAIL.match(/mailto:([^"]+)/) || [])[1] || 'kamperendennenappeltjes@gmail.com';
+function contactScript() {
+  var f = document.getElementById('cf'); if (!f) return;
+  f.onsubmit = function (e) {
+    e.preventDefault();
+    location.href = 'mailto:' + f.getAttribute('data-mail') + '?subject=' + encodeURIComponent('Bericht via de website van ' + document.getElementById('cn').value) + '&body=' + encodeURIComponent(document.getElementById('cb').value);
+  };
+}
+fs.writeFileSync('contact/index.html', pagina({ kruimels: [[tx('menu.contact', 'Contact')]],
+  titel: 'Contact', beschrijving: "Neem contact op met d'n Dennenappeltjes. Een vraag over een camping, onze uitrusting of een video? Stuur ons een bericht.",
+  pad: 'contact/', afbeelding: '', actief: 'contact', achter: 'mos', script: '(' + contactScript.toString() + ')();',
+  body: `${EXTRACSS}<div class="twee"><div><h1>${esc(tx('contact.h2', 'Contact'))}</h1>
+<p class="lead">${esc(tx('contact.lead', 'Een vraag over een camping, onze uitrusting of een video? Stuur ons een bericht, we reageren zo snel mogelijk.'))}</p>
+<p><a class="btn" href="mailto:${esc(MAILADRES)}">${esc(MAILADRES)}</a></p>
+<form class="form" id="cf" data-mail="${esc(MAILADRES)}"><input id="cn" placeholder="Je naam" required aria-label="Je naam"><textarea id="cb" rows="5" placeholder="Je bericht" required aria-label="Je bericht"></textarea><button class="btn" style="border:0;cursor:pointer;font:inherit;font-weight:700;justify-self:start">Open in mijn mailprogramma</button></form></div>
+<img class="foto" src="${esc(rel((INST && INST.contact) || 'img/foto-7.jpg'))}" alt="Twee kampeerders bij de caravans"></div>`
+}));
+urls.push(['contact/', 0.4]);
+
+// -- foto's: een eigen pagina per jaar, plek en album, zonder # in het adres
+//    /fotos/  >  /fotos/2026/  >  /fotos/2026/klein-vink/  >  /fotos/2026/klein-vink/glow-golf/
+const MERK = '<!--maak-paginas:fotos-->';
+// Oude, door dit script gemaakte fotopagina's opruimen (andere bestanden in de map blijven staan)
+const ruimOp = dir => {
+  let leeg = true;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = `${dir}/${e.name}`;
+    if (e.isDirectory()) { if (ruimOp(p)) fs.rmdirSync(p); else leeg = false; }
+    else if (e.name === 'index.html' && fs.readFileSync(p, 'utf8').includes(MERK)) fs.rmSync(p);
+    else leeg = false;
+  }
+  return leeg;
+};
+ruimOp('fotos');
+const FO = FOTOSDATA && typeof FOTOSDATA === 'object' ? FOTOSDATA : {};
+const FSEP = ' / ', FNAAM = "Overige foto's";
+const fjaren = (() => { const ks = Object.keys(FO).filter(k => k.slice(0, 2) != '__' && Array.isArray(FO[k]) && FO[k].length), o = Array.isArray(FO.__orde) ? FO.__orde : []; return [...o.filter(k => ks.includes(k)), ...ks.filter(k => !o.includes(k)).sort((a, b) => b.localeCompare(a, 'nl', { numeric: true }))]; })();
+const fseg = p => (p.album || '').split(FSEP).map(x => x.trim()).filter(Boolean);
+const fby = {}; const perPlek = j => fby[j] || (fby[j] = (() => { const o = {}; FO[j].forEach(p => { if (p && p.src) (o[p.camping || ''] = o[p.camping || ''] || []).push(p); }); return o; })());
+const fplekken = j => { const b = perPlek(j), po = (FO.__plekken && FO.__plekken[j]) || [], bk = Object.keys(b); return po.filter(k => bk.includes(k)).concat(bk.filter(k => !po.includes(k)).sort((x, y) => (x === '' ? 1 : 0) - (y === '' ? 1 : 0) || x.localeCompare(y, 'nl'))); };
+const finfo = P => {
+  if (!P.length) return { kids: fjaren.map(k => ({ s: k, src: FO[k][0].src, n: FO[k].length })), dir: [] };
+  const j = P[0], b = perPlek(j);
+  if (P.length == 1) return { kids: fplekken(j).map(k => ({ s: k, src: b[k][0].src, n: b[k].length })), dir: [] };
+  const k = P[1], path = P.slice(2), dd = path.length, L = b[k] || [], sub = L.filter(p => { const s = fseg(p); return path.every((x, i) => s[i] === x); });
+  const ao = (FO.__albums && FO.__albums[j + '|' + k]) || [], abk = [...new Set(L.map(p => p.album || ''))], ak = ao.filter(x => abk.includes(x)).concat(abk.filter(x => x !== '' && !ao.includes(x)).sort((x, y) => x.localeCompare(y, 'nl'))), ch = [];
+  ak.forEach(a => { const s = a.split(FSEP).map(x => x.trim()).filter(Boolean); if (s.length > dd && path.every((x, i) => s[i] === x) && !ch.includes(s[dd])) ch.push(s[dd]); });
+  return { kids: ch.map(c => { const M = sub.filter(p => fseg(p)[dd] === c); return { s: c, src: M[0].src, n: M.length }; }), dir: sub.filter(p => fseg(p).length == dd) };
+};
+const fnode = (P, df = false) => df ? { P, df, kids: [], dir: finfo(P).dir } : { P, df, ...finfo(P) };
+const fenkel = n => !n.df && n.kids.length == 1 && !n.dir.length;
+const fnaam = n => !n.P.length ? tx('fotos.h2', "Foto's") : n.df ? FNAAM : n.P.length == 1 ? n.P[0] : n.P.length == 2 ? (n.P[1] || FNAAM) : n.P[n.P.length - 1];
+// Korte, nette mapnamen per niveau (uniek binnen dezelfde map)
+const fslugs = n => { const used = [], m = new Map(); n.kids.forEach(k => m.set(k.s, uniekId(slug(k.s === '' ? 'overige-fotos' : k.s, 'album'), used))); return { m, df: n.dir.length && n.kids.length ? uniekId('overige-fotos', used) : null }; };
+const fpad = d => 'fotos/' + d.map(x => x + '/').join('');
+const OUDEFOTOS = {}; // oude adressen (#2026/Klein Vink) naar de nieuwe pagina
+const fsleutel = n => n.P.join('/') + (n.df ? '/' : '');
+// Mappen met maar één keuze slaan we over, net als voorheen
+const flos = (n, d) => { const over = [], keys = [fsleutel(n)]; while (fenkel(n)) { const k = n.kids[0]; if (k.s !== '') d = [...d, fslugs(n).m.get(k.s)]; if (n.P.length) over.push(fnaam(n)); n = fnode([...n.P, k.s]); keys.push(fsleutel(n)); } keys.forEach(x => { OUDEFOTOS[x] = fpad(d); }); return { n, d, over }; };
+const fkaart = (href, src, t, aantal) => `<a class="fcard" href="../${esc(href)}"><img src="${esc(rel(src))}" alt="" loading="lazy"><span><b>${esc(t)}</b><small>${aantal} foto's</small></span></a>`;
+function lbScript() {
+  var im = [].slice.call(document.querySelectorAll('.galerij img')), d = document.getElementById('dlg'); if (!im.length || !d) return;
+  var di = d.querySelector('img'), dc = d.querySelector('figcaption'), dn = d.querySelector('.lbt'), bp = d.querySelector('.lbp'), bv = d.querySelector('.lbv'), li = 0;
+  function cap(i) { var f = im[i].closest('figure'), c = f && f.querySelector('figcaption'); return c ? c.textContent : ''; }
+  function show() { var s = im[li], t = cap(li); di.src = s.currentSrc || s.src; di.alt = s.alt || ''; dc.textContent = t; dc.style.display = t ? '' : 'none'; var m = im.length > 1; bp.style.display = bv.style.display = m ? '' : 'none'; dn.textContent = m ? (li + 1) + ' / ' + im.length : ''; }
+  function go(s) { if (im.length < 2) return; li = (li + s + im.length) % im.length; show(); }
+  im.forEach(function (s, i) { s.addEventListener('click', function () { li = i; show(); d.showModal(); }); });
+  bp.onclick = function (e) { e.stopPropagation(); go(-1); }; bv.onclick = function (e) { e.stopPropagation(); go(1); }; d.querySelector('.lbx').onclick = function () { d.close(); };
+  d.onclick = function (e) { if (e.target === d || e.target.classList.contains('lb')) d.close(); };
+  d.addEventListener('keydown', function (e) { if (e.key == 'ArrowLeft') { e.preventDefault(); go(-1); } else if (e.key == 'ArrowRight') { e.preventDefault(); go(1); } });
+  var x0 = null; d.addEventListener('touchstart', function (e) { x0 = e.touches.length == 1 ? e.touches[0].clientX : null; }, { passive: true });
+  d.addEventListener('touchend', function (e) { if (x0 == null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); });
+}
+const LBDIALOOG = `<dialog id="dlg" aria-label="Foto groter bekijken"><div class="lb"><button type="button" class="lbx" aria-label="Sluiten">&times;</button><span class="lbt" aria-live="polite"></span><button type="button" class="lbn lbp" aria-label="Vorige foto">&#8249;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="lbn lbv" aria-label="Volgende foto">&#8250;</button></div></dialog>`;
+let fotoTeller = 0;
+function fotoPagina(n, d, ouders, over, isRoot) {
+  const p = isRoot ? 'fotos/' : fpad(d), naam = fnaam(n), kop = [...over, over.length && !n.df && naam === FNAAM ? '' : naam].filter(Boolean).join(' · ');
+  let inhoud = '', eerste = '', aantal = 0;
+  if (!n.P.length && !n.kids.length) inhoud = `<p class="lead">Hier komen binnenkort onze foto's te staan.</p>`;
+  else if (n.df || !n.kids.length) {
+    const plek = n.P[1] || ''; aantal = n.dir.length; eerste = (n.dir[0] || {}).src || '';
+    inhoud = `<div class="galerij">${n.dir.map(f => `<figure><img src="${esc(rel(f.src))}" alt="${esc(schoon(f.tekst) || plek || naam)}" loading="lazy">${f.tekst ? `<figcaption>${esc(f.tekst)}</figcaption>` : ''}</figure>`).join('')}</div>`;
+  } else {
+    const sl = fslugs(n), kids = [];
+    for (const k of n.kids) { const r = flos(fnode([...n.P, k.s]), [...d, sl.m.get(k.s)]); kids.push({ k, r }); }
+    eerste = (n.kids[0] || {}).src || '';
+    inhoud = `<div class="fgrid">${kids.map(({ k, r }) => fkaart(fpad(r.d), k.src, (n.P.length == 1 && k.s === '') ? FNAAM : k.s, k.n)).join('')}${sl.df ? fkaart(fpad([...d, sl.df]), n.dir[0].src, FNAAM, n.dir.length) : ''}</div>`;
+    const hier = [...ouders, [naam, p]];
+    kids.forEach(({ k, r }) => fotoPagina(r.n, r.d, hier, r.over, false));
+    if (sl.df) { const dn = fnode(n.P, true), dd = [...d, sl.df]; OUDEFOTOS[fsleutel(dn)] = fpad(dd); fotoPagina(dn, dd, hier, [], false); }
+  }
+  const terug = ouders.length ? ouders[ouders.length - 1] : null;
+  const kruimels = isRoot ? [[tx('menu.fotos', "Foto's")]] : [...ouders.map(([t, pp]) => [t, pp]), [kop]];
+  const script = (isRoot ? `(function(){var M=${JSON.stringify(OUDEFOTOS).replace(/</g, '\\u003c')};var h='';try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}if(!h)return;var p=h;while(p&&!(p in M))p=p.replace(/\\/?[^\\/]*$/,'');if(M[p])location.replace('/'+M[p])})();` : '') + '(' + lbScript.toString() + ')();';
+  const titel = isRoot ? "Kampeerfoto's" : `Foto's: ${[...ouders.slice(1).map(o => o[0]), kop].join(', ')}`;
+  const beschrijving = isRoot ? "Foto's van onze reizen met de caravan en van de campings waar we zijn geweest, per jaar en per plek." : kort(`${aantal ? aantal + ' foto’s' : 'Foto’s'} van ${[...ouders.slice(1).map(o => o[0]), kop].join(', ')}: onze kampeerfoto's met de caravan.`, 158);
+  // pagina's dieper dan /fotos/ krijgen <base href="/">, zodat alle links (../) vanaf de hoofdmap werken
+  let html = pagina({ kruimels, titel, beschrijving, pad: p, afbeelding: eerste, actief: 'fotos', achter: 'mos', script,
+    body: `${MERK}${EXTRACSS}${terug ? `<a class="terug" href="../${esc(terug[1])}">Terug naar ${esc(ouders.length == 1 ? 'alle jaren' : terug[0])}</a>` : ''}<h1>${esc(isRoot ? naam : kop)}</h1>
+${isRoot ? `<p class="lead">${esc(tx('fotos.lead', 'Kies eerst een jaar, dan een plek (en soms nog een album), en tik daarna op een foto om hem groter te zien.'))}</p>` : ''}
+${inhoud}
+${ytcta(tx('yt.kop', 'Bekijk onze vlogs op ons YouTube-kanaal'), tx('yt.tekst', 'Abonneer je, dan mis je geen enkele kampeertrip.'))}
+${NAARBOVEN}
+${LBDIALOOG}` });
+  if (!isRoot) html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8"><base href="/">');
+  fs.mkdirSync(p, { recursive: true });
+  fs.writeFileSync(p + 'index.html', html);
+  urls.push([p, isRoot ? 0.6 : 0.5]);
+  fotoTeller++;
+}
+{ const r = flos(fnode([]), []); fotoPagina(r.n, r.d, [], r.over, true); }
+console.log(`Foto's: ${fotoTeller} pagina's`);
+
+// -- /home/ stuurt door naar de homepage (voor wie www.dennenappeltjes.nl/home intypt)
+fs.writeFileSync('home/index.html', `<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><title>${esc(SITE)}</title><meta name="robots" content="noindex"><link rel="canonical" href="${BASE}/"><meta http-equiv="refresh" content="0;url=../"><script>location.replace('../'+location.hash)</script></head><body><p><a href="../">Naar de homepage</a></p></body></html>\n`);
 
 // ---- sitemap en robots
 fs.writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([p, pr]) => `  <url><loc>${BASE}/${p}</loc><lastmod>${vandaag}</lastmod><priority>${pr}</priority></url>`).join('\n')}\n</urlset>\n`);

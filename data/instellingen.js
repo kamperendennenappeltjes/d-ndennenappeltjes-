@@ -17,7 +17,8 @@ const INST={
   "campings.vlog.kopmeer": "Enkele van onze vlog's",
   "campings.fotos": "Enkele foto’s van deze plek",
   "filt.k.tv": "TV-aansluiting",
-  "abo.knop": "Klik hier en abonneer op YouTube op ons kanaal"
+  "abo.knop": "Klik hier en abonneer op YouTube op ons kanaal",
+  "home.knop2": "De door ons \nbezochten campings"
  },
  "tegelinfo": {
   "paklijst": {

@@ -44,6 +44,8 @@ const slug = (t, terug = 'verhaal') => String(t || '').toLowerCase().normalize('
 const abs = p => p ? (/^https?:/.test(p) ? p : `${BASE}/${String(p).replace(/^\//, '')}`) : `${BASE}/${DELEN}`;
 const webp = p => { const w = String(p).replace(/\.(jpe?g|png)$/i, '.webp'); return w !== p && fs.existsSync(w) ? w : p; };
 const rel = p => p ? (/^https?:/.test(p) ? p : '../' + webp(String(p).replace(/^\//, ''))) : '';
+// Kleine versie (gemaakt door naar-webp.mjs) voor foto's in kaarten en overzichten; bestaat die niet, dan de gewone foto
+const klein = p => { if (!p || /^https?:/.test(p)) return rel(p); const s = String(p).replace(/^\//, ''), k = s.replace(/\.(jpe?g|png|webp)$/i, '-klein.webp'); return k !== s && fs.existsSync(k) ? '../' + k : rel(p); };
 
 const CSS = `:root{color-scheme:dark;--nacht:#0d1a15;--den:#17301f;--mos:#21402c;--oranje:#f08a3c;--rood:#d90f14;--room:#f6ecd6;--zacht:#c9d6c4}
 *,*::before,*::after{box-sizing:border-box}
@@ -604,7 +606,7 @@ ${feiten.length ? `<h2 class="sec">${esc(tx('campings.info', 'Info over het park
 ${feitenBasis.length ? `<div class="feiten">${feitenBasis.map(([k, v]) => `<div><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
 ${infoJa.length ? `<h3 class="sub">${esc(tx('campings.voorz', 'Aanwezig'))}</h3><ul class="chips">${infoJa.map(([k, v]) => { const extra = String(v).trim().replace(/^ja[,.]?\s*/i, ''); return `<li>${esc(k)}${extra ? ` <small>(${esc(extra)})</small>` : ''}</li>`; }).join('')}</ul>` : ''}
 ${infoMeer.length ? `<h3 class="sub">${esc(tx('campings.meer', 'Meer over het park'))}</h3><dl class="lijst">${infoMeer.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
-${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(rel(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../fotos/">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
+${plekFotos.length ? `<h2 class="sec">${esc(tx('campings.fotos', 'Onze foto’s van deze plek'))}</h2><div class="fotos">${plekFotos.map(x => `<a href="${esc(rel(x.src))}" target="_blank" rel="noopener"><img src="${esc(klein(x.src))}" alt="${esc(schoon(x.tekst) || naamPlaats)}" loading="lazy"></a>`).join('')}</div><p><a class="btn s kl" href="../fotos/">${esc(tx('campings.alle', 'Bekijk hier alle foto’s'))}</a></p>` : ''}
 ${(c.plus && c.plus.length) || (c.min && c.min.length) ? `<div class="pm"><div class="vlak"><h3>${esc(tx('campings.plus', 'Dit vonden we fijn'))}</h3>${lijst(c.plus)}</div><div class="vlak"><h3>${esc(tx('campings.min', 'Dit kan beter'))}</h3>${lijst(c.min)}</div></div>` : ''}
 ${vloggen.length ? `<h2 class="sec">${vloggen.length > 1 ? esc(tx('campings.vlog.kopmeer', 'Onze video\u2019s')) : esc(tx('campings.vlog.kop', 'Onze vlog'))}</h2><div class="vlogs">${vloggen.map((v, i) => `<a class="vlog${v.thumb ? ' vmet' : ''}" href="${esc(v.url)}" target="_blank" rel="noopener">${v.thumb ? `<span class="vth"><img src="${esc(rel(v.thumb))}" alt="" loading="lazy" onerror="this.closest('a').classList.remove('vmet');this.parentNode.replaceWith(document.createElement('i'))"><i aria-hidden="true"></i></span>` : '<i aria-hidden="true"></i>'}<span><b>${esc(v.titel || (vloggen.length > 1 ? tx('campings.vlog.titelmeer', 'Video {nr} van {naam}') : tx('campings.vlog.titel', 'Bekijk onze video van {naam}')).replace('{nr}', i + 1).replace('{naam}', c.naam))}</b><small>${esc(tx('campings.vlog.sub', 'Opent YouTube in een nieuw tabblad'))}</small></span></a>`).join('')}</div>` : ''}
 ${vloggen.length ? '' : ytStd()}
@@ -626,7 +628,7 @@ fs.writeFileSync('campings/index.html', pagina({ extra: 'campings', kruimels: [[
   body: `<h1>${esc(tx('campings.h2', 'Onze campings'))}</h1>
 <p class="lead">${esc(tx('campings.lead', 'Dit zijn de campings en vakantieparken waar wij met ons gezin en de caravan zijn geweest. Bij elke camping lees je ons cijfer, wat wij fijn vonden en wat beter kon.'))}</p>
 <div class="filters" id="filters"></div>
-<div id="lijst" style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" data-id="${esc(c.id)}" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(rel(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc([c.plaats, c.regio, c.land].filter(Boolean).join(' \u00b7 '))}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
+<div id="lijst" style="margin-top:22px">${CAMPINGS.filter(c => c.id).map(c => `<a class="camp" data-id="${esc(c.id)}" href="${esc(c.id)}.html">${c.foto ? `<img src="${esc(klein(c.foto))}" alt="" loading="lazy">` : ''}<div class="cijfer">${esc(c.cijfer || '\u2013')}</div><div><h3>${esc(c.naam)} <small>${esc([c.plaats, c.regio, c.land].filter(Boolean).join(' \u00b7 '))}</small></h3><p>${esc(kort(c.tekst, 160))}</p></div></a>`).join('')}</div>
 ${ytStd()}
 ${NAARBOVEN}`
 }));
@@ -759,7 +761,7 @@ fs.writeFileSync('verhalen/index.html', pagina({ extra: 'verhalen', kruimels: [[
   beschrijving: 'Korte verslagen van onze kampeertrips en uitjes met de caravan.',
   pad: 'verhalen/', afbeelding: (VERHALEN[0] || {}).foto, actief: 'verhalen', achter: 'mos',
   body: `<h1>${esc(tx('verhalen.h2', 'Verhalen van onze avonturen'))}</h1><p class="lead">${esc(tx('verhalen.lead', 'Korte verslagen van onze trips en uitjes.'))}</p>
-<div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(rel(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">${esc(tx('verhalen.meer', 'Lees meer'))}</a>` : ''}</div></article>`).join('')}</div>
+<div class="grid">${VERHALEN.map((v, i) => `<article class="kaart">${v.foto ? `<img src="${esc(klein(v.foto))}" alt="${esc(v.titel)}" loading="lazy">` : ''}<div><h3><a href="${gebruikt[i]}.html">${esc(v.titel)}</a></h3>${par(v.tekst)}${heeftLang(v) ? `<a class="btn" href="${gebruikt[i]}.html">${esc(tx('verhalen.meer', 'Lees meer'))}</a>` : ''}</div></article>`).join('')}</div>
 ${ytStd()}
 `
 }));
@@ -828,7 +830,7 @@ fs.writeFileSync('uitrusting/index.html', pagina({ extra: 'uitrusting', kruimels
   pad: 'uitrusting/', afbeelding: UITCATS[0] ? catFoto(UITCATS[0]) : '', actief: 'uitrusting', achter: 'nacht',
   body: `<h1>${esc(tx('uitrusting.h2', 'Onze uitrusting'))}</h1>
 <p class="lead">${esc(tx('uitrusting.lead', 'Wat er bij ons in de caravan en de voortent zit, per onderdeel. Zo zie je welke uitrusting voor kamperen met het gezin bij ons in de praktijk werkt.') + ' ' + tx('uitrusting.lead2', 'Dit is wat wij zelf gebruiken. De links gaan naar webshops van andere partijen.'))}</p>
-<div style="margin-top:22px">${UITCATS.map(c => { const f = catFoto(c); return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(rel(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
+<div style="margin-top:22px">${UITCATS.map(c => { const f = catFoto(c); return `<a class="camp" href="${c.id}.html">${f ? `<img src="${esc(klein(f))}" alt="" loading="lazy">` : ''}<div><h3>${esc(c.naam)}</h3><p>${esc(kort(c.subs.map(s => s.naam).join(', '), 160))}</p></div></a>`; }).join('')}</div>
 `
 }));
 
@@ -1026,12 +1028,12 @@ const OUDEFOTOS = {}; // oude adressen (#2026/Klein Vink) naar de nieuwe pagina
 const fsleutel = n => n.P.join('/') + (n.df ? '/' : '');
 // Mappen met maar één keuze slaan we over, net als voorheen
 const flos = (n, d) => { const over = [], keys = [fsleutel(n)]; while (fenkel(n)) { const k = n.kids[0]; if (k.s !== '') d = [...d, fslugs(n).m.get(k.s)]; if (n.P.length) over.push(fnaam(n)); n = fnode([...n.P, k.s]); keys.push(fsleutel(n)); } keys.forEach(x => { OUDEFOTOS[x] = fpad(d); }); return { n, d, over }; };
-const fkaart = (href, src, t, aantal) => `<a class="fcard" href="../${esc(href)}"><img src="${esc(rel(src))}" alt="" loading="lazy"><span><b>${esc(t)}</b><small>${aantal} foto's</small></span></a>`;
+const fkaart = (href, src, t, aantal) => `<a class="fcard" href="../${esc(href)}"><img src="${esc(klein(src))}" alt="" loading="lazy"><span><b>${esc(t)}</b><small>${aantal} foto's</small></span></a>`;
 function lbScript() {
   var im = [].slice.call(document.querySelectorAll('.galerij img')), d = document.getElementById('dlg'); if (!im.length || !d) return;
   var di = d.querySelector('img'), dc = d.querySelector('figcaption'), dn = d.querySelector('.lbt'), bp = d.querySelector('.lbp'), bv = d.querySelector('.lbv'), li = 0;
   function cap(i) { var f = im[i].closest('figure'), c = f && f.querySelector('figcaption'); return c ? c.textContent : ''; }
-  function show() { var s = im[li], t = cap(li); di.src = s.currentSrc || s.src; di.alt = s.alt || ''; dc.textContent = t; dc.style.display = t ? '' : 'none'; var m = im.length > 1; bp.style.display = bv.style.display = m ? '' : 'none'; dn.textContent = m ? (li + 1) + ' / ' + im.length : ''; }
+  function show() { var s = im[li], t = cap(li); di.src = s.getAttribute('data-groot') || s.currentSrc || s.src; di.alt = s.alt || ''; dc.textContent = t; dc.style.display = t ? '' : 'none'; var m = im.length > 1; bp.style.display = bv.style.display = m ? '' : 'none'; dn.textContent = m ? (li + 1) + ' / ' + im.length : ''; }
   function go(s) { if (im.length < 2) return; li = (li + s + im.length) % im.length; show(); }
   im.forEach(function (s, i) { s.addEventListener('click', function () { li = i; show(); d.showModal(); }); });
   bp.onclick = function (e) { e.stopPropagation(); go(-1); }; bv.onclick = function (e) { e.stopPropagation(); go(1); }; d.querySelector('.lbx').onclick = function () { d.close(); };
@@ -1048,7 +1050,7 @@ function fotoPagina(n, d, ouders, over, isRoot) {
   if (!n.P.length && !n.kids.length) inhoud = `<p class="lead">Hier komen binnenkort onze foto's te staan.</p>`;
   else if (n.df || !n.kids.length) {
     const plek = n.P[1] || ''; aantal = n.dir.length; eerste = (n.dir[0] || {}).src || '';
-    inhoud = `<div class="galerij">${n.dir.map(f => `<figure><img src="${esc(rel(f.src))}" alt="${esc(schoon(f.tekst) || plek || naam)}" loading="lazy">${f.tekst ? `<figcaption>${esc(f.tekst)}</figcaption>` : ''}</figure>`).join('')}</div>`;
+    inhoud = `<div class="galerij">${n.dir.map(f => `<figure><img src="${esc(klein(f.src))}" data-groot="${esc(rel(f.src))}" alt="${esc(schoon(f.tekst) || plek || naam)}" loading="lazy">${f.tekst ? `<figcaption>${esc(f.tekst)}</figcaption>` : ''}</figure>`).join('')}</div>`;
   } else {
     const sl = fslugs(n), kids = [];
     for (const k of n.kids) { const r = flos(fnode([...n.P, k.s]), [...d, sl.m.get(k.s)]); kids.push({ k, r }); }

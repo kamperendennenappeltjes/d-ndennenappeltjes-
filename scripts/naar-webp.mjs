@@ -9,6 +9,8 @@ import sharp from 'sharp';
 const MAP = 'img';
 const MAX_BREEDTE = 2000;   // px, alleen de WebP-kopie wordt verkleind; kleinere foto's blijven zoals ze zijn
 const KWALITEIT = 80;
+const KLEIN_BREEDTE = 700;  // px, kleine versie (naam-klein.webp) voor kaarten en overzichten
+const KLEIN_KWALITEIT = 75;
 const MAX_PER_NAAM = [[/^tegel-/i, 256]];                    // tegel-afbeeldingen worden klein getoond
 const OVERSLAAN_MAPPEN = new Set(['thumbs']);                // YouTube-thumbnails zijn al klein
 const OVERSLAAN_BESTANDEN = /^(favicon|apple-touch-icon)/i;  // pictogrammen blijven png/ico
@@ -21,11 +23,19 @@ function* loop(dir) {
   }
 }
 
-let nieuw = 0, bestond = 0, groter = 0, voor = 0, na = 0;
+let nieuw = 0, bestond = 0, groter = 0, voor = 0, na = 0, klein = 0;
 const webps = [];
 for (const bron of loop(MAP)) {
   if (/\.webp$/i.test(bron)) { webps.push(bron.split(path.sep).join('/')); continue; }
   if (!/\.(jpe?g|png)$/i.test(bron) || OVERSLAAN_BESTANDEN.test(path.basename(bron))) continue;
+  // kleine versie voor kaarten (alleen voor foto's die breder zijn dan KLEIN_BREEDTE)
+  const kl = bron.replace(/\.(jpe?g|png)$/i, '-klein.webp');
+  if (!fs.existsSync(kl)) {
+    try {
+      const meta = await sharp(bron).metadata(), br = (meta.orientation >= 5 ? meta.height : meta.width) || 0;
+      if (br > KLEIN_BREEDTE) { fs.writeFileSync(kl, await sharp(bron).rotate().resize({ width: KLEIN_BREEDTE, withoutEnlargement: true }).webp({ quality: KLEIN_KWALITEIT }).toBuffer()); klein++; }
+    } catch (e) { console.warn('Geen kleine versie:', bron, e.message); }
+  }
   const doel = bron.replace(/\.(jpe?g|png)$/i, '.webp');
   if (fs.existsSync(doel)) { bestond++; continue; }
   try {
@@ -47,4 +57,4 @@ let oud = ''; try { oud = fs.readFileSync('data/webp.js', 'utf8'); } catch (e) {
 if (oud !== lijst) fs.writeFileSync('data/webp.js', lijst);
 
 const mb = n => (n / 1048576).toFixed(1) + ' MB';
-console.log(`WebP: ${nieuw} nieuw (${mb(voor)} -> ${mb(na)}), ${bestond} bestonden al, ${groter} niet kleiner dan het origineel. ${webps.length} in data/webp.js.`);
+console.log(`WebP: ${nieuw} nieuw (${mb(voor)} -> ${mb(na)}), ${bestond} bestonden al, ${groter} niet kleiner dan het origineel. ${webps.length} in data/webp.js. ${klein} kleine versies gemaakt.`);

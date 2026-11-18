@@ -1,5 +1,9 @@
 const VID=[
  {
+  "titel": "Naar de wondere wereld van Enchanted Gardens",
+  "url": "https://youtu.be/fcGIRJmzIEo"
+ },
+ {
   "titel": "Op zoek naar de geschiedenis van klein vink",
   "url": "https://youtu.be/ZEOjrcdplaY"
  },

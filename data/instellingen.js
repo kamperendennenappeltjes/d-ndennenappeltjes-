@@ -22,7 +22,7 @@ const INST={
  },
  "tegelinfo": {
   "paklijst": {
-   "p": "Verschillende paklijst per seizoen om af te vinken.",
+   "p": "Verschillende paklijst een algemene of per seizoen om af te vinken of uit te printen.",
    "img": "img/tegel-paklijst-1793471580817.png"
   },
   "campings": {

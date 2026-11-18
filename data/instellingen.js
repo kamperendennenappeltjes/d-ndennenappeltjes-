@@ -22,15 +22,15 @@ const INST={
  },
  "tegelinfo": {
   "paklijst": {
-   "p": "Verschillende paklijst een algemene of per seizoen om af te vinken of uit te printen.",
+   "p": "Verschillende paklijsten, een algemene of per seizoen klaar om af te vinken of uit te printen.",
    "img": "img/tegel-paklijst-1793471580817.png"
   },
   "campings": {
-   "p": "Waar we waren en wat wij ervan vonden.",
+   "p": "Waar wij waren en wat wij ervan vonden.",
    "img": "img/tegel-campings-1793472777532.png"
   },
   "verhalen": {
-   "p": "Liever wat lezen lees dan hier onze verhalen van onze kampeer trips.",
+   "p": "Liever wat lezen, lees dan hier onze verhalen van onze kampeer trips.",
    "img": "img/tegel-verhalen-1793472229579.png"
   },
   "tips": {

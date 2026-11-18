@@ -30,7 +30,7 @@ const INST={
    "img": "img/tegel-campings-1793472777532.png"
   },
   "verhalen": {
-   "p": "Liever wat lezen, lees dan hier onze verhalen van onze kampeer trips."
+   "p": "Liever wat lezen, lees dan hier onze verhalen van onze kampeertrips."
   },
   "tips": {
    "p": "Dit hebben we door de jaren heen geleerd en ervaren.",
